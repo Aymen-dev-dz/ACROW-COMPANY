@@ -1,0 +1,25 @@
+# Fichiers sources vidéo bruts & archives (> 100 Mo pour GitHub / Netlify)
+_archive/
+COSIDER.mp4
+assets/images/cosider_original.mp4
+static/img/cosider_original.mp4
+*.mp4.bak
+*.bak
+
+# Système d'exploitation & caches
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+scratch/

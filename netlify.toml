@@ -1,0 +1,64 @@
+# ==========================================
+# Netlify Configuration — ACROW DZ
+# ==========================================
+
+[build]
+  publish = "."
+
+# Clean URLs & Route Mappings
+[[redirects]]
+  from = "/devis"
+  to = "/devis.html"
+  status = 200
+
+[[redirects]]
+  from = "/accueil"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/home"
+  to = "/index.html"
+  status = 200
+
+# 404 Fallback Page
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# Global Security Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Caching for PDF Catalogues & Technical Manuals
+[[headers]]
+  for = "/pdf/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Content-Disposition = "inline"
+
+# Caching for Static Assets (Images, Icons, CSS, JS)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Video Headers (H.264 MP4 Byte-Range Streaming)
+[[headers]]
+  for = "*.mp4"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+    Accept-Ranges = "bytes"
+    Content-Type = "video/mp4"

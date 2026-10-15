@@ -1,0 +1,3860 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="description" content="ACROW DZ — Vente, location et études techniques de matériel de coffrage et échafaudage en Algérie. Solutions certifiées BTP, travaux publics et industrie." />
+  <meta name="theme-color" content="#003366" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>ACROW DZ — Leader du Coffrage & de l'Échafaudage en Algérie</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png" />
+
+  <!-- Preconnect & Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Icons -->
+  <!-- Local Offline Bootstrap Icons with CDN Fallback -->
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+  <!-- AOS Animations -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Swiper Carousel -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    :root {
+      /* Palette Officielle ACROW DZ */
+      --primary-blue: #003366;
+      --primary-blue-dark: #001a33;
+      --primary-blue-deep: #001224;
+      --primary-blue-light: #004d99;
+      --accent-red: #cc0000;
+      --accent-red-hover: #a80000;
+      --accent-red-bright: #e60000;
+      --accent-red-subtle: rgba(204, 0, 0, 0.08);
+
+      /* Harmonisation Bootstrap 5 */
+      --bs-primary: #003366;
+      --bs-primary-rgb: 0, 51, 102;
+      --bs-danger: #cc0000;
+      --bs-danger-rgb: 204, 0, 0;
+      --bs-link-color: #003366;
+      --bs-link-hover-color: #cc0000;
+
+      /* Neutres et Surfaces */
+      --light-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --section-alt-bg: #f1f5f9;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --white: #ffffff;
+      --shadow-subtle: 0 4px 20px rgba(0, 51, 102, 0.06);
+      --shadow-card: 0 10px 30px rgba(0, 51, 102, 0.08);
+      --shadow-card-hover: 0 20px 45px rgba(0, 51, 102, 0.16);
+      --border-radius: 20px;
+      --header-height-desktop: 70px;
+      --header-height-mobile: 64px;
+    }
+
+    /* Utilitaires de Couleurs Harmonisées ACROW DZ */
+    .text-primary { color: var(--primary-blue) !important; }
+    .bg-primary {
+      --bs-bg-opacity: 1;
+      background-color: rgba(0, 51, 102, var(--bs-bg-opacity)) !important;
+    }
+    .text-danger { color: var(--accent-red) !important; }
+    .bg-danger {
+      --bs-bg-opacity: 1;
+      background-color: rgba(204, 0, 0, var(--bs-bg-opacity)) !important;
+    }
+    .border-primary { border-color: var(--primary-blue) !important; }
+    .border-danger { border-color: var(--accent-red) !important; }
+
+    .btn-outline-primary {
+      color: var(--primary-blue) !important;
+      border-color: var(--primary-blue) !important;
+      background-color: transparent !important;
+      transition: all 0.25s ease;
+    }
+    .btn-outline-primary:hover,
+    .btn-outline-primary:active,
+    .btn-outline-primary:focus {
+      color: #ffffff !important;
+      background-color: var(--primary-blue) !important;
+      border-color: var(--primary-blue) !important;
+      box-shadow: 0 6px 20px rgba(0, 51, 102, 0.25) !important;
+    }
+
+    .btn-danger {
+      background: linear-gradient(135deg, var(--accent-red) 0%, #a80000 100%) !important;
+      border-color: var(--accent-red) !important;
+      color: #ffffff !important;
+      box-shadow: 0 4px 16px rgba(204, 0, 0, 0.3) !important;
+      transition: all 0.25s ease;
+    }
+    .btn-danger:hover,
+    .btn-danger:active,
+    .btn-danger:focus {
+      background: linear-gradient(135deg, #e60000 0%, #bf0000 100%) !important;
+      border-color: #bf0000 !important;
+      color: #ffffff !important;
+      box-shadow: 0 8px 24px rgba(204, 0, 0, 0.45) !important;
+      transform: translateY(-2px);
+    }
+
+    .accordion-button:not(.collapsed) {
+      color: var(--primary-blue) !important;
+      background-color: rgba(0, 51, 102, 0.05) !important;
+      box-shadow: inset 0 -1px 0 rgba(0, 51, 102, 0.12) !important;
+    }
+    .accordion-button:focus {
+      border-color: var(--primary-blue) !important;
+      box-shadow: 0 0 0 0.25rem rgba(0, 51, 102, 0.15) !important;
+    }
+
+    * { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    body {
+      font-family: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text-dark);
+      background-color: #ffffff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+      padding-top: var(--header-height-desktop);
+    }
+    @media (max-width: 991.98px) {
+      body {
+        padding-top: var(--header-height-mobile);
+      }
+    }
+    h1, h2, h3, h4, h5, h6, .brand-font, .section-title {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      letter-spacing: -0.02em;
+    }
+    section, header.hero {
+      scroll-margin-top: calc(var(--header-height-desktop) + 16px);
+    }
+    @media (max-width: 991.98px) {
+      section, header.hero {
+        scroll-margin-top: calc(var(--header-height-mobile) + 16px);
+      }
+    }
+
+    /* ==========================================
+       SITE HEADER WRAPPER (UNIFIED FIXED CONTAINER)
+       ========================================== */
+    .site-header-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 1050;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* MODERN GLASS NAVBAR */
+    .modern-navbar {
+      background: rgba(255, 255, 255, 0.98) !important;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 0.35rem 0;
+      border-bottom: 1px solid rgba(0, 51, 102, 0.08);
+      box-shadow: 0 4px 20px rgba(0, 26, 51, 0.06);
+      transition: all 0.25s ease;
+    }
+    .site-header-wrapper.scrolled .modern-navbar {
+      background: #ffffff !important;
+      padding: 0.2rem 0;
+      box-shadow: 0 6px 25px rgba(0, 26, 51, 0.12);
+      border-bottom-color: rgba(0, 51, 102, 0.1);
+    }
+
+    .navbar-brand {
+      display: inline-flex;
+      align-items: center;
+      transition: transform 0.25s ease;
+    }
+    .navbar-brand:hover {
+      transform: scale(1.02);
+    }
+    .logo-navbar {
+      height: 58px;
+      max-height: 60px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 6px rgba(0, 51, 102, 0.08));
+      transition: height 0.25s ease, max-height 0.25s ease;
+    }
+    .site-header-wrapper.scrolled .logo-navbar {
+      height: 48px;
+      max-height: 50px;
+    }
+    @media (max-width: 575.98px) {
+      .logo-navbar {
+        height: 46px;
+        max-height: 48px;
+      }
+      .site-header-wrapper.scrolled .logo-navbar {
+        height: 40px;
+        max-height: 42px;
+      }
+    }
+
+    /* Nav Links Styling */
+    .navbar-nav {
+      gap: 4px;
+    }
+    .nav-link {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: -0.01em;
+      color: var(--primary-blue) !important;
+      position: relative;
+      padding: 0.5rem 0.85rem !important;
+      border-radius: 8px;
+      transition: color 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 3px;
+      background: var(--accent-red);
+      transition: width 0.25s ease;
+      border-radius: 4px;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--accent-red) !important;
+    }
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 60%;
+    }
+
+    /* Bouton Demande de Devis (Ajusté & Épuré) */
+    .btn-devis-nav {
+      background: linear-gradient(135deg, var(--accent-red) 0%, #a80000 100%);
+      color: #ffffff !important;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.92rem;
+      letter-spacing: 0.2px;
+      border-radius: 50px;
+      padding: 10px 24px;
+      box-shadow: 0 4px 16px rgba(204, 0, 0, 0.35);
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-devis-nav:hover {
+      background: linear-gradient(135deg, #e60000 0%, #bf0000 100%);
+      color: #ffffff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(204, 0, 0, 0.5);
+    }
+    .btn-devis-nav i {
+      font-size: 1rem;
+    }
+
+    /* Modern Toggler for Mobile */
+    .navbar-toggler {
+      border: 1.5px solid rgba(0, 51, 102, 0.16) !important;
+      border-radius: 10px;
+      padding: 7px 11px;
+      background: rgba(0, 51, 102, 0.04);
+      transition: all 0.2s ease;
+    }
+    .navbar-toggler:focus {
+      box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.12) !important;
+    }
+    .navbar-toggler-icon {
+      width: 22px;
+      height: 22px;
+      background-size: 100% 100%;
+    }
+
+    /* Responsive Mobile Menu Drawer */
+    @media (max-width: 991.98px) {
+      .modern-navbar .navbar-collapse {
+        background: #ffffff;
+        border-radius: 18px;
+        padding: 16px 20px 20px;
+        margin-top: 12px;
+        border: 1px solid rgba(0, 51, 102, 0.1);
+        box-shadow: 0 16px 40px rgba(0, 26, 51, 0.16);
+        max-height: calc(100vh - 85px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .navbar-nav {
+        gap: 0;
+      }
+      .navbar-nav .nav-item {
+        border-bottom: 1px solid rgba(0, 51, 102, 0.05);
+      }
+      .navbar-nav .nav-item:last-child {
+        border-bottom: none;
+      }
+      .navbar-nav .nav-link {
+        padding: 12px 14px !important;
+        font-size: 0.98rem;
+        width: 100%;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+      }
+      .nav-link::after {
+        display: none;
+      }
+      .navbar-nav .nav-link.active,
+      .navbar-nav .nav-link:hover {
+        background: rgba(0, 51, 102, 0.04);
+        border-radius: 8px;
+      }
+      .btn-devis-nav {
+        width: 100%;
+        justify-content: center;
+        margin-top: 14px;
+        padding: 12px 20px;
+        font-size: 0.98rem;
+        min-height: 44px;
+      }
+    }
+
+    /* ==========================================
+       HERO WITH CINEMATIC VIDEO BACKGROUND
+       ========================================== */
+    .hero {
+      position: relative;
+      min-height: calc(88vh - var(--header-height-desktop));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--white);
+      text-align: center;
+      overflow: hidden;
+      padding: 60px 0 50px;
+    }
+    @media (max-width: 991.98px) {
+      .hero {
+        min-height: calc(82vh - var(--header-height-mobile));
+        padding: 48px 0 38px;
+      }
+    }
+    @media (max-width: 575.98px) {
+      .hero {
+        min-height: auto;
+        padding: 34px 0 28px;
+      }
+    }
+    .hero video.video-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      filter: contrast(1.10) saturate(1.18) brightness(1.02);
+      transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      will-change: transform;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 26, 51, 0.42) 0%, rgba(0, 15, 30, 0.25) 45%, rgba(0, 15, 30, 0.65) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.12) 1px, transparent 1px);
+      background-size: 3px 3px;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+    .hero .container {
+      position: relative;
+      z-index: 2;
+      max-width: 1040px;
+      width: 100%;
+    }
+    .hero-badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(204, 0, 0, 0.9);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.88rem;
+      padding: 7px 22px;
+      border-radius: 50px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    @media (max-width: 575.98px) {
+      .hero-badge-tag {
+        font-size: 0.72rem;
+        padding: 5px 14px;
+        margin-bottom: 14px;
+        letter-spacing: 0.4px;
+      }
+    }
+    .hero h1 {
+      font-size: clamp(1.85rem, 5.2vw, 3.8rem);
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      line-height: 1.18;
+      margin-bottom: 1rem;
+      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
+    }
+    .hero h1 .brand {
+      color: #ff3344;
+      text-shadow: 0 0 35px rgba(204, 0, 0, 0.6);
+    }
+    .hero p.lead {
+      font-size: clamp(0.98rem, 2vw, 1.3rem);
+      font-weight: 400;
+      line-height: 1.55;
+      max-width: 860px;
+      margin: 0 auto 1.5rem;
+      color: rgba(255, 255, 255, 0.95);
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    }
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    @media (max-width: 575.98px) {
+      .hero-cta-group {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 24px;
+      }
+      .btn-hero-primary,
+      .btn-hero-outline {
+        width: 100% !important;
+        max-width: 320px !important;
+        justify-content: center !important;
+        padding: 12px 20px !important;
+        font-size: 0.92rem !important;
+      }
+    }
+    .btn-hero-primary {
+      background: linear-gradient(135deg, var(--accent-red) 0%, #990000 100%);
+      color: #fff;
+      font-weight: 800;
+      border-radius: 50px;
+      padding: 14px 34px;
+      box-shadow: 0 8px 25px rgba(204, 0, 0, 0.45);
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .btn-hero-primary:hover {
+      background: linear-gradient(135deg, #a80000 0%, #770000 100%);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(204, 0, 0, 0.6);
+    }
+    .btn-hero-outline {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      color: #fff;
+      font-weight: 700;
+      border-radius: 50px;
+      padding: 14px 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .btn-hero-outline:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: #fff;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* HERO FEATURE RIBBON RESPONSIVE */
+    .hero-feature-ribbon {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .hero-feature-card {
+      background: rgba(0, 26, 51, 0.78);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 16px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s;
+    }
+    .hero-feature-card:hover {
+      background: rgba(0, 51, 102, 0.88);
+      border-color: var(--accent-red);
+      transform: translateY(-3px);
+    }
+    .hero-feature-icon {
+      font-size: 1.6rem;
+      color: #ff4d4d;
+      flex-shrink: 0;
+    }
+    .hero-feature-title {
+      font-weight: 700;
+      font-size: 0.90rem;
+      margin-bottom: 2px;
+      color: #fff;
+      line-height: 1.25;
+    }
+    .hero-feature-sub {
+      font-size: 0.74rem;
+      color: rgba(255, 255, 255, 0.75);
+      margin: 0;
+      line-height: 1.25;
+    }
+    @media (max-width: 991.98px) {
+      .hero-feature-ribbon {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .hero-feature-card {
+        padding: 10px 14px;
+      }
+      .hero-feature-icon {
+        font-size: 1.35rem;
+      }
+      .hero-feature-title {
+        font-size: 0.84rem;
+      }
+      .hero-feature-sub {
+        font-size: 0.70rem;
+      }
+    }
+    @media (max-width: 575.98px) {
+      .hero-feature-ribbon {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+      .hero-feature-card {
+        padding: 9px 10px;
+        gap: 8px;
+        border-radius: 12px;
+      }
+      .hero-feature-icon {
+        font-size: 1.2rem;
+      }
+      .hero-feature-title {
+        font-size: 0.76rem;
+      }
+      .hero-feature-sub {
+        font-size: 0.65rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+
+    /* PULSE LINE */
+    .pulse-line {
+      height: 6px;
+      width: 100%;
+      background: linear-gradient(90deg, #cc0000, #ffffff, #003366, #ffffff, #cc0000);
+      background-size: 300% 100%;
+      animation: pulseMove 3.5s infinite linear;
+    }
+    @keyframes pulseMove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    /* ==========================================
+       SECTION COMMONS & CARDS
+       ========================================== */
+    .section-title {
+      color: var(--primary-blue);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      margin-bottom: 0.6rem;
+    }
+    .section-sub {
+      color: var(--text-muted);
+      max-width: 820px;
+      margin: 0 auto 2.5rem;
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+    .badge-sub {
+      display: inline-block;
+      background: var(--accent-red-subtle);
+      color: var(--accent-red);
+      font-weight: 800;
+      font-size: 0.8rem;
+      padding: 5px 16px;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 10px;
+      border: 1px solid rgba(204, 0, 0, 0.15);
+    }
+
+    /* ==========================================
+       À PROPOS / COMPACT & SLEEK (PAS DE CARTE GRANDE NI CHARGÉE)
+       ========================================== */
+    .corporate-compact-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 24px 28px;
+      border: 1.5px solid rgba(0, 51, 102, 0.08);
+      box-shadow: 0 6px 24px rgba(0, 51, 102, 0.05);
+      transition: all 0.3s ease;
+    }
+    .corporate-compact-card:hover {
+      box-shadow: 0 12px 32px rgba(0, 51, 102, 0.09);
+      border-color: rgba(204, 0, 0, 0.25);
+    }
+    .compact-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+    }
+    .compact-icon-red {
+      background: rgba(204, 0, 0, 0.08) !important;
+      color: #cc0000 !important;
+      border: 1px solid rgba(204, 0, 0, 0.16) !important;
+    }
+    .compact-icon-blue {
+      background: rgba(0, 51, 102, 0.08) !important;
+      color: #003366 !important;
+      border: 1px solid rgba(0, 51, 102, 0.16) !important;
+    }
+    .compact-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+    .compact-val {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary-blue);
+      line-height: 1.2;
+    }
+    .compact-loc-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 14px 16px;
+      transition: all 0.25s ease;
+    }
+    .compact-loc-box:hover {
+      background: #ffffff;
+      border-color: rgba(0, 51, 102, 0.2);
+      box-shadow: 0 4px 14px rgba(0, 51, 102, 0.06);
+    }
+    .compact-loc-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+    .compact-loc-text {
+      font-size: 0.88rem;
+      color: var(--text-dark);
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+            /* ==========================================
+       MODÈLE 3 : ACCORDÉON PANORAMIQUE EXPANSIBLE (GRANDE CARD)
+       ========================================== */
+    .services-grand-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 34px 36px 30px;
+      border: 1.5px solid rgba(0, 51, 102, 0.08);
+      box-shadow: 0 12px 40px rgba(0, 51, 102, 0.06);
+      transition: all 0.3s ease;
+    }
+    .services-grand-card:hover {
+      box-shadow: 0 18px 50px rgba(0, 51, 102, 0.10);
+      border-color: rgba(204, 0, 0, 0.22);
+    }
+    @media (max-width: 991.98px) {
+      .services-grand-card {
+        padding: 24px 20px;
+        border-radius: 20px;
+      }
+    }
+    @media (max-width: 575.98px) {
+      .services-grand-card {
+        padding: 18px 14px;
+        border-radius: 16px;
+      }
+    }
+
+    .services-accordion-wrap {
+      display: flex;
+      gap: 12px;
+      height: 440px;
+      width: 100%;
+      margin: 22px 0 26px;
+    }
+    @media (max-width: 991.98px) {
+      .services-accordion-wrap {
+        height: 480px;
+        gap: 8px;
+      }
+    }
+    @media (max-width: 767.98px) {
+      .services-accordion-wrap {
+        flex-direction: column;
+        height: auto;
+        gap: 12px;
+      }
+    }
+
+    .service-acc-panel {
+      position: relative;
+      flex: 1;
+      height: 100%;
+      border-radius: 18px;
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      color: #ffffff;
+      transition: flex 0.65s cubic-bezier(0.25, 1, 0.45, 1), transform 0.4s ease, box-shadow 0.4s ease;
+      box-shadow: 0 8px 24px rgba(0, 18, 36, 0.15);
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    @media (max-width: 767.98px) {
+      .service-acc-panel {
+        min-height: 110px;
+        height: 110px;
+        transition: height 0.45s cubic-bezier(0.16, 1, 0.3, 1), min-height 0.45s ease;
+      }
+      .service-acc-panel.active {
+        min-height: 380px;
+        height: auto;
+      }
+      .service-acc-expanded {
+        padding: 20px 16px;
+      }
+      .service-acc-title {
+        font-size: 1.15rem;
+      }
+      .service-acc-desc {
+        font-size: 0.82rem;
+        max-width: 100%;
+        margin-bottom: 12px;
+      }
+      .service-acc-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+    @media (max-width: 480px) {
+      .service-acc-panel {
+        min-height: 95px;
+        height: 95px;
+        border-radius: 14px;
+      }
+      .service-acc-panel.active {
+        min-height: 390px;
+      }
+      .service-acc-collapsed-label {
+        bottom: 14px;
+      }
+      .service-acc-collapsed-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 1.05rem;
+        margin: 0 auto 6px;
+      }
+      .service-acc-collapsed-text {
+        font-size: 0.82rem;
+      }
+    }
+
+    /* Active / Hover flex expansion on desktop */
+    @media (min-width: 768px) {
+      .service-acc-panel:hover,
+      .service-acc-panel.active {
+        flex: 3.4;
+        box-shadow: 0 18px 45px rgba(0, 18, 36, 0.35);
+        border-color: rgba(204, 0, 0, 0.5);
+      }
+    }
+
+    .service-acc-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.7s cubic-bezier(0.25, 1, 0.45, 1);
+      z-index: 1;
+    }
+    .service-acc-panel:hover .service-acc-bg,
+    .service-acc-panel.active .service-acc-bg {
+      transform: scale(1.08);
+    }
+
+    .service-acc-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 18, 36, 0.25) 0%, rgba(0, 18, 36, 0.6) 40%, rgba(0, 14, 28, 0.94) 100%);
+      z-index: 2;
+      transition: background 0.4s ease;
+    }
+    .service-acc-panel:hover .service-acc-overlay,
+    .service-acc-panel.active .service-acc-overlay {
+      background: linear-gradient(180deg, rgba(0, 18, 36, 0.15) 0%, rgba(0, 18, 36, 0.5) 40%, rgba(0, 12, 24, 0.96) 100%);
+    }
+
+    /* Top Tags inside Panel */
+    .service-acc-top {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      right: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 3;
+    }
+    .service-acc-num {
+      background: rgba(0, 18, 36, 0.85);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      font-size: 0.74rem;
+      font-weight: 900;
+      padding: 3px 9px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      font-family: 'Outfit', sans-serif;
+    }
+    .service-acc-tag {
+      background: var(--accent-red);
+      color: #ffffff;
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: all 0.4s ease 0.1s;
+    }
+    .service-acc-panel:hover .service-acc-tag,
+    .service-acc-panel.active .service-acc-tag {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Collapsed Preview Label (Vertical or Compact) */
+    .service-acc-collapsed-label {
+      position: absolute;
+      bottom: 24px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      z-index: 3;
+      padding: 0 10px;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .service-acc-collapsed-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px;
+      font-size: 1.25rem;
+      color: #fff;
+    }
+    .service-acc-collapsed-text {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 0.88rem;
+      color: #ffffff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    @media (min-width: 768px) {
+      .service-acc-panel:hover .service-acc-collapsed-label,
+      .service-acc-panel.active .service-acc-collapsed-label {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(15px);
+      }
+    }
+    @media (max-width: 767.98px) {
+      .service-acc-panel.active .service-acc-collapsed-label {
+        display: none;
+      }
+    }
+
+    /* Expanded Content */
+    .service-acc-expanded {
+      position: relative;
+      z-index: 3;
+      padding: 24px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.45s ease 0.15s, transform 0.45s ease 0.15s;
+      pointer-events: none;
+    }
+    @media (min-width: 768px) {
+      .service-acc-panel:hover .service-acc-expanded,
+      .service-acc-panel.active .service-acc-expanded {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+    }
+    @media (max-width: 767.98px) {
+      .service-acc-panel.active .service-acc-expanded {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+    }
+
+    .service-acc-icon-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent-red), #990000);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(204, 0, 0, 0.4);
+      margin-bottom: 12px;
+    }
+    .service-acc-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: #ffffff;
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+    .service-acc-desc {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.5;
+      margin-bottom: 14px;
+      max-width: 380px;
+    }
+    .service-acc-chips {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .service-acc-chip {
+      background: rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .service-acc-btn {
+      background: linear-gradient(135deg, var(--accent-red) 0%, #a80000 100%);
+      color: #ffffff !important;
+      font-weight: 700;
+      font-size: 0.84rem;
+      padding: 9px 20px;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(204, 0, 0, 0.35);
+      transition: all 0.25s ease;
+    }
+    .service-acc-btn:hover {
+      background: linear-gradient(135deg, #e60000 0%, #bf0000 100%);
+      color: #ffffff !important;
+      transform: translateX(4px);
+      box-shadow: 0 6px 20px rgba(204, 0, 0, 0.5);
+    }
+    .service-inner-action i {
+      transition: transform 0.25s ease;
+    }
+
+    /* CARD HOVER STYLES */
+    .card-modern {
+      background: #fff;
+      border: 1px solid rgba(0, 51, 102, 0.08);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.35s ease, border-color 0.35s;
+    }
+    .card-modern:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-card-hover);
+      border-color: rgba(204, 0, 0, 0.3);
+    }
+    .img-zoom {
+      transition: transform 0.6s ease;
+      object-fit: cover;
+      width: 100%;
+    }
+    .card-modern:hover .img-zoom {
+      transform: scale(1.08);
+    }
+    .badge-top {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 2;
+      border-radius: 999px;
+      padding: 0.45rem 1rem;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    /* STATS COUNTER BOXES */
+    .counter-box {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2.2rem 1.6rem;
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(0, 51, 102, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .counter-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-red), var(--primary-blue));
+    }
+    .counter-box:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-card-hover);
+      border-color: var(--accent-red);
+    }
+    .counter {
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: -0.03em;
+    }
+
+    /* ==========================================
+       E-BOOK SECTION (ULTRA HD STYLING)
+       ========================================== */
+    .ebook-section {
+      background: linear-gradient(180deg, #f8fafc 0%, #eef3f9 100%);
+      position: relative;
+    }
+    .ebook-search-bar-wrapper {
+      max-width: 650px;
+      margin: 0 auto 1.8rem;
+      position: relative;
+    }
+    .ebook-search-input {
+      width: 100%;
+      padding: 15px 22px 15px 52px;
+      border-radius: 50px;
+      border: 2px solid #cbd5e1;
+      font-size: 1rem;
+      box-shadow: 0 6px 20px rgba(0, 51, 102, 0.05);
+      outline: none;
+      transition: all 0.3s;
+      background: #fff;
+    }
+    .ebook-search-input:focus {
+      border-color: var(--accent-red);
+      box-shadow: 0 6px 24px rgba(204, 0, 0, 0.18);
+    }
+    .ebook-search-icon {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+      font-size: 1.25rem;
+    }
+
+    .ebook-filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 2rem;
+    }
+    .ebook-chip {
+      background: #ffffff;
+      color: var(--text-dark);
+      border: 1.5px solid #cbd5e1;
+      border-radius: 50px;
+      padding: 8px 20px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .ebook-chip:hover {
+      border-color: var(--primary-blue);
+      color: var(--primary-blue);
+      transform: translateY(-1px);
+    }
+    .ebook-chip.active {
+      background: var(--primary-blue);
+      color: #fff;
+      border-color: var(--primary-blue);
+      box-shadow: 0 6px 18px rgba(0, 51, 102, 0.28);
+    }
+
+    /* HORIZONTAL SLIDER CONTAINER (1 SEULE LIGNE FLUIDE) */
+    .ebook-slider-wrapper {
+      position: relative;
+      margin: 1.5rem 0 2rem;
+    }
+    .ebook-slider-track {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 24px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      padding: 16px 8px 24px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent-red) rgba(0, 51, 102, 0.08);
+    }
+    .ebook-slider-track::-webkit-scrollbar {
+      height: 8px;
+    }
+    .ebook-slider-track::-webkit-scrollbar-track {
+      background: rgba(0, 51, 102, 0.06);
+      border-radius: 10px;
+    }
+    .ebook-slider-track::-webkit-scrollbar-thumb {
+      background: linear-gradient(90deg, var(--accent-red), var(--primary-blue));
+      border-radius: 10px;
+    }
+            /* ==========================================
+       E-BOOK MARQUEE AMÉLIORÉ (STYLE ILS NOUS FONT CONFIANCE - HAUT DE GAMME)
+       ========================================== */
+    .ebook-section {
+      background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 50%, #f8fafc 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 65px 0 55px;
+    }
+    .ebook-marquee-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    /* Dégradés cinéma sur les bords gauche et droite (Fade Masks) */
+    .marquee-edge-fade {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100px;
+      z-index: 15;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .marquee-edge-fade.edge-left {
+      left: 0;
+      background: linear-gradient(90deg, #f8fafc 0%, rgba(248, 250, 252, 0) 100%);
+    }
+    .marquee-edge-fade.edge-right {
+      right: 0;
+      background: linear-gradient(-90deg, #f8fafc 0%, rgba(248, 250, 252, 0) 100%);
+    }
+    @media (max-width: 768px) {
+      .ebook-section { padding: 45px 0 35px; }
+      .marquee-edge-fade { width: 30px; }
+      .ebook-nav-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1.15rem;
+      }
+      .ebook-nav-btn.prev { left: 8px; }
+      .ebook-nav-btn.next { right: 8px; }
+    }
+
+    /* Boutons de navigation flottants ultra-luxe */
+    .ebook-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(0, 51, 102, 0.12);
+      color: var(--primary-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      cursor: pointer;
+      z-index: 25;
+      box-shadow: 0 8px 25px rgba(0, 51, 102, 0.16);
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      opacity: 0.85;
+    }
+    .ebook-marquee-wrapper:hover .ebook-nav-btn {
+      opacity: 1;
+    }
+    .ebook-nav-btn:hover {
+      background: var(--accent-red);
+      color: #ffffff;
+      border-color: var(--accent-red);
+      transform: translateY(-50%) scale(1.12);
+      box-shadow: 0 10px 28px rgba(204, 0, 0, 0.38);
+    }
+    .ebook-nav-btn.prev { left: 18px; }
+    .ebook-nav-btn.next { right: 18px; }
+
+    .ebookSwiper {
+      width: 100%;
+      padding: 22px 0 35px !important;
+      overflow: hidden;
+    }
+    .swiper.mySwiper .swiper-wrapper,
+    .swiper.ebookSwiper .swiper-wrapper {
+      transition-timing-function: linear !important;
+    }
+    .ebookSwiper .swiper-slide {
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      box-sizing: border-box;
+      width: 265px;
+      max-width: 100%;
+    }
+    @media (max-width: 575.98px) {
+      .ebookSwiper .swiper-slide {
+        width: 235px;
+      }
+    }
+
+    /* CARTE DU CATALOGUE HAUTE FINITION AJUSTÉE & HARMONIEUSE */
+    .ebookSwiper .swiper-slide .ebook-card {
+      width: 100%;
+      max-width: 265px;
+      height: 100%;
+      background: #ffffff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0, 51, 102, 0.06);
+      border: 1.5px solid rgba(0, 51, 102, 0.08);
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      position: relative;
+      transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+    .ebookSwiper .swiper-slide .ebook-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 40px rgba(204, 0, 0, 0.18), 0 4px 14px rgba(0, 51, 102, 0.08);
+      border-color: rgba(204, 0, 0, 0.38);
+    }
+
+    /* SCÈNE DE PRÉSENTATION 3D DU LIVRE COMPACTE */
+    .book-cover-3d {
+      position: relative;
+      background: radial-gradient(circle at 50% 20%, #003366 0%, #001a33 60%, #000d1a 100%);
+      border-top: 3px solid var(--accent-red);
+      padding: 16px 14px 8px;
+      cursor: pointer;
+      perspective: 1200px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 230px;
+    }
+    /* Spot ambiant */
+    .book-cover-3d::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 180px;
+      height: 100px;
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.16) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    /* Reflet lumineux animé */
+    .book-cover-3d::after {
+      content: "";
+      position: absolute;
+      top: -60%;
+      left: -60%;
+      width: 70px;
+      height: 220%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.30), transparent);
+      transform: rotate(25deg);
+      pointer-events: none;
+      animation: coverGlowSweep 6s infinite ease-in-out;
+    }
+
+    /* Couverture 3D du livre avec ombre portée au sol */
+    .book-cover-img {
+      width: 78%;
+      height: auto;
+      max-height: 195px;
+      object-fit: cover;
+      border-radius: 4px 8px 8px 4px;
+      box-shadow: -8px 10px 22px rgba(0, 0, 0, 0.7), 0 3px 8px rgba(0, 0, 0, 0.4), inset 2px 0 5px rgba(255, 255, 255, 0.25);
+      transform: rotateY(-10deg) rotateX(3deg);
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+    }
+    .book-cover-3d:hover .book-cover-img {
+      transform: rotateY(0deg) rotateX(0deg) scale(1.05) translateY(-3px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.85), 0 5px 14px rgba(204, 0, 0, 0.35);
+    }
+
+    .book-spine-line {
+      position: absolute;
+      top: 16px;
+      bottom: 8px;
+      left: calc(11% + 1px);
+      width: 3.5px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.45), rgba(0,0,0,0.45));
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Contenu & Boutons d'action */
+    .ebook-info {
+      padding: 14px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+      background: #ffffff;
+    }
+    .ebook-meta-bar {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 6px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .ebook-badge {
+      background: rgba(204, 0, 0, 0.08);
+      color: var(--accent-red);
+      font-size: 0.70rem;
+      font-weight: 800;
+      padding: 2.5px 8px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .ebook-title {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: var(--primary-blue);
+      margin-bottom: 12px;
+      line-height: 1.32;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: 2.65em;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+    .ebook-title:hover {
+      color: var(--accent-red);
+    }
+    .ebook-desc {
+      display: none !important;
+    }
+    .ebook-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      margin-top: auto;
+    }
+    .btn-read-ebook {
+      background: linear-gradient(135deg, var(--accent-red) 0%, #a80000 100%);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 8px 14px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(204, 0, 0, 0.22);
+    }
+    .btn-read-ebook:hover {
+      background: linear-gradient(135deg, #e60000 0%, #bf0000 100%);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(204, 0, 0, 0.38);
+    }
+    .btn-download-pdf {
+      background: #f8fafc;
+      color: var(--primary-blue);
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .btn-download-pdf:hover {
+      background: var(--primary-blue);
+      color: #ffffff;
+      border-color: var(--primary-blue);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(0, 51, 102, 0.22);
+    }
+
+    @media (max-width: 575.98px) {
+      .book-cover-3d {
+        height: 200px;
+        padding: 12px 10px 6px;
+      }
+      .book-cover-img {
+        max-height: 170px;
+      }
+      .ebook-info {
+        padding: 12px 12px 14px;
+      }
+      .ebook-title {
+        font-size: 0.88rem;
+        margin-bottom: 8px;
+        min-height: 2.5em;
+      }
+      .btn-read-ebook {
+        padding: 7px 10px;
+        font-size: 0.80rem;
+      }
+      .btn-download-pdf {
+        padding: 7px 10px;
+        font-size: 0.80rem;
+      }
+    }
+
+    /* ==========================================
+       CLIENTS MARQUEE (PRESTIGE STYLE)
+       ========================================== */
+    #clients {
+      background: #ffffff;
+      padding: 70px 0;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .client-card {
+      background: #ffffff;
+      border: 1.5px solid #edf2f7;
+      border-radius: 16px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 20px;
+      box-shadow: 0 4px 12px rgba(0, 51, 102, 0.04);
+      transition: all 0.3s;
+    }
+    .client-card:hover {
+      border-color: var(--accent-red);
+      box-shadow: 0 8px 24px rgba(204, 0, 0, 0.12);
+      transform: translateY(-4px);
+    }
+    .client-logo {
+      max-height: 65px;
+      max-width: 140px;
+      width: auto;
+      object-fit: contain;
+      filter: none;
+      opacity: 1;
+      transition: all 0.35s ease;
+    }
+    .client-card:hover .client-logo {
+      transform: scale(1.08);
+    }
+    @media (max-width: 767.98px) {
+      #clients {
+        padding: 45px 0;
+      }
+      .client-card {
+        height: 80px;
+        padding: 10px 14px;
+        border-radius: 12px;
+      }
+      .client-logo {
+        max-height: 48px;
+        max-width: 110px;
+      }
+    }
+
+    /* ==========================================
+       SECTION CONTACT ULTRA-ORGANISÉE
+       ========================================== */
+    .contact-quick-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    @media (max-width: 991px) and (min-width: 576px) {
+      .contact-quick-strip {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+    }
+    @media (max-width: 575px) {
+      .contact-quick-strip {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
+
+    .contact-quick-card {
+      background: #ffffff;
+      border: 1.5px solid #eef2f6;
+      border-radius: 16px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 4px 16px rgba(0, 51, 102, 0.04);
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .contact-quick-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 51, 102, 0.12);
+      border-color: rgba(204, 0, 0, 0.35);
+      color: inherit;
+    }
+    .contact-quick-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      color: #fff;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+    .contact-quick-card:hover .contact-quick-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    .contact-quick-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #64748b;
+      margin-bottom: 2px;
+    }
+    .contact-quick-val {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--primary-blue);
+      line-height: 1.25;
+      margin-bottom: 2px;
+    }
+    .contact-quick-sub {
+      font-size: 0.73rem;
+      color: #94a3b8;
+    }
+
+    .contact-card-box {
+      background: #ffffff;
+      border-radius: 20px;
+      border: 1.5px solid #eef2f6;
+      padding: 32px;
+      box-shadow: 0 8px 30px rgba(0, 51, 102, 0.05);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    @media (max-width: 575px) {
+      .contact-card-box {
+        padding: 20px;
+      }
+    }
+    .contact-form-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .contact-form-control {
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 10px 16px;
+      font-size: 0.9rem;
+      color: #0f172a;
+      transition: all 0.25s ease;
+      width: 100%;
+    }
+    @media (max-width: 767.98px) {
+      .contact-form-control {
+        font-size: 16px; /* Empêche le zoom auto iOS Safari */
+      }
+    }
+    .contact-form-control:focus {
+      background: #ffffff;
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 0 4px rgba(0, 51, 102, 0.1);
+      outline: none;
+    }
+    .contact-map-frame {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+      margin-top: 16px;
+    }
+    .contact-depot-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 16px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .contact-depot-features li {
+      font-size: 0.84rem;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .contact-depot-features li i {
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* CARD HOVER & PROJECTS RESPONSIVE */
+    @media (max-width: 575.98px) {
+      .card-modern .position-relative[style*="height:250px"] {
+        height: 195px !important;
+      }
+      .card-modern .p-4 {
+        padding: 1.25rem !important;
+      }
+    }
+
+    /* ==========================================
+       MODERN FOOTER
+       ========================================== */
+    .footer-modern {
+      background: linear-gradient(135deg, #001224 0%, #001a33 50%, #002b55 100%);
+      color: #fff;
+      position: relative;
+    }
+    .footer-link {
+      color: rgba(255, 255, 255, 0.82);
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .footer-link:hover {
+      color: #fff;
+      transform: translateX(4px);
+    }
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1.25rem;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .social-icon:hover {
+      background: var(--accent-red);
+      color: #fff;
+      transform: scale(1.15) rotate(6deg);
+    }
+
+    /* ==========================================
+       FLOATING ACTIONS
+       ========================================== */
+    .floating-action-bar {
+      position: fixed;
+      right: 22px;
+      bottom: 24px;
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    @media (max-width: 575.98px) {
+      .floating-action-bar {
+        right: 14px;
+        bottom: 16px;
+        gap: 10px;
+      }
+      .fab-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.15rem;
+      }
+    }
+    .fab-button {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+      border: none;
+      cursor: pointer;
+      font-size: 1.3rem;
+      transition: all 0.25s;
+    }
+    .fab-button:hover {
+      transform: scale(1.12);
+      color: #fff;
+    }
+    .fab-whatsapp { background: #25d366; }
+    .fab-devis { background: var(--accent-red); }
+    .fab-top { background: var(--primary-blue); display: none; }
+
+    /* ==========================================
+       IMMERSIVE FULLSCREEN 3D FLIPBOOK THEATER MODAL
+       ========================================== */
+    .ebook-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: #010812;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+    }
+    .ebook-modal-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .ebook-modal-window {
+      width: 100vw;
+      height: 100vh;
+      max-width: 100vw;
+      max-height: 100vh;
+      background: #010812;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+    .ebook-modal-iframe {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      flex-grow: 1;
+      background: #010812;
+    }
+
+    /* Window Loading State */
+    .ebook-window-loader {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, #001a33 0%, #000f1f 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      z-index: 10000;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+    .ebook-window-loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .window-spinner {
+      width: 52px;
+      height: 52px;
+      border: 4px solid rgba(255, 255, 255, 0.12);
+      border-top-color: var(--accent-red);
+      border-right-color: #0056b3;
+      border-radius: 50%;
+      animation: modalSpin 0.85s linear infinite;
+    }
+    @keyframes modalSpin {
+      to { transform: rotate(360deg); }
+    }
+    .window-loader-brand {
+      background: #ffffff;
+      padding: 5px 12px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+    }
+    .window-loader-title {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+      text-align: center;
+      padding: 0 15px;
+    }
+    .window-loader-subtitle {
+      color: #94a3b8;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+      .ebook-modal-backdrop { padding: 0; }
+      .ebook-modal-window {
+        width: 100vw;
+        height: 100vh;
+        max-width: 100vw;
+        max-height: 100vh;
+        border-radius: 0;
+        border: none;
+      }
+    }
+    </style>
+</head>
+<body>
+
+  <!-- ==========================================
+       SITE HEADER (FIXED & UNIFIED NO-OFFSET)
+       ========================================== -->
+  <header id="siteHeader" class="site-header-wrapper">
+
+    <!-- Main Navbar -->
+    <nav class="navbar navbar-expand-lg modern-navbar">
+      <div class="container">
+        
+        <!-- Official Logo -->
+        <a class="navbar-brand p-0" href="#hero">
+          <img src="assets/images/logo.png" alt="ACROW DZ — Coffrage & Échafaudage" class="logo-navbar" />
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Menu de navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Nav Links (Synchronized with physical page order) -->
+        <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+          <ul class="navbar-nav align-items-lg-center">
+            <li class="nav-item"><a class="nav-link active" href="#hero"><i class="bi bi-house-door-fill me-1"></i>Accueil</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about"><i class="bi bi-info-circle-fill me-1"></i>À propos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#services"><i class="bi bi-gear-wide-connected me-1"></i>Services</a></li>
+            <li class="nav-item"><a class="nav-link text-danger fw-bold" href="#produits"><i class="bi bi-book-half me-1"></i>Produits</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projets"><i class="bi bi-buildings-fill me-1"></i>Projets</a></li>
+            <li class="nav-item"><a class="nav-link" href="#clients"><i class="bi bi-shield-check me-1"></i>Clients</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact"><i class="bi bi-envelope-fill me-1"></i>Contact</a></li>
+          </ul>
+
+          <!-- Quote Pill CTA (Ajusté & Épuré) -->
+          <a href="devis.html" class="btn btn-devis-nav ms-lg-3">
+            <i class="bi bi-file-earmark-text-fill"></i>
+            <span>Demander un devis</span>
+          </a>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+  <!-- ==========================================
+       HERO SECTION WITH VIDEO BACKGROUND
+       ========================================== -->
+  <header class="hero" id="hero">
+    <video autoplay muted loop playsinline class="video-bg" poster="assets/images/cofrage.jpg">
+      <source src="assets/images/cosider.mp4" type="video/mp4">
+      <source src="assets/images/hero.mp4" type="video/mp4">
+      Votre navigateur ne supporte pas la lecture vidéo.
+    </video>
+
+    <div class="container" data-aos="fade-up" data-aos-duration="1000">
+      <span class="hero-badge-tag"><i class="bi bi-award-fill"></i> Leader du coffrage et de l'échafaudage en Algérie</span>
+      <h1>Bienvenue chez <span class="brand">ACROW DZ</span></h1>
+      <p class="lead">Votre partenaire d'excellence en solutions de coffrage, d'étaiement et d'échafaudage.</p>
+      <p class="d-none d-md-block opacity-90 mb-4" style="font-size: 1.08rem; max-width: 820px; margin: 0 auto 1.8rem;">
+        Des solutions techniques fiables, sécurisées et certifiées pour vos méga-projets de BTP, travaux publics, infrastructures et industrie pétrolière.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="devis.html" class="btn btn-hero-primary shadow">
+          <i class="bi bi-file-earmark-text"></i> Demander un devis gratuit
+        </a>
+        <a href="#services" class="btn btn-hero-outline">
+          <i class="bi bi-gear-wide-connected"></i> Découvrir nos services
+        </a>
+        <a href="#produits" class="btn btn-hero-outline">
+          <i class="bi bi-book-half text-danger me-1"></i> 20 Catalogues Produits
+        </a>
+      </div>
+
+      <!-- Feature Ribbon at Bottom of Hero (Responsive sur tous écrans) -->
+      <div class="hero-feature-ribbon" data-aos="fade-up" data-aos-delay="200">
+        <div class="hero-feature-card">
+          <i class="bi bi-shield-check hero-feature-icon"></i>
+          <div>
+            <div class="hero-feature-title">Leader depuis 2012</div>
+            <div class="hero-feature-sub">Expertise technique en Algérie</div>
+          </div>
+        </div>
+        <div class="hero-feature-card">
+          <i class="bi bi-compass hero-feature-icon"></i>
+          <div>
+            <div class="hero-feature-title">Bureau d'Études 3D</div>
+            <div class="hero-feature-sub">Calepinage & calculs de charge</div>
+          </div>
+        </div>
+        <div class="hero-feature-card">
+          <i class="bi bi-truck hero-feature-icon"></i>
+          <div>
+            <div class="hero-feature-title">Livraison 58 Wilayas</div>
+            <div class="hero-feature-sub">Dépôt central Dar El Beida</div>
+          </div>
+        </div>
+        <div class="hero-feature-card">
+          <i class="bi bi-patch-check-fill hero-feature-icon"></i>
+          <div>
+            <div class="hero-feature-title">Certifié ISO & EN</div>
+            <div class="hero-feature-sub">Conformité normes européennes</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Pulse Line Accent -->
+  <div class="pulse-line"></div>
+
+  <!-- ==========================================
+       À PROPOS DE ACROW DZ (COMPACT, ÉPURÉ & NON CHARGÉ)
+       ========================================== -->
+  <section class="py-5" id="about">
+    <div id="apropos"></div>
+    <div class="container my-3" style="max-width: 1200px;">
+
+      <!-- Header centré -->
+      <div class="text-center mb-4" data-aos="fade-up">
+        <span class="badge-sub"><i class="bi bi-shield-check me-1"></i> Présentation Officielle</span>
+        <h2 class="section-title mb-2">
+          <i class="bi bi-info-circle-fill text-danger me-2"></i>À propos de <span class="text-danger">ACROW DZ</span>
+        </h2>
+        <p class="section-sub mb-0" style="max-width: 720px;">
+          Partenaire de référence en Algérie pour la <strong>vente</strong>, la <strong>location</strong> et l'<strong>étude technique</strong> de systèmes de coffrage et d'échafaudage pour le BTP et l'industrie.
+        </p>
+      </div>
+
+      <!-- Layout 2 colonnes -->
+      <div class="row g-4 align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+
+        <!-- COLONNE GAUCHE : Fiche d'identité -->
+        <div class="col-lg-7">
+          <div class="corporate-compact-card shadow-sm h-100">
+
+            <!-- === IDENTITÉ === -->
+            <div class="mb-3 pb-3 border-bottom">
+              <div class="compact-label mb-2" style="font-size:0.7rem;letter-spacing:1px;">IDENTITÉ DE L'ENTREPRISE</div>
+
+              <!-- Executive Director -->
+              <div class="d-flex align-items-center gap-3 py-2">
+                <div class="compact-icon compact-icon-blue flex-shrink-0">
+                  <i class="bi bi-person-badge-fill"></i>
+                </div>
+                <div class="d-flex align-items-center justify-content-between w-100">
+                  <span class="compact-label mb-0">Executive Director</span>
+                  <span class="compact-val" style="font-weight:800; color:var(--primary-blue);">Faisal ABDELAAL</span>
+                </div>
+              </div>
+
+              <div style="height:1px;background:rgba(0,51,102,0.07);margin:0 0 0 60px;"></div>
+
+              <!-- Set up year -->
+              <div class="d-flex align-items-center gap-3 py-2">
+                <div class="compact-icon compact-icon-red flex-shrink-0">
+                  <i class="bi bi-calendar-check-fill"></i>
+                </div>
+                <div class="d-flex align-items-center justify-content-between w-100">
+                  <span class="compact-label mb-0">Set up year</span>
+                  <span class="compact-val" style="font-size:1.4rem;color:#cc0000;letter-spacing:-1px;">2012</span>
+                </div>
+              </div>
+
+              <div style="height:1px;background:rgba(0,51,102,0.07);margin:0 0 0 60px;"></div>
+
+              <!-- Workforce -->
+              <div class="d-flex align-items-center gap-3 py-2">
+                <div class="compact-icon compact-icon-red flex-shrink-0">
+                  <i class="bi bi-people-fill"></i>
+                </div>
+                <div class="d-flex align-items-center justify-content-between w-100">
+                  <span class="compact-label mb-0">Workforce</span>
+                  <span class="compact-val">90% <span style="font-size:0.82rem;font-weight:600;color:#64748b;">Algerian</span></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- === LOCALISATIONS === -->
+            <div>
+              <div class="compact-label mb-3" style="font-size:0.7rem;letter-spacing:1px;">COMPANY LOCATIONS</div>
+
+              <div class="row g-3">
+
+                <!-- Head Office -->
+                <div class="col-12">
+                  <div class="d-flex gap-3 align-items-start p-3" style="background:#f8fafc;border-radius:12px;border-left:3px solid #cc0000;">
+                    <div class="compact-icon compact-icon-red flex-shrink-0" style="width:38px;height:38px;font-size:1rem;">
+                      <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                      <div class="d-flex align-items-center justify-content-between mb-1">
+                        <span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:0.88rem;color:#cc0000;">Head Office</span>
+                        <span class="badge" style="background:rgba(204,0,0,0.07);color:#cc0000;border:1px solid rgba(204,0,0,0.2);font-size:0.68rem;font-weight:700;">Dar El Beïda · Alger</span>
+                      </div>
+                      <div style="font-size:0.87rem;color:#0f172a;font-weight:500;line-height:1.5;">
+                        Zone Industrielle, Dar El Beïda, Algiers, Algeria
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Warehouse & Production Workshop -->
+                <div class="col-12">
+                  <div class="d-flex gap-3 align-items-start p-3" style="background:#f8fafc;border-radius:12px;border-left:3px solid #003366;">
+                    <div class="compact-icon compact-icon-blue flex-shrink-0" style="width:38px;height:38px;font-size:1rem;">
+                      <i class="bi bi-buildings-fill"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                      <div class="d-flex align-items-center justify-content-between mb-1">
+                        <span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:0.88rem;color:#003366;">Warehouse &amp; Production Workshop</span>
+                        <span class="badge" style="background:rgba(0,51,102,0.07);color:#003366;border:1px solid rgba(0,51,102,0.2);font-size:0.68rem;font-weight:700;">10 000 m²</span>
+                      </div>
+                      <div style="font-size:0.87rem;color:#0f172a;font-weight:500;line-height:1.5;">
+                        Khemis El Khechna, Boumerdes, Algeria
+                      </div>
+                      <div style="font-size:0.78rem;color:#64748b;margin-top:3px;">
+                        10,000 m² total area &mdash; including 2,500 m² production zone
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- COLONNE DROITE : Photo du siège ACROW DZ -->
+        <div class="col-lg-5" data-aos="fade-left" data-aos-delay="200">
+          <div class="h-100 position-relative overflow-hidden" style="border-radius:18px;min-height:300px;">
+            <img
+              src="assets/images/acrow-building.jpg"
+              alt="Siège Social ACROW DZ — Dar El Beïda, Alger"
+              style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:18px;display:block;"
+            />
+            <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,18,40,0.85) 0%,transparent 100%);border-radius:0 0 18px 18px;padding:24px 18px 16px;">
+              <div style="color:#fff;font-family:'Outfit',sans-serif;font-weight:700;font-size:0.95rem;">
+                <i class="bi bi-geo-alt-fill text-danger me-1"></i> Siège Social — Dar El Beïda, Alger
+              </div>
+              <div style="color:rgba(255,255,255,0.7);font-size:0.78rem;margin-top:4px;">
+                ACROW DZ &middot; Coffrage &amp; Échafaudage depuis 2012
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+      <!-- ==========================================
+       NOS SERVICES (MODÈLE 3 : ACCORDÉON PANORAMIQUE DANS UNE GRANDE CARD)
+       ========================================== -->
+  <section class="py-5" id="services" style="background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 100%);">
+    <div class="container my-2" style="max-width: 1240px;">
+      
+      <!-- Section Header Extérieur -->
+      <div class="text-center mb-4" data-aos="fade-up">
+        <span class="badge-sub"><i class="bi bi-gear-wide-connected me-1"></i> Solutions Clés en Main BTP &amp; Industrie</span>
+        <h2 class="section-title mb-2">
+          <i class="bi bi-gear-fill text-danger me-2"></i> Nos Services &amp; Ingénierie
+        </h2>
+        <p class="section-sub mb-0" style="max-width: 780px;">
+          De la modélisation 3D au reconditionnement : <strong>5 pôles d'expertise intégrés</strong> pour sécuriser, optimiser et accélérer la réalisation de vos projets.
+        </p>
+      </div>
+
+      <!-- LA GRANDE CARD MASTER -->
+      <div class="services-grand-card" data-aos="fade-up" data-aos-delay="100">
+
+        <!-- En-tête interne de la Grande Card -->
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 pb-3 mb-2 border-bottom">
+          <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+              <span class="badge" style="background: rgba(204,0,0,0.08); color: #cc0000; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.5px; border: 1px solid rgba(204,0,0,0.18);">
+                <i class="bi bi-patch-check-fill me-1"></i> CHAÎNE DE VALEUR COMPLÈTE
+              </span>
+              <span class="text-muted small">&bull; 5 Pôles Dédiés</span>
+            </div>
+            <h3 class="h4 fw-bold text-primary mb-0" style="font-family: 'Outfit', sans-serif;">
+              Explorez nos Capacités &amp; Prestations Techniques
+            </h3>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <span class="text-muted small d-none d-lg-inline me-2"><i class="bi bi-cursor-fill text-danger me-1"></i>Survolez pour déployer</span>
+            <a href="devis.html" class="btn btn-sm btn-danger px-3 py-2 fw-bold text-nowrap" style="border-radius: 50px; font-size: 0.84rem;">
+              <i class="bi bi-file-earmark-text-fill me-1"></i> Demander un devis
+            </a>
+          </div>
+        </div>
+
+                <!-- ACCORDÉON PANORAMIQUE EXPANSIBLE (LES 5 SERVICES OFFICIELS ACROW DZ) -->
+        <div class="services-accordion-wrap" id="servicesAccordion">
+
+          <!-- 01. Fabrication de Coffrage Métallique & Échafaudage (Active by default) -->
+          <div class="service-acc-panel active" data-service="01">
+            <img src="assets/images/metal.jpeg" alt="Fabrication de Coffrage Métallique & Échafaudage ACROW DZ" class="service-acc-bg" />
+            <div class="service-acc-overlay"></div>
+            
+            <div class="service-acc-top">
+              <span class="service-acc-num">01</span>
+              <span class="service-acc-tag" style="background: rgba(0, 51, 102, 0.95);">Acier S355</span>
+            </div>
+
+            <div class="service-acc-collapsed-label">
+              <div class="service-acc-collapsed-icon">
+                <i class="bi bi-tools"></i>
+              </div>
+              <div class="service-acc-collapsed-text">Fabrication Métallique</div>
+            </div>
+
+            <div class="service-acc-expanded">
+              <div class="service-acc-icon-badge" style="background: linear-gradient(135deg, #003366, #001a33);">
+                <i class="bi bi-tools"></i>
+              </div>
+              <h4 class="service-acc-title">Fabrication de Coffrage Métallique &amp; Échafaudage</h4>
+              <p class="service-acc-desc">
+                Systèmes durables et de haute qualité, conçus et fabriqués sur-mesure pour vos projets.
+              </p>
+              <div class="service-acc-chips">
+                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Systèmes Durables</span>
+                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Haute Qualité</span>
+                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Sur-Mesure</span>
+              </div>
+              <a href="devis.html" class="service-acc-btn">
+                <span>Devis Fabrication</span> <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 02. Ingénierie & Analyse de Projet -->
+          <div class="service-acc-panel" data-service="02">
+            <img src="assets/images/etude.jpg" alt="Ingénierie & Analyse de Projet" class="service-acc-bg" />
+            <div class="service-acc-overlay"></div>
+            
+            <div class="service-acc-top">
+              <span class="service-acc-num">02</span>
+              <span class="service-acc-tag">BIM 3D</span>
+            </div>
+
+            <div class="service-acc-collapsed-label">
+              <div class="service-acc-collapsed-icon">
+                <i class="bi bi-pencil-ruler"></i>
+              </div>
+              <div class="service-acc-collapsed-text">Ingénierie &amp; Analyse</div>
+            </div>
+
+            <div class="service-acc-expanded">
+              <div class="service-acc-icon-badge">
+                <i class="bi bi-pencil-ruler"></i>
+              </div>
+              <h4 class="service-acc-title">Ingénierie &amp; Analyse de Projet</h4>
+              <p class="service-acc-desc">
+                Études détaillées, calculs de charge certifiés et solutions techniques optimisées.
+              </p>
+              <div class="service-acc-chips">
+                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Études Détaillées</span>
+                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Calculs de Charge</span>
+                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Solutions Optimisées</span>
+              </div>
+              <a href="devis.html" class="service-acc-btn">
+                <span>Demander une Étude</span> <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 03. Solutions Systèmes Innovantes & Montage sur Site -->
+          <div class="service-acc-panel" data-service="03">
+            <img src="assets/images/echa.jpeg" alt="Solutions Systèmes Innovantes & Montage sur Site" class="service-acc-bg" />
+            <div class="service-acc-overlay"></div>
+            
+            <div class="service-acc-top">
+              <span class="service-acc-num">03</span>
+              <span class="service-acc-tag" style="background: rgba(0, 51, 102, 0.95);">Norme EN</span>
+            </div>
+
+            <div class="service-acc-collapsed-label">
+              <div class="service-acc-collapsed-icon">
+                <i class="bi bi-wrench-adjustable"></i>
+              </div>
+              <div class="service-acc-collapsed-text">Solutions &amp; Montage</div>
+            </div>
+
+            <div class="service-acc-expanded">
+              <div class="service-acc-icon-badge" style="background: linear-gradient(135deg, #003366, #001a33);">
+                <i class="bi bi-wrench-adjustable"></i>
+              </div>
+              <h4 class="service-acc-title">Solutions Systèmes Innovantes &amp; Montage sur Site</h4>
+              <p class="service-acc-desc">
+                Systèmes rentables et innovants avec installation et montage professionnels sur site.
+              </p>
+              <div class="service-acc-chips">
+                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Systèmes Rentables</span>
+                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Montage Professionnel</span>
+                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Sécurité 100% EN</span>
+              </div>
+              <a href="devis.html" class="service-acc-btn">
+                <span>Assistance Montage</span> <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 04. Services de Vente & Location -->
+          <div class="service-acc-panel" data-service="04">
+            <img src="assets/images/location.jpg" alt="Services de Vente & Location ACROW DZ" class="service-acc-bg" />
+            <div class="service-acc-overlay"></div>
+            
+            <div class="service-acc-top">
+              <span class="service-acc-num">04</span>
+              <span class="service-acc-tag">58 Wilayas</span>
+            </div>
+
+            <div class="service-acc-collapsed-label">
+              <div class="service-acc-collapsed-icon">
+                <i class="bi bi-box-seam-fill"></i>
+              </div>
+              <div class="service-acc-collapsed-text">Vente &amp; Location</div>
+            </div>
+
+            <div class="service-acc-expanded">
+              <div class="service-acc-icon-badge" style="background: linear-gradient(135deg, #cc0000, #880000);">
+                <i class="bi bi-box-seam-fill"></i>
+              </div>
+              <h4 class="service-acc-title">Services de Vente &amp; Location</h4>
+              <p class="service-acc-desc">
+                Coffrages et échafaudages fiables disponibles à l'achat ou en formule de location.
+              </p>
+              <div class="service-acc-chips">
+                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Matériel Fiable</span>
+                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Vente &amp; Location</span>
+                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> 58 Wilayas</span>
+              </div>
+              <a href="devis.html" class="service-acc-btn">
+                <span>Consulter le Parc</span> <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 05. Maintenance & Reconditionnement -->
+          <div class="service-acc-panel" data-service="05">
+            <img src="assets/images/cofrage.jpg" alt="Maintenance & Reconditionnement ACROW DZ" class="service-acc-bg" />
+            <div class="service-acc-overlay"></div>
+            
+            <div class="service-acc-top">
+              <span class="service-acc-num">05</span>
+              <span class="service-acc-tag">SAV Rapide</span>
+            </div>
+
+            <div class="service-acc-collapsed-label">
+              <div class="service-acc-collapsed-icon">
+                <i class="bi bi-arrow-clockwise"></i>
+              </div>
+              <div class="service-acc-collapsed-text">Maintenance &amp; SAV</div>
+            </div>
+
+            <div class="service-acc-expanded">
+              <div class="service-acc-icon-badge" style="background: linear-gradient(135deg, #003366, #001a33);">
+                <i class="bi bi-arrow-clockwise"></i>
+              </div>
+              <h4 class="service-acc-title">Maintenance &amp; Reconditionnement</h4>
+              <p class="service-acc-desc">
+                Réparation experte, remise à neuf et prolongation de la durée de vie des équipements.
+              </p>
+              <div class="service-acc-chips">
+                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Réparation Experte</span>
+                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Remise à Neuf</span>
+                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Longévité Prolongée</span>
+              </div>
+              <a href="devis.html" class="service-acc-btn">
+                <span>Diagnostic SAV</span> <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Pied interne de la Grande Card : Garanties & Réassurance -->
+        <div class="pt-3 border-top">
+          <div class="row align-items-center g-3 text-center text-md-start">
+            
+            <div class="col-md-4 d-flex align-items-center justify-content-center justify-content-md-start gap-3">
+              <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:40px;height:40px;font-size:1.15rem;background:rgba(204,0,0,0.08);color:#cc0000;border:1px solid rgba(204,0,0,0.18);">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <div>
+                <div class="fw-bold small text-dark">Conformité EN &amp; ISO</div>
+                <small class="text-muted d-block" style="font-size:0.75rem;">Normes européennes de sécurité BTP</small>
+              </div>
+            </div>
+
+            <div class="col-md-4 d-flex align-items-center justify-content-center justify-content-md-start gap-3">
+              <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:40px;height:40px;font-size:1.15rem;background:rgba(0,51,102,0.08);color:#003366;border:1px solid rgba(0,51,102,0.18);">
+                <i class="bi bi-truck"></i>
+              </div>
+              <div>
+                <div class="fw-bold small text-dark">Flotte 58 Wilayas</div>
+                <small class="text-muted d-block" style="font-size:0.75rem;">Dépôt centralisé à Dar El Beïda, Alger</small>
+              </div>
+            </div>
+
+            <div class="col-md-4 d-flex align-items-center justify-content-center justify-content-md-start gap-3">
+              <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:40px;height:40px;font-size:1.15rem;background:rgba(25,135,84,0.08);color:#198754;border:1px solid rgba(25,135,84,0.18);">
+                <i class="bi bi-clock-history"></i>
+              </div>
+              <div>
+                <div class="fw-bold small text-dark">Devis Réactif sous 24h</div>
+                <small class="text-muted d-block" style="font-size:0.75rem;">Étude gratuite par nos ingénieurs</small>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+      <!-- ==========================================
+       NOS PRODUITS (BIBLIOTHÈQUE E-BOOKS 20 MANUELS HD)
+       ========================================== -->
+  <section class="py-5 ebook-section" id="produits">
+    <div id="ebooks"></div>
+    <div class="container-fluid px-lg-4 text-center">
+      
+      <div class="text-center mb-4" data-aos="fade-up">
+        <span class="badge-sub">Gamme Industrielle &amp; Manuels Techniques</span>
+        <h2 class="section-title">
+          <i class="bi bi-book-half text-danger me-2"></i> Nos Produits — Catalogues
+        </h2>
+        <p class="section-sub">
+          <strong>20 catalogues et manuels d'ingénierie officiels</strong> réunis en défilement continu.
+        </p>
+      </div>
+
+      <!-- Infinite Swiper Marquee with Catalogues (Exactement comme « Ils nous font confiance ») -->
+      <!-- Wrapper Luxe avec dégradé cinéma sur les bords & Boutons flottants -->
+      <div class="ebook-marquee-wrapper position-relative" data-aos="fade-up">
+        
+        <!-- Bouton Navigation Gauche -->
+        <button type="button" class="ebook-nav-btn prev" id="ebookMarqueePrev" aria-label="Précédent" title="Faire défiler vers la gauche">
+          <i class="bi bi-chevron-left"></i>
+        </button>
+
+        <!-- Bouton Navigation Droite -->
+        <button type="button" class="ebook-nav-btn next" id="ebookMarqueeNext" aria-label="Suivant" title="Faire défiler vers la droite">
+          <i class="bi bi-chevron-right"></i>
+        </button>
+
+        <!-- Dégradés latéraux cinéma -->
+        <div class="marquee-edge-fade edge-left"></div>
+        <div class="marquee-edge-fade edge-right"></div>
+
+        <!-- Infinite Swiper Marquee -->
+        <div class="swiper ebookSwiper py-3">
+        <div class="swiper-wrapper align-items-stretch">
+          <div class="swiper-slide">
+<div class="ebook-card" data-category="general" data-title="acrow general product range catalogue general coffrage">
+          <div class="book-cover-3d" onclick="openEbookModal('pdf/acrow-product-range.pdf', 'ACROW General Product Range')">
+            <span class="book-spine-line"></span>
+            <img class="book-cover-img" src="assets/images/ebook-covers/acrow-product-range-cover.jpg" alt="ACROW Product Range Cover" loading="lazy" />
+          </div>
+          <div class="ebook-info">
+            <div class="ebook-meta-bar">
+              <span class="ebook-badge"><i class="bi bi-journal-bookmark-fill me-1"></i>Catalogue Général</span>
+            </div>
+            <h4 class="ebook-title">ACROW General Product Range</h4>
+            <div class="ebook-actions">
+              <button class="btn-read-ebook" onclick="openEbookModal('pdf/acrow-product-range.pdf', 'ACROW General Product Range')">
+                <i class="bi bi-book-fill"></i> Lire
+              </button>
+              <a href="pdf/acrow-product-range.pdf" download class="btn-download-pdf" title="Télécharger PDF">
+                <i class="bi bi-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+          </div>
+
+          <div class="swiper-slide">
+<div class="ebook-card" data-category="slabs" data-title="acrow aludeck coffrage dalles aluminium panneau">
+          <div class="book-cover-3d" onclick="openEbookModal('pdf/acrow-aludeck-slab-system.pdf', 'ACROW AluDeck Slab System')">
+            <span class="book-spine-line"></span>
+            <img class="book-cover-img" src="assets/images/ebook-covers/acrow-aludeck-slab-system-cover.jpg" alt="ACROW AluDeck Cover" loading="lazy" />
+          </div>
+          <div class="ebook-info">
+            <div class="ebook-meta-bar">
+              <span class="ebook-badge"><i class="bi bi-journal-bookmark-fill me-1"></i>Dalles &amp; Poutres</span>
+            </div>
+            <h4 class="ebook-title">ACROW AluDeck Slab System</h4>
+            <div class="ebook-actions">
+              <button class="btn-read-ebook" onclick="openEbookModal('pdf/acrow-aludeck-slab-system.pdf', 'ACROW AluDeck Slab System')">
+                <i class="bi bi-book-fill"></i> Lire
+              </button>
+              <a href="pdf/acrow-aludeck-slab-system.pdf" download class="btn-download-pdf" title="Télécharger PDF">
+                <i class="bi bi-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+          </div>
+
+          <div class="swiper-slide">
+<div class="ebook-card" data-category="slabs" data-title="acrow flex coffrage poutrelles h20 dalles">
+          <div class="book-cover-3d" onclick="openEbookModal('pdf/acrow-flex-slab-system.pdf', 'ACROW Flex Slab System')">
+            <span class="book-spine-line"></span>
+            <img class="book-cover-img" src="assets/images/ebook-covers/acrow-flex-slab-system-cover.jpg" alt="ACROW Flex Cover" loading="lazy" />
+          </div>
+          <div class="ebook-info">
+            <div class="ebook-meta-bar">
+              <span class="ebook-badge"><i class="bi bi-journal-bookmark-fill me-1"></i>Dalles &amp; Poutres</span>
+            </div>
+            <h4 class="ebook-title">ACROW Flex Slab System</h4>
+            <div class="ebook-actions">
+              <button class="btn-read-ebook" onclick="openEbookModal('pdf/acrow-flex-slab-system.pdf', 'ACROW Flex Slab System')">
+                <i class="bi bi-book-fill"></i> Lire
+              </button>
+              <a href="pdf/acrow-flex-slab-system.pdf" download class="btn-download-pdf" title="Télécharger PDF">
+                <i class="bi bi-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+          </div>
+
+          <div class="swiper-slide">
+<div class="ebook-card" data-category="walls" data-title="acrow eco form coffrage manuportable acier contreplaque voiles">
+          <div class="book-cover-3d" onclick="openEbookModal('pdf/acrow-eco-form.pdf', 'ACROW Eco-Form System')">
+            <span class="book-spine-line"></span>
+            <img class="book-cover-img" src="assets/images/ebook-covers/acrow-eco-form-cover.jpg" alt="ACROW Eco-Form Cover" loading="lazy" />
+          </div>
+          <div class="ebook-info">
+            <div class="ebook-meta-bar">
+              <span class="ebook-badge"><i class="bi bi-journal-bookmark-fill me-1"></i>Voiles &amp; Murs</span>
+            </div>
+            <h4 class="ebook-title">ACROW Eco-Form Panel</h4>
+            <div class="ebook-actions">
+              <button class="btn-read-ebook" onclick="openEbookModal('pdf/acrow-eco-form.pdf', 'ACROW Eco-Form System')">
+                <i class="bi bi-book-fill"></i> Lire
+              </button>
+              <a href="pdf/acrow-eco-form.pdf" download class="btn-download-pdf" title="Télécharger PDF">
+                <i class="bi bi-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+          </div>
+
+          <div class="swiper-slide">
+<div class="ebook-card" data-category="walls" data-title="acrow big steel panel coffrage lourd grands voiles">
+          <div class="book-cover-3d" onclick="openEbookModal('pdf/acrow-big-steel-panel.pdf', 'ACROW Big Steel Panel')">
+            <span class="book-spine-line"></span>
+            <img class="book-cover-img" src="assets/images/ebook-covers/acrow-big-steel-panel-cover.jpg" alt="ACROW Big Steel Panel Cover" loading="lazy" />
+          </div>
+          <div class="ebook-info">
+            <div class="ebook-meta-bar">
+              <span class="ebook-badge"><i class="bi bi-journal-bookmark-fill me-1"></i>Voiles Lourds</span>
+            </div>
+            <h4 class="ebook-title">ACROW Big Steel Panel</h4>
+            <div class="ebook-actions">
+              <button class="btn-read-ebook" onclick="openEbookModal('pdf/acrow-big-steel-panel.pdf', 'ACROW Big Steel Panel')">
+                <i class="bi bi-book-fill"></i> Lire
+              </button>
+              <a href="pdf/acrow-big-steel-panel.pdf" download class="btn-download-pdf" title="Télécharger PDF">
+                <i class="bi bi-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+          </div>
+
+          <div class="swiper-slide">
+<div class="ebook-card" data-category="walls" data-title="acrow tech form coffrage acier grande resistance">
+          <div class="book-cover-3d" onclick="openEbookModal('pdf/acrow-tech-form.pdf', 'ACROW Tech-Form System')">
+            <span class="book-spine-line"></span>
+            <img class="book-cover-img" src="assets/images/ebook-covers/acrow-tech-form-cover.jpg" alt="ACROW Tech-Form Cover" loading="lazy" />
+          </div>
+          <div class="ebook-info">
+            <div class="ebook-meta-bar">
+              <span class="ebook-badge"><i class="bi bi-journal-bookmark-fill me-1"></i>Voiles &amp; Murs</span>
+            </div>
+            <h4 class="ebook-title">ACROW Tech-Form System</h4>
+            <div class="ebook-actions">
+              <button class="btn-read-ebook" onclick="openEbookModal('pdf/acrow-tech-form.pdf', 'ACROW Tech-Form System')">
+                <i class="bi bi-book-fill"></i> Lire
+              </button>
+              <a href="pdf/acrow-tech-form.pdf" download class="btn-download-pdf" title="Télécharger PDF">
+                <i class="bi bi-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+          </div>
+
+          <div class="swiper-slide">
+<div class="ebook-card" data-category="walls" data-title="acrow h20 soldier for wall poutres bois poutrelles">
+          <div class="book-cover-3d" onclick="openEbookModal('pdf/acrow-h20-wall-soldier.pdf', 'ACROW H20 & Soldier Wall')">
+            <span class="book-spine-line"></span>
+            <img class="book-cover-img" src="assets/images/ebook-covers/acrow-h20-wall-soldier-cover.jpg" alt="ACROW H20 Cover" loading="lazy" />
+          </div>
+          <div class="ebook-info">
+            <div class="ebook-meta-bar">
+              <span class="ebook-badge"><i class="bi bi-journal-bookmark-fill me-1"></i>Voiles &amp; Murs</span>
+            </div>
+            <h4 class="ebook-title">ACROW H-20 &amp; Soldier Wall</h4>
+            <div class="ebook-actions">
+              <button class="btn-read-ebook" onclick="openEbookModal('pdf/acrow-h20-wall-soldier.pdf', 'ACROW H20 & Soldier Wall')">
+                <i class="bi bi-book-fill"></i> Lire
+              </button>
+              <a href="pdf/acrow-h20-wall-soldier.pdf" download class="btn-download-pdf" title="Télécharger PDF">
+                <i class="bi bi-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+          </div>
+
+          <div class="swiper-slide">
+<div class="ebook-card" data-category="walls" data-title="acrow one side shutter coffrage unilateral barrages tunnels">
+          <div class="book-cover-3d" onclick="openEbookModal('pdf/acrow-one-side-shutter.pdf', 'ACROW One-Side Shutter')">
+            <span class="book-spine-line"></span>
+            <img class="book-cover-img" src="assets/images/ebook-covers/acrow-one-side-shutter-cover.jpg" alt="ACROW One Side Cover" loading="lazy" />
+          </div>
+          <div class="ebook-info">
+            <div class="ebook-meta-bar">
+              <span class="ebook-badge"><i class="bi bi-journal-bookmark-fill me-1"></i>Coffrage Unilatéral</span>
+            </div>
+            <h4 class="ebook-title">ACROW One-Side Shutter</h4>
+            <div class="ebook-actions">
+              <button class="btn-read-ebook" onclick="openEbookModal('pdf/acrow-one-side-shutter.pdf', 'ACROW One-Side Shutter')">
+                <i class="bi bi-book-fill"></i> Lire
+              </button>
+              <a href="pdf/acrow-one-side-shutter.pdf" download class="btn-download-pdf" title="Télécharger PDF">
+                <i class="bi bi-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+          </div>
+
+          <div class="swiper-slide">
+<div class="ebook-card" data-category="columns" data-title="vmc system for column coffrage poteaux rectangulaires carres">
+          <div class="book-cover-3d" onclick="openEbookModal('pdf/acrow-vmc-column-system.pdf', 'ACROW V.M.C Column System')">
+            <span class="book-spine-line"></span>
+            <img class="book-cover-img" src="assets/images/ebook-covers/acrow-vmc-column-system-cover.jpg" alt="ACROW VMC Cover" loading="lazy" />
+          </div>
+          <div class="ebook-info">
+            <div class="ebook-meta-bar">
+              <span class="ebook-badge"><i class="bi bi-journal-bookmark-fill me-1"></i>Poteaux &amp; Colonnes</span>
+            </div>
+            <h4 class="ebook-title">ACROW V.M.C Column System</h4>
+            <div class="ebook-actions">
+              <button class="btn-read-ebook" onclick="openEbookModal('pdf/acrow-vmc-column-system.pdf', 'ACROW V.M.C Column System')">
+                <i class="bi bi-book-fill"></i> Lire
+              </button>
+              <a href="pdf/acrow-vmc-column-system.pdf" download class="btn-download-pdf" title="Télécharger PDF">
+                <i class="bi bi-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+          </div>
+
+          <div class="swiper-slide">
+<div class="ebook-card" data-category="columns" data-title="circular column formwork coffrage poteaux circulaires ronds">
+          <div class="book-cover-3d" onclick="openEbookModal('pdf/acrow-circular-column.pdf', 'ACROW Circular Column')">
+            <span class="book-spine-line"></span>
+            <img class="book-cover-img" src="assets/images/ebook-covers/acrow-circular-column-cover.jpg" alt="ACROW Circular Column Cover" loading="lazy" />
+          </div>
+          <div class="ebook-info">
+            <div class="ebook-meta-bar">
+              <span class="ebook-badge"><i class="bi bi-journal-bookmark-fill me-1"></i>Poteaux Circulaires</span>
+            </div>
+            <h4 class="ebook-title">ACROW Circular Column</h4>
+            <div class="ebook-actions">
+              <button class="btn-read-ebook" onclick="openEbookModal('pdf/acrow-circular-column.pdf', 'ACROW Circular Column')">
+                <i class="bi bi-book-fill"></i> Lire
+              </button>
+              <a href="pdf/acrow-circular-column.pdf" download class="btn-download-pdf" title="Télécharger PDF">
+                <i class="bi bi-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+          </div>
+
+          <div class="swiper-slide">
+<div class="ebook-card" data-category="scaffolding" data-title="acrow cup lock system echafaudage multidirectionnel tours etaiement">
+          <div class="book-cover-3d" onclick="openEbookModal('pdf/acrow-cup-lock-system.pdf', 'ACROW Cup-Lock Scaffolding')">
+            <span class="book-spine-line"></span>
+            <img class="book-cover-img" src="assets/images/ebook-covers/acrow-cup-lock-system-cover.jpg" alt="ACROW Cup Lock Cover" loading="lazy" />
+          </div>
+          <div class="ebook-info">
+            <div class="ebook-meta-bar">
+              <span class="ebook-badge"><i class="bi bi-journal-bookmark-fill me-1"></i>Échafaudage &amp; Étaiement</span>
+            </div>
+            <h4 class="ebook-title">ACROW Cup-Lock System</h4>
+            <div class="ebook-actions">
+              <button class="btn-read-ebook" onclick="openEbookModal('pdf/acrow-cup-lock-system.pdf', 'ACROW Cup-Lock Scaffolding')">
+                <i class="bi bi-book-fill"></i> Lire
+              </button>
+              <a href="pdf/acrow-cup-lock-system.pdf" download class="btn-download-pdf" title="Télécharger PDF">
+                <i class="bi bi-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+          </div>
+
+          <div class="swiper-slide">
+<div class="ebook-card" data-category="scaffolding" data-title="acrow ring lock shoring system echafaudage rosace industrielle">
+          <div class="book-cover-3d" onclick="openEbookModal('pdf/acrow-ring-lock-system.pdf', 'ACROW Ring-Lock System')">
+            <span class="book-spine-line"></span>
+            <img class="book-cover-img" src="assets/images/ebook-covers/acrow-ring-lock-system-cover.jpg" alt="ACROW Ring Lock Cover" loading="lazy" />
+          </div>
+          <div class="ebook-info">
+            <div class="ebook-meta-bar">
+              <span class="ebook-badge"><i class="bi bi-journal-bookmark-fill me-1"></i>Échafaudage Rosace</span>
+            </div>
+            <h4 class="ebook-title">ACROW Ring-Lock Shoring</h4>
+            <div class="ebook-actions">
+              <button class="btn-read-ebook" onclick="openEbookModal('pdf/acrow-ring-lock-system.pdf', 'ACROW Ring-Lock System')">
+                <i class="bi bi-book-fill"></i> Lire
+              </button>
+              <a href="pdf/acrow-ring-lock-system.pdf" download class="btn-download-pdf" title="Télécharger PDF">
+                <i class="bi bi-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+          </div>
+
+          <div class="swiper-slide">
+<div class="ebook-card" data-category="props" data-title="combishore etaiement lourd haute capacite ponts">
+          <div class="book-cover-3d" onclick="openEbookModal('pdf/acrow-combishore-system.pdf', 'ACROW Combishore System')">
+            <span class="book-spine-line"></span>
+            <img class="book-cover-img" src="assets/images/ebook-covers/acrow-combishore-system-cover.jpg" alt="ACROW Combishore Cover" loading="lazy" />
+          </div>
+          <div class="ebook-info">
+            <div class="ebook-meta-bar">
+              <span class="ebook-badge"><i class="bi bi-journal-bookmark-fill me-1"></i>Étaiement Haute Charge</span>
+            </div>
+            <h4 class="ebook-title">ACROW Combishore System</h4>
+            <div class="ebook-actions">
+              <button class="btn-read-ebook" onclick="openEbookModal('pdf/acrow-combishore-system.pdf', 'ACROW Combishore System')">
+                <i class="bi bi-book-fill"></i> Lire
+              </button>
+              <a href="pdf/acrow-combishore-system.pdf" download class="btn-download-pdf" title="Télécharger PDF">
+                <i class="bi bi-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+          </div>
+
+          <div class="swiper-slide">
+<div class="ebook-card" data-category="slabs" data-title="shorebrace table form tables coffrantes dalles">
+          <div class="book-cover-3d" onclick="openEbookModal('pdf/acrow-shorebrace-table-form.pdf', 'Shorebrace Table Form')">
+            <span class="book-spine-line"></span>
+            <img class="book-cover-img" src="assets/images/ebook-covers/acrow-shorebrace-table-form-cover.jpg" alt="Shorebrace Table Form Cover" loading="lazy" />
+          </div>
+          <div class="ebook-info">
+            <div class="ebook-meta-bar">
+              <span class="ebook-badge"><i class="bi bi-journal-bookmark-fill me-1"></i>Tables Coffrantes</span>
+            </div>
+            <h4 class="ebook-title">Shorebrace Table Form</h4>
+            <div class="ebook-actions">
+              <button class="btn-read-ebook" onclick="openEbookModal('pdf/acrow-shorebrace-table-form.pdf', 'Shorebrace Table Form')">
+                <i class="bi bi-book-fill"></i> Lire
+              </button>
+              <a href="pdf/acrow-shorebrace-table-form.pdf" download class="btn-download-pdf" title="Télécharger PDF">
+                <i class="bi bi-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+          </div>
+
+          <div class="swiper-slide">
+<div class="ebook-card" data-category="slabs" data-title="acrow bridge table form coffrage ponts tabliers">
+          <div class="book-cover-3d" onclick="openEbookModal('pdf/acrow-bridge-table-form.pdf', 'ACROW Bridge Table Form')">
+            <span class="book-spine-line"></span>
+            <img class="book-cover-img" src="assets/images/ebook-covers/acrow-bridge-table-form-cover.jpg" alt="ACROW Bridge Table Form Cover" loading="lazy" />
+          </div>
+          <div class="ebook-info">
+            <div class="ebook-meta-bar">
+              <span class="ebook-badge"><i class="bi bi-journal-bookmark-fill me-1"></i>Ponts &amp; Ouvrages d'Art</span>
+            </div>
+            <h4 class="ebook-title">ACROW Bridge Table Form</h4>
+            <div class="ebook-actions">
+              <button class="btn-read-ebook" onclick="openEbookModal('pdf/acrow-bridge-table-form.pdf', 'ACROW Bridge Table Form')">
+                <i class="bi bi-book-fill"></i> Lire
+              </button>
+              <a href="pdf/acrow-bridge-table-form.pdf" download class="btn-download-pdf" title="Télécharger PDF">
+                <i class="bi bi-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+          </div>
+
+          <div class="swiper-slide">
+<div class="ebook-card" data-category="slabs" data-title="acrow prop table form tables coffrantes simples etais">
+          <div class="book-cover-3d" onclick="openEbookModal('pdf/acrow-prop-table-form.pdf', 'ACROW Prop Table Form')">
+            <span class="book-spine-line"></span>
+            <img class="book-cover-img" src="assets/images/ebook-covers/acrow-prop-table-form-cover.jpg" alt="ACROW Prop Table Form Cover" loading="lazy" />
+          </div>
+          <div class="ebook-info">
+            <div class="ebook-meta-bar">
+              <span class="ebook-badge"><i class="bi bi-journal-bookmark-fill me-1"></i>Tables Coffrantes</span>
+            </div>
+            <h4 class="ebook-title">ACROW Prop Table Form</h4>
+            <div class="ebook-actions">
+              <button class="btn-read-ebook" onclick="openEbookModal('pdf/acrow-prop-table-form.pdf', 'ACROW Prop Table Form')">
+                <i class="bi bi-book-fill"></i> Lire
+              </button>
+              <a href="pdf/acrow-prop-table-form.pdf" download class="btn-download-pdf" title="Télécharger PDF">
+                <i class="bi bi-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+          </div>
+
+          <div class="swiper-slide">
+<div class="ebook-card" data-category="scaffolding" data-title="acrow frame system cadres echafaudage macon facade">
+          <div class="book-cover-3d" onclick="openEbookModal('pdf/acrow-frame-system.pdf', 'ACROW Frame System')">
+            <span class="book-spine-line"></span>
+            <img class="book-cover-img" src="assets/images/ebook-covers/acrow-frame-system-cover.jpg" alt="ACROW Frame System Cover" loading="lazy" />
+          </div>
+          <div class="ebook-info">
+            <div class="ebook-meta-bar">
+              <span class="ebook-badge"><i class="bi bi-journal-bookmark-fill me-1"></i>Échafaudage à Cadres</span>
+            </div>
+            <h4 class="ebook-title">ACROW Heavy Frame System</h4>
+            <div class="ebook-actions">
+              <button class="btn-read-ebook" onclick="openEbookModal('pdf/acrow-frame-system.pdf', 'ACROW Heavy Frame System')">
+                <i class="bi bi-book-fill"></i> Lire
+              </button>
+              <a href="pdf/acrow-frame-system.pdf" download class="btn-download-pdf" title="Télécharger PDF">
+                <i class="bi bi-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+          </div>
+
+          <div class="swiper-slide">
+<div class="ebook-card" data-category="walls" data-title="acrow vari form system coffrage variable voiles">
+          <div class="book-cover-3d" onclick="openEbookModal('pdf/acrow-vari-form-system.pdf', 'ACROW Vari-Form System')">
+            <span class="book-spine-line"></span>
+            <img class="book-cover-img" src="assets/images/ebook-covers/acrow-vari-form-system-cover.jpg" alt="ACROW Vari-Form Cover" loading="lazy" />
+          </div>
+          <div class="ebook-info">
+            <div class="ebook-meta-bar">
+              <span class="ebook-badge"><i class="bi bi-journal-bookmark-fill me-1"></i>Voiles &amp; Poteaux</span>
+            </div>
+            <h4 class="ebook-title">ACROW Vari-Form System</h4>
+            <div class="ebook-actions">
+              <button class="btn-read-ebook" onclick="openEbookModal('pdf/acrow-vari-form-system.pdf', 'ACROW Vari-Form System')">
+                <i class="bi bi-book-fill"></i> Lire
+              </button>
+              <a href="pdf/acrow-vari-form-system.pdf" download class="btn-download-pdf" title="Télécharger PDF">
+                <i class="bi bi-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+          </div>
+
+          <div class="swiper-slide">
+<div class="ebook-card" data-category="props" data-title="acrow alu prop etais aluminium haute capacite">
+          <div class="book-cover-3d" onclick="openEbookModal('pdf/acrow-alu-prop.pdf', 'ACROW Aluminum Prop')">
+            <span class="book-spine-line"></span>
+            <img class="book-cover-img" src="assets/images/ebook-covers/acrow-alu-prop-cover.jpg" alt="ACROW Alu Prop Cover" loading="lazy" />
+          </div>
+          <div class="ebook-info">
+            <div class="ebook-meta-bar">
+              <span class="ebook-badge"><i class="bi bi-journal-bookmark-fill me-1"></i>Étais Aluminium</span>
+            </div>
+            <h4 class="ebook-title">ACROW Aluminum Prop</h4>
+            <div class="ebook-actions">
+              <button class="btn-read-ebook" onclick="openEbookModal('pdf/acrow-alu-prop.pdf', 'ACROW Aluminum Prop')">
+                <i class="bi bi-book-fill"></i> Lire
+              </button>
+              <a href="pdf/acrow-alu-prop.pdf" download class="btn-download-pdf" title="Télécharger PDF">
+                <i class="bi bi-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+          </div>
+
+          <div class="swiper-slide">
+<div class="ebook-card" data-category="props" data-title="acrow european prop etais acier norme en 1065">
+          <div class="book-cover-3d" onclick="openEbookModal('pdf/acrow-european-prop.pdf', 'ACROW European Steel Prop')">
+            <span class="book-spine-line"></span>
+            <img class="book-cover-img" src="assets/images/ebook-covers/acrow-european-prop-cover.jpg" alt="ACROW European Prop Cover" loading="lazy" />
+          </div>
+          <div class="ebook-info">
+            <div class="ebook-meta-bar">
+              <span class="ebook-badge"><i class="bi bi-journal-bookmark-fill me-1"></i>Étais Métalliques</span>
+            </div>
+            <h4 class="ebook-title">ACROW European Steel Prop</h4>
+            <div class="ebook-actions">
+              <button class="btn-read-ebook" onclick="openEbookModal('pdf/acrow-european-prop.pdf', 'ACROW European Steel Prop')">
+                <i class="bi bi-book-fill"></i> Lire
+              </button>
+              <a href="pdf/acrow-european-prop.pdf" download class="btn-download-pdf" title="Télécharger PDF">
+                <i class="bi bi-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       PROJETS RÉALISÉS
+       ========================================== -->
+  <section class="py-5" id="projets">
+    <div class="container my-3">
+      
+      <div class="text-center" data-aos="fade-up">
+        <span class="badge-sub">Références Majeures</span>
+        <h2 class="section-title"><i class="bi bi-buildings-fill text-danger me-2"></i>Projets Réalisés en Algérie</h2>
+        <p class="section-sub">
+          Quelques réalisations phares où les solutions ACROW DZ ont permis d'atteindre une efficacité remarquable, une sécurité totale et le respect rigoureux des délais.
+        </p>
+      </div>
+
+      <!-- Carousel Projects (Touch Swipe Enabled) -->
+      <div id="projetsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4500" data-bs-touch="true">
+        
+        <div class="carousel-inner">
+          
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <div class="row g-4 justify-content-center">
+              
+              <!-- Metro d'Alger -->
+              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration="900">
+                <div class="card-modern h-100 position-relative">
+                  <div class="position-relative" style="overflow:hidden; height:250px;">
+                    <img src="assets/images/metro.jpg" class="card-img-top img-zoom h-100" alt="Métro d'Alger" />
+                    <span class="badge-top bg-danger"><i class="bi bi-cone-striped me-1"></i>Infrastructures</span>
+                  </div>
+                  <div class="p-4 text-center">
+                    <h5 class="fw-bold text-primary mb-2"><i class="bi bi-geo-alt-fill text-danger me-1 fs-6"></i>Métro d'Alger</h5>
+                    <p class="text-muted small mb-0">
+                      Fourniture et installation de systèmes de coffrage de voiles lourds et tours d'étaiement pour les extensions souterraines du métro d'Alger.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Marina Bay Alger -->
+              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="150" data-aos-duration="900">
+                <div class="card-modern h-100 position-relative">
+                  <div class="position-relative" style="overflow:hidden; height:250px;">
+                    <img src="assets/images/marina.jpg" class="card-img-top img-zoom h-100" alt="Marina Bay" />
+                    <span class="badge-top bg-primary"><i class="bi bi-building me-1"></i>Résidentiel &amp; Tertiaire</span>
+                  </div>
+                  <div class="p-4 text-center">
+                    <h5 class="fw-bold text-primary mb-2"><i class="bi bi-geo-alt-fill text-danger me-1 fs-6"></i>Marina Bay Alger</h5>
+                    <p class="text-muted small mb-0">
+                      Fourniture de systèmes de coffrage grimpant et de dalles alvéolées pour ce projet immobilier emblématique du front de mer.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bouzareah -->
+              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="900">
+                <div class="card-modern h-100 position-relative">
+                  <div class="position-relative" style="overflow:hidden; height:250px;">
+                    <img src="assets/images/aa.jpg" class="card-img-top img-zoom h-100" alt="Circonscription de Bouzaréah" />
+                    <span class="badge-top bg-primary"><i class="bi bi-bank me-1"></i>Équipement Public</span>
+                  </div>
+                  <div class="p-4 text-center">
+                    <h5 class="fw-bold text-primary mb-2"><i class="bi bi-geo-alt-fill text-danger me-1 fs-6"></i>Circonscription de Bouzaréah</h5>
+                    <p class="text-muted small mb-0">
+                      Réalisation structurale et aménagement du siège de la circonscription administrative d'Alger avec coffrage modulaire.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <div class="row g-4 justify-content-center">
+              
+              <!-- Ambassade d'Allemagne -->
+              <div class="col-lg-4 col-md-6">
+                <div class="card-modern h-100 position-relative">
+                  <div class="position-relative" style="overflow:hidden; height:250px;">
+                    <img src="assets/images/amba.jpg" class="card-img-top img-zoom h-100" alt="Ambassade Allemagne" />
+                    <span class="badge-top bg-danger"><i class="bi bi-flag-fill me-1"></i>Bâtiment Diplomatique</span>
+                  </div>
+                  <div class="p-4 text-center">
+                    <h5 class="fw-bold text-primary mb-2"><i class="bi bi-geo-alt-fill text-danger me-1 fs-6"></i>Nouvelle Ambassade d'Allemagne</h5>
+                    <p class="text-muted small mb-0">
+                      Coffrage architectural et échafaudages de haute sécurité certifiés pour la construction de la représentation fédérale à Alger.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Station El Othmania -->
+              <div class="col-lg-4 col-md-6">
+                <div class="card-modern h-100 position-relative">
+                  <div class="position-relative" style="overflow:hidden; height:250px;">
+                    <img src="assets/images/otma.jpg" class="card-img-top img-zoom h-100" alt="Station El Othmania" />
+                    <span class="badge-top bg-primary"><i class="bi bi-water me-1"></i>Hydraulique</span>
+                  </div>
+                  <div class="p-4 text-center">
+                    <h5 class="fw-bold text-primary mb-2"><i class="bi bi-geo-alt-fill text-danger me-1 fs-6"></i>Station El Othmania</h5>
+                    <p class="text-muted small mb-0">
+                      Extension de la station de traitement des eaux avec chevalets de coffrage unilatéral pour parois et bassins sous pression.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Viaduc Skikda -->
+              <div class="col-lg-4 col-md-6">
+                <div class="card-modern h-100 position-relative">
+                  <div class="position-relative" style="overflow:hidden; height:250px;">
+                    <img src="assets/images/SKIKDA.jpeg" class="card-img-top img-zoom h-100" alt="Viaduc Skikda" />
+                    <span class="badge-top bg-danger"><i class="bi bi-signpost-2-fill me-1"></i>Ouvrage d'Art</span>
+                  </div>
+                  <div class="p-4 text-center">
+                    <h5 class="fw-bold text-primary mb-2"><i class="bi bi-geo-alt-fill text-danger me-1 fs-6"></i>Ouvrages d'Art &amp; Viaducs Skikda</h5>
+                    <p class="text-muted small mb-0">
+                      Coffrage spécialisé pour piles de viaducs de grande hauteur et tabliers autoroutiers avec tours d'étaiement lourdes.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Carousel Controls -->
+        <div class="d-flex justify-content-center gap-2 mt-4">
+          <button class="btn btn-outline-primary rounded-circle" type="button" data-bs-target="#projetsCarousel" data-bs-slide="prev" style="width:46px; height:46px;">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <button class="btn btn-outline-primary rounded-circle" type="button" data-bs-target="#projetsCarousel" data-bs-slide="next" style="width:46px; height:46px;">
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION CLIENTS & PARTENAIRES (SWIPER CAROUSEL)
+       ========================================== -->
+  <section class="py-5" id="clients">
+    <div class="container text-center">
+      <span class="badge-sub">Partenaires Stratégiques</span>
+      <h2 class="section-title">
+        <i class="bi bi-shield-check text-danger me-2"></i> Ils nous font confiance
+      </h2>
+      <p class="section-sub mb-4">
+        Nous collaborons avec les plus grandes entreprises publiques et privées du BTP, de l'énergie et de l'industrie en Algérie.
+      </p>
+
+      <!-- Infinite Swiper Marquee with Clean Cards -->
+      <div class="swiper mySwiper py-3">
+        <div class="swiper-wrapper align-items-center">
+          <div class="swiper-slide"><div class="client-card"><img src="assets/images/cosider.png" alt="Cosider" class="client-logo"></div></div>
+          <div class="swiper-slide"><div class="client-card"><img src="assets/images/sonatrach.svg" alt="Sonatrach" class="client-logo"></div></div>
+          <div class="swiper-slide"><div class="client-card"><img src="assets/images/ORASCOM.png" alt="Orascom" class="client-logo"></div></div>
+          <div class="swiper-slide"><div class="client-card"><img src="assets/images/cevital.png" alt="Cevital" class="client-logo"></div></div>
+          <div class="swiper-slide"><div class="client-card"><img src="assets/images/PETROFAC.png" alt="Petrofac" class="client-logo"></div></div>
+          <div class="swiper-slide"><div class="client-card"><img src="assets/images/somik.png" alt="Somik" class="client-logo"></div></div>
+          <div class="swiper-slide"><div class="client-card"><img src="assets/images/sapta.png" alt="Sapta" class="client-logo"></div></div>
+          <div class="swiper-slide"><div class="client-card"><img src="assets/images/seror.png" alt="SEROR" class="client-logo"></div></div>
+          <div class="swiper-slide"><div class="client-card"><img src="assets/images/gtp.png" alt="GTP" class="client-logo"></div></div>
+          <div class="swiper-slide"><div class="client-card"><img src="assets/images/ensp.png" alt="ENSP" class="client-logo"></div></div>
+          <div class="swiper-slide"><div class="client-card"><img src="assets/images/gcb.png" alt="GCB" class="client-logo"></div></div>
+          <div class="swiper-slide"><div class="client-card"><img src="assets/images/SARPI.png" alt="SARPI" class="client-logo"></div></div>
+          <div class="swiper-slide"><div class="client-card"><img src="assets/images/ARAB.png" alt="The Arab Contractors" class="client-logo"></div></div>
+          <div class="swiper-slide"><div class="client-card"><img src="assets/images/meditram.png" alt="Meditram" class="client-logo"></div></div>
+          <div class="swiper-slide"><div class="client-card"><img src="assets/images/SORFRET.png" alt="Sorfret" class="client-logo"></div></div>
+          <div class="swiper-slide"><div class="client-card"><img src="assets/images/actaris.png" alt="Actaris" class="client-logo"></div></div>
+          <div class="swiper-slide"><div class="client-card"><img src="assets/images/badj.png" alt="Badjelmane" class="client-logo"></div></div>
+          <div class="swiper-slide"><div class="client-card"><img src="assets/images/HYDRO.png" alt="Hydro Aménagement" class="client-logo"></div></div>
+          <div class="swiper-slide"><div class="client-card"><img src="assets/images/ISLAND.jpg" alt="Island" class="client-logo"></div></div>
+          <div class="swiper-slide"><div class="client-card"><img src="assets/images/aamal.jpeg" alt="Aamal" class="client-logo"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION QUESTIONS FRÉQUENTES (FAQ)
+       ========================================== -->
+  <section class="py-5 bg-light" id="faq">
+    <div class="container my-3" style="max-width: 900px;">
+      <div class="text-center" data-aos="fade-up">
+        <span class="badge-sub">Transparence &amp; Clarté</span>
+        <h2 class="section-title">
+          <i class="bi bi-question-circle text-danger me-2"></i> Questions fréquentes
+        </h2>
+        <p class="section-sub mb-4">
+          Retrouvez les réponses aux questions les plus courantes de nos clients entrepreneurs et maîtres d'ouvrage.
+        </p>
+      </div>
+
+      <div class="accordion shadow-sm rounded-4 overflow-hidden border" id="faqAccordion">
+        
+        <div class="accordion-item border-0 border-bottom" data-aos="fade-up">
+          <h2 class="accordion-header" id="q1">
+            <button class="accordion-button fw-bold text-primary p-4" type="button" data-bs-toggle="collapse" data-bs-target="#a1">
+              <i class="bi bi-truck text-danger me-3 fs-5"></i> Proposez-vous la livraison du matériel sur chantier ?
+            </button>
+          </h2>
+          <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+            <div class="accordion-body px-4 pb-4 text-muted" style="line-height: 1.8;">
+              Oui, tout à fait. Nous assurons la livraison de notre matériel sur l'ensemble des <strong>58 wilayas d'Algérie</strong> grâce à notre flotte logistique dédiée et nos partenaires transporteurs.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item border-0 border-bottom" data-aos="fade-up" data-aos-delay="100">
+          <h2 class="accordion-header" id="q2">
+            <button class="accordion-button collapsed fw-bold text-primary p-4" type="button" data-bs-toggle="collapse" data-bs-target="#a2">
+              <i class="bi bi-calendar-check text-primary me-3 fs-5"></i> Peut-on louer le matériel sur une longue durée ?
+            </button>
+          </h2>
+          <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body px-4 pb-4 text-muted" style="line-height: 1.8;">
+              Absolument. Nous proposons des contrats de location modulables (courte, moyenne et longue durée) adaptés aux cadences de votre chantier, avec possibilité de renouvellement ou d'option d'achat.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item border-0 border-bottom" data-aos="fade-up" data-aos-delay="200">
+          <h2 class="accordion-header" id="q3">
+            <button class="accordion-button collapsed fw-bold text-primary p-4" type="button" data-bs-toggle="collapse" data-bs-target="#a3">
+              <i class="bi bi-tools text-danger me-3 fs-5"></i> Offrez-vous une assistance technique et un accompagnement sur site ?
+            </button>
+          </h2>
+          <div id="a3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body px-4 pb-4 text-muted" style="line-height: 1.8;">
+              Oui. Nos ingénieurs et superviseurs de montage interviennent directement sur vos chantiers pour former vos équipes, valider les montages et s'assurer du respect rigoureux des règles de sécurité.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item border-0" data-aos="fade-up" data-aos-delay="300">
+          <h2 class="accordion-header" id="q4">
+            <button class="accordion-button collapsed fw-bold text-primary p-4" type="button" data-bs-toggle="collapse" data-bs-target="#a4">
+              <i class="bi bi-shield-check text-primary me-3 fs-5"></i> Le matériel est-il conforme aux normes internationales ?
+            </button>
+          </h2>
+          <div id="a4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body px-4 pb-4 text-muted" style="line-height: 1.8;">
+              Oui, sans compromis. L'ensemble de nos coffrages et échafaudages est fabriqué et contrôlé selon les normes internationales strictes <strong>ISO 9001</strong> et les normes européennes <strong>EN 12810 / EN 12811</strong>.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION CONTACT & LOCALISATION (DAR EL BEIDA)
+       ========================================== -->
+  <section class="py-5" id="contact" style="background: linear-gradient(180deg, #f8fafc 0%, #eef3f9 100%);">
+    <div class="container my-3">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-4" data-aos="fade-up">
+        <span class="badge-sub"><i class="bi bi-chat-dots-fill me-1"></i> Échangeons Ensemble</span>
+        <h2 class="section-title mb-2">
+          <i class="bi bi-headset text-danger me-2"></i> Contactez-nous
+        </h2>
+        <p class="section-sub mb-0">
+          Une question technique, un devis chiffré ou une visite de notre dépôt à Dar El Beida ? Nos équipes technico-commerciales vous répondent sous 24h.
+        </p>
+      </div>
+
+      <!-- Bandeau des 4 Accès Rapides -->
+      <div class="contact-quick-strip" data-aos="fade-up" data-aos-delay="100">
+        
+        <!-- 1. Téléphone -->
+        <a href="tel:+21328230945" class="contact-quick-card">
+          <div class="contact-quick-icon" style="background: linear-gradient(135deg, #003366, #001a33);">
+            <i class="bi bi-telephone-fill"></i>
+          </div>
+          <div>
+            <div class="contact-quick-label">Standard Téléphonique</div>
+            <div class="contact-quick-val">028 23 09 45</div>
+            <div class="contact-quick-sub">Dimanche - Jeudi : 08h - 17h</div>
+          </div>
+        </a>
+
+        <!-- 2. WhatsApp -->
+        <a href="https://wa.me/21328230945?text=Bonjour%20ACROW%20DZ,%20je%20souhaite%20des%20renseignements" target="_blank" class="contact-quick-card">
+          <div class="contact-quick-icon" style="background: linear-gradient(135deg, #25d366, #128c7e);">
+            <i class="bi bi-whatsapp"></i>
+          </div>
+          <div>
+            <div class="contact-quick-label">Messagerie Instantanée</div>
+            <div class="contact-quick-val text-success">Chat WhatsApp</div>
+            <div class="contact-quick-sub">Échange commercial direct</div>
+          </div>
+        </a>
+
+        <!-- 3. Email -->
+        <a href="mailto:acrow-dz@acrow.co" class="contact-quick-card">
+          <div class="contact-quick-icon" style="background: linear-gradient(135deg, #cc0000, #990000);">
+            <i class="bi bi-envelope-fill"></i>
+          </div>
+          <div>
+            <div class="contact-quick-label">Courriel Professionnel</div>
+            <div class="contact-quick-val">acrow-dz@acrow.co</div>
+            <div class="contact-quick-sub">Études &amp; Devis sous 24h</div>
+          </div>
+        </a>
+
+        <!-- 4. Siège Social -->
+        <a href="https://www.google.com/maps/search/?api=1&query=ACROW+DZ+Cité+des+Travailleurs+Dar+El+Beida+Alger" target="_blank" class="contact-quick-card">
+          <div class="contact-quick-icon" style="background: linear-gradient(135deg, #003366, #001a33);">
+            <i class="bi bi-geo-alt-fill"></i>
+          </div>
+          <div>
+            <div class="contact-quick-label">Siège &amp; Dépôt Matériel</div>
+            <div class="contact-quick-val">ACROW DZ, Dar El Beïda</div>
+            <div class="contact-quick-sub">Cité des Travailleurs, Lot 9</div>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Grille Principale (Formulaire Professionnel + Hub Localisation) -->
+      <div class="row g-4 align-items-stretch">
+        
+        <!-- Formulaire de Contact Direct (Col-lg-7) -->
+        <div class="col-lg-7" data-aos="fade-right" data-aos-delay="200">
+          <div class="contact-card-box">
+            
+            <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
+              <h4 class="mb-0 text-primary fw-bold">
+                <i class="bi bi-pencil-square text-danger me-2"></i>Envoyez-nous un message
+              </h4>
+              <span class="badge bg-danger bg-opacity-10 text-danger fw-bold px-3 py-2 rounded-pill small">
+                <i class="bi bi-clock-history me-1"></i> Réponse sous 24h
+              </span>
+            </div>
+
+            <p class="text-muted small mb-4">
+              Pour un chiffrage rapide avec notes de calcul ou plans de calepinage, vous pouvez également utiliser notre page dédiée <a href="devis.html" class="text-danger fw-bold text-decoration-none">Demande de Devis en Ligne <i class="bi bi-arrow-right"></i></a>.
+            </p>
+
+            <div id="contactSuccessMsg" class="alert alert-success d-none rounded-4 text-center mb-4 p-3 shadow-sm">
+              <i class="bi bi-check-circle-fill me-2 fs-5"></i> Merci ! Votre message a été transmis à l'équipe ACROW DZ. Nous vous répondrons sous 24h.
+            </div>
+
+            <form id="contactFormHome">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="contact-form-label">Votre nom complet *</label>
+                  <input type="text" class="contact-form-control" name="name" placeholder="Ex: Mohamed Benali" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="contact-form-label">Entreprise / Organisme</label>
+                  <input type="text" class="contact-form-control" name="company" placeholder="Ex: SARL BTP Travaux">
+                </div>
+              </div>
+
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="contact-form-label">Numéro de téléphone / WhatsApp *</label>
+                  <input type="tel" class="contact-form-control" name="phone" placeholder="05XX XX XX XX" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="contact-form-label">Email professionnel *</label>
+                  <input type="email" class="contact-form-control" name="email" placeholder="contact@entreprise.dz" required>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label class="contact-form-label">Objet de votre demande *</label>
+                <select class="contact-form-control" name="subject" required>
+                  <option value="" disabled selected>Sélectionnez l'objet technique...</option>
+                  <option value="Devis Achat Matériel Neuf">Vente de Matériel Neuf</option>
+                  <option value="Location Coffrage & Échafaudage">Location Coffrage &amp; Échafaudage</option>
+                  <option value="Étude Bureau d'Études 3D">Étude Technique &amp; Calepinage 3D</option>
+                  <option value="Montage & Assistance Chantier">Montage sur Site &amp; Assistance Chantier</option>
+                  <option value="Maintenance & Reconditionnement">Maintenance &amp; Reconditionnement</option>
+                  <option value="Autre Demande Technique">Autre Demande Commerciale / Partenariat</option>
+                </select>
+              </div>
+
+              <div class="mb-4">
+                <label class="contact-form-label">Votre message / Cahier des charges *</label>
+                <textarea class="contact-form-control" rows="4" name="message" placeholder="Décrivez votre projet (type d'ouvrage, surface ou tonnage estimé, localisation de votre chantier...)" required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-danger w-100 rounded-pill py-3 fw-bold shadow-sm" style="font-size:1.02rem;">
+                <i class="bi bi-send-fill me-2"></i> Envoyer ma demande
+              </button>
+            </form>
+
+          </div>
+        </div>
+
+        <!-- Hub Siège Social, Dépôt & Accès (Col-lg-5) -->
+        <div class="col-lg-5" data-aos="fade-left" data-aos-delay="200">
+          <div class="contact-card-box">
+            
+            <h4 class="mb-3 text-primary fw-bold">
+              <i class="bi bi-buildings-fill text-danger me-2"></i>Siège Social &amp; Dépôt
+            </h4>
+
+            <div class="d-flex align-items-start mb-3 p-3 bg-light rounded-4 border">
+              <div class="rounded-circle bg-danger bg-opacity-10 text-danger p-2 me-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:40px;height:40px;">
+                <i class="bi bi-geo-alt-fill fs-5"></i>
+              </div>
+              <div class="small">
+                <strong class="d-block text-dark mb-1">Adresse Principale :</strong>
+                <span class="text-muted"><strong>ACROW DZ</strong> — Cité des Travailleurs, lot n°9 groupe 2,<br>16033 Dar El Beïda, Alger — Algérie</span>
+              </div>
+            </div>
+
+            <ul class="contact-depot-features mb-3">
+              <li>
+                <i class="bi bi-check-circle-fill text-success"></i>
+                <span>Parc de stockage lourd disponible en continu</span>
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-success"></i>
+                <span>Accès autoroute Est-Ouest direct &amp; RN5</span>
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-success"></i>
+                <span>Flotte logistique dédiée vers les 58 Wilayas</span>
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-success"></i>
+                <span>Enlèvement sur place (Dimanche - Jeudi : 8h-17h)</span>
+              </li>
+            </ul>
+
+            <!-- Google Map Embed -->
+            <div class="contact-map-frame">
+              <iframe 
+                src="https://maps.google.com/maps?q=ACROW+DZ%2C+Cit%C3%A9+des+Travailleurs%2C+Dar+El+Beida%2C+Alger&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                width="100%" height="240" style="border:0;" allowfullscreen="" loading="lazy">
+              </iframe>
+            </div>
+
+            <a href="https://www.google.com/maps/search/?api=1&query=ACROW+DZ+Cité+des+Travailleurs+Dar+El+Beida+Alger" target="_blank" class="btn btn-outline-primary w-100 rounded-pill mt-3 py-2 fw-bold d-inline-flex align-items-center justify-content-center gap-2">
+              <i class="bi bi-cursor-fill"></i> Ouvrir l'itinéraire GPS ACROW DZ
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       MODERN ANIMATED FOOTER
+       ========================================== -->
+  <footer class="footer-modern text-white pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- Col 1: Brand & Logo -->
+        <div class="col-lg-4 col-md-6">
+          <div style="background:#fff; display:inline-block; padding:4px 12px; border-radius:8px; margin-bottom:18px;">
+            <img src="assets/images/logo.png" alt="ACROW DZ" style="height:55px; width:auto; object-fit:contain;">
+          </div>
+          <p class="small opacity-80" style="line-height: 1.8;">
+            ACROW DZ — Vente, location et études techniques de matériel de coffrage et échafaudage en Algérie. 
+            Partenaire de confiance des plus grands chantiers du BTP et de l'industrie pétrolière depuis 2012.
+          </p>
+          <div class="mt-3">
+            <a href="devis.html" class="btn btn-danger btn-sm rounded-pill px-3 py-2 fw-bold">
+              📑 Demander un devis en ligne
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Liens Rapides -->
+        <div class="col-lg-2 col-md-6">
+          <h6 class="text-uppercase fw-bold mb-3 text-danger"><i class="bi bi-link-45deg me-1"></i>Liens Rapides</h6>
+          <ul class="list-unstyled d-flex flex-column gap-2 small">
+            <li><a href="#hero" class="footer-link"><i class="bi bi-chevron-right text-danger me-1"></i>Accueil</a></li>
+            <li><a href="#about" class="footer-link"><i class="bi bi-chevron-right text-danger me-1"></i>À propos</a></li>
+            <li><a href="#services" class="footer-link"><i class="bi bi-chevron-right text-danger me-1"></i>Nos Services</a></li>
+            <li><a href="#produits" class="footer-link fw-bold text-danger"><i class="bi bi-book-half me-1 text-danger"></i>Nos Produits</a></li>
+            <li><a href="#projets" class="footer-link"><i class="bi bi-chevron-right text-danger me-1"></i>Projets Réalisés</a></li>
+            <li><a href="#clients" class="footer-link"><i class="bi bi-chevron-right text-danger me-1"></i>Partenaires Clients</a></li>
+            <li><a href="print-profile.html" target="_blank" class="footer-link"><i class="bi bi-file-earmark-pdf-fill text-danger me-1"></i>Dossier PDF Deck</a></li>
+            <li><a href="#contact" class="footer-link"><i class="bi bi-chevron-right text-danger me-1"></i>Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Coordonnées -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="text-uppercase fw-bold mb-3 text-danger">Contact &amp; Dépôt</h6>
+          <p class="small mb-2"><i class="bi bi-geo-alt-fill me-2 text-danger"></i>Cité des Travailleurs, lot n°9 groupe 2, 16033 Dar El Beida, Alger</p>
+          <p class="small mb-2"><i class="bi bi-envelope-fill me-2 text-danger"></i>acrow-dz@acrow.co</p>
+          <p class="small mb-2"><i class="bi bi-telephone-fill me-2 text-danger"></i>028 23 09 45</p>
+          <p class="small mb-2"><i class="bi bi-clock-fill me-2 text-danger"></i>Dimanche - Jeudi : 08h00 - 17h00</p>
+        </div>
+
+        <!-- Col 4: Réseaux Sociaux -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="text-uppercase fw-bold mb-3 text-danger">Suivez-nous</h6>
+          <p class="small opacity-80 mb-3">Rejoignez notre communauté sur les réseaux professionnels pour suivre nos chantiers en direct.</p>
+          <div class="d-flex gap-3">
+            <a href="https://www.facebook.com/acrow.co" target="_blank" class="social-icon" title="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.linkedin.com/company/acrow-formwork/" target="_blank" class="social-icon" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.instagram.com/acrowmisr/?hl=en" target="_blank" class="social-icon" title="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://wa.me/21328230945" target="_blank" class="social-icon" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <hr class="my-4" style="border-color: rgba(255,255,255,0.18)">
+
+      <div class="row align-items-center">
+        <div class="col-md-7 text-center text-md-start mb-2 mb-md-0">
+          <p class="mb-0 small opacity-75">© 2012 - 2026 ACROW DZ. Tous droits réservés. Matériel certifié ISO 9001 &amp; Normes Européennes EN.</p>
+        </div>
+        <div class="col-md-5 text-center text-md-end">
+          <a href="#hero" class="small text-white text-decoration-none opacity-75">Haut de page <i class="bi bi-arrow-up-circle ms-1"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       FLOATING ACTIONS (WHATSAPP, DEVIS, TOP)
+       ========================================== -->
+  <div class="floating-action-bar">
+    <a href="https://wa.me/21328230945?text=Bonjour%20ACROW%20DZ,%20je%20souhaite%20des%20informations" target="_blank" class="fab-button fab-whatsapp" title="WhatsApp Direct">
+      <i class="bi bi-whatsapp"></i>
+    </a>
+    <a href="devis.html" class="fab-button fab-devis" title="Demander un devis">
+      <i class="bi bi-file-earmark-text"></i>
+    </a>
+    <button id="backToTopBtn" class="fab-button fab-top" title="Retour en haut">
+      <i class="bi bi-arrow-up"></i>
+    </button>
+  </div>
+
+  <!-- ==========================================
+       PREMIUM FLOATING E-BOOK LIGHTBOX MODAL
+       ========================================== -->
+  <div class="ebook-modal-backdrop" id="ebookModalBackdrop" onclick="handleBackdropClick(event)">
+    <div class="ebook-modal-window" id="ebookModalWindow">
+      
+      <!-- Preloader while iframe initializes -->
+      <div class="ebook-window-loader" id="ebookWindowLoader">
+        <div class="window-spinner"></div>
+        <div class="window-loader-brand" style="background:#fff; padding:6px 16px; border-radius:10px;">
+          <img src="assets/images/logo.png" alt="ACROW DZ — Coffrage & Échafaudage" class="logo-navbar" style="height: 52px;">
+        </div>
+        <div class="window-loader-title" id="ebookLoaderTitleText">ACROW DZ — Catalogue Technique</div>
+        <div class="window-loader-subtitle">Chargement du catalogue haute définition (300 DPI)...</div>
+      </div>
+
+      <!-- Single Unified Iframe Viewport -->
+      <iframe class="ebook-modal-iframe" id="ebookModalIframe" src="" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       SCRIPTS (BOOTSTRAP, AOS, SWIPER & CUSTOM JS)
+       ========================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 0. Site Header scroll shrink & active nav tracking
+      const siteHeader = document.getElementById("siteHeader");
+      const navLinks = document.querySelectorAll(".modern-navbar .nav-link");
+      const trackedSections = document.querySelectorAll("header.hero, section[id]");
+
+      window.addEventListener("scroll", () => {
+        // Shrink header on scroll
+        if (siteHeader) {
+          if (window.scrollY > 40) {
+            siteHeader.classList.add("scrolled");
+          } else {
+            siteHeader.classList.remove("scrolled");
+          }
+        }
+
+        // Active link highlight
+        let currentId = "hero";
+        const scrollPosition = window.scrollY + 100;
+
+        trackedSections.forEach(section => {
+          const top = section.offsetTop;
+          const height = section.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            currentId = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach(link => {
+          const href = link.getAttribute("href");
+          if (href === `#${currentId}`) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
+        });
+      }, { passive: true });
+
+      // Auto-close mobile navigation menu on link click
+      const mainNavbarCollapse = document.getElementById("mainNavbar");
+      if (mainNavbarCollapse && window.bootstrap) {
+        const bsCollapse = bootstrap.Collapse.getOrCreateInstance(mainNavbarCollapse, { toggle: false });
+        mainNavbarCollapse.querySelectorAll(".nav-link, .btn-devis-nav").forEach(item => {
+          item.addEventListener("click", () => {
+            if (window.innerWidth < 992 && mainNavbarCollapse.classList.contains("show")) {
+              bsCollapse.hide();
+            }
+          });
+        });
+      }
+
+      // 1. Initialize AOS animation
+      if (window.AOS) {
+        AOS.init({ duration: 900, once: true });
+      }
+
+            // 2. Swiper continuous infinite glide for clients
+      if (window.Swiper) {
+        new Swiper(".mySwiper", {
+          slidesPerView: 5,
+          spaceBetween: 24,
+          loop: true,
+          loopedSlides: 20,
+          speed: 3500,
+          autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+          },
+          freeMode: true,
+          freeModeMomentum: false,
+          allowTouchMove: false,
+          breakpoints: {
+            320: { slidesPerView: 2, spaceBetween: 15 },
+            768: { slidesPerView: 3, spaceBetween: 20 },
+            1024: { slidesPerView: 5, spaceBetween: 24 }
+          }
+        });
+
+                // 2b. Swiper continuous infinite glide for E-Books (exactement comme "Ils nous font confiance")
+        const ebookSwiperInstance = new Swiper(".ebookSwiper", {
+          slidesPerView: 4.5,
+          spaceBetween: 22,
+          loop: true,
+          loopedSlides: 20,
+          speed: 6000,
+          autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          },
+          freeMode: true,
+          freeModeMomentum: false,
+          allowTouchMove: true,
+          grabCursor: true,
+          breakpoints: {
+            320: { slidesPerView: 1.3, spaceBetween: 14 },
+            576: { slidesPerView: 2.2, spaceBetween: 16 },
+            768: { slidesPerView: 3, spaceBetween: 18 },
+            992: { slidesPerView: 3.8, spaceBetween: 20 },
+            1200: { slidesPerView: 4.6, spaceBetween: 22 },
+            1500: { slidesPerView: 5.2, spaceBetween: 24 }
+          }
+        });
+
+        // Contrôles flèches de navigation
+        const prevBtn = document.getElementById("ebookMarqueePrev");
+        const nextBtn = document.getElementById("ebookMarqueeNext");
+        if (prevBtn) {
+          prevBtn.addEventListener("click", () => {
+            ebookSwiperInstance.slidePrev(600);
+          });
+        }
+        if (nextBtn) {
+          nextBtn.addEventListener("click", () => {
+            ebookSwiperInstance.slideNext(600);
+          });
+        }
+      }
+
+      // 3. Stats Counter Animation on scroll
+      const counters = document.querySelectorAll(".counter");
+      let countersDone = false;
+
+      const animateCounters = () => {
+        counters.forEach(counter => {
+          const target = +counter.getAttribute("data-target") || 0;
+          const suffix = counter.getAttribute("data-suffix") || (target >= 12 && !counter.hasAttribute("data-suffix") ? "+" : "");
+          let count = 0;
+          const step = Math.ceil(target / 40);
+          const interval = setInterval(() => {
+            count += step;
+            if (count >= target) {
+              if (target >= 1000) {
+                counter.textContent = target.toLocaleString('fr-FR') + suffix;
+              } else {
+                counter.textContent = target + suffix;
+              }
+              clearInterval(interval);
+            } else {
+              if (target >= 1000) {
+                counter.textContent = count.toLocaleString('fr-FR');
+              } else {
+                counter.textContent = count;
+              }
+            }
+          }, 30);
+        });
+      };
+
+      const statsRow = document.getElementById("statsRow");
+      if (statsRow) {
+        const observer = new IntersectionObserver((entries) => {
+          if (entries[0].isIntersecting && !countersDone) {
+            countersDone = true;
+            animateCounters();
+            observer.disconnect();
+          }
+        }, { threshold: 0.3 });
+        observer.observe(statsRow);
+      }
+
+      // 4. Back to top button toggle
+      const backToTopBtn = document.getElementById("backToTopBtn");
+      if (backToTopBtn) {
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 300) {
+            backToTopBtn.style.display = "grid";
+          } else {
+            backToTopBtn.style.display = "none";
+          }
+        });
+        backToTopBtn.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+
+      // 5. Contact Form submission handler
+      const contactForm = document.getElementById("contactFormHome");
+      const contactSuccess = document.getElementById("contactSuccessMsg");
+      if (contactForm) {
+        contactForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const btn = contactForm.querySelector('button[type="submit"]');
+          const orig = btn.innerHTML;
+          btn.disabled = true;
+          btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Envoi en cours...';
+
+          setTimeout(() => {
+            btn.disabled = false;
+            btn.innerHTML = orig;
+            if (contactSuccess) {
+              contactSuccess.classList.remove("d-none");
+              setTimeout(() => contactSuccess.classList.add("d-none"), 6000);
+            }
+            contactForm.reset();
+          }, 1000);
+        });
+      }
+
+
+
+      // 7. Close E-Book modal triggers
+      const closeBtn = document.getElementById("closeEbookModalBtn");
+      if (closeBtn) {
+        closeBtn.addEventListener("click", closeEbookModal);
+      }
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeEbookModal();
+      });
+    });
+
+    // Global E-Book Modal functions
+    function openEbookModal(pdfUrl, title) {
+      const backdrop = document.getElementById('ebookModalBackdrop');
+      const win = document.getElementById('ebookModalWindow');
+      const loader = document.getElementById('ebookWindowLoader');
+      const loaderTitle = document.getElementById('ebookLoaderTitleText');
+      const iframe = document.getElementById('ebookModalIframe');
+
+      if (backdrop && iframe) {
+        if (loader) loader.classList.remove('hidden');
+        if (loaderTitle) loaderTitle.textContent = title;
+        if (win) win.classList.remove('is-fullscreen');
+
+        const readerUrl = `ebook-reader.html?pdf=${encodeURIComponent(pdfUrl)}&title=${encodeURIComponent(title)}&embed=1`;
+        iframe.src = readerUrl;
+
+        iframe.onload = () => {
+          setTimeout(() => {
+            if (loader) loader.classList.add('hidden');
+          }, 350);
+        };
+
+        backdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeEbookModal() {
+      const backdrop = document.getElementById('ebookModalBackdrop');
+      const iframe = document.getElementById('ebookModalIframe');
+      const loader = document.getElementById('ebookWindowLoader');
+      if (backdrop && iframe) {
+        backdrop.classList.remove('active');
+        setTimeout(() => {
+          iframe.src = '';
+          if (loader) loader.classList.remove('hidden');
+        }, 300);
+        document.body.style.overflow = '';
+      }
+    }
+
+    function handleBackdropClick(e) {
+      if (e.target.id === 'ebookModalBackdrop') {
+        closeEbookModal();
+      }
+    }
+
+    function toggleModalFullscreen() {
+      const win = document.getElementById('ebookModalWindow');
+      if (win) win.classList.toggle('is-fullscreen');
+    }
+
+    window.addEventListener('message', (e) => {
+      if (e.data && e.data.action === 'CLOSE_EBOOK_MODAL') {
+        closeEbookModal();
+      } else if (e.data && e.data.action === 'TOGGLE_FULLSCREEN') {
+        toggleModalFullscreen();
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeEbookModal();
+    });
+
+  </script>
+
+  <!-- Script Accordéon Panoramique Expansible Nos Services -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var accPanels = document.querySelectorAll('.service-acc-panel');
+      if (accPanels.length > 0) {
+        accPanels.forEach(function (panel) {
+          panel.addEventListener('mouseenter', function () {
+            accPanels.forEach(function (p) { p.classList.remove('active'); });
+            this.classList.add('active');
+          });
+          panel.addEventListener('click', function (e) {
+            if (e.target.closest('.service-acc-btn')) return;
+            accPanels.forEach(function (p) { p.classList.remove('active'); });
+            this.classList.add('active');
+          });
+        });
+      }
+    });
+  </script>
+
+  
+</body>
+</html>

@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demande de Devis — ACROW DZ | Coffrage & Échafaudage</title>
+  <meta name="description" content="Demandez un devis personnalisé pour la vente, location ou étude technique de matériel de coffrage et échafaudage en Algérie. Réponse sous 24h.">
+  <meta name="theme-color" content="#003366">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <!-- Bootstrap 5 & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-blue: #003366;
+      --primary-dark: #001a33;
+      --accent-red: #cc0000;
+      --accent-red-hover: #990000;
+      --accent-gold: #d4a017;
+      --light-bg: #f8f9fa;
+      --text-dark: #1f2937;
+      --white: #ffffff;
+      --border-color: #e5e7eb;
+    }
+
+    * { box-sizing: border-box; transition: all 0.2s ease-in-out; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--text-dark);
+      background: #f4f6fa;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* NAVBAR */
+    .modern-navbar {
+      background: rgba(255, 255, 255, 0.98) !important;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 51, 102, 0.08);
+      padding: 0.4rem 0;
+      z-index: 1030;
+    }
+    .logo-navbar {
+      height: 75px;
+      max-height: 12vh;
+      object-fit: contain;
+    }
+    .nav-link {
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: var(--primary-blue) !important;
+      position: relative;
+      padding: 0.5rem 0.75rem;
+      transition: color 0.3s;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background: var(--accent-red);
+      transition: width 0.3s ease, left 0.3s ease;
+      border-radius: 2px;
+    }
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+      left: 0;
+    }
+    .nav-link:hover { color: var(--accent-red) !important; }
+
+    /* PAGE HEADER BANNER */
+    .page-hero {
+      background: linear-gradient(135deg, #001a33 0%, #003366 60%, #004d99 100%);
+      color: #fff;
+      padding: 120px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 20%, rgba(204, 0, 0, 0.25), transparent 50%);
+    }
+    .page-hero .container { position: relative; z-index: 2; }
+
+    .pulse-line {
+      height: 6px;
+      width: 100%;
+      background: linear-gradient(90deg, #dc3545, #ffffff, #0d6efd);
+      background-size: 300% 100%;
+      animation: pulseMove 3s infinite linear;
+    }
+    @keyframes pulseMove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    /* FORM CONTAINER */
+    .devis-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 20px 50px rgba(0, 51, 102, 0.1);
+      border: 1px solid rgba(0, 51, 102, 0.08);
+      position: relative;
+      margin-top: -40px;
+      margin-bottom: 60px;
+    }
+    .devis-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--accent-red), var(--primary-blue));
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+    }
+
+    .section-subtitle-tag {
+      display: inline-block;
+      background: rgba(204, 0, 0, 0.1);
+      color: var(--accent-red);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 4px 14px;
+      border-radius: 30px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .form-label {
+      font-weight: 600;
+      color: var(--primary-blue);
+      font-size: 0.92rem;
+      margin-bottom: 6px;
+    }
+    .form-control, .form-select {
+      border-radius: 12px;
+      padding: 12px 16px;
+      border: 1.5px solid #d1d5db;
+      font-size: 0.95rem;
+      transition: all 0.25s;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--accent-red);
+      box-shadow: 0 0 0 4px rgba(204, 0, 0, 0.12);
+      outline: none;
+    }
+
+    .input-icon-group {
+      position: relative;
+    }
+    .input-icon-group i {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #9ca3af;
+      pointer-events: none;
+    }
+    .input-icon-group textarea + i {
+      top: 24px;
+    }
+
+    /* RADIO OPTION CARDS */
+    .option-card-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      background: #f8fafc;
+      border: 2px solid #e2e8f0;
+      border-radius: 14px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #334155;
+      transition: all 0.2s;
+      width: 100%;
+    }
+    .option-card-input:checked + .option-card-label {
+      border-color: var(--accent-red);
+      background: #fff5f5;
+      color: var(--accent-red);
+      box-shadow: 0 4px 14px rgba(204, 0, 0, 0.12);
+    }
+    .option-card-input { display: none; }
+
+    /* UPLOAD DROPZONE */
+    .dropzone-box {
+      border: 2px dashed #cbd5e1;
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      background: #f8fafc;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .dropzone-box:hover, .dropzone-box.dragover {
+      border-color: var(--accent-red);
+      background: #fff5f5;
+    }
+    .dropzone-icon {
+      font-size: 2.4rem;
+      color: var(--accent-red);
+      margin-bottom: 8px;
+    }
+
+    /* BUTTONS */
+    .btn-submit-devis {
+      background: linear-gradient(135deg, #cc0000 0%, #990000 100%);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      padding: 16px 36px;
+      border: none;
+      box-shadow: 0 10px 25px rgba(204, 0, 0, 0.35);
+      transition: all 0.3s;
+    }
+    .btn-submit-devis:hover {
+      background: linear-gradient(135deg, #990000 0%, #770000 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px rgba(204, 0, 0, 0.45);
+      color: #fff;
+    }
+
+    .btn-whatsapp-direct {
+      background: #25d366;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 50px;
+      padding: 14px 28px;
+      border: none;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-whatsapp-direct:hover {
+      background: #1eb956;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* INFO SIDEBAR CARDS */
+    .info-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 24px;
+      border: 1px solid rgba(0, 51, 102, 0.08);
+      box-shadow: 0 8px 24px rgba(0, 51, 102, 0.06);
+      margin-bottom: 24px;
+    }
+    .info-icon-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(0, 51, 102, 0.08);
+      color: var(--primary-blue);
+      display: grid;
+      place-items: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    /* FOOTER */
+    .footer-modern {
+      background: linear-gradient(135deg, #001a33, #003366, #0055aa);
+      background-size: 300% 300%;
+      animation: gradientMove 8s ease infinite;
+      color: #fff;
+      margin-top: auto;
+    }
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+    .footer-link {
+      position: relative;
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      display: inline-block;
+      padding-bottom: 2px;
+    }
+    .footer-link:hover { color: #fff; transform: translateX(4px); }
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      color: white;
+      font-size: 1.2rem;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+    .social-icon:hover {
+      background: var(--accent-red);
+      color: #fff;
+      transform: scale(1.15) rotate(6deg);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top modern-navbar">
+    <div class="container">
+      <a class="navbar-brand p-0" href="index.html#hero">
+        <img src="assets/images/logo.png" alt="ACROW DZ" class="logo-navbar">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-lg-center gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="index.html#hero">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">À propos</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link text-danger fw-bold" href="index.html#produits"><i class="bi bi-book-half me-1"></i>Produits (E-Books)</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#projets">Projets</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#clients">Clients</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+        </ul>
+        <a href="devis.html" class="btn btn-danger ms-lg-3 rounded-pill px-4 py-2 shadow-sm fw-bold">
+          <i class="bi bi-file-earmark-text me-1"></i> Demander un devis
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO HEADER -->
+  <header class="page-hero">
+    <div class="container text-center text-lg-start">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <span class="badge bg-danger rounded-pill px-3 py-2 mb-3">Service Commercial & Études Techniques</span>
+          <h1 class="fw-bold display-5 mb-3">Demande de <span class="text-danger">Devis Gratuit</span></h1>
+          <p class="lead opacity-90 mb-0">
+            Études sur-mesure, offres chiffrées de vente et location pour coffrage et échafaudage sur toute l'Algérie.
+          </p>
+        </div>
+        <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+          <div class="d-inline-flex flex-column gap-2 text-start bg-white text-dark p-3 rounded-4 shadow">
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-telephone-inbound-fill text-danger fs-4"></i>
+              <div>
+                <small class="text-muted d-block">Assistance rapide</small>
+                <strong>028 23 09 45</strong>
+              </div>
+            </div>
+            <div class="d-flex align-items-center gap-2 border-top pt-2">
+              <i class="bi bi-whatsapp text-success fs-4"></i>
+              <div>
+                <small class="text-muted d-block">WhatsApp Commercial</small>
+                <strong>+213 28 23 09 45</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="pulse-line"></div>
+
+  <!-- MAIN DEVIS CONTENT -->
+  <main class="container my-5">
+    <div class="row g-4">
+      
+      <!-- FORM COLUMN -->
+      <div class="col-lg-8">
+        <div class="devis-card">
+          <span class="section-subtitle-tag"><i class="bi bi-file-earmark-check me-1"></i> Formulaire de chiffrage</span>
+          <h2 class="fw-bold mb-3" style="color: var(--primary-blue);">Détails de votre projet</h2>
+          <p class="text-muted mb-4">
+            Veuillez renseigner les éléments techniques ci-dessous. Notre bureau d'études étudiera votre demande et vous répondra sous 24h ouvrées.
+          </p>
+
+          <!-- Feedback notification container -->
+          <div id="devisAlertBox" class="alert alert-success d-none rounded-4 shadow-sm" role="alert">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-check-circle-fill fs-3 me-3 text-success"></i>
+              <div>
+                <h5 class="alert-heading fw-bold mb-1">Votre demande a été enregistrée avec succès !</h5>
+                <p class="mb-0">Nos ingénieurs technico-commerciaux vous contacteront avec une proposition chiffrée détaillée.</p>
+              </div>
+            </div>
+          </div>
+
+          <form id="devisMainForm" action="#" method="POST" enctype="multipart/form-data">
+            
+            <!-- Type de Prestation (5 Pôles Officiels ACROW DZ) -->
+            <div class="mb-4">
+              <label class="form-label d-block">Type de prestation souhaitée *</label>
+              <div class="row g-2">
+                <div class="col-6 col-lg-4">
+                  <input type="radio" name="prestation" id="prest_mfg" value="Metal Formwork & Scaffolding Manufacturing" class="option-card-input" checked>
+                  <label for="prest_mfg" class="option-card-label">
+                    <i class="bi bi-hammer text-danger fs-5"></i>
+                    <span>Fabrication Métallique</span>
+                  </label>
+                </div>
+                <div class="col-6 col-lg-4">
+                  <input type="radio" name="prestation" id="prest_etude" value="Engineering & Project Analysis" class="option-card-input">
+                  <label for="prest_etude" class="option-card-label">
+                    <i class="bi bi-pencil-ruler text-info fs-5"></i>
+                    <span>Bureau d'Études</span>
+                  </label>
+                </div>
+                <div class="col-6 col-lg-4">
+                  <input type="radio" name="prestation" id="prest_install" value="Innovative System Solutions & Installation" class="option-card-input">
+                  <label for="prest_install" class="option-card-label">
+                    <i class="bi bi-gear-wide-connected text-success fs-5"></i>
+                    <span>Montage sur Site</span>
+                  </label>
+                </div>
+                <div class="col-6 col-lg-6">
+                  <input type="radio" name="prestation" id="prest_sales_rental" value="Sales & Rental Services" class="option-card-input">
+                  <label for="prest_sales_rental" class="option-card-label">
+                    <i class="bi bi-cart-check text-primary fs-5"></i>
+                    <span>Vente &amp; Location Matériel</span>
+                  </label>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <input type="radio" name="prestation" id="prest_maint" value="Maintenance & Reconditioning" class="option-card-input">
+                  <label for="prest_maint" class="option-card-label">
+                    <i class="bi bi-arrow-repeat text-warning fs-5"></i>
+                    <span>Maintenance &amp; Reconditionnement</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Coordonnées Demandeur -->
+            <h5 class="fw-bold text-dark border-bottom pb-2 mb-3 mt-4">
+              <i class="bi bi-person-lines-fill text-danger me-2"></i>Coordonnées de l'entreprise
+            </h5>
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label">Nom et Prénom *</label>
+                <div class="input-icon-group">
+                  <input type="text" name="name" class="form-control" placeholder="Ex: Mohamed Benali" required>
+                  <i class="bi bi-person-fill"></i>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Entreprise / Raison sociale *</label>
+                <div class="input-icon-group">
+                  <input type="text" name="company" class="form-control" placeholder="Ex: Entreprise BTPH Alger" required>
+                  <i class="bi bi-building"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label class="form-label">Email professionnel *</label>
+                <div class="input-icon-group">
+                  <input type="email" name="email" class="form-control" placeholder="nom@entreprise.dz" required>
+                  <i class="bi bi-envelope-at-fill"></i>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Téléphone / WhatsApp *</label>
+                <div class="input-icon-group">
+                  <input type="tel" name="phone" class="form-control" placeholder="05XX XX XX XX / 028 XX XX XX" required>
+                  <i class="bi bi-telephone-fill"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Spécifications Techniques -->
+            <h5 class="fw-bold text-dark border-bottom pb-2 mb-3 mt-4">
+              <i class="bi bi-tools text-danger me-2"></i>Spécifications du Matériel
+            </h5>
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label">Famille de matériel *</label>
+                <div class="input-icon-group">
+                  <select name="materiel" class="form-select" required>
+                    <option value="">Sélectionnez un système...</option>
+                    <option value="Échafaudage tubulaire & d'accès">Échafaudage tubulaire & d'accès</option>
+                    <option value="Coffrage métallique modulable (Murs/Voiles)">Coffrage métallique modulable (Murs/Voiles)</option>
+                    <option value="Coffrage de poteaux (Circulaires / Rectangulaires)">Coffrage de poteaux (Circulaires / Rectangulaires)</option>
+                    <option value="Coffrage de dalles & tables (Alu-Deck / Flex)">Coffrage de dalles & tables (Alu-Deck / Flex)</option>
+                    <option value="Étaiement lourd & Tours d'étaiement">Étaiement lourd & Tours d'étaiement</option>
+                    <option value="Systèmes grimpants & Voiles de grande hauteur">Systèmes grimpants & Voiles de grande hauteur</option>
+                    <option value="Accessoires, poutres H20 & étais télescopiques">Accessoires, poutres H20 & étais télescopiques</option>
+                    <option value="Autre système spécifique">Autre système spécifique</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Localisation du chantier (Wilaya / Commune) *</label>
+                <div class="input-icon-group">
+                  <input type="text" name="destination" class="form-control" placeholder="Ex: Alger, Oran, Skikda, Ouargla..." required>
+                  <i class="bi bi-geo-alt-fill"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label">Quantité estimée (m² ou Tonnes) *</label>
+                <div class="input-icon-group">
+                  <input type="text" name="quantite" class="form-control" placeholder="Ex: 500 m² de voiles / 20 tonnes" required>
+                  <i class="bi bi-calculator-fill"></i>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Durée prévisionnelle (si location)</label>
+                <div class="input-icon-group">
+                  <input type="text" name="duree" class="form-control" placeholder="Ex: 3 mois / 60 jours">
+                  <i class="bi bi-calendar-event-fill"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Description détaillée & contraintes de projet</label>
+              <div class="input-icon-group">
+                <textarea name="message" class="form-control" rows="4" placeholder="Précisez la hauteur sous plafond, épaisseurs de voiles, cadences de coulage, dates de démarrage ou exigences particulières..."></textarea>
+                <i class="bi bi-chat-left-dots-fill"></i>
+              </div>
+            </div>
+
+            <!-- Fichier joint -->
+            <div class="mb-4">
+              <label class="form-label">Joindre un plan ou cahier des charges (Optionnel)</label>
+              <div class="dropzone-box" id="fileDropzone" onclick="document.getElementById('fileInput').click()">
+                <i class="bi bi-cloud-arrow-up-fill dropzone-icon"></i>
+                <h6 class="fw-bold mb-1">Glissez-déposez vos fichiers ici, ou cliquez pour parcourir</h6>
+                <small class="text-muted d-block">Formats supportés : PDF, DWG, DXF, JPG, PNG (Max: 25 Mo)</small>
+                <div id="fileSelectedName" class="badge bg-primary mt-2 d-none p-2"></div>
+                <input type="file" id="fileInput" name="file" class="d-none" accept=".pdf,.dwg,.dxf,.jpg,.jpeg,.png">
+              </div>
+            </div>
+
+            <div class="d-grid gap-3 pt-3">
+              <button type="submit" class="btn btn-submit-devis">
+                <i class="bi bi-send-fill me-2"></i> Envoyer ma demande de devis
+              </button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+      <!-- SIDEBAR INFO COLUMN -->
+      <div class="col-lg-4">
+        
+        <!-- Engagements Card -->
+        <div class="info-card">
+          <h5 class="fw-bold text-primary mb-3">
+            <i class="bi bi-shield-fill-check text-danger me-2"></i>Pourquoi ACROW DZ ?
+          </h5>
+          <ul class="list-unstyled mb-0 d-flex flex-column gap-3">
+            <li class="d-flex align-items-start gap-3">
+              <div class="info-icon-badge"><i class="bi bi-clock-history"></i></div>
+              <div>
+                <strong>Chiffrage sous 24h</strong>
+                <p class="small text-muted mb-0">Réactivité de notre équipe technique dès réception des éléments.</p>
+              </div>
+            </li>
+            <li class="d-flex align-items-start gap-3">
+              <div class="info-icon-badge"><i class="bi bi-diagram-3-fill"></i></div>
+              <div>
+                <strong>Plans 2D & 3D Dédiés</strong>
+                <p class="small text-muted mb-0">Études de calepinage et calculs de résistance certifiés.</p>
+              </div>
+            </li>
+            <li class="d-flex align-items-start gap-3">
+              <div class="info-icon-badge"><i class="bi bi-truck"></i></div>
+              <div>
+                <strong>Livraison 58 Wilayas</strong>
+                <p class="small text-muted mb-0">Flotte logistique capable de desservir l'ensemble du territoire national.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Coordonnées Card -->
+        <div class="info-card">
+          <h5 class="fw-bold text-primary mb-3">
+            <i class="bi bi-geo-alt-fill text-danger me-2"></i>Siège & Parc Matériel
+          </h5>
+          <p class="text-muted small mb-3">
+            Venez découvrir nos équipements et échanger avec nos experts directement à notre siège.
+          </p>
+          <div class="mb-3">
+            <strong class="d-block text-dark">Adresse :</strong>
+            <span class="text-muted small">Cité des Travailleurs, lot n°9 groupe 2, 16033 Dar El Beida, Alger, Algérie</span>
+          </div>
+          <div class="mb-3">
+            <strong class="d-block text-dark">Téléphone standard :</strong>
+            <a href="tel:+21328230945" class="text-danger fw-bold text-decoration-none">028 23 09 45</a>
+          </div>
+          <div class="mb-3">
+            <strong class="d-block text-dark">Email commercial :</strong>
+            <a href="mailto:acrow-dz@acrow.co" class="text-primary text-decoration-none">acrow-dz@acrow.co</a>
+          </div>
+
+          <div class="d-grid mt-3">
+            <a href="https://wa.me/21328230945?text=Bonjour%20ACROW%20DZ,%20je%20souhaite%20obtenir%20un%20devis" target="_blank" class="btn-whatsapp-direct justify-content-center">
+              <i class="bi bi-whatsapp fs-5"></i> Échanger sur WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Catalogues Promotion -->
+        <div class="info-card bg-primary text-white" style="background: linear-gradient(135deg, #001a33, #003366) !important;">
+          <h5 class="fw-bold mb-2"><i class="bi bi-book-half text-danger me-2"></i>Catalogues Techniques</h5>
+          <p class="small opacity-85 mb-3">
+            Consultez nos 20 manuels officiels en version numérique E-Book haute définition avec plans de montage.
+          </p>
+          <a href="index.html#ebooks" class="btn btn-outline-light btn-sm rounded-pill px-3 py-2">
+            <i class="bi bi-eye-fill me-1"></i> Ouvrir la bibliothèque E-Books
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-modern pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <img src="assets/images/logo.png" alt="ACROW DZ" style="height:60px;" class="mb-3">
+          <p class="small opacity-75">
+            ACROW DZ — Vente, location et études techniques de matériel de coffrage et échafaudage en Algérie. Solutions fiables et sécurisées pour le BTP et l'industrie.
+          </p>
+        </div>
+
+        <div class="col-md-2">
+          <h6 class="text-uppercase fw-bold mb-3 text-danger">Navigation</h6>
+          <ul class="list-unstyled d-flex flex-column gap-2 small">
+            <li><a href="index.html#hero" class="footer-link">Accueil</a></li>
+            <li><a href="index.html#services" class="footer-link">Services</a></li>
+            <li><a href="index.html#produits" class="footer-link">Produits</a></li>
+            <li><a href="index.html#ebooks" class="footer-link">E-Books (20)</a></li>
+            <li><a href="index.html#projets" class="footer-link">Projets</a></li>
+            <li><a href="index.html#contact" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-3">
+          <h6 class="text-uppercase fw-bold mb-3 text-danger">Coordonnées</h6>
+          <p class="small mb-2"><i class="bi bi-geo-alt-fill me-2 text-danger"></i>Cité des Travailleurs, lot n°9 groupe 2, 16033 Dar El Beida, Alger</p>
+          <p class="small mb-2"><i class="bi bi-envelope-fill me-2 text-danger"></i>acrow-dz@acrow.co</p>
+          <p class="small mb-2"><i class="bi bi-telephone-fill me-2 text-danger"></i>028 23 09 45</p>
+        </div>
+
+        <div class="col-md-3">
+          <h6 class="text-uppercase fw-bold mb-3 text-danger">Suivez-nous</h6>
+          <div class="d-flex gap-2">
+            <a href="https://www.facebook.com/acrow.co" target="_blank" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.linkedin.com/company/acrow-formwork/" target="_blank" class="social-icon"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.instagram.com/acrowmisr/?hl=en" target="_blank" class="social-icon"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-4" style="border-color: rgba(255,255,255,0.15)">
+      <div class="d-flex flex-wrap justify-content-between align-items-center small opacity-75">
+        <div>&copy; 2026 ACROW DZ — Tous droits réservés.</div>
+        <div>Normes de fabrication EN &amp; ISO certifiées.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // File upload preview
+    const fileInput = document.getElementById('fileInput');
+    const fileSelectedName = document.getElementById('fileSelectedName');
+    const dropzone = document.getElementById('fileDropzone');
+
+    if (fileInput) {
+      fileInput.addEventListener('change', (e) => {
+        if (e.target.files.length > 0) {
+          fileSelectedName.textContent = '📎 Fichier sélectionné : ' + e.target.files[0].name;
+          fileSelectedName.classList.remove('d-none');
+        }
+      });
+    }
+
+    // Drag and drop events
+    if (dropzone) {
+      ['dragenter', 'dragover'].forEach(eventName => {
+        dropzone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          dropzone.classList.add('dragover');
+        });
+      });
+      ['dragleave', 'drop'].forEach(eventName => {
+        dropzone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          dropzone.classList.remove('dragover');
+        });
+      });
+      dropzone.addEventListener('drop', (e) => {
+        if (e.dataTransfer.files.length > 0) {
+          fileInput.files = e.dataTransfer.files;
+          fileSelectedName.textContent = '📎 Fichier sélectionné : ' + e.dataTransfer.files[0].name;
+          fileSelectedName.classList.remove('d-none');
+        }
+      });
+    }
+
+    // Form submission simulation
+    const form = document.getElementById('devisMainForm');
+    const alertBox = document.getElementById('devisAlertBox');
+
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        const origText = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Traitement en cours...';
+
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.innerHTML = origText;
+          alertBox.classList.remove('d-none');
+          alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          form.reset();
+          if (fileSelectedName) fileSelectedName.classList.add('d-none');
+        }, 1200);
+      });
+    }
+  </script>
+</body>
+</html>

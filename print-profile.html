@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACROW DZ — Dossier de Présentation Officiel (PDF)</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <style>
+    :root {
+      --primary-blue: #003366;
+      --primary-dark: #001a33;
+      --primary-deep: #001224;
+      --accent-red: #cc0000;
+      --accent-red-hover: #990000;
+      --accent-gold: #d4a017;
+      --light-bg: #f8fafc;
+      --border-color: #e2e8f0;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: #334155;
+      color: var(--text-dark);
+      line-height: 1.5;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    h1, h2, h3, h4, h5, .brand-font {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Print toolbar at top for browser view */
+    .print-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      background: linear-gradient(90deg, #001224 0%, #001a33 50%, #002244 100%);
+      color: #fff;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      border-bottom: 2px solid var(--accent-red);
+    }
+
+    .btn-print {
+      background: linear-gradient(135deg, #cc0000, #990000);
+      color: #fff;
+      border: none;
+      padding: 9px 22px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(204, 0, 0, 0.35);
+    }
+
+    .btn-print:hover {
+      background: #b30000;
+      transform: translateY(-1px);
+    }
+
+    .btn-back {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      transition: all 0.2s;
+    }
+
+    .btn-back:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.15);
+    }
+
+    /* Standard A4 Sheet dimensions */
+    .a4-page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 25px auto;
+      background: #fff;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 18mm 18mm;
+      page-break-after: always;
+      overflow: hidden;
+    }
+
+    /* Header & Footer on A4 Pages */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+
+    .page-header img {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .page-doc-title {
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--primary-blue);
+      letter-spacing: 0.08em;
+    }
+
+    .page-doc-title span {
+      color: var(--accent-red);
+    }
+
+    .page-footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 10px;
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* COVER PAGE */
+    .cover-page {
+      background: linear-gradient(135deg, #001224 0%, #001a33 50%, #002b4d 100%);
+      color: #fff;
+      padding: 24mm 20mm;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .cover-page::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(204, 0, 0, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cover-top {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cover-logo-wrapper {
+      background: #ffffff;
+      padding: 10px 22px;
+      border-radius: 10px;
+      display: inline-block;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .cover-logo-wrapper img {
+      height: 65px;
+      width: auto;
+      display: block;
+    }
+
+    .cover-tagline {
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cover-title {
+      font-size: 2.6rem;
+      font-weight: 900;
+      line-height: 1.15;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+
+    .cover-title span {
+      color: var(--accent-red);
+    }
+
+    .cover-subtitle {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+      max-width: 90%;
+      margin-bottom: 35px;
+    }
+
+    .cover-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      position: relative;
+      z-index: 2;
+      margin-top: 30px;
+    }
+
+    .cover-spec-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      padding: 16px 10px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .cover-spec-num {
+      font-size: 1.9rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .cover-spec-num.red {
+      color: #ff4d4d;
+    }
+
+    .cover-spec-num.gold {
+      color: var(--accent-gold);
+    }
+
+    .cover-spec-lbl {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.05em;
+    }
+
+    .cover-footer {
+      position: relative;
+      z-index: 2;
+      border-top: 1px solid rgba(255,255,255,0.18);
+      padding-top: 15px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* INTERNAL PAGES TYPOGRAPHY & CARDS */
+    .page-title {
+      font-size: 1.7rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--primary-dark);
+      margin-bottom: 6px;
+    }
+
+    .page-subtitle {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-red);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .page-subtitle::before {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 3px;
+      background: var(--accent-red);
+      border-radius: 2px;
+    }
+
+    .lead-text {
+      font-size: 0.92rem;
+      color: #334155;
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+
+    .cards-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .cards-3col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .content-box {
+      background: var(--light-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .content-box.border-red {
+      border-left: 4px solid var(--accent-red);
+    }
+
+    .content-box.border-blue {
+      border-left: 4px solid var(--primary-blue);
+    }
+
+    .content-box h4 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .content-box p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .table-custom {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 0.78rem;
+    }
+
+    .table-custom th {
+      background: var(--primary-dark);
+      color: #fff;
+      text-align: left;
+      padding: 8px 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+    }
+
+    .table-custom td {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border-color);
+      color: #334155;
+    }
+
+    .table-custom tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    .badge-pill {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--accent-red);
+      color: #fff;
+    }
+
+    .badge-pill.blue {
+      background: var(--primary-blue);
+    }
+
+    .badge-pill.green {
+      background: #10b981;
+    }
+
+    /* Print media optimization */
+    @media print {
+      body {
+        background: #fff;
+      }
+      .print-toolbar {
+        display: none !important;
+      }
+      .a4-page {
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+        width: 100%;
+        min-height: 100vh;
+        padding: 15mm 15mm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Toolbar for Browser Print Action -->
+  <div class="print-toolbar">
+    <div style="display:flex; align-items:center; gap:16px;">
+      <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Retour au site</a>
+      <span style="font-size:0.85rem; font-weight:700; color:#cbd5e1;">ACROW DZ &bull; DOSSIER DE PRÉSENTATION CORPORATE A4</span>
+    </div>
+    <button class="btn-print" onclick="window.print();">
+      <i class="fa-solid fa-print"></i> Imprimer / Enregistrer en PDF
+    </button>
+  </div>
+
+  <!-- ==========================================
+       PAGE 1: COUVERTURE OFFICIELLE
+       ========================================== -->
+  <div class="a4-page cover-page">
+    <div class="cover-top">
+      <div class="cover-logo-wrapper">
+        <img src="assets/images/logo.png" alt="ACROW DZ — Coffrage & Échafaudage">
+      </div>
+      <div class="cover-tagline">
+        <i class="bi bi-award-fill"></i> Leader du coffrage &amp; de l'échafaudage en Algérie
+      </div>
+      <h1 class="cover-title">Dossier de<br><span>Présentation</span></h1>
+      <p class="cover-subtitle">
+        Solutions d'ingénierie certifiées, vente &amp; location d'équipements de coffrage, d'étaiement et d'échafaudage pour méga-chantiers de BTP, génie civil et industrie pétrolière en Algérie.
+      </p>
+    </div>
+
+    <div>
+      <div class="cover-specs-grid">
+        <div class="cover-spec-card">
+          <div class="cover-spec-num red">12+</div>
+          <div class="cover-spec-lbl">Ans d'Expérience</div>
+        </div>
+        <div class="cover-spec-card">
+          <div class="cover-spec-num">150+</div>
+          <div class="cover-spec-lbl">Clients Majeurs</div>
+        </div>
+        <div class="cover-spec-card">
+          <div class="cover-spec-num gold">300+</div>
+          <div class="cover-spec-lbl">Projets Réalisés</div>
+        </div>
+        <div class="cover-spec-card">
+          <div class="cover-spec-num">58</div>
+          <div class="cover-spec-lbl">Wilayas Couvertes</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-footer">
+      <div>ACROW DZ &bull; Matériel certifié ISO 9001 &amp; Normes Européennes EN</div>
+      <div>Dar El Beida, Alger — Algérie &bull; 028 23 09 45</div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAGE 2: PRÉSENTATION & SAVOIR-FAIRE
+       ========================================== -->
+  <div class="a4-page">
+    <div>
+      <div class="page-header">
+        <img src="assets/images/logo.png" alt="ACROW DZ">
+        <div class="page-doc-title">Présentation &bull; <span>Savoir-Faire</span></div>
+      </div>
+
+      <h2 class="page-title">À propos de ACROW DZ</h2>
+      <div class="page-subtitle">Excellence, Rigueur &amp; Normes Internationales</div>
+
+      <p class="lead-text">
+        Fondée en <strong>2012</strong>, <strong>ACROW DZ</strong> est une entreprise leader en Algérie spécialisée dans la vente, la location et l'étude technique de matériel de coffrage et d'échafaudage haute performance. Nous intervenons sur les chantiers les plus exigeants : infrastructures autoroutières, ponts &amp; viaducs, stations d'épuration, métros, tours d'habitation et complexes pétrochimiques.
+      </p>
+
+      <div class="cards-2col">
+        <div class="content-box border-red">
+          <h4><i class="bi bi-compass text-danger"></i> Bureau d'Études &amp; Ingénierie</h4>
+          <p>
+            Équipe d'ingénieurs dédiée réalisant les calculs de résistance, notes de calcul selon l'Eurocode, plans de calepinage 2D/3D et phasages d'exécution précis pour garantir la sécurité et réduire le temps de cycle de coulage.
+          </p>
+        </div>
+        <div class="content-box border-blue">
+          <h4><i class="bi bi-shield-check text-primary"></i> Sécurité &amp; Certifications</h4>
+          <p>
+            Parc de matériel rigoureusement inspecté et certifié ISO 9001, conforme aux normes européennes EN 12810/12811 (échafaudages) et EN 1065 (étais acier télescopiques). Traçabilité complète des aciers et composants.
+          </p>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:8px; margin-bottom:16px;">
+        <div class="content-box" style="padding:10px;">
+          <h4 style="font-size:0.75rem;"><i class="bi bi-hammer text-danger"></i> Fabrication</h4>
+          <p style="font-size:0.7rem; line-height:1.35;"><strong>Manufacturing:</strong> Systèmes durables de coffrage et échafaudage adaptés sur-mesure.</p>
+        </div>
+        <div class="content-box" style="padding:10px;">
+          <h4 style="font-size:0.75rem;"><i class="bi bi-pencil-ruler text-primary"></i> Ingénierie</h4>
+          <p style="font-size:0.7rem; line-height:1.35;"><strong>Engineering:</strong> Études détaillées, notes de calcul de charge et optimisation 3D.</p>
+        </div>
+        <div class="content-box" style="padding:10px;">
+          <h4 style="font-size:0.75rem;"><i class="bi bi-gear-wide-connected text-success"></i> Installation</h4>
+          <p style="font-size:0.7rem; line-height:1.35;"><strong>On-Site:</strong> Systèmes rentables avec supervision et assistance professionnelle.</p>
+        </div>
+        <div class="content-box" style="padding:10px;">
+          <h4 style="font-size:0.75rem;"><i class="bi bi-cart-check text-warning"></i> Vente &amp; Loc.</h4>
+          <p style="font-size:0.7rem; line-height:1.35;"><strong>Sales &amp; Rental:</strong> Matériel certifié disponible à l'achat ou en location flexible.</p>
+        </div>
+        <div class="content-box" style="padding:10px;">
+          <h4 style="font-size:0.75rem;"><i class="bi bi-arrow-repeat text-info"></i> Maintenance</h4>
+          <p style="font-size:0.7rem; line-height:1.35;"><strong>Reconditioning:</strong> Remise en état, réparation et extension de durée de vie.</p>
+        </div>
+      </div>
+
+      <h3 style="font-size:1.1rem; font-weight:800; color:var(--primary-dark); margin: 20px 0 10px;">Engagements Clés ACROW DZ</h3>
+      <table class="table-custom">
+        <thead>
+          <tr>
+            <th>Critère</th>
+            <th>Standard ACROW DZ</th>
+            <th>Bénéfice Chantier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Temps de rotation</strong></td>
+            <td>Systèmes modulaires manuportables &amp; pré-assemblés</td>
+            <td>Gain jusqu'à 40% sur le planning gros-œuvre</td>
+          </tr>
+          <tr>
+            <td><strong>Sécurité des hommes</strong></td>
+            <td>Garde-corps intégrés, platelages antidérapants EN</td>
+            <td>Zéro compromis sur la sécurité des compagnons</td>
+          </tr>
+          <tr>
+            <td><strong>Support technique</strong></td>
+            <td>Superviseurs et techniciens formés sur site</td>
+            <td>Assistance continue au montage et démontage</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="page-footer">
+      <div>ACROW DZ &bull; Cité des Travailleurs, lot n°9 groupe 2, 16033 Dar El Beida, Alger</div>
+      <div>Page 2 / 5</div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAGE 3: CATALOGUE DE SYSTÈMES PRINCIPAUX
+       ========================================== -->
+  <div class="a4-page">
+    <div>
+      <div class="page-header">
+        <img src="assets/images/logo.png" alt="ACROW DZ">
+        <div class="page-doc-title">Catalogue &bull; <span>Systèmes Techniques</span></div>
+      </div>
+
+      <h2 class="page-title">Systèmes de Coffrage &amp; Étaiement</h2>
+      <div class="page-subtitle">Technologies Modulaires Haute Performance</div>
+
+      <p class="lead-text">
+        Notre gamme complète d'équipements répond à tous les défis géométriques et structurels du béton armé moderne :
+      </p>
+
+      <table class="table-custom" style="margin-bottom:20px;">
+        <thead>
+          <tr>
+            <th>Famille de Système</th>
+            <th>Désignation</th>
+            <th>Domaine d'Application</th>
+            <th>Spécifications Clés</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge-pill blue">Voiles &amp; Murs</span></td>
+            <td><strong>Acrow Vari-Form &amp; Soldier</strong></td>
+            <td>Voiles banchés, radiers, culées de ponts</td>
+            <td>Pression béton admissible jusqu'à 80 kN/m²</td>
+          </tr>
+          <tr>
+            <td><span class="badge-pill">Unilatéral</span></td>
+            <td><strong>Acrow One-Side Shuttering</strong></td>
+            <td>Parois berlinoises, tunnels, fosses</td>
+            <td>Chevalets triangulés pour parois sans vis-à-vis</td>
+          </tr>
+          <tr>
+            <td><span class="badge-pill blue">Dalles</span></td>
+            <td><strong>Acrow Tableform &amp; Flex-Slab</strong></td>
+            <td>Dalles pleines, dalles alvéolées, parkings</td>
+            <td>Décoffrage rapide avec têtes de décintrement</td>
+          </tr>
+          <tr>
+            <td><span class="badge-pill green">Étaiement Lourd</span></td>
+            <td><strong>Combishore &amp; Tours d'Étaiement</strong></td>
+            <td>Viaducs, franchissements autoroutiers</td>
+            <td>Capacité de charge extrême : jusqu'à 100 T/pied</td>
+          </tr>
+          <tr>
+            <td><span class="badge-pill green">Étais Universels</span></td>
+            <td><strong>Étais Acier EN 1065 &amp; Alu Props</strong></td>
+            <td>Soutènement dalles, étaiement vertical</td>
+            <td>Ouverture télescopique jusqu'à 6.00 m</td>
+          </tr>
+          <tr>
+            <td><span class="badge-pill">Échafaudage</span></td>
+            <td><strong>Cup-Lock &amp; Ring-Lock Modulaire</strong></td>
+            <td>Façades, tours d'accès, maintenance industrielle</td>
+            <td>Verrouillage par clavette conforme EN 12810</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="cards-2col" style="margin-top:20px;">
+        <div class="content-box">
+          <h4><i class="bi bi-box-seam text-danger"></i> Consommables &amp; Accessoires Certifiés</h4>
+          <p>
+            Nous fournissons l'ensemble des accessoires normés indispensables : tiges de coffrage DW15 à haute résistance, écrous à ailettes, huile de décoffrage biodégradable, consoles de pignon, garde-corps provisoires et poutrelles bois H-20 certifiées EN 13377.
+          </p>
+        </div>
+        <div class="content-box">
+          <h4><i class="bi bi-book-half text-primary"></i> 20 Catalogues Techniques E-Books</h4>
+          <p>
+            L'ensemble de nos manuels techniques est accessible en consultation interactive 3D haute définition sur notre portail web, avec tables de charge admissibles, abaques de flèche et plans de montage détaillés.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>ACROW DZ &bull; Matériel certifié ISO 9001 &amp; Normes Européennes EN</div>
+      <div>Page 3 / 5</div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAGE 4: RÉFÉRENCES MAJEURES & CLIENTS
+       ========================================== -->
+  <div class="a4-page">
+    <div>
+      <div class="page-header">
+        <img src="assets/images/logo.png" alt="ACROW DZ">
+        <div class="page-doc-title">Références &bull; <span>Projets en Algérie</span></div>
+      </div>
+
+      <h2 class="page-title">Nos Réalisations Emblématiques</h2>
+      <div class="page-subtitle">Au Cœur des Plus Grands Chantiers d'Algérie</div>
+
+      <p class="lead-text">
+        ACROW DZ est fière d'avoir accompagné les maîtres d'œuvre et entreprises générales sur des ouvrages structurants de référence à travers le pays :
+      </p>
+
+      <div class="cards-2col">
+        <div class="content-box border-red">
+          <h4><i class="bi bi-train-front text-danger"></i> Métro d'Alger — Lignes d'Extension</h4>
+          <p>
+            <strong>Client :</strong> COSIDER TP<br>
+            <strong>Solution :</strong> Systèmes de coffrage pour stations souterraines, galeries d'accès et puits de ventilation avec coffrage unilatéral haute rigidité.
+          </p>
+        </div>
+
+        <div class="content-box border-blue">
+          <h4><i class="bi bi-buildings text-primary"></i> Marina Bay Alger — Front de Mer</h4>
+          <p>
+            <strong>Type :</strong> Complexe immobilier de luxe &amp; tours résidentielles<br>
+            <strong>Solution :</strong> Système de coffrage de planchers Tableform et tours d'accès sécurisées à rotation continue.
+          </p>
+        </div>
+
+        <div class="content-box border-blue">
+          <h4><i class="bi bi-bridge text-primary"></i> Viaducs &amp; Ouvrages d'Art — Skikda</h4>
+          <p>
+            <strong>Type :</strong> Infrastructures autoroutières &amp; franchissements<br>
+            <strong>Solution :</strong> Tours d'étaiement ultra-lourdes Combishore pour tabliers de ponts et coffrage de piles circulaires de grande hauteur.
+          </p>
+        </div>
+
+        <div class="content-box border-red">
+          <h4><i class="bi bi-droplet-half text-danger"></i> Station de Traitement El Othmania</h4>
+          <p>
+            <strong>Type :</strong> Ouvrage hydraulique &amp; bassins sous pression<br>
+            <strong>Solution :</strong> Chevalets de coffrage unilatéral pour parois étanches de grande épaisseur sans perforation d'ancrage.
+          </p>
+        </div>
+      </div>
+
+      <h3 style="font-size:1.1rem; font-weight:800; color:var(--primary-dark); margin: 20px 0 10px;">Ils Nous Font Confiance</h3>
+      <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:12px;">
+        Partenaires stratégiques et donneurs d'ordre majeurs du BTP, de l'énergie et de l'industrie en Algérie :
+      </p>
+
+      <div style="background:var(--light-bg); border:1px solid var(--border-color); border-radius:8px; padding:16px; display:flex; flex-wrap:wrap; gap:12px; justify-content:space-around; align-items:center;">
+        <span style="font-weight:800; font-size:0.95rem; color:#1e293b;">COSIDER</span>
+        <span style="color:#cbd5e1;">&bull;</span>
+        <span style="font-weight:800; font-size:0.95rem; color:#1e293b;">SONATRACH</span>
+        <span style="color:#cbd5e1;">&bull;</span>
+        <span style="font-weight:800; font-size:0.95rem; color:#1e293b;">CSCEC ALGERIE</span>
+        <span style="color:#cbd5e1;">&bull;</span>
+        <span style="font-weight:800; font-size:0.95rem; color:#1e293b;">CONDOR</span>
+        <span style="color:#cbd5e1;">&bull;</span>
+        <span style="font-weight:800; font-size:0.95rem; color:#1e293b;">MOBILIS</span>
+        <span style="color:#cbd5e1;">&bull;</span>
+        <span style="font-weight:800; font-size:0.95rem; color:#1e293b;">SOCIÉTÉ GÉNÉRALE</span>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>ACROW DZ &bull; Plus de 300 projets menés à bien à travers l'Algérie</div>
+      <div>Page 4 / 5</div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAGE 5: CONTACT & COORDONNÉES DAR EL BEIDA
+       ========================================== -->
+  <div class="a4-page cover-page" style="justify-content:space-between;">
+    <div>
+      <div class="cover-logo-wrapper">
+        <img src="assets/images/logo.png" alt="ACROW DZ">
+      </div>
+      <div class="cover-tagline">VOTRE PARTENAIRE TECHNIQUE DE RÉFÉRENCE</div>
+      <h2 style="font-size:2.4rem; font-weight:900; margin-bottom:16px;">Bâtissons Ensemble<br><span style="color:var(--accent-red);">Vos Grands Projets</span></h2>
+      <p style="font-size:0.96rem; color:rgba(255,255,255,0.85); line-height:1.7; max-width:85%;">
+        Confiez vos études de coffrage et vos besoins en matériel à nos ingénieurs experts. Nous intervenons partout en Algérie avec rapidité, rigueur et garantie de résultat.
+      </p>
+    </div>
+
+    <div style="background:rgba(255,255,255,0.08); padding:24px; border-radius:12px; border:1px solid rgba(255,255,255,0.18);">
+      <h4 style="color:#ff4d4d; font-size:1.15rem; font-weight:800; text-transform:uppercase; margin-bottom:16px;">
+        <i class="bi bi-geo-alt-fill me-2"></i> Siège Social &amp; Dépôt Matériel ACROW DZ :
+      </h4>
+
+      <p style="font-size:0.9rem; color:#fff; margin-bottom:12px; line-height:1.6;">
+        <i class="fa-solid fa-location-dot" style="color:var(--accent-red); width:24px;"></i>
+        <strong>Adresse :</strong> Cité des Travailleurs, lot n°9 groupe 2, 16033 Dar El Beida, Alger — Algérie
+      </p>
+
+      <p style="font-size:0.9rem; color:#fff; margin-bottom:12px;">
+        <i class="fa-solid fa-phone" style="color:var(--accent-red); width:24px;"></i>
+        <strong>Téléphone Standard :</strong> 028 23 09 45
+      </p>
+
+      <p style="font-size:0.9rem; color:#fff; margin-bottom:12px;">
+        <i class="fa-solid fa-clock" style="color:var(--accent-red); width:24px;"></i>
+        <strong>Horaires d'ouverture :</strong> Dimanche au Jeudi : 08h00 - 17h00
+      </p>
+
+      <p style="font-size:0.9rem; color:#fff; margin-bottom:12px;">
+        <i class="fa-solid fa-envelope" style="color:var(--accent-red); width:24px;"></i>
+        <strong>Email Commercial :</strong> acrow-dz@acrow.co
+      </p>
+
+      <p style="font-size:0.9rem; color:#fff;">
+        <i class="fa-solid fa-globe" style="color:var(--accent-red); width:24px;"></i>
+        <strong>Site Web Officiel :</strong> https://acrow.co &bull; http://localhost:8080
+      </p>
+    </div>
+
+    <div class="cover-footer">
+      <div>&copy; 2012 - 2026 ACROW DZ. Tous droits réservés. Matériel certifié ISO 9001 &amp; EN.</div>
+      <div>Dar El Beida, Alger</div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+[
+  {
+    "id": "acrow-alu-prop",
+    "title": "ACROW Aluminum Props (Alu-Prop)",
+    "category": "Props & Accessories",
+    "badge": "Lightweight High-Load",
+    "desc": "Lightweight telescopic aluminum props with extreme load-bearing capacity and continuous thread.",
+    "pdfUrl": "pdf/acrow-alu-prop.pdf",
+    "coverUrl": "assets/images/ebook-covers/acrow-alu-prop-cover.jpg",
+    "pages": 16,
+    "fileSizeMB": 9.8
+  },
+  {
+    "id": "acrow-aludeck-slab-system",
+    "title": "ACROW Alu-Deck Modular Slab System",
+    "category": "Slabs & Decks",
+    "badge": "Aluminum Drop-Head",
+    "desc": "High-efficiency drop-head aluminum panels allowing early stripping of panels within 3 days.",
+    "pdfUrl": "pdf/acrow-aludeck-slab-system.pdf",
+    "coverUrl": "assets/images/ebook-covers/acrow-aludeck-slab-system-cover.jpg",
+    "pages": 20,
+    "fileSizeMB": 11.5
+  },
+  {
+    "id": "acrow-big-steel-panel",
+    "title": "ACROW Big Steel Panel System",
+    "category": "Walls & Civil Works",
+    "badge": "Mega Surface Shutter",
+    "desc": "Heavy-duty large area steel shutters designed for mega infrastructure, water basins, and piers.",
+    "pdfUrl": "pdf/acrow-big-steel-panel.pdf",
+    "coverUrl": "assets/images/ebook-covers/acrow-big-steel-panel-cover.jpg",
+    "pages": 24,
+    "fileSizeMB": 7.9
+  },
+  {
+    "id": "acrow-bridge-table-form",
+    "title": "ACROW Bridge Table Form & Heavy Shoring",
+    "category": "Bridges & Infrastructure",
+    "badge": "Bridge Cantilever",
+    "desc": "Specialized heavy shoring trusses and parapet carriages for bridge decks and viaducts.",
+    "pdfUrl": "pdf/acrow-bridge-table-form.pdf",
+    "coverUrl": "assets/images/ebook-covers/acrow-bridge-table-form-cover.jpg",
+    "pages": 32,
+    "fileSizeMB": 37.0
+  },
+  {
+    "id": "acrow-circular-column",
+    "title": "ACROW Circular Column Formwork",
+    "category": "Columns Systems",
+    "badge": "Round Columns",
+    "desc": "Rigid half-circle steel shells producing smooth, architectural-grade circular concrete columns.",
+    "pdfUrl": "pdf/acrow-circular-column.pdf",
+    "coverUrl": "assets/images/ebook-covers/acrow-circular-column-cover.jpg",
+    "pages": 9,
+    "fileSizeMB": 5.3
+  },
+  {
+    "id": "acrow-combishore-system",
+    "title": "ACROW Combishore Shoring System",
+    "category": "Bridges & Heavy Shoring",
+    "badge": "High Load Falsework",
+    "desc": "High-capacity modular shoring towers supporting concentrated civil bridge deck loads up to 200 kN/leg.",
+    "pdfUrl": "pdf/acrow-combishore-system.pdf",
+    "coverUrl": "assets/images/ebook-covers/acrow-combishore-system-cover.jpg",
+    "pages": 24,
+    "fileSizeMB": 9.5
+  },
+  {
+    "id": "acrow-cup-lock-system",
+    "title": "ACROW Cup-Lock System",
+    "category": "Scaffolding & Access",
+    "badge": "Fast-Lock Node",
+    "desc": "Versatile cup-locking node system for facade access, masonry, and heavy temporary shoring.",
+    "pdfUrl": "pdf/acrow-cup-lock-system.pdf",
+    "coverUrl": "assets/images/ebook-covers/acrow-cup-lock-system-cover.jpg",
+    "pages": 20,
+    "fileSizeMB": 11.4
+  },
+  {
+    "id": "acrow-eco-form",
+    "title": "ACROW ECO-Form System",
+    "category": "Foundations & Walls",
+    "badge": "Hand-Set Modular",
+    "desc": "Lightweight man-handled panel system for foundations, core walls, and residential columns without cranes.",
+    "pdfUrl": "pdf/acrow-eco-form.pdf",
+    "coverUrl": "assets/images/ebook-covers/acrow-eco-form-cover.jpg",
+    "pages": 24,
+    "fileSizeMB": 6.2
+  },
+  {
+    "id": "acrow-european-prop",
+    "title": "ACROW European Standard Steel Props",
+    "category": "Props & Accessories",
+    "badge": "EN 1065 Certified",
+    "desc": "Heavy-duty certified steel props compliant with EN 1065 with drop-proof pins and safety distance.",
+    "pdfUrl": "pdf/acrow-european-prop.pdf",
+    "coverUrl": "assets/images/ebook-covers/acrow-european-prop-cover.jpg",
+    "pages": 12,
+    "fileSizeMB": 7.0
+  },
+  {
+    "id": "acrow-flex-slab-system",
+    "title": "ACROW Flex Slab System",
+    "category": "Slabs & Decks",
+    "badge": "Flexible Shoring",
+    "desc": "Versatile H-20 beam and prop slab formwork adapting to any floor geometry and slab thickness.",
+    "pdfUrl": "pdf/acrow-flex-slab-system.pdf",
+    "coverUrl": "assets/images/ebook-covers/acrow-flex-slab-system-cover.jpg",
+    "pages": 18,
+    "fileSizeMB": 17.0
+  },
+  {
+    "id": "acrow-frame-system",
+    "title": "ACROW Heavy Duty Frame System",
+    "category": "Slabs & Shoring",
+    "badge": "Modular Shoring Frame",
+    "desc": "Self-aligning heavy steel frames designed for fast assembly and high stability in slab shoring.",
+    "pdfUrl": "pdf/acrow-frame-system.pdf",
+    "coverUrl": "assets/images/ebook-covers/acrow-frame-system-cover.jpg",
+    "pages": 24,
+    "fileSizeMB": 22.9
+  },
+  {
+    "id": "acrow-h20-wall-soldier",
+    "title": "ACROW H-20 & Soldier Wall System",
+    "category": "Walls & Core Walls",
+    "badge": "Heavy Wall Formwork",
+    "desc": "High-capacity timber beam and steel soldier system for high walls and heavy lateral concrete pressure.",
+    "pdfUrl": "pdf/acrow-h20-wall-soldier.pdf",
+    "coverUrl": "assets/images/ebook-covers/acrow-h20-wall-soldier-cover.jpg",
+    "pages": 23,
+    "fileSizeMB": 36.2
+  },
+  {
+    "id": "acrow-one-side-shutter",
+    "title": "ACROW One-Side Shutter Formwork",
+    "category": "Walls & Core Walls",
+    "badge": "Single-Sided Walls",
+    "desc": "Triangular supporting frames for retaining walls, dam walls, and single-sided underground concreting.",
+    "pdfUrl": "pdf/acrow-one-side-shutter.pdf",
+    "coverUrl": "assets/images/ebook-covers/acrow-one-side-shutter-cover.jpg",
+    "pages": 20,
+    "fileSizeMB": 17.7
+  },
+  {
+    "id": "acrow-product-range",
+    "title": "ACROW General Product Range",
+    "category": "General Range",
+    "badge": "Master Catalog",
+    "desc": "Comprehensive guide covering all ACROW formwork and scaffolding systems.",
+    "pdfUrl": "pdf/acrow-product-range.pdf",
+    "coverUrl": "assets/images/ebook-covers/acrow-product-range-cover.jpg",
+    "pages": 2,
+    "fileSizeMB": 10.6
+  },
+  {
+    "id": "acrow-prop-table-form",
+    "title": "ACROW Prop Table Form System",
+    "category": "Slabs & Decks",
+    "badge": "Pre-Assembled Table",
+    "desc": "Large pre-assembled table forms shifted with transport forks for rapid multi-storey floor cycles.",
+    "pdfUrl": "pdf/acrow-prop-table-form.pdf",
+    "coverUrl": "assets/images/ebook-covers/acrow-prop-table-form-cover.jpg",
+    "pages": 20,
+    "fileSizeMB": 17.8
+  },
+  {
+    "id": "acrow-ring-lock-system",
+    "title": "ACROW Ring-Lock Shoring & Scaffolding",
+    "category": "Scaffolding & Shoring",
+    "badge": "Multi-Directional",
+    "desc": "All-round rosette modular scaffolding for industrial access, complex facades, and high shoring.",
+    "pdfUrl": "pdf/acrow-ring-lock-system.pdf",
+    "coverUrl": "assets/images/ebook-covers/acrow-ring-lock-system-cover.jpg",
+    "pages": 20,
+    "fileSizeMB": 10.6
+  },
+  {
+    "id": "acrow-shorebrace-table-form",
+    "title": "ACROW Shorebrace Table Form",
+    "category": "Slabs & Decks",
+    "badge": "Heavy Slab Table",
+    "desc": "Heavy-duty framed table forms for high slab heights and heavy concrete slab loads.",
+    "pdfUrl": "pdf/acrow-shorebrace-table-form.pdf",
+    "coverUrl": "assets/images/ebook-covers/acrow-shorebrace-table-form-cover.jpg",
+    "pages": 24,
+    "fileSizeMB": 23.2
+  },
+  {
+    "id": "acrow-tech-form",
+    "title": "ACROW Tech-Form Panels",
+    "category": "Walls & Columns",
+    "badge": "Universal System",
+    "desc": "High-tensile steel frame with birch plywood for universal wall and rectangular column shuttering.",
+    "pdfUrl": "pdf/acrow-tech-form.pdf",
+    "coverUrl": "assets/images/ebook-covers/acrow-tech-form-cover.jpg",
+    "pages": 32,
+    "fileSizeMB": 27.0
+  },
+  {
+    "id": "acrow-vari-form-system",
+    "title": "ACROW Vari-Form System",
+    "category": "Walls & Core Walls",
+    "badge": "Modular Wall Panel",
+    "desc": "Crane-handled modular system for fast erection, large wall areas, and superior concrete surface finish.",
+    "pdfUrl": "pdf/acrow-vari-form-system.pdf",
+    "coverUrl": "assets/images/ebook-covers/acrow-vari-form-system-cover.jpg",
+    "pages": 20,
+    "fileSizeMB": 16.6
+  },
+  {
+    "id": "acrow-vmc-column-system",
+    "title": "ACROW V.M.C System For Columns",
+    "category": "Columns Systems",
+    "badge": "Variable Columns",
+    "desc": "Windmill variable panel system for columns from 20x20 cm up to 120x120 cm without through-ties.",
+    "pdfUrl": "pdf/acrow-vmc-column-system.pdf",
+    "coverUrl": "assets/images/ebook-covers/acrow-vmc-column-system-cover.jpg",
+    "pages": 20,
+    "fileSizeMB": 22.6
+  }
+]
