@@ -4,16 +4,22 @@ import socketserver
 import os
 import sys
 
-class NoCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
+class FastHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
-        self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
-        self.send_header('Pragma', 'no-cache')
-        self.send_header('Expires', '0')
+        # Enable CORS and optimize caching based on file type
+        self.send_header('Access-Control-Allow-Origin', '*')
+        path = self.path.split('?')[0].lower()
+        if path.endswith('.html') or path.endswith('/'):
+            self.send_header('Cache-Control', 'no-cache, must-revalidate')
+        elif path.endswith(('.jpg', '.jpeg', '.png', '.webp', '.gif', '.svg', '.mp4', '.pdf', '.woff2', '.ttf')):
+            self.send_header('Cache-Control', 'public, max-age=86400')
+        else:
+            self.send_header('Cache-Control', 'public, max-age=3600')
         super().end_headers()
 
 class DualStackServer(socketserver.ThreadingTCPServer):
     allow_reuse_address = True
-    address_family = socket.AF_INET6
+    daemon_threads = True
 
     def server_bind(self):
         try:
@@ -25,13 +31,16 @@ class DualStackServer(socketserver.ThreadingTCPServer):
 if __name__ == '__main__':
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     PORT = 8080
+    
+    server_address = ('0.0.0.0', PORT)
     try:
-        httpd = DualStackServer(('::', PORT), NoCacheHTTPRequestHandler)
+        # Try dual-stack IPv4/IPv6
+        server = DualStackServer(('::', PORT), FastHTTPRequestHandler)
     except Exception:
-        DualStackServer.address_family = socket.AF_INET
-        httpd = DualStackServer(('0.0.0.0', PORT), NoCacheHTTPRequestHandler)
-    print(f"Dual-stack zero-cache server running on http://localhost:{PORT}", flush=True)
+        server = DualStackServer(('0.0.0.0', PORT), FastHTTPRequestHandler)
+        
+    print(f"High-performance threaded server running on http://localhost:{PORT}", flush=True)
     try:
-        httpd.serve_forever()
+        server.serve_forever()
     except KeyboardInterrupt:
         pass
