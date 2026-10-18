@@ -1238,451 +1238,288 @@
       border-radius: 10px;
     }
     /* ==========================================
-       CATALOG EXPLORER SPLIT-VIEW (MODÈLE 2)
+       MODÈLE 2 : SLIDER CENTRÉ ZEN 3 CARTES
        ========================================== */
-    .catalog-split-section {
+    .zen-catalog-section {
       background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 50%, #f8fafc 100%);
-      padding: 65px 0 60px;
+      padding: 65px 0 65px;
       position: relative;
     }
 
-    /* Filter Chips */
-    .cat-filter-tabs {
+    /* Filter Bar */
+    .zen-filter-bar {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 14px;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 28px;
     }
-    .cat-filter-btn {
+    .zen-filter-chip {
       background: #ffffff;
       color: #334155;
       border: 1.5px solid #cbd5e1;
       border-radius: 50px;
-      padding: 7px 16px;
-      font-size: 0.82rem;
+      padding: 7px 18px;
+      font-size: 0.84rem;
       font-weight: 700;
       cursor: pointer;
-      transition: all 0.22s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      transition: all 0.25s ease;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
     }
-    .cat-filter-btn:hover {
+    .zen-filter-chip:hover {
       border-color: var(--accent-red);
       color: var(--accent-red);
       background: #fff8f8;
       transform: translateY(-1px);
     }
-    .cat-filter-btn.active {
+    .zen-filter-chip.active {
       background: var(--accent-red);
       color: #ffffff;
       border-color: var(--accent-red);
       box-shadow: 0 4px 14px rgba(204, 0, 0, 0.3);
     }
-    .cat-filter-btn .cat-count {
-      font-size: 0.70rem;
-      padding: 2px 7px;
-      border-radius: 10px;
-      background: rgba(0, 0, 0, 0.07);
+
+    /* Slider Container */
+    .zen-slider-container {
+      position: relative;
+      padding: 0 45px;
     }
-    .cat-filter-btn.active .cat-count {
-      background: rgba(255, 255, 255, 0.28);
-      color: #ffffff;
+    .zen-slider-track {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      padding: 12px 6px 24px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .zen-slider-track::-webkit-scrollbar {
+      display: none;
     }
 
-    /* Left Column: Focus Panel */
-    .catalog-focus-card {
+    /* 3 Cards per view on Desktop */
+    .zen-card {
+      flex: 0 0 calc((100% - 48px) / 3);
+      scroll-snap-align: start;
       background: #ffffff;
       border-radius: 20px;
-      border: 1px solid rgba(0, 51, 102, 0.12);
-      box-shadow: 0 16px 40px rgba(0, 26, 51, 0.08);
+      border: 1.5px solid rgba(0, 51, 102, 0.08);
+      box-shadow: 0 8px 24px rgba(0, 26, 51, 0.06);
       overflow: hidden;
-      position: sticky;
-      top: 90px;
-      transition: all 0.3s ease;
-    }
-    .catalog-focus-card-header {
-      background: radial-gradient(circle at 50% 20%, #003366 0%, #001a33 60%, #000d1a 100%);
-      padding: 24px 20px 18px;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
       position: relative;
-      border-bottom: 3.5px solid var(--accent-red);
+    }
+    .zen-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 16px 36px rgba(0, 51, 102, 0.12), 0 4px 16px rgba(204, 0, 0, 0.12);
+      border-color: rgba(204, 0, 0, 0.35);
+    }
+
+    /* 3D Book Showcase in Card */
+    .zen-card-showcase {
+      background: radial-gradient(circle at 50% 20%, #003366 0%, #001a33 60%, #000d1a 100%);
+      height: 235px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      perspective: 1000px;
+      cursor: pointer;
+      border-top: 3.5px solid var(--accent-red);
       overflow: hidden;
     }
-    .catalog-focus-card-header::before {
+    .zen-card-showcase::before {
       content: "";
       position: absolute;
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 200px;
-      height: 120px;
-      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.18) 0%, transparent 70%);
+      width: 180px;
+      height: 100px;
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.16) 0%, transparent 70%);
       pointer-events: none;
     }
-    .focus-cover-wrapper {
-      perspective: 1200px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 240px;
-      cursor: pointer;
-      position: relative;
-    }
-    .focus-cover-img {
-      max-height: 220px;
-      max-width: 175px;
+    .zen-cover-img {
+      max-height: 190px;
+      max-width: 145px;
       width: auto;
-      border-radius: 4px 8px 8px 4px;
-      box-shadow: -10px 14px 30px rgba(0, 0, 0, 0.75), 0 4px 12px rgba(0, 0, 0, 0.45);
-      transform: rotateY(-12deg) rotateX(4deg);
-      transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      border-radius: 4px 7px 7px 4px;
+      box-shadow: -8px 12px 24px rgba(0, 0, 0, 0.75), 0 3px 8px rgba(0, 0, 0, 0.4);
+      transform: rotateY(-10deg) rotateX(3deg);
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
     }
-    .focus-cover-wrapper:hover .focus-cover-img {
-      transform: rotateY(0deg) rotateX(0deg) scale(1.05) translateY(-3px);
-      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.85), 0 0 25px rgba(204, 0, 0, 0.4);
+    .zen-card-showcase:hover .zen-cover-img {
+      transform: rotateY(0deg) rotateX(0deg) scale(1.06) translateY(-3px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.85), 0 0 20px rgba(204, 0, 0, 0.35);
     }
-    .focus-read-hint {
+    .zen-spine-line {
       position: absolute;
-      bottom: 8px;
-      right: 14px;
-      background: rgba(255, 255, 255, 0.18);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      color: #fff;
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 4px 12px;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .focus-read-hint:hover {
-      background: var(--accent-red);
-      border-color: var(--accent-red);
+      top: 24px;
+      bottom: 24px;
+      left: calc(50% - 68px);
+      width: 3px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.4), rgba(0,0,0,0.4));
+      z-index: 2;
+      pointer-events: none;
     }
 
-    .catalog-focus-body {
-      padding: 22px 24px;
-    }
-    .focus-badge-line {
+    /* Card Content */
+    .zen-card-body {
+      padding: 18px 20px 20px;
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      flex-grow: 1;
       justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 10px;
+      text-align: left;
     }
-    .focus-badge-cat {
+    .zen-card-cat {
+      font-size: 0.70rem;
+      font-weight: 800;
+      color: var(--accent-red);
       background: rgba(204, 0, 0, 0.08);
-      color: var(--accent-red);
-      font-weight: 800;
-      font-size: 0.75rem;
-      padding: 4px 12px;
       border-radius: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      border: 1px solid rgba(204, 0, 0, 0.18);
-    }
-    .focus-badge-norm {
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: #003366;
-      background: rgba(0, 51, 102, 0.07);
-      padding: 4px 10px;
-      border-radius: 20px;
-      border: 1px solid rgba(0, 51, 102, 0.15);
-    }
-    .focus-title {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 800;
-      font-size: 1.35rem;
-      color: #0f172a;
-      line-height: 1.25;
-      margin-bottom: 6px;
-    }
-    .focus-sub {
-      font-size: 0.88rem;
-      color: #64748b;
-      line-height: 1.5;
-      margin-bottom: 16px;
-      min-height: 2.6em;
-    }
-
-    /* Specs 2x2 grid */
-    .focus-specs-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      background: #f8fafc;
-      padding: 12px;
-      border-radius: 14px;
-      border: 1px solid #e2e8f0;
-      margin-bottom: 20px;
-    }
-    .focus-spec-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-    }
-    .focus-spec-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 8px;
-      background: #ffffff;
-      color: var(--accent-red);
-      border: 1px solid #e2e8f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      flex-shrink: 0;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-    }
-    .focus-spec-text {
-      font-size: 0.76rem;
-      line-height: 1.3;
-    }
-    .focus-spec-label {
-      font-weight: 600;
-      color: #94a3b8;
-      display: block;
-      font-size: 0.68rem;
+      padding: 3px 10px;
+      display: inline-block;
       text-transform: uppercase;
       letter-spacing: 0.4px;
+      margin-bottom: 8px;
+      align-self: flex-start;
     }
-    .focus-spec-val {
-      font-weight: 700;
+    .zen-card-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
       color: #0f172a;
+      line-height: 1.3;
+      margin-bottom: 6px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: 2.6em;
+    }
+    .zen-card-sub {
+      font-size: 0.80rem;
+      color: #64748b;
+      line-height: 1.45;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: 2.3em;
     }
 
-    /* Action Buttons in Focus Panel */
-    .focus-action-read {
-      background: linear-gradient(135deg, var(--accent-red) 0%, #a80000 100%);
-      color: #fff !important;
-      font-weight: 800;
-      font-size: 0.95rem;
-      padding: 12px 20px;
-      border-radius: 50px;
-      border: none;
-      width: 100%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      box-shadow: 0 8px 20px rgba(204, 0, 0, 0.35);
-      transition: all 0.25s ease;
-      cursor: pointer;
-      text-decoration: none;
-      margin-bottom: 10px;
-    }
-    .focus-action-read:hover {
-      background: linear-gradient(135deg, #e60000 0%, #b30000 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 25px rgba(204, 0, 0, 0.45);
-    }
-    .focus-actions-secondary {
-      display: flex;
+    /* Card Actions (Consulter 3D & PDF) */
+    .zen-card-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
       gap: 8px;
+      margin-top: auto;
     }
-    .focus-action-pdf {
-      flex: 1;
-      background: #f1f5f9;
-      color: #003366 !important;
-      font-weight: 700;
-      font-size: 0.82rem;
-      padding: 9px 12px;
+    .btn-zen-read {
+      background: linear-gradient(135deg, var(--accent-red) 0%, #a80000 100%);
+      color: #ffffff !important;
+      border: none;
       border-radius: 50px;
-      border: 1px solid #cbd5e1;
+      padding: 9px 16px;
+      font-size: 0.84rem;
+      font-weight: 700;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(204, 0, 0, 0.28);
+      text-decoration: none;
+    }
+    .btn-zen-read:hover {
+      background: linear-gradient(135deg, #e60000 0%, #b30000 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(204, 0, 0, 0.4);
+    }
+    .btn-zen-pdf {
+      background: #f1f5f9;
+      color: #003366 !important;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 50px;
+      padding: 9px 14px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
       text-decoration: none;
       transition: all 0.2s ease;
     }
-    .focus-action-pdf:hover {
+    .btn-zen-pdf:hover {
       background: #003366;
       color: #ffffff !important;
       border-color: #003366;
-      transform: translateY(-1px);
-    }
-    .focus-action-quote {
-      flex: 1;
-      background: #ffffff;
-      color: var(--accent-red) !important;
-      font-weight: 700;
-      font-size: 0.82rem;
-      padding: 9px 12px;
-      border-radius: 50px;
-      border: 1.5px solid var(--accent-red);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-    .focus-action-quote:hover {
-      background: var(--accent-red);
-      color: #ffffff !important;
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
 
-    /* Right Column: Selector Items */
-    .catalog-search-box {
-      position: relative;
-    }
-    .catalog-search-box input {
-      width: 100%;
-      padding: 9px 16px 9px 40px;
-      border-radius: 50px;
-      border: 1.5px solid #cbd5e1;
-      background: #ffffff;
-      font-size: 0.86rem;
-      outline: none;
-      transition: all 0.25s;
-    }
-    .catalog-search-box input:focus {
-      border-color: var(--accent-red);
-      box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.12);
-    }
-    .catalog-search-box i {
+    /* Navigation Arrows */
+    .zen-nav-btn {
       position: absolute;
-      left: 14px;
       top: 50%;
       transform: translateY(-50%);
-      color: #94a3b8;
-      font-size: 0.95rem;
-    }
-
-    .catalog-selector-scroll {
-      max-height: 640px;
-      overflow-y: auto;
-      padding: 4px 6px 6px 2px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      scrollbar-width: thin;
-      scrollbar-color: var(--accent-red) #e2e8f0;
-    }
-    .catalog-selector-scroll::-webkit-scrollbar {
-      width: 5px;
-    }
-    .catalog-selector-scroll::-webkit-scrollbar-thumb {
-      background: var(--accent-red);
-      border-radius: 10px;
-    }
-    .catalog-selector-scroll::-webkit-scrollbar-track {
-      background: #e2e8f0;
-      border-radius: 10px;
-    }
-
-    .selector-item-card {
-      background: #ffffff;
-      border-radius: 14px;
-      border: 1.5px solid #e2e8f0;
-      padding: 10px 12px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      cursor: pointer;
-      transition: all 0.22s ease;
-      position: relative;
-      text-align: left;
-    }
-    .selector-item-card:hover {
-      border-color: #003366;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0, 51, 102, 0.08);
-    }
-    .selector-item-card.active {
-      border-color: var(--accent-red);
-      background: #fff8f8;
-      box-shadow: 0 8px 20px rgba(204, 0, 0, 0.14);
-    }
-    .selector-item-card.active::after {
-      content: "✓";
-      position: absolute;
-      top: 6px;
-      right: 8px;
-      background: var(--accent-red);
-      color: #fff;
-      font-size: 0.65rem;
-      font-weight: 800;
-      width: 18px;
-      height: 18px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      color: #003366;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 1.25rem;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 0 6px 20px rgba(0, 26, 51, 0.12);
+      transition: all 0.25s ease;
     }
-    .selector-item-thumb {
-      width: 44px;
-      height: 58px;
-      border-radius: 4px;
-      object-fit: cover;
-      flex-shrink: 0;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
-      border: 1px solid rgba(0, 0, 0, 0.08);
+    .zen-nav-btn:hover {
+      background: var(--accent-red);
+      color: #ffffff;
+      border-color: var(--accent-red);
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 8px 24px rgba(204, 0, 0, 0.35);
     }
-    .selector-item-info {
-      flex: 1;
-      min-width: 0;
-    }
-    .selector-item-cat {
-      font-size: 0.65rem;
-      font-weight: 700;
-      color: #64748b;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      display: block;
-      margin-bottom: 2px;
-    }
-    .selector-item-title {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 700;
-      font-size: 0.85rem;
-      color: #0f172a;
-      line-height: 1.25;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin: 0;
-    }
-    .selector-item-card.active .selector-item-title {
-      color: var(--accent-red);
-    }
-    .selector-empty-msg {
-      grid-column: 1 / -1;
-      padding: 40px 20px;
-      text-align: center;
-      color: #64748b;
-      background: #ffffff;
-      border-radius: 14px;
-      border: 1px dashed #cbd5e1;
-    }
+    .zen-nav-btn.zen-prev { left: -8px; }
+    .zen-nav-btn.zen-next { right: -8px; }
 
+    /* Responsive */
     @media (max-width: 991.98px) {
-      .catalog-focus-card {
-        position: static;
-        margin-bottom: 24px;
+      .zen-card {
+        flex: 0 0 calc((100% - 20px) / 2);
       }
-      .catalog-selector-scroll {
-        max-height: 520px;
+      .zen-slider-container {
+        padding: 0 25px;
       }
+      .zen-nav-btn.zen-prev { left: -4px; }
+      .zen-nav-btn.zen-next { right: -4px; }
     }
     @media (max-width: 575.98px) {
-      .catalog-selector-scroll {
-        grid-template-columns: 1fr;
+      .zen-card {
+        flex: 0 0 88%;
       }
-      .focus-specs-grid {
-        grid-template-columns: 1fr;
+      .zen-slider-container {
+        padding: 0 10px;
       }
-      .focus-actions-secondary {
-        flex-direction: column;
+      .zen-nav-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
       }
+      .zen-nav-btn.zen-prev { left: -2px; }
+      .zen-nav-btn.zen-next { right: -2px; }
     }
 
     /* ==========================================
@@ -2577,323 +2414,510 @@
     </div>
   </section>
   <!-- ==========================================
-       NOS PRODUITS — CATALOGUES & MANUELS TECHNIQUES (MODÈLE 2 : EXPLORATEUR SPLIT-VIEW)
+       NOS PRODUITS — 20 CATALOGUES (MODÈLE 2 : SLIDER CENTRÉ ZEN 3 CARTES)
        ========================================== -->
-  <section class="py-5 catalog-split-section" id="produits">
+  <section class="py-5 zen-catalog-section" id="produits">
     <div id="ebooks"></div>
-    <div class="container my-2" style="max-width: 1280px;">
+    <div class="container my-2" style="max-width: 1240px;">
       
-      <!-- Section Header -->
+      <!-- Section Header Aéré & Épuré -->
       <div class="text-center mb-4" data-aos="fade-up">
-        <span class="badge-sub"><i class="bi bi-book-half me-1"></i> Gamme Industrielle &amp; Manuels Certifiés</span>
+        <span class="badge-sub"><i class="bi bi-book-half me-1"></i> Documentation &amp; Manuels Techniques</span>
         <h2 class="section-title mb-2">
-          <i class="bi bi-book-half text-danger me-2"></i> Nos Produits — Catalogues Techniques
+          <i class="bi bi-book-half text-danger me-2"></i> Nos Produits — Catalogues Officiels
         </h2>
-        <p class="section-sub mb-0" style="max-width: 820px;">
-          Explorez nos <strong>20 manuels officiels</strong> d'ingénierie. Cliquez sur un système pour afficher sa fiche technique détaillée et feuilleter son catalogue en 3D.
+        <p class="section-sub mb-0" style="max-width: 720px;">
+          Consultez nos <strong>20 manuels d'ingénierie</strong> certifiés. Un carrousel aéré pour feuilleter chaque système en 3D ou télécharger sa documentation technique.
         </p>
       </div>
 
-      <!-- Split-View Main Row -->
-      <div class="row g-4 align-items-start">
+      <!-- Filtres Catégories Épurés -->
+      <div class="zen-filter-bar" data-aos="fade-up" data-aos-delay="100">
+        <button type="button" class="zen-filter-chip active" data-filter="all">Tous (20)</button>
+        <button type="button" class="zen-filter-chip" data-filter="walls">Voiles &amp; Murs (6)</button>
+        <button type="button" class="zen-filter-chip" data-filter="slabs">Dalles &amp; Poutres (5)</button>
+        <button type="button" class="zen-filter-chip" data-filter="columns">Poteaux (2)</button>
+        <button type="button" class="zen-filter-chip" data-filter="scaffolding">Échafaudages (4)</button>
+        <button type="button" class="zen-filter-chip" data-filter="props">Étais (3)</button>
+      </div>
 
-        <!-- ====================================================
-             COLONNE GAUCHE : GRANDE VITRINE FOCUS DU PRODUIT
-             ==================================================== -->
-        <div class="col-lg-5" data-aos="fade-right" data-aos-duration="600">
-          <div class="catalog-focus-card" id="catalogFocusCard">
-            
-            <!-- Visuel 3D du Livre dans un écrin studio sombre -->
-            <div class="catalog-focus-card-header">
-              <div class="focus-cover-wrapper" id="focusCoverTrigger" title="Cliquer pour feuilleter en 3D">
-                <span class="book-spine-line" style="left: calc(50% - 78px);"></span>
-                <img id="focusCoverImg" src="assets/images/ebook-covers/acrow-product-range-cover.jpg" alt="Couverture Catalogue ACROW" class="focus-cover-img" />
-              </div>
-              <span class="focus-read-hint" id="focusReadHint"><i class="bi bi-book me-1"></i> Feuilleter en 3D</span>
+      <!-- Slider Wrapper Centré avec Flèches de navigation -->
+      <div class="zen-slider-container" data-aos="fade-up" data-aos-delay="150">
+        
+        <!-- Flèche Gauche -->
+        <button type="button" class="zen-nav-btn zen-prev" id="zenPrevBtn" aria-label="Précédent" title="Défiler vers la gauche">
+          <i class="bi bi-chevron-left"></i>
+        </button>
+
+        <!-- Piste de Défilement (3 Cartes par écran sur Desktop) -->
+        <div class="zen-slider-track" id="zenSliderTrack">
+
+          <!-- 1. ACROW General Product Range -->
+          <div class="zen-card" data-cat="general" data-title="acrow general product range">
+            <div class="zen-card-showcase" onclick="openEbookModal('pdf/acrow-product-range.pdf', 'ACROW General Product Range')">
+              <span class="zen-spine-line"></span>
+              <img src="assets/images/ebook-covers/acrow-product-range-cover.jpg" alt="ACROW General Product Range" class="zen-cover-img" loading="lazy" />
             </div>
-
-            <!-- Fiche descriptive & Spécifications techniques -->
-            <div class="catalog-focus-body">
-              <div class="focus-badge-line">
-                <span class="focus-badge-cat" id="focusCategoryBadge">Catalogue Général</span>
-                <span class="focus-badge-norm" id="focusNormBadge"><i class="bi bi-patch-check-fill text-primary me-1"></i> ISO 9001 · EN 12812</span>
+            <div class="zen-card-body">
+              <div>
+                <span class="zen-card-cat">Catalogue Général</span>
+                <h4 class="zen-card-title">ACROW General Product Range</h4>
+                <p class="zen-card-sub">Ensemble complet des systèmes de coffrage et d'échafaudage ACROW.</p>
               </div>
-
-              <h3 class="focus-title" id="focusTitle">ACROW General Product Range</h3>
-              <p class="focus-sub" id="focusSubtitle">Catalogue d'ensemble des équipements de coffrage et d'échafaudage ACROW</p>
-
-              <!-- Grille 2x2 des spécifications clés -->
-              <div class="focus-specs-grid" id="focusSpecsContainer">
-                <div class="focus-spec-item">
-                  <div class="focus-spec-icon"><i class="bi bi-layers-fill"></i></div>
-                  <div class="focus-spec-text">
-                    <span class="focus-spec-label">Gamme</span>
-                    <span class="focus-spec-val" id="specVal0">Coffrage &amp; Échafaudage</span>
-                  </div>
-                </div>
-                <div class="focus-spec-item">
-                  <div class="focus-spec-icon"><i class="bi bi-shield-check"></i></div>
-                  <div class="focus-spec-text">
-                    <span class="focus-spec-label">Norme</span>
-                    <span class="focus-spec-val" id="specVal1">Certifié ISO &amp; EN</span>
-                  </div>
-                </div>
-                <div class="focus-spec-item">
-                  <div class="focus-spec-icon"><i class="bi bi-buildings"></i></div>
-                  <div class="focus-spec-text">
-                    <span class="focus-spec-label">Production</span>
-                    <span class="focus-spec-val" id="specVal2">Usine 10 000 m²</span>
-                  </div>
-                </div>
-                <div class="focus-spec-item">
-                  <div class="focus-spec-icon"><i class="bi bi-truck"></i></div>
-                  <div class="focus-spec-text">
-                    <span class="focus-spec-label">Livraison</span>
-                    <span class="focus-spec-val" id="specVal3">58 Wilayas en direct</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Boutons d'Action Directe -->
-              <button type="button" class="focus-action-read" id="focusReadBtn">
-                <i class="bi bi-book-fill"></i> Consulter le catalogue (3D)
-              </button>
-
-              <div class="focus-actions-secondary">
-                <a href="pdf/acrow-product-range.pdf" download class="focus-action-pdf" id="focusDownloadBtn" title="Télécharger le fichier PDF officiel">
-                  <i class="bi bi-download"></i> Télécharger PDF
-                </a>
-                <a href="devis.html" class="focus-action-quote" id="focusQuoteBtn" title="Demander une étude 3D pour ce produit">
-                  <i class="bi bi-calculator"></i> Étude &amp; Devis 3D
+              <div class="zen-card-actions">
+                <button type="button" class="btn-zen-read" onclick="openEbookModal('pdf/acrow-product-range.pdf', 'ACROW General Product Range')">
+                  <i class="bi bi-book-fill"></i> Consulter
+                </button>
+                <a href="pdf/acrow-product-range.pdf" download class="btn-zen-pdf" title="Télécharger PDF">
+                  <i class="bi bi-download"></i> PDF
                 </a>
               </div>
-
             </div>
           </div>
+
+          <!-- 2. ACROW AluDeck Slab System -->
+          <div class="zen-card" data-cat="slabs" data-title="acrow aludeck slab system">
+            <div class="zen-card-showcase" onclick="openEbookModal('pdf/acrow-aludeck-slab-system.pdf', 'ACROW AluDeck Slab System')">
+              <span class="zen-spine-line"></span>
+              <img src="assets/images/ebook-covers/acrow-aludeck-slab-system-cover.jpg" alt="ACROW AluDeck Slab System" class="zen-cover-img" loading="lazy" />
+            </div>
+            <div class="zen-card-body">
+              <div>
+                <span class="zen-card-cat">Dalles &amp; Poutres</span>
+                <h4 class="zen-card-title">ACROW AluDeck Slab System</h4>
+                <p class="zen-card-sub">Système de coffrage manuportable en aluminium pour dalles rapides.</p>
+              </div>
+              <div class="zen-card-actions">
+                <button type="button" class="btn-zen-read" onclick="openEbookModal('pdf/acrow-aludeck-slab-system.pdf', 'ACROW AluDeck Slab System')">
+                  <i class="bi bi-book-fill"></i> Consulter
+                </button>
+                <a href="pdf/acrow-aludeck-slab-system.pdf" download class="btn-zen-pdf" title="Télécharger PDF">
+                  <i class="bi bi-download"></i> PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. ACROW Flex Slab System -->
+          <div class="zen-card" data-cat="slabs" data-title="acrow flex slab system">
+            <div class="zen-card-showcase" onclick="openEbookModal('pdf/acrow-flex-slab-system.pdf', 'ACROW Flex Slab System')">
+              <span class="zen-spine-line"></span>
+              <img src="assets/images/ebook-covers/acrow-flex-slab-system-cover.jpg" alt="ACROW Flex Slab System" class="zen-cover-img" loading="lazy" />
+            </div>
+            <div class="zen-card-body">
+              <div>
+                <span class="zen-card-cat">Dalles &amp; Poutres</span>
+                <h4 class="zen-card-title">ACROW Flex Slab System</h4>
+                <p class="zen-card-sub">Coffrage modulable à poutrelles bois H-20 pour géométries libres.</p>
+              </div>
+              <div class="zen-card-actions">
+                <button type="button" class="btn-zen-read" onclick="openEbookModal('pdf/acrow-flex-slab-system.pdf', 'ACROW Flex Slab System')">
+                  <i class="bi bi-book-fill"></i> Consulter
+                </button>
+                <a href="pdf/acrow-flex-slab-system.pdf" download class="btn-zen-pdf" title="Télécharger PDF">
+                  <i class="bi bi-download"></i> PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. ACROW Eco-Form Panel -->
+          <div class="zen-card" data-cat="walls" data-title="acrow eco form panel">
+            <div class="zen-card-showcase" onclick="openEbookModal('pdf/acrow-eco-form.pdf', 'ACROW Eco-Form System')">
+              <span class="zen-spine-line"></span>
+              <img src="assets/images/ebook-covers/acrow-eco-form-cover.jpg" alt="ACROW Eco-Form Panel" class="zen-cover-img" loading="lazy" />
+            </div>
+            <div class="zen-card-body">
+              <div>
+                <span class="zen-card-cat">Voiles &amp; Murs</span>
+                <h4 class="zen-card-title">ACROW Eco-Form Panel</h4>
+                <p class="zen-card-sub">Coffrage manuportable acier galvanisé et contreplaqué bouleau.</p>
+              </div>
+              <div class="zen-card-actions">
+                <button type="button" class="btn-zen-read" onclick="openEbookModal('pdf/acrow-eco-form.pdf', 'ACROW Eco-Form System')">
+                  <i class="bi bi-book-fill"></i> Consulter
+                </button>
+                <a href="pdf/acrow-eco-form.pdf" download class="btn-zen-pdf" title="Télécharger PDF">
+                  <i class="bi bi-download"></i> PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. ACROW Big Steel Panel -->
+          <div class="zen-card" data-cat="walls" data-title="acrow big steel panel">
+            <div class="zen-card-showcase" onclick="openEbookModal('pdf/acrow-big-steel-panel.pdf', 'ACROW Big Steel Panel')">
+              <span class="zen-spine-line"></span>
+              <img src="assets/images/ebook-covers/acrow-big-steel-panel-cover.jpg" alt="ACROW Big Steel Panel" class="zen-cover-img" loading="lazy" />
+            </div>
+            <div class="zen-card-body">
+              <div>
+                <span class="zen-card-cat">Voiles Lourds</span>
+                <h4 class="zen-card-title">ACROW Big Steel Panel</h4>
+                <p class="zen-card-sub">Coffrage métallique lourd 80 kN/m² pour ouvrages massifs et radiers.</p>
+              </div>
+              <div class="zen-card-actions">
+                <button type="button" class="btn-zen-read" onclick="openEbookModal('pdf/acrow-big-steel-panel.pdf', 'ACROW Big Steel Panel')">
+                  <i class="bi bi-book-fill"></i> Consulter
+                </button>
+                <a href="pdf/acrow-big-steel-panel.pdf" download class="btn-zen-pdf" title="Télécharger PDF">
+                  <i class="bi bi-download"></i> PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. ACROW Tech-Form System -->
+          <div class="zen-card" data-cat="walls" data-title="acrow tech form system">
+            <div class="zen-card-showcase" onclick="openEbookModal('pdf/acrow-tech-form.pdf', 'ACROW Tech-Form System')">
+              <span class="zen-spine-line"></span>
+              <img src="assets/images/ebook-covers/acrow-tech-form-cover.jpg" alt="ACROW Tech-Form System" class="zen-cover-img" loading="lazy" />
+            </div>
+            <div class="zen-card-body">
+              <div>
+                <span class="zen-card-cat">Voiles &amp; Murs</span>
+                <h4 class="zen-card-title">ACROW Tech-Form System</h4>
+                <p class="zen-card-sub">Coffrage acier grande résistance pour refends et cages d'ascenseur.</p>
+              </div>
+              <div class="zen-card-actions">
+                <button type="button" class="btn-zen-read" onclick="openEbookModal('pdf/acrow-tech-form.pdf', 'ACROW Tech-Form System')">
+                  <i class="bi bi-book-fill"></i> Consulter
+                </button>
+                <a href="pdf/acrow-tech-form.pdf" download class="btn-zen-pdf" title="Télécharger PDF">
+                  <i class="bi bi-download"></i> PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. ACROW H-20 & Soldier Wall -->
+          <div class="zen-card" data-cat="walls" data-title="acrow h20 soldier wall">
+            <div class="zen-card-showcase" onclick="openEbookModal('pdf/acrow-h20-wall-soldier.pdf', 'ACROW H20 & Soldier Wall')">
+              <span class="zen-spine-line"></span>
+              <img src="assets/images/ebook-covers/acrow-h20-wall-soldier-cover.jpg" alt="ACROW H-20 & Soldier Wall" class="zen-cover-img" loading="lazy" />
+            </div>
+            <div class="zen-card-body">
+              <div>
+                <span class="zen-card-cat">Voiles &amp; Murs</span>
+                <h4 class="zen-card-title">ACROW H-20 &amp; Soldier Wall</h4>
+                <p class="zen-card-sub">Système mixte filières acier Soldier et poutres H-20 grande hauteur.</p>
+              </div>
+              <div class="zen-card-actions">
+                <button type="button" class="btn-zen-read" onclick="openEbookModal('pdf/acrow-h20-wall-soldier.pdf', 'ACROW H20 & Soldier Wall')">
+                  <i class="bi bi-book-fill"></i> Consulter
+                </button>
+                <a href="pdf/acrow-h20-wall-soldier.pdf" download class="btn-zen-pdf" title="Télécharger PDF">
+                  <i class="bi bi-download"></i> PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. ACROW One-Side Shutter -->
+          <div class="zen-card" data-cat="walls" data-title="acrow one side shutter">
+            <div class="zen-card-showcase" onclick="openEbookModal('pdf/acrow-one-side-shutter.pdf', 'ACROW One-Side Shutter')">
+              <span class="zen-spine-line"></span>
+              <img src="assets/images/ebook-covers/acrow-one-side-shutter-cover.jpg" alt="ACROW One-Side Shutter" class="zen-cover-img" loading="lazy" />
+            </div>
+            <div class="zen-card-body">
+              <div>
+                <span class="zen-card-cat">Coffrage Unilatéral</span>
+                <h4 class="zen-card-title">ACROW One-Side Shutter</h4>
+                <p class="zen-card-sub">Coffrage parois contre terre, tunnels et tranchées sans tirants.</p>
+              </div>
+              <div class="zen-card-actions">
+                <button type="button" class="btn-zen-read" onclick="openEbookModal('pdf/acrow-one-side-shutter.pdf', 'ACROW One-Side Shutter')">
+                  <i class="bi bi-book-fill"></i> Consulter
+                </button>
+                <a href="pdf/acrow-one-side-shutter.pdf" download class="btn-zen-pdf" title="Télécharger PDF">
+                  <i class="bi bi-download"></i> PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9. ACROW V.M.C Column System -->
+          <div class="zen-card" data-cat="columns" data-title="acrow vmc column system">
+            <div class="zen-card-showcase" onclick="openEbookModal('pdf/acrow-vmc-column-system.pdf', 'ACROW V.M.C Column System')">
+              <span class="zen-spine-line"></span>
+              <img src="assets/images/ebook-covers/acrow-vmc-column-system-cover.jpg" alt="ACROW V.M.C Column System" class="zen-cover-img" loading="lazy" />
+            </div>
+            <div class="zen-card-body">
+              <div>
+                <span class="zen-card-cat">Poteaux &amp; Colonnes</span>
+                <h4 class="zen-card-title">ACROW V.M.C Column System</h4>
+                <p class="zen-card-sub">Coffrage réglable pour poteaux carrés et rectangulaires 20 à 80 cm.</p>
+              </div>
+              <div class="zen-card-actions">
+                <button type="button" class="btn-zen-read" onclick="openEbookModal('pdf/acrow-vmc-column-system.pdf', 'ACROW V.M.C Column System')">
+                  <i class="bi bi-book-fill"></i> Consulter
+                </button>
+                <a href="pdf/acrow-vmc-column-system.pdf" download class="btn-zen-pdf" title="Télécharger PDF">
+                  <i class="bi bi-download"></i> PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 10. ACROW Circular Column -->
+          <div class="zen-card" data-cat="columns" data-title="acrow circular column">
+            <div class="zen-card-showcase" onclick="openEbookModal('pdf/acrow-circular-column.pdf', 'ACROW Circular Column')">
+              <span class="zen-spine-line"></span>
+              <img src="assets/images/ebook-covers/acrow-circular-column-cover.jpg" alt="ACROW Circular Column" class="zen-cover-img" loading="lazy" />
+            </div>
+            <div class="zen-card-body">
+              <div>
+                <span class="zen-card-cat">Poteaux Circulaires</span>
+                <h4 class="zen-card-title">ACROW Circular Column</h4>
+                <p class="zen-card-sub">Demi-coquilles d'acier haute précision pour poteaux circulaires lisses.</p>
+              </div>
+              <div class="zen-card-actions">
+                <button type="button" class="btn-zen-read" onclick="openEbookModal('pdf/acrow-circular-column.pdf', 'ACROW Circular Column')">
+                  <i class="bi bi-book-fill"></i> Consulter
+                </button>
+                <a href="pdf/acrow-circular-column.pdf" download class="btn-zen-pdf" title="Télécharger PDF">
+                  <i class="bi bi-download"></i> PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 11. ACROW Cup-Lock Scaffolding -->
+          <div class="zen-card" data-cat="scaffolding" data-title="acrow cup lock scaffolding">
+            <div class="zen-card-showcase" onclick="openEbookModal('pdf/acrow-cup-lock-system.pdf', 'ACROW Cup-Lock Scaffolding')">
+              <span class="zen-spine-line"></span>
+              <img src="assets/images/ebook-covers/acrow-cup-lock-system-cover.jpg" alt="ACROW Cup-Lock Scaffolding" class="zen-cover-img" loading="lazy" />
+            </div>
+            <div class="zen-card-body">
+              <div>
+                <span class="zen-card-cat">Échafaudage &amp; Étaiement</span>
+                <h4 class="zen-card-title">ACROW Cup-Lock System</h4>
+                <p class="zen-card-sub">Échafaudage multidirectionnel à coupelles pour façades et tours.</p>
+              </div>
+              <div class="zen-card-actions">
+                <button type="button" class="btn-zen-read" onclick="openEbookModal('pdf/acrow-cup-lock-system.pdf', 'ACROW Cup-Lock Scaffolding')">
+                  <i class="bi bi-book-fill"></i> Consulter
+                </button>
+                <a href="pdf/acrow-cup-lock-system.pdf" download class="btn-zen-pdf" title="Télécharger PDF">
+                  <i class="bi bi-download"></i> PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 12. ACROW Ring-Lock Shoring -->
+          <div class="zen-card" data-cat="scaffolding" data-title="acrow ring lock shoring">
+            <div class="zen-card-showcase" onclick="openEbookModal('pdf/acrow-ring-lock-system.pdf', 'ACROW Ring-Lock System')">
+              <span class="zen-spine-line"></span>
+              <img src="assets/images/ebook-covers/acrow-ring-lock-system-cover.jpg" alt="ACROW Ring-Lock Shoring" class="zen-cover-img" loading="lazy" />
+            </div>
+            <div class="zen-card-body">
+              <div>
+                <span class="zen-card-cat">Échafaudage Rosace</span>
+                <h4 class="zen-card-title">ACROW Ring-Lock Shoring</h4>
+                <p class="zen-card-sub">Échafaudage rosace 8 directions galvanisé à chaud pour l'industrie.</p>
+              </div>
+              <div class="zen-card-actions">
+                <button type="button" class="btn-zen-read" onclick="openEbookModal('pdf/acrow-ring-lock-system.pdf', 'ACROW Ring-Lock System')">
+                  <i class="bi bi-book-fill"></i> Consulter
+                </button>
+                <a href="pdf/acrow-ring-lock-system.pdf" download class="btn-zen-pdf" title="Télécharger PDF">
+                  <i class="bi bi-download"></i> PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 13. ACROW Combishore System -->
+          <div class="zen-card" data-cat="scaffolding" data-title="acrow combishore system">
+            <div class="zen-card-showcase" onclick="openEbookModal('pdf/acrow-combishore-system.pdf', 'ACROW Combishore System')">
+              <span class="zen-spine-line"></span>
+              <img src="assets/images/ebook-covers/acrow-combishore-system-cover.jpg" alt="ACROW Combishore System" class="zen-cover-img" loading="lazy" />
+            </div>
+            <div class="zen-card-body">
+              <div>
+                <span class="zen-card-cat">Étaiement Haute Charge</span>
+                <h4 class="zen-card-title">ACROW Combishore System</h4>
+                <p class="zen-card-sub">Étaiement lourd 150 kN / poteau pour ponts, viaducs et trémies.</p>
+              </div>
+              <div class="zen-card-actions">
+                <button type="button" class="btn-zen-read" onclick="openEbookModal('pdf/acrow-combishore-system.pdf', 'ACROW Combishore System')">
+                  <i class="bi bi-book-fill"></i> Consulter
+                </button>
+                <a href="pdf/acrow-combishore-system.pdf" download class="btn-zen-pdf" title="Télécharger PDF">
+                  <i class="bi bi-download"></i> PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 14. Shorebrace Table Form -->
+          <div class="zen-card" data-cat="slabs" data-title="shorebrace table form">
+            <div class="zen-card-showcase" onclick="openEbookModal('pdf/acrow-shorebrace-table-form.pdf', 'Shorebrace Table Form')">
+              <span class="zen-spine-line"></span>
+              <img src="assets/images/ebook-covers/acrow-shorebrace-table-form-cover.jpg" alt="Shorebrace Table Form" class="zen-cover-img" loading="lazy" />
+            </div>
+            <div class="zen-card-body">
+              <div>
+                <span class="zen-card-cat">Tables Coffrantes</span>
+                <h4 class="zen-card-title">Shorebrace Table Form</h4>
+                <p class="zen-card-sub">Tables de dalles grande portée déplaçables à la grue ou au chariot.</p>
+              </div>
+              <div class="zen-card-actions">
+                <button type="button" class="btn-zen-read" onclick="openEbookModal('pdf/acrow-shorebrace-table-form.pdf', 'Shorebrace Table Form')">
+                  <i class="bi bi-book-fill"></i> Consulter
+                </button>
+                <a href="pdf/acrow-shorebrace-table-form.pdf" download class="btn-zen-pdf" title="Télécharger PDF">
+                  <i class="bi bi-download"></i> PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 15. ACROW Bridge Table Form -->
+          <div class="zen-card" data-cat="slabs" data-title="acrow bridge table form">
+            <div class="zen-card-showcase" onclick="openEbookModal('pdf/acrow-bridge-table-form.pdf', 'ACROW Bridge Table Form')">
+              <span class="zen-spine-line"></span>
+              <img src="assets/images/ebook-covers/acrow-bridge-table-form-cover.jpg" alt="ACROW Bridge Table Form" class="zen-cover-img" loading="lazy" />
+            </div>
+            <div class="zen-card-body">
+              <div>
+                <span class="zen-card-cat">Ponts &amp; Ouvrages d'Art</span>
+                <h4 class="zen-card-title">ACROW Bridge Table Form</h4>
+                <p class="zen-card-sub">Chariots et équipages mobiles pour tabliers et encorbellements.</p>
+              </div>
+              <div class="zen-card-actions">
+                <button type="button" class="btn-zen-read" onclick="openEbookModal('pdf/acrow-bridge-table-form.pdf', 'ACROW Bridge Table Form')">
+                  <i class="bi bi-book-fill"></i> Consulter
+                </button>
+                <a href="pdf/acrow-bridge-table-form.pdf" download class="btn-zen-pdf" title="Télécharger PDF">
+                  <i class="bi bi-download"></i> PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 16. ACROW Prop Table Form -->
+          <div class="zen-card" data-cat="slabs" data-title="acrow prop table form">
+            <div class="zen-card-showcase" onclick="openEbookModal('pdf/acrow-prop-table-form.pdf', 'ACROW Prop Table Form')">
+              <span class="zen-spine-line"></span>
+              <img src="assets/images/ebook-covers/acrow-prop-table-form-cover.jpg" alt="ACROW Prop Table Form" class="zen-cover-img" loading="lazy" />
+            </div>
+            <div class="zen-card-body">
+              <div>
+                <span class="zen-card-cat">Tables Coffrantes</span>
+                <h4 class="zen-card-title">ACROW Prop Table Form</h4>
+                <p class="zen-card-sub">Tables manuportables légères sur étais pour logements et bureaux.</p>
+              </div>
+              <div class="zen-card-actions">
+                <button type="button" class="btn-zen-read" onclick="openEbookModal('pdf/acrow-prop-table-form.pdf', 'ACROW Prop Table Form')">
+                  <i class="bi bi-book-fill"></i> Consulter
+                </button>
+                <a href="pdf/acrow-prop-table-form.pdf" download class="btn-zen-pdf" title="Télécharger PDF">
+                  <i class="bi bi-download"></i> PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 17. ACROW Heavy Frame System -->
+          <div class="zen-card" data-cat="scaffolding" data-title="acrow heavy frame system">
+            <div class="zen-card-showcase" onclick="openEbookModal('pdf/acrow-frame-system.pdf', 'ACROW Heavy Frame System')">
+              <span class="zen-spine-line"></span>
+              <img src="assets/images/ebook-covers/acrow-frame-system-cover.jpg" alt="ACROW Heavy Frame System" class="zen-cover-img" loading="lazy" />
+            </div>
+            <div class="zen-card-body">
+              <div>
+                <span class="zen-card-cat">Échafaudage à Cadres</span>
+                <h4 class="zen-card-title">ACROW Heavy Frame System</h4>
+                <p class="zen-card-sub">Échafaudage cadres portiques rigides pour travaux de façades jusqu'à 60m.</p>
+              </div>
+              <div class="zen-card-actions">
+                <button type="button" class="btn-zen-read" onclick="openEbookModal('pdf/acrow-frame-system.pdf', 'ACROW Heavy Frame System')">
+                  <i class="bi bi-book-fill"></i> Consulter
+                </button>
+                <a href="pdf/acrow-frame-system.pdf" download class="btn-zen-pdf" title="Télécharger PDF">
+                  <i class="bi bi-download"></i> PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 18. ACROW Vari-Form System -->
+          <div class="zen-card" data-cat="walls" data-title="acrow vari form system">
+            <div class="zen-card-showcase" onclick="openEbookModal('pdf/acrow-vari-form-system.pdf', 'ACROW Vari-Form System')">
+              <span class="zen-spine-line"></span>
+              <img src="assets/images/ebook-covers/acrow-vari-form-system-cover.jpg" alt="ACROW Vari-Form System" class="zen-cover-img" loading="lazy" />
+            </div>
+            <div class="zen-card-body">
+              <div>
+                <span class="zen-card-cat">Voiles &amp; Poteaux</span>
+                <h4 class="zen-card-title">ACROW Vari-Form System</h4>
+                <p class="zen-card-sub">Coffrage universel modulable pour géométries et voiles polygonaux.</p>
+              </div>
+              <div class="zen-card-actions">
+                <button type="button" class="btn-zen-read" onclick="openEbookModal('pdf/acrow-vari-form-system.pdf', 'ACROW Vari-Form System')">
+                  <i class="bi bi-book-fill"></i> Consulter
+                </button>
+                <a href="pdf/acrow-vari-form-system.pdf" download class="btn-zen-pdf" title="Télécharger PDF">
+                  <i class="bi bi-download"></i> PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 19. ACROW Aluminum Prop -->
+          <div class="zen-card" data-cat="props" data-title="acrow aluminum prop">
+            <div class="zen-card-showcase" onclick="openEbookModal('pdf/acrow-alu-prop.pdf', 'ACROW Aluminum Prop')">
+              <span class="zen-spine-line"></span>
+              <img src="assets/images/ebook-covers/acrow-alu-prop-cover.jpg" alt="ACROW Aluminum Prop" class="zen-cover-img" loading="lazy" />
+            </div>
+            <div class="zen-card-body">
+              <div>
+                <span class="zen-card-cat">Étais Aluminium</span>
+                <h4 class="zen-card-title">ACROW Aluminum Prop</h4>
+                <p class="zen-card-sub">Étais télescopiques aluminium ultra-légers haute capacité 90 kN.</p>
+              </div>
+              <div class="zen-card-actions">
+                <button type="button" class="btn-zen-read" onclick="openEbookModal('pdf/acrow-alu-prop.pdf', 'ACROW Aluminum Prop')">
+                  <i class="bi bi-book-fill"></i> Consulter
+                </button>
+                <a href="pdf/acrow-alu-prop.pdf" download class="btn-zen-pdf" title="Télécharger PDF">
+                  <i class="bi bi-download"></i> PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 20. ACROW European Steel Prop -->
+          <div class="zen-card" data-cat="props" data-title="acrow european steel prop">
+            <div class="zen-card-showcase" onclick="openEbookModal('pdf/acrow-european-prop.pdf', 'ACROW European Steel Prop')">
+              <span class="zen-spine-line"></span>
+              <img src="assets/images/ebook-covers/acrow-european-prop-cover.jpg" alt="ACROW European Steel Prop" class="zen-cover-img" loading="lazy" />
+            </div>
+            <div class="zen-card-body">
+              <div>
+                <span class="zen-card-cat">Étais Métalliques</span>
+                <h4 class="zen-card-title">ACROW European Steel Prop</h4>
+                <p class="zen-card-sub">Étais acier norme européenne EN 1065 avec système anti-pincement.</p>
+              </div>
+              <div class="zen-card-actions">
+                <button type="button" class="btn-zen-read" onclick="openEbookModal('pdf/acrow-european-prop.pdf', 'ACROW European Steel Prop')">
+                  <i class="bi bi-book-fill"></i> Consulter
+                </button>
+                <a href="pdf/acrow-european-prop.pdf" download class="btn-zen-pdf" title="Télécharger PDF">
+                  <i class="bi bi-download"></i> PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        <!-- ====================================================
-             COLONNE DROITE : SÉLECTEUR INTERACTIF & RECHERCHE
-             ==================================================== -->
-        <div class="col-lg-7" data-aos="fade-left" data-aos-duration="600">
-          
-          <!-- Filtres de Catégories (Chips ergonomiques) -->
-          <div class="cat-filter-tabs" id="catFilterTabs">
-            <button type="button" class="cat-filter-btn active" data-filter="all">
-              <i class="bi bi-grid-fill"></i> Tous <span class="cat-count">20</span>
-            </button>
-            <button type="button" class="cat-filter-btn" data-filter="walls">
-              <i class="bi bi-bricks"></i> Voiles &amp; Murs <span class="cat-count">6</span>
-            </button>
-            <button type="button" class="cat-filter-btn" data-filter="slabs">
-              <i class="bi bi-square-half"></i> Dalles &amp; Poutres <span class="cat-count">5</span>
-            </button>
-            <button type="button" class="cat-filter-btn" data-filter="columns">
-              <i class="bi bi-symmetry-vertical"></i> Poteaux <span class="cat-count">2</span>
-            </button>
-            <button type="button" class="cat-filter-btn" data-filter="scaffolding">
-              <i class="bi bi-diagram-3-fill"></i> Échafaudages <span class="cat-count">4</span>
-            </button>
-            <button type="button" class="cat-filter-btn" data-filter="props">
-              <i class="bi bi-arrow-up-down"></i> Étais <span class="cat-count">3</span>
-            </button>
-          </div>
-
-          <!-- Barre de Recherche Rapide avec badge de comptage -->
-          <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
-            <div class="catalog-search-box flex-grow-1">
-              <i class="bi bi-search"></i>
-              <input type="text" id="catalogSearchInput" placeholder="Rechercher par nom (ex: AluDeck, H20, Rosace, Poteau, Étais...)" autocomplete="off" />
-            </div>
-            <span class="badge bg-white text-secondary border px-3 py-2 fw-bold" id="catalogResultsCount" style="font-size:0.78rem;border-radius:50px;white-space:nowrap;">
-              20 manuels
-            </span>
-          </div>
-
-          <!-- Grille Défilante des 20 Sélecteurs de Produits (Pré-rendu statique instantané) -->
-          <div class="catalog-selector-scroll" id="catalogSelectorGrid">
-            <!-- 1. ACROW General Product Range -->
-            <div class="selector-item-card active" data-id="1" data-cat="general">
-              <img src="assets/images/ebook-covers/acrow-product-range-cover.jpg" alt="ACROW General Product Range" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Catalogue Général</span>
-                <h5 class="selector-item-title" title="ACROW General Product Range">ACROW General Product Range</h5>
-              </div>
-            </div>
-
-            <!-- 2. ACROW AluDeck Slab System -->
-            <div class="selector-item-card" data-id="2" data-cat="slabs">
-              <img src="assets/images/ebook-covers/acrow-aludeck-slab-system-cover.jpg" alt="ACROW AluDeck Slab System" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Dalles &amp; Poutres</span>
-                <h5 class="selector-item-title" title="ACROW AluDeck Slab System">ACROW AluDeck Slab System</h5>
-              </div>
-            </div>
-
-            <!-- 3. ACROW Flex Slab System -->
-            <div class="selector-item-card" data-id="3" data-cat="slabs">
-              <img src="assets/images/ebook-covers/acrow-flex-slab-system-cover.jpg" alt="ACROW Flex Slab System" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Dalles &amp; Poutres</span>
-                <h5 class="selector-item-title" title="ACROW Flex Slab System">ACROW Flex Slab System</h5>
-              </div>
-            </div>
-
-            <!-- 4. ACROW Eco-Form Panel -->
-            <div class="selector-item-card" data-id="4" data-cat="walls">
-              <img src="assets/images/ebook-covers/acrow-eco-form-cover.jpg" alt="ACROW Eco-Form Panel" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Voiles &amp; Murs</span>
-                <h5 class="selector-item-title" title="ACROW Eco-Form Panel">ACROW Eco-Form Panel</h5>
-              </div>
-            </div>
-
-            <!-- 5. ACROW Big Steel Panel -->
-            <div class="selector-item-card" data-id="5" data-cat="walls">
-              <img src="assets/images/ebook-covers/acrow-big-steel-panel-cover.jpg" alt="ACROW Big Steel Panel" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Voiles Lourds</span>
-                <h5 class="selector-item-title" title="ACROW Big Steel Panel">ACROW Big Steel Panel</h5>
-              </div>
-            </div>
-
-            <!-- 6. ACROW Tech-Form System -->
-            <div class="selector-item-card" data-id="6" data-cat="walls">
-              <img src="assets/images/ebook-covers/acrow-tech-form-cover.jpg" alt="ACROW Tech-Form System" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Voiles &amp; Murs</span>
-                <h5 class="selector-item-title" title="ACROW Tech-Form System">ACROW Tech-Form System</h5>
-              </div>
-            </div>
-
-            <!-- 7. ACROW H-20 & Soldier Wall -->
-            <div class="selector-item-card" data-id="7" data-cat="walls">
-              <img src="assets/images/ebook-covers/acrow-h20-wall-soldier-cover.jpg" alt="ACROW H-20 & Soldier Wall" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Voiles &amp; Murs</span>
-                <h5 class="selector-item-title" title="ACROW H-20 & Soldier Wall">ACROW H-20 &amp; Soldier Wall</h5>
-              </div>
-            </div>
-
-            <!-- 8. ACROW One-Side Shutter -->
-            <div class="selector-item-card" data-id="8" data-cat="walls">
-              <img src="assets/images/ebook-covers/acrow-one-side-shutter-cover.jpg" alt="ACROW One-Side Shutter" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Coffrage Unilatéral</span>
-                <h5 class="selector-item-title" title="ACROW One-Side Shutter">ACROW One-Side Shutter</h5>
-              </div>
-            </div>
-
-            <!-- 9. ACROW V.M.C Column System -->
-            <div class="selector-item-card" data-id="9" data-cat="columns">
-              <img src="assets/images/ebook-covers/acrow-vmc-column-system-cover.jpg" alt="ACROW V.M.C Column System" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Poteaux &amp; Colonnes</span>
-                <h5 class="selector-item-title" title="ACROW V.M.C Column System">ACROW V.M.C Column System</h5>
-              </div>
-            </div>
-
-            <!-- 10. ACROW Circular Column -->
-            <div class="selector-item-card" data-id="10" data-cat="columns">
-              <img src="assets/images/ebook-covers/acrow-circular-column-cover.jpg" alt="ACROW Circular Column" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Poteaux Circulaires</span>
-                <h5 class="selector-item-title" title="ACROW Circular Column">ACROW Circular Column</h5>
-              </div>
-            </div>
-
-            <!-- 11. ACROW Cup-Lock Scaffolding -->
-            <div class="selector-item-card" data-id="11" data-cat="scaffolding">
-              <img src="assets/images/ebook-covers/acrow-cup-lock-system-cover.jpg" alt="ACROW Cup-Lock Scaffolding" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Échafaudage &amp; Étaiement</span>
-                <h5 class="selector-item-title" title="ACROW Cup-Lock Scaffolding">ACROW Cup-Lock Scaffolding</h5>
-              </div>
-            </div>
-
-            <!-- 12. ACROW Ring-Lock Shoring -->
-            <div class="selector-item-card" data-id="12" data-cat="scaffolding">
-              <img src="assets/images/ebook-covers/acrow-ring-lock-system-cover.jpg" alt="ACROW Ring-Lock Shoring" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Échafaudage Rosace</span>
-                <h5 class="selector-item-title" title="ACROW Ring-Lock Shoring">ACROW Ring-Lock Shoring</h5>
-              </div>
-            </div>
-
-            <!-- 13. ACROW Combishore System -->
-            <div class="selector-item-card" data-id="13" data-cat="scaffolding">
-              <img src="assets/images/ebook-covers/acrow-combishore-system-cover.jpg" alt="ACROW Combishore System" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Étaiement Haute Charge</span>
-                <h5 class="selector-item-title" title="ACROW Combishore System">ACROW Combishore System</h5>
-              </div>
-            </div>
-
-            <!-- 14. Shorebrace Table Form -->
-            <div class="selector-item-card" data-id="14" data-cat="slabs">
-              <img src="assets/images/ebook-covers/acrow-shorebrace-table-form-cover.jpg" alt="Shorebrace Table Form" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Tables Coffrantes</span>
-                <h5 class="selector-item-title" title="Shorebrace Table Form">Shorebrace Table Form</h5>
-              </div>
-            </div>
-
-            <!-- 15. ACROW Bridge Table Form -->
-            <div class="selector-item-card" data-id="15" data-cat="slabs">
-              <img src="assets/images/ebook-covers/acrow-bridge-table-form-cover.jpg" alt="ACROW Bridge Table Form" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Ponts &amp; Ouvrages d'Art</span>
-                <h5 class="selector-item-title" title="ACROW Bridge Table Form">ACROW Bridge Table Form</h5>
-              </div>
-            </div>
-
-            <!-- 16. ACROW Prop Table Form -->
-            <div class="selector-item-card" data-id="16" data-cat="slabs">
-              <img src="assets/images/ebook-covers/acrow-prop-table-form-cover.jpg" alt="ACROW Prop Table Form" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Tables Coffrantes</span>
-                <h5 class="selector-item-title" title="ACROW Prop Table Form">ACROW Prop Table Form</h5>
-              </div>
-            </div>
-
-            <!-- 17. ACROW Heavy Frame System -->
-            <div class="selector-item-card" data-id="17" data-cat="scaffolding">
-              <img src="assets/images/ebook-covers/acrow-frame-system-cover.jpg" alt="ACROW Heavy Frame System" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Échafaudage à Cadres</span>
-                <h5 class="selector-item-title" title="ACROW Heavy Frame System">ACROW Heavy Frame System</h5>
-              </div>
-            </div>
-
-            <!-- 18. ACROW Vari-Form System -->
-            <div class="selector-item-card" data-id="18" data-cat="walls">
-              <img src="assets/images/ebook-covers/acrow-vari-form-system-cover.jpg" alt="ACROW Vari-Form System" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Voiles &amp; Poteaux</span>
-                <h5 class="selector-item-title" title="ACROW Vari-Form System">ACROW Vari-Form System</h5>
-              </div>
-            </div>
-
-            <!-- 19. ACROW Aluminum Prop -->
-            <div class="selector-item-card" data-id="19" data-cat="props">
-              <img src="assets/images/ebook-covers/acrow-alu-prop-cover.jpg" alt="ACROW Aluminum Prop" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Étais Aluminium</span>
-                <h5 class="selector-item-title" title="ACROW Aluminum Prop">ACROW Aluminum Prop</h5>
-              </div>
-            </div>
-
-            <!-- 20. ACROW European Steel Prop -->
-            <div class="selector-item-card" data-id="20" data-cat="props">
-              <img src="assets/images/ebook-covers/acrow-european-prop-cover.jpg" alt="ACROW European Steel Prop" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Étais Métalliques</span>
-                <h5 class="selector-item-title" title="ACROW European Steel Prop">ACROW European Steel Prop</h5>
-              </div>
-            </div>
-          </div>
-
-        </div>
+        <!-- Flèche Droite -->
+        <button type="button" class="zen-nav-btn zen-next" id="zenNextBtn" aria-label="Suivant" title="Défiler vers la droite">
+          <i class="bi bi-chevron-right"></i>
+        </button>
 
       </div>
 
@@ -3557,492 +3581,59 @@
         });
       }
 
-      // 2b. Initialisation & Gestion de l'Explorateur Split-View des 20 Catalogues (Modèle 2)
-      initCatalogSplitExplorer();
+      // 2b. Initialisation & Gestion du Slider Zen Centré (Modèle 2 - 3 Cartes Aérées)
+      initZenSlider();
 
-      function initCatalogSplitExplorer() {
-        const ACROW_CATALOGS = [
-          {
-            id: 1,
-            title: "ACROW General Product Range",
-            sub: "Catalogue d'ensemble des solutions de coffrage et d'échafaudage ACROW",
-            category: "general",
-            categoryName: "Catalogue Général",
-            pdf: "pdf/acrow-product-range.pdf",
-            cover: "assets/images/ebook-covers/acrow-product-range-cover.jpg",
-            norm: "ISO 9001 · EN 12812",
-            specs: [
-              { icon: "bi-layers-fill", label: "Gamme", val: "Coffrage & Échafaudage" },
-              { icon: "bi-shield-check", label: "Norme", val: "Certifié ISO & EN" },
-              { icon: "bi-buildings", label: "Production", val: "Usine 10 000 m²" },
-              { icon: "bi-truck", label: "Livraison", val: "58 Wilayas en direct" }
-            ]
-          },
-          {
-            id: 2,
-            title: "ACROW AluDeck Slab System",
-            sub: "Système de coffrage manuportable en aluminium pour dalles et poutres",
-            category: "slabs",
-            categoryName: "Dalles & Poutres",
-            pdf: "pdf/acrow-aludeck-slab-system.pdf",
-            cover: "assets/images/ebook-covers/acrow-aludeck-slab-system-cover.jpg",
-            norm: "EN 12812 · Sécurité Sol",
-            specs: [
-              { icon: "bi-hammer", label: "Matériau", val: "Aluminium haute rigidité" },
-              { icon: "bi-arrows-expand", label: "Capacité", val: "Dalles jusqu'à 100 cm" },
-              { icon: "bi-lightning-charge-fill", label: "Décoffrage", val: "Tête précoce rapide" },
-              { icon: "bi-shield-check", label: "Sécurité", val: "100% monté depuis le sol" }
-            ]
-          },
-          {
-            id: 3,
-            title: "ACROW Flex Slab System",
-            sub: "Coffrage modulable à poutrelles bois H-20 pour dalles et géométries libres",
-            category: "slabs",
-            categoryName: "Dalles & Poutres",
-            pdf: "pdf/acrow-flex-slab-system.pdf",
-            cover: "assets/images/ebook-covers/acrow-flex-slab-system-cover.jpg",
-            norm: "EN 13377 · Bois H20",
-            specs: [
-              { icon: "bi-bounding-box-circles", label: "Poutrelles", val: "H20 bois certifiées" },
-              { icon: "bi-bezier2", label: "Flexibilité", val: "Formes libres & retombées" },
-              { icon: "bi-gem", label: "Finition", val: "Béton apparent architectural" },
-              { icon: "bi-arrow-up-down", label: "Étaiement", val: "Étais légers & tours lourdes" }
-            ]
-          },
-          {
-            id: 4,
-            title: "ACROW Eco-Form Panel",
-            sub: "Coffrage manuportable cadre acier avec contreplaqué bouleau haute longévité",
-            category: "walls",
-            categoryName: "Voiles & Murs",
-            pdf: "pdf/acrow-eco-form.pdf",
-            cover: "assets/images/ebook-covers/acrow-eco-form-cover.jpg",
-            norm: "Pression 50 kN/m²",
-            specs: [
-              { icon: "bi-person-arms-up", label: "Manutention", val: "Manuportable sans grue" },
-              { icon: "bi-speedometer2", label: "Pression max", val: "50 kN/m² béton frais" },
-              { icon: "bi-shield-fill", label: "Cadre", val: "Acier galvanisé rigide" },
-              { icon: "bi-layers", label: "Contreplaqué", val: "Bouleau filmé 15 mm" }
-            ]
-          },
-          {
-            id: 5,
-            title: "ACROW Big Steel Panel",
-            sub: "Coffrage métallique lourd pour ouvrages massifs, radiers et grands voiles",
-            category: "walls",
-            categoryName: "Voiles Lourds",
-            pdf: "pdf/acrow-big-steel-panel.pdf",
-            cover: "assets/images/ebook-covers/acrow-big-steel-panel-cover.jpg",
-            norm: "Pression 80 kN/m²",
-            specs: [
-              { icon: "bi-buildings-fill", label: "Ouvrage", val: "Grands voiles & génie civil" },
-              { icon: "bi-speedometer", label: "Pression max", val: "80 kN/m² admissible" },
-              { icon: "bi-cone-striped", label: "Grutage", val: "Assemblage en grands trains" },
-              { icon: "bi-arrow-repeat", label: "Durabilité", val: "+300 réemplois garantis" }
-            ]
-          },
-          {
-            id: 6,
-            title: "ACROW Tech-Form System",
-            sub: "Coffrage acier grande résistance pour refends, cages d'ascenseur et murs",
-            category: "walls",
-            categoryName: "Voiles & Murs",
-            pdf: "pdf/acrow-tech-form.pdf",
-            cover: "assets/images/ebook-covers/acrow-tech-form-cover.jpg",
-            norm: "EN 12812 Standard",
-            specs: [
-              { icon: "bi-tools", label: "Usage", val: "Refends & cages d'escalier" },
-              { icon: "bi-cpu", label: "Profilés", val: "Acier tubulaire rectifié" },
-              { icon: "bi-check2-circle", label: "Serrage", val: "Clavettes rapides ergonomiques" },
-              { icon: "bi-rulers", label: "Planéité", val: "Flèche minimale sous charge" }
-            ]
-          },
-          {
-            id: 7,
-            title: "ACROW H-20 & Soldier Wall",
-            sub: "Système mixte filières acier Soldier et poutres bois H-20 grande hauteur",
-            category: "walls",
-            categoryName: "Voiles & Murs",
-            pdf: "pdf/acrow-h20-wall-soldier.pdf",
-            cover: "assets/images/ebook-covers/acrow-h20-wall-soldier-cover.jpg",
-            norm: "Génie Civil & BTP",
-            specs: [
-              { icon: "bi-arrows-vertical", label: "Hauteur", val: "Voiles jusqu'à 9 m d'un jet" },
-              { icon: "bi-bar-chart-steps", label: "Soldier", val: "Filières acier haute inertie" },
-              { icon: "bi-speedometer2", label: "Pression", val: "Jusqu'à 90 kN/m² calculée" },
-              { icon: "bi-aspect-ratio", label: "Finition", val: "Architecturale soignée" }
-            ]
-          },
-          {
-            id: 8,
-            title: "ACROW One-Side Shutter",
-            sub: "Coffrage unilatéral pour parois contre terre, tunnels et barrages sans tirants",
-            category: "walls",
-            categoryName: "Coffrage Unilatéral",
-            pdf: "pdf/acrow-one-side-shutter.pdf",
-            cover: "assets/images/ebook-covers/acrow-one-side-shutter-cover.jpg",
-            norm: "Sous-sols & Tranchées",
-            specs: [
-              { icon: "bi-bounding-box", label: "Principe", val: "Zéro tige traversante" },
-              { icon: "bi-arrows-vertical", label: "Hauteur", val: "Cadres butons jusqu'à 8 m" },
-              { icon: "bi-pin-map-fill", label: "Ancrage", val: "Boulons scellés au radier" },
-              { icon: "bi-bricks", label: "Applications", val: "Sous-sols, métros, tranchées" }
-            ]
-          },
-          {
-            id: 9,
-            title: "ACROW V.M.C Column System",
-            sub: "Coffrage réglable pour poteaux carrés et rectangulaires sans perforation",
-            category: "columns",
-            categoryName: "Poteaux & Colonnes",
-            pdf: "pdf/acrow-vmc-column-system.pdf",
-            cover: "assets/images/ebook-covers/acrow-vmc-column-system-cover.jpg",
-            norm: "Sections 20 à 80 cm",
-            specs: [
-              { icon: "bi-aspect-ratio-fill", label: "Sections", val: "Ajustable par pas de 5 cm" },
-              { icon: "bi-arrow-clockwise", label: "Mécanisme", val: "Rotation moulin à vent" },
-              { icon: "bi-speedometer2", label: "Coulage", val: "Pression 90 kN/m² continue" },
-              { icon: "bi-shield-check", label: "Sécurité", val: "Plateforme & échelle intégrée" }
-            ]
-          },
-          {
-            id: 10,
-            title: "ACROW Circular Column",
-            sub: "Coffrage en demi-coquilles d'acier pour poteaux circulaires parfaits",
-            category: "columns",
-            categoryName: "Poteaux Circulaires",
-            pdf: "pdf/acrow-circular-column.pdf",
-            cover: "assets/images/ebook-covers/acrow-circular-column-cover.jpg",
-            norm: "Diamètres 30 à 120 cm",
-            specs: [
-              { icon: "bi-circle", label: "Finition", val: "Arêtes invisibles béton lisse" },
-              { icon: "bi-key-fill", label: "Fermeture", val: "Verrous rapides à boulons" },
-              { icon: "bi-speedometer2", label: "Résistance", val: "100 kN/m² coulage rapide" },
-              { icon: "bi-layers-half", label: "Superposable", val: "Hauteur libre par tronçons" }
-            ]
-          },
-          {
-            id: 11,
-            title: "ACROW Cup-Lock Scaffolding",
-            sub: "Échafaudage multidirectionnel à coupelles pour façades et tours d'étaiement",
-            category: "scaffolding",
-            categoryName: "Échafaudage & Étaiement",
-            pdf: "pdf/acrow-cup-lock-system.pdf",
-            cover: "assets/images/ebook-covers/acrow-cup-lock-system-cover.jpg",
-            norm: "EN 12810 · EN 12811",
-            specs: [
-              { icon: "bi-diagram-3-fill", label: "Nœud", val: "Coupelle à 4 liaisons rigides" },
-              { icon: "bi-shield-fill", label: "Capacité", val: "Montants jusqu'à 65 kN" },
-              { icon: "bi-lightning-charge", label: "Montage", val: "Verrouillage simple marteau" },
-              { icon: "bi-grid-1x2-fill", label: "Usage", val: "Façade & tour de charge" }
-            ]
-          },
-          {
-            id: 12,
-            title: "ACROW Ring-Lock Shoring",
-            sub: "Échafaudage rosace à 8 directions haute capacité pour chantiers industriels",
-            category: "scaffolding",
-            categoryName: "Échafaudage Rosace",
-            pdf: "pdf/acrow-ring-lock-system.pdf",
-            cover: "assets/images/ebook-covers/acrow-ring-lock-system-cover.jpg",
-            norm: "EN 12810 / 12811",
-            specs: [
-              { icon: "bi-compass", label: "Rosace", val: "8 connexions par disque soudé" },
-              { icon: "bi-bezier2", label: "Modularité", val: "Angles et géométries libres" },
-              { icon: "bi-shield-check", label: "Protection", val: "Galvanisé à chaud intégral" },
-              { icon: "bi-arrow-up-right-circle", label: "Capacité", val: "Étaiement lourd grande hauteur" }
-            ]
-          },
-          {
-            id: 13,
-            title: "ACROW Combishore System",
-            sub: "Étaiement lourd haute capacité pour ponts, viaducs et ouvrages d'art",
-            category: "scaffolding",
-            categoryName: "Étaiement Haute Charge",
-            pdf: "pdf/acrow-combishore-system.pdf",
-            cover: "assets/images/ebook-covers/acrow-combishore-system-cover.jpg",
-            norm: "Jusqu'à 150 kN / poteau",
-            specs: [
-              { icon: "bi-speedometer2", label: "Capacité", val: "150 kN admissible / poteau" },
-              { icon: "bi-train-front", label: "Ouvrages", val: "Tabliers de ponts & trémies" },
-              { icon: "bi-triangle-fill", label: "Assemblage", val: "Poutres triangulées modulaires" },
-              { icon: "bi-patch-check-fill", label: "Génie civil", val: "Solutions lourdes certifiées" }
-            ]
-          },
-          {
-            id: 14,
-            title: "Shorebrace Table Form",
-            sub: "Système de tables coffrantes déplaçables par chariot ou grue pour grandes surfaces",
-            category: "slabs",
-            categoryName: "Tables Coffrantes",
-            pdf: "pdf/acrow-shorebrace-table-form.pdf",
-            cover: "assets/images/ebook-covers/acrow-shorebrace-table-form-cover.jpg",
-            norm: "Cycles d'étage 4 jours",
-            specs: [
-              { icon: "bi-arrow-repeat", label: "Productivité", val: "Déplacement unitaire par grue" },
-              { icon: "bi-bounding-box-circles", label: "Dimensions", val: "Tables jusqu'à 30 m²" },
-              { icon: "bi-building", label: "Répétitif", val: "Idéal tours, hôpitaux, hôtels" },
-              { icon: "bi-shield-shaded", label: "Sécurité", val: "Garde-corps repliable intégré" }
-            ]
-          },
-          {
-            id: 15,
-            title: "ACROW Bridge Table Form",
-            sub: "Chariots et tables de coffrage sur-mesure pour tabliers et voussoirs de ponts",
-            category: "slabs",
-            categoryName: "Ponts & Ouvrages d'Art",
-            pdf: "pdf/acrow-bridge-table-form.pdf",
-            cover: "assets/images/ebook-covers/acrow-bridge-table-form-cover.jpg",
-            norm: "Conception Spécifique",
-            specs: [
-              { icon: "bi-train-freight-front", label: "Déplacement", val: "Avancement rails / rouleaux" },
-              { icon: "bi-graph-up", label: "Pente", val: "Adaptation dévers & courbures" },
-              { icon: "bi-calculator", label: "Portance", val: "Étude statique bureau 3D" },
-              { icon: "bi-speedometer", label: "Rendement", val: "Coulage travée par travée" }
-            ]
-          },
-          {
-            id: 16,
-            title: "ACROW Prop Table Form",
-            sub: "Tables coffrantes légères sur étais pour bâtiments tertiaires et logements",
-            category: "slabs",
-            categoryName: "Tables Coffrantes",
-            pdf: "pdf/acrow-prop-table-form.pdf",
-            cover: "assets/images/ebook-covers/acrow-prop-table-form-cover.jpg",
-            norm: "EN 1065 / EN 12812",
-            specs: [
-              { icon: "bi-arrow-up-down", label: "Base", val: "Étais télescopiques acier/alu" },
-              { icon: "bi-wrench", label: "Tête", val: "Têtes décoffrage à bascule" },
-              { icon: "bi-people", label: "Mise en œuvre", val: "Très simple pour équipes BTP" },
-              { icon: "bi-arrow-left-right", label: "Transfert", val: "D'étage en étage sans démonter" }
-            ]
-          },
-          {
-            id: 17,
-            title: "ACROW Heavy Frame System",
-            sub: "Échafaudage à cadres haute résistance pour façades, maçonnerie et ravalement",
-            category: "scaffolding",
-            categoryName: "Échafaudage à Cadres",
-            pdf: "pdf/acrow-frame-system.pdf",
-            cover: "assets/images/ebook-covers/acrow-frame-system-cover.jpg",
-            norm: "Classe 4 & 5 (EN 12810)",
-            specs: [
-              { icon: "bi-layout-sidebar-inset", label: "Structure", val: "Cadres portiques acier rigides" },
-              { icon: "bi-check2-square", label: "Planchers", val: "Planchers acier antidérapants" },
-              { icon: "bi-arrow-up", label: "Hauteur", val: "Montage jusqu'à 60 mètres" },
-              { icon: "bi-shield-check", label: "Accès", val: "Trappes de sécurité intégrées" }
-            ]
-          },
-          {
-            id: 18,
-            title: "ACROW Vari-Form System",
-            sub: "Système de coffrage universel ajustable pour formes géométriques complexes",
-            category: "walls",
-            categoryName: "Voiles & Poteaux",
-            pdf: "pdf/acrow-vari-form-system.pdf",
-            cover: "assets/images/ebook-covers/acrow-vari-form-system-cover.jpg",
-            norm: "Polyvalence Chantiers",
-            specs: [
-              { icon: "bi-intersect", label: "Adaptabilité", val: "Murs polygonaux & courbes" },
-              { icon: "bi-tools", label: "Accessoires", val: "Tirants, cales et vérins" },
-              { icon: "bi-gem", label: "Finition", val: "Béton brut de décoffrage net" },
-              { icon: "bi-cash-coin", label: "Économie", val: "Investissement unique modulable" }
-            ]
-          },
-          {
-            id: 19,
-            title: "ACROW Aluminum Prop",
-            sub: "Étais télescopiques en aluminium haute résistance et légèreté exemplaire",
-            category: "props",
-            categoryName: "Étais Aluminium",
-            pdf: "pdf/acrow-alu-prop.pdf",
-            cover: "assets/images/ebook-covers/acrow-alu-prop-cover.jpg",
-            norm: "Capacité jusqu'à 90 kN",
-            specs: [
-              { icon: "bi-feather", label: "Poids", val: "50% plus léger que l'acier" },
-              { icon: "bi-speedometer2", label: "Charge", val: "Jusqu'à 90 kN admissible" },
-              { icon: "bi-sliders", label: "Extension", val: "Réglage fin filetage protégé" },
-              { icon: "bi-person-check", label: "Manutention", val: "Portage aisé par 1 seul homme" }
-            ]
-          },
-          {
-            id: 20,
-            title: "ACROW European Steel Prop",
-            sub: "Étais métalliques télescopiques certifiés norme européenne EN 1065",
-            category: "props",
-            categoryName: "Étais Métalliques",
-            pdf: "pdf/acrow-european-prop.pdf",
-            cover: "assets/images/ebook-covers/acrow-european-prop-cover.jpg",
-            norm: "Conforme Norme EN 1065",
-            specs: [
-              { icon: "bi-patch-check", label: "Norme", val: "EN 1065 Classes B, D & E" },
-              { icon: "bi-shield-lock", label: "Sécurité", val: "Anti-déboîtement & anti-pincement" },
-              { icon: "bi-paint-bucket", label: "Finition", val: "Galvanisation ou laquage rouge" },
-              { icon: "bi-box-seam", label: "Parc", val: "Grand stock disponible à Alger" }
-            ]
+      function initZenSlider() {
+        const track = document.getElementById('zenSliderTrack');
+        const prevBtn = document.getElementById('zenPrevBtn');
+        const nextBtn = document.getElementById('zenNextBtn');
+        const filterChips = document.querySelectorAll('.zen-filter-chip');
+        const cards = document.querySelectorAll('.zen-card');
+
+        if (!track) return;
+
+        // Navigation Flèches (défilement de la largeur d'une carte + marge)
+        function getScrollStep() {
+          const firstCard = track.querySelector('.zen-card:not([style*="display: none"])');
+          if (firstCard) {
+            return firstCard.offsetWidth + 24;
           }
-        ];
+          return 380;
+        }
 
-        let activeCatalog = ACROW_CATALOGS[0];
-        let currentFilter = 'all';
-        let searchQuery = '';
-
-        const selectorGrid = document.getElementById('catalogSelectorGrid');
-        const searchInput = document.getElementById('catalogSearchInput');
-        const filterBtns = document.querySelectorAll('.cat-filter-btn');
-        const resultsCountBadge = document.getElementById('catalogResultsCount');
-
-        // Focus Elements
-        const focusCard = document.getElementById('catalogFocusCard');
-        const focusCoverImg = document.getElementById('focusCoverImg');
-        const focusCoverTrigger = document.getElementById('focusCoverTrigger');
-        const focusReadHint = document.getElementById('focusReadHint');
-        const focusCategoryBadge = document.getElementById('focusCategoryBadge');
-        const focusNormBadge = document.getElementById('focusNormBadge');
-        const focusTitle = document.getElementById('focusTitle');
-        const focusSubtitle = document.getElementById('focusSubtitle');
-        const focusSpecsContainer = document.getElementById('focusSpecsContainer');
-        const focusReadBtn = document.getElementById('focusReadBtn');
-        const focusDownloadBtn = document.getElementById('focusDownloadBtn');
-        const focusQuoteBtn = document.getElementById('focusQuoteBtn');
-
-        if (!selectorGrid) return;
-
-        // Render Selector Items
-        function renderSelectors() {
-          const filtered = ACROW_CATALOGS.filter(cat => {
-            const matchesCategory = currentFilter === 'all' || cat.category === currentFilter;
-            const matchesSearch = !searchQuery || 
-              cat.title.toLowerCase().includes(searchQuery) || 
-              cat.sub.toLowerCase().includes(searchQuery) ||
-              cat.categoryName.toLowerCase().includes(searchQuery);
-            return matchesCategory && matchesSearch;
+        if (prevBtn) {
+          prevBtn.addEventListener('click', () => {
+            track.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
           });
+        }
 
-          if (resultsCountBadge) {
-            resultsCountBadge.textContent = `${filtered.length} ${filtered.length > 1 ? 'manuels' : 'manuel'}`;
-          }
+        if (nextBtn) {
+          nextBtn.addEventListener('click', () => {
+            track.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+          });
+        }
 
-          if (filtered.length === 0) {
-            selectorGrid.innerHTML = `
-              <div class="selector-empty-msg">
-                <i class="bi bi-search text-danger fs-3 d-block mb-2"></i>
-                <div class="fw-bold text-dark">Aucun catalogue trouvé pour « ${searchQuery} »</div>
-                <small class="text-muted">Essayez un autre mot-clé (ex: AluDeck, H20, Rosace, Étais...)</small>
-              </div>
-            `;
-            return;
-          }
+        // Gestion des Filtres de Catégories
+        filterChips.forEach(chip => {
+          chip.addEventListener('click', () => {
+            filterChips.forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            const filter = chip.getAttribute('data-filter') || 'all';
 
-          selectorGrid.innerHTML = filtered.map(cat => `
-            <div class="selector-item-card ${cat.id === activeCatalog.id ? 'active' : ''}" data-id="${cat.id}">
-              <img src="${cat.cover}" alt="${cat.title}" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">${cat.categoryName}</span>
-                <h5 class="selector-item-title" title="${cat.title}">${cat.title}</h5>
-              </div>
-            </div>
-          `).join('');
-
-          // Bind click to each card
-          selectorGrid.querySelectorAll('.selector-item-card').forEach(card => {
-            card.addEventListener('click', () => {
-              const id = parseInt(card.getAttribute('data-id'), 10);
-              const found = ACROW_CATALOGS.find(c => c.id === id);
-              if (found) {
-                setActiveCatalog(found);
+            cards.forEach(card => {
+              const cat = card.getAttribute('data-cat');
+              if (filter === 'all' || cat === filter) {
+                card.style.display = 'flex';
+              } else {
+                card.style.display = 'none';
               }
             });
-          });
-        }
 
-        // Set Active Catalog in Focus Card
-        function setActiveCatalog(catalog) {
-          activeCatalog = catalog;
-
-          // Update active class on selector cards
-          selectorGrid.querySelectorAll('.selector-item-card').forEach(card => {
-            if (parseInt(card.getAttribute('data-id'), 10) === catalog.id) {
-              card.classList.add('active');
-            } else {
-              card.classList.remove('active');
-            }
-          });
-
-          // Soft animate transition on focus card
-          if (focusCard) {
-            focusCard.style.opacity = '0.5';
-            focusCard.style.transform = 'scale(0.985)';
-          }
-
-          setTimeout(() => {
-            if (focusCoverImg) {
-              focusCoverImg.src = catalog.cover;
-              focusCoverImg.alt = catalog.title;
-            }
-            if (focusCategoryBadge) focusCategoryBadge.textContent = catalog.categoryName;
-            if (focusNormBadge) focusNormBadge.innerHTML = `<i class="bi bi-patch-check-fill text-primary me-1"></i> ${catalog.norm}`;
-            if (focusTitle) focusTitle.textContent = catalog.title;
-            if (focusSubtitle) focusSubtitle.textContent = catalog.sub;
-
-            if (focusSpecsContainer && catalog.specs) {
-              focusSpecsContainer.innerHTML = catalog.specs.map(spec => `
-                <div class="focus-spec-item">
-                  <div class="focus-spec-icon"><i class="bi ${spec.icon}"></i></div>
-                  <div class="focus-spec-text">
-                    <span class="focus-spec-label">${spec.label}</span>
-                    <span class="focus-spec-val">${spec.val}</span>
-                  </div>
-                </div>
-              `).join('');
-            }
-
-            if (focusDownloadBtn) {
-              focusDownloadBtn.href = catalog.pdf;
-              focusDownloadBtn.setAttribute('download', catalog.pdf.split('/').pop());
-            }
-
-            if (focusQuoteBtn) {
-              focusQuoteBtn.href = `devis.html?sujet=${encodeURIComponent('Étude 3D — ' + catalog.title)}`;
-            }
-
-            // Bind click to open reader modal
-            const openModalAction = () => {
-              openEbookModal(catalog.pdf, catalog.title);
-            };
-            if (focusReadBtn) focusReadBtn.onclick = openModalAction;
-            if (focusCoverTrigger) focusCoverTrigger.onclick = openModalAction;
-            if (focusReadHint) focusReadHint.onclick = openModalAction;
-
-            if (focusCard) {
-              focusCard.style.opacity = '1';
-              focusCard.style.transform = 'scale(1)';
-            }
-          }, 120);
-        }
-
-        // Category filter clicks
-        filterBtns.forEach(btn => {
-          btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            currentFilter = btn.getAttribute('data-filter') || 'all';
-            renderSelectors();
+            // Revenir au début du slider avec animation fluide
+            track.scrollTo({ left: 0, behavior: 'smooth' });
           });
         });
-
-        // Search input
-        if (searchInput) {
-          searchInput.addEventListener('input', (e) => {
-            searchQuery = e.target.value.trim().toLowerCase();
-            renderSelectors();
-          });
-        }
-
-        // Initialize display
-        renderSelectors();
-        setActiveCatalog(ACROW_CATALOGS[0]);
       }
 
       // 3. Stats Counter Animation on scroll
