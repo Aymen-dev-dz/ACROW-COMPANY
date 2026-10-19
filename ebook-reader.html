@@ -326,7 +326,7 @@
       height: 100%;
       display: block;
       object-fit: contain;
-      image-rendering: -webkit-optimize-contrast;
+      image-rendering: auto;
     }
 
     /* HARDCOVER STYLING (FRONT & BACK COVERS) */
@@ -951,11 +951,11 @@
 
         // Calculate supersampling scale for crisp text & diagrams
         const parentPage = canvas.parentElement;
-        const targetW = parentPage.clientWidth || 550;
-        const targetH = parentPage.clientHeight || 750;
+        const targetW = parentPage.clientWidth || 650;
+        const targetH = parentPage.clientHeight || 900;
 
         const dpr = Math.max(window.devicePixelRatio || 1, 2.0);
-        const scale = (targetH / baseViewport.height) * dpr;
+        const scale = Math.max(2.2, (targetH / baseViewport.height) * dpr);
         const viewport = page.getViewport({ scale: scale });
 
         canvas.width = Math.floor(viewport.width);
