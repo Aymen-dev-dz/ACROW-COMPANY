@@ -1,0 +1,245 @@
+[
+  {
+    "id": "sonatrach-alrar",
+    "folder": "Réalisation en EPC des unités de séparation et de décarbonatation — Site d’Alrar, Wilaya d’Illizi",
+    "title": "Unités de Séparation & Décarbonatation — Alrar",
+    "client": "SONATRACH",
+    "location": "Alrar, Wilaya d'Illizi",
+    "category": "energie",
+    "category_name": "Énergie & Pétrochimie",
+    "logo_file": "Image10.png",
+    "photo_files": [
+      "Image24.jpg",
+      "Image25.jpg",
+      "Image26.jpg"
+    ],
+    "desc": "Fourniture de coffrages lourds et systèmes d'étaiement certifiés pour les unités industrielles stratégiques de décarbonatation et séparation en plein Sahara.",
+    "badge": "Projet Stratégique National",
+    "logo_path": "assets/images/projects/sonatrach-alrar/logo.png",
+    "photos": [
+      "assets/images/projects/sonatrach-alrar/photo_1.jpg",
+      "assets/images/projects/sonatrach-alrar/photo_2.jpg",
+      "assets/images/projects/sonatrach-alrar/photo_3.jpg"
+    ]
+  },
+  {
+    "id": "gara-djebilet-bechar",
+    "folder": "Réalisation de line ferroviaire pour la mine de fér Ghar djebilat Béchar avec l entreprise SEROR",
+    "title": "Ligne Ferroviaire Mine de Fer Gâra Djebilet — Béchar",
+    "client": "SEROR / SNTF",
+    "location": "Béchar — Tindouf",
+    "category": "transport",
+    "category_name": "Infrastructures Ferroviaires",
+    "logo_file": "Image8.png",
+    "photo_files": [
+      "Image20.jpg",
+      "Image21.jpg"
+    ],
+    "desc": "Systèmes de coffrage d'ouvrages d'art, ponts et passages supérieurs pour le corridor ferroviaire minier géant reliant Gâra Djebilet à Béchar.",
+    "badge": "Mégaprojet Minier",
+    "logo_path": "assets/images/projects/gara-djebilet-bechar/logo.png",
+    "photos": [
+      "assets/images/projects/gara-djebilet-bechar/photo_1.jpg",
+      "assets/images/projects/gara-djebilet-bechar/photo_2.jpg"
+    ]
+  },
+  {
+    "id": "barrage-oued-ksari",
+    "folder": "Réalisation d un barrage au niveau de oued ksari Tizi Ouzou avec l entreprise NUROL",
+    "title": "Barrage Hydraulique d'Oued Ksari",
+    "client": "NUROL Construction",
+    "location": "Tizi Ouzou",
+    "category": "hydraulique",
+    "category_name": "Hydraulique & Barrages",
+    "logo_file": "Image9.png",
+    "photo_files": [
+      "Image22.jpg",
+      "Image23.png"
+    ],
+    "desc": "Coffrage unilatéral lourd et tours d'étaiement haute résistance pour la réalisation des massifs béton et évacuateurs de crues du barrage.",
+    "badge": "Génie Civil Lourd",
+    "logo_path": "assets/images/projects/barrage-oued-ksari/logo.png",
+    "photos": [
+      "assets/images/projects/barrage-oued-ksari/photo_1.jpg",
+      "assets/images/projects/barrage-oued-ksari/photo_2.jpg"
+    ]
+  },
+  {
+    "id": "dessalement-boumerdes-oran",
+    "folder": "Projet Station dessalement  boumerdes oran GCB",
+    "title": "Stations de Dessalement d'Eau de Mer (Cap Djinet & Oran)",
+    "client": "GCB (Groupe Sonatrach)",
+    "location": "Boumerdès & Oran",
+    "category": "hydraulique",
+    "category_name": "Dessalement & Eau",
+    "logo_file": "Image6.png",
+    "photo_files": [
+      "Image16.jpg",
+      "Image17.jpg"
+    ],
+    "desc": "Coffrages modulaires pour bassins de filtration, bâches d'eau et stations de pompage côtières à haute cadence de bétonnage.",
+    "badge": "Sécurité Hydrique",
+    "logo_path": "assets/images/projects/dessalement-boumerdes-oran/logo.png",
+    "photos": [
+      "assets/images/projects/dessalement-boumerdes-oran/photo_1.jpg",
+      "assets/images/projects/dessalement-boumerdes-oran/photo_2.jpg"
+    ]
+  },
+  {
+    "id": "metro-alger-extension",
+    "folder": "Projet dextension du métro dAlger",
+    "title": "Extension du Métro d'Alger (Viaducs & Stations)",
+    "client": "Entreprise Métro d'Alger / Cosider",
+    "location": "Alger (Lignes Aéroport & Baraki)",
+    "category": "transport",
+    "category_name": "Transport Urbain",
+    "logo_file": "Image2.png",
+    "photo_files": [
+      "Image7.jpg",
+      "Image8.jpg",
+      "Image9.jpg"
+    ],
+    "desc": "Systèmes complets de coffrage de piles, voussoirs et tabliers pour le viaduc aérien et les stations d'interconnexion du métro.",
+    "badge": "Transport Urbain",
+    "logo_path": "assets/images/projects/metro-alger-extension/logo.png",
+    "photos": [
+      "assets/images/projects/metro-alger-extension/photo_1.jpg",
+      "assets/images/projects/metro-alger-extension/photo_2.jpg",
+      "assets/images/projects/metro-alger-extension/photo_3.jpg"
+    ]
+  },
+  {
+    "id": "metro-alger-ligne",
+    "folder": "Projet dextension de la ligne de métro dAlger",
+    "title": "Extension Souterraine de la Ligne du Métro d'Alger",
+    "client": "Cosider TP / EMA",
+    "location": "Wilaya d'Alger",
+    "category": "transport",
+    "category_name": "Souterrain & Tunnels",
+    "logo_file": "Image4.png",
+    "photo_files": [
+      "Image12.jpg",
+      "Image13.jpg"
+    ],
+    "desc": "Coffrage de voiles contre-terre, radiers épais et dalles de couverture de stations souterraines en milieu urbain dense.",
+    "badge": "Ouvrage Souterrain",
+    "logo_path": "assets/images/projects/metro-alger-ligne/logo.png",
+    "photos": [
+      "assets/images/projects/metro-alger-ligne/photo_1.jpg",
+      "assets/images/projects/metro-alger-ligne/photo_2.jpg"
+    ]
+  },
+  {
+    "id": "sonatrach-gaz-petrole",
+    "folder": "Projet d’extraction de gaz de pétrole SONATRACH",
+    "title": "Complexe d'Extraction de Gaz & Pétrole",
+    "client": "SONATRACH",
+    "location": "Champs Pétroliers Sud Algérien",
+    "category": "energie",
+    "category_name": "Énergie & Pétrole",
+    "logo_file": "Image11.png",
+    "photo_files": [
+      "Image27.jpg",
+      "Image28.jpg"
+    ],
+    "desc": "Échafaudages industriels de montage et structures d'étaiement lourd pour les installations de compression et traitement de gaz.",
+    "badge": "Pétrole & Gaz",
+    "logo_path": "assets/images/projects/sonatrach-gaz-petrole/logo.png",
+    "photos": [
+      "assets/images/projects/sonatrach-gaz-petrole/photo_1.jpg",
+      "assets/images/projects/sonatrach-gaz-petrole/photo_2.jpg"
+    ]
+  },
+  {
+    "id": "sonatrach-siege-alger",
+    "folder": "Réalisation de nouveau siège SONATRACH Wilaya d’Alger",
+    "title": "Nouveau Siège Social SONATRACH",
+    "client": "SONATRACH",
+    "location": "Hydra, Wilaya d'Alger",
+    "category": "batiment",
+    "category_name": "Bâtiments Tertiaires",
+    "logo_file": "Image7.png",
+    "photo_files": [
+      "Image18.jpg",
+      "Image19.jpg"
+    ],
+    "desc": "Coffrage de dalles de grandes portées et poteaux architecturaux pour l'immeuble de direction générale de la compagnie nationale.",
+    "badge": "Siège Institutionnel",
+    "logo_path": "assets/images/projects/sonatrach-siege-alger/logo.png",
+    "photos": [
+      "assets/images/projects/sonatrach-siege-alger/photo_1.jpg",
+      "assets/images/projects/sonatrach-siege-alger/photo_2.jpg"
+    ]
+  },
+  {
+    "id": "silos-cereales-si-mustapha",
+    "folder": "Réalisation des silos de stockage des cereales de capacite 100 000 ton Si Mustapha",
+    "title": "Silos Portuaires & Agricoles de 100 000 Tonnes",
+    "client": "OAIC / Entreprises Nationales",
+    "location": "Si Mustapha, Wilaya de Boumerdès",
+    "category": "batiment",
+    "category_name": "Agro-Industrie & Silos",
+    "logo_file": "Image1.png",
+    "photo_files": [
+      "Image1.jpg",
+      "Image2.jpg",
+      "Image3.jpg",
+      "Image4.jpg",
+      "Image5.jpg",
+      "Image6.jpg"
+    ],
+    "desc": "Système de coffrage circulaire et grimpant pour la coulée continue de batteries de silos de céréales de 100 000 tonnes.",
+    "badge": "Sécurité Alimentaire",
+    "logo_path": "assets/images/projects/silos-cereales-si-mustapha/logo.png",
+    "photos": [
+      "assets/images/projects/silos-cereales-si-mustapha/photo_1.jpg",
+      "assets/images/projects/silos-cereales-si-mustapha/photo_2.jpg",
+      "assets/images/projects/silos-cereales-si-mustapha/photo_3.jpg",
+      "assets/images/projects/silos-cereales-si-mustapha/photo_4.jpg",
+      "assets/images/projects/silos-cereales-si-mustapha/photo_5.jpg",
+      "assets/images/projects/silos-cereales-si-mustapha/photo_6.jpg"
+    ]
+  },
+  {
+    "id": "quatrieme-rocade-sud",
+    "folder": "Réalisation du lot n 1 2 de la 4ème rocade entre léchangeur hanacha et léchangeur Rn1 berrouaghia",
+    "title": "4ème Rocade Sud : Lots 1 & 2 (Hannacha — Berrouaghia)",
+    "client": "ANA (Agence Nationale des Autoroutes)",
+    "location": "Médéa — RN1",
+    "category": "transport",
+    "category_name": "Autoroutes & Ouvrages d'Art",
+    "logo_file": "Image3.png",
+    "photo_files": [
+      "Image10.jpg",
+      "Image11.jpg"
+    ],
+    "desc": "Tables de ponts et coffrages de chevêtres d'échangeurs autoroutiers sur le tracé de la 4ème rocade d'Alger.",
+    "badge": "Infrastructure Routière",
+    "logo_path": "assets/images/projects/quatrieme-rocade-sud/logo.png",
+    "photos": [
+      "assets/images/projects/quatrieme-rocade-sud/photo_1.jpg",
+      "assets/images/projects/quatrieme-rocade-sud/photo_2.jpg"
+    ]
+  },
+  {
+    "id": "marina-alger-dahli",
+    "folder": "Projet MARINA d Alger DAHLI",
+    "title": "Marina Bay d'Alger & Front de Mer",
+    "client": "Groupe DAHLI",
+    "location": "Bordel El Kiffan / Front de Mer d'Alger",
+    "category": "batiment",
+    "category_name": "Complexe Mixte & Hôtelier",
+    "logo_file": "Image5.jpg",
+    "photo_files": [
+      "Image14.png",
+      "Image15.png"
+    ],
+    "desc": "Coffrage de dalles à poutrelles H20, tours d'étaiement et coffrages de voiles pour les tours d'affaires et la marina de plaisance.",
+    "badge": "Prestige Front de Mer",
+    "logo_path": "assets/images/projects/marina-alger-dahli/logo.png",
+    "photos": [
+      "assets/images/projects/marina-alger-dahli/photo_1.jpg",
+      "assets/images/projects/marina-alger-dahli/photo_2.jpg"
+    ]
+  }
+]

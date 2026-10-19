@@ -1655,6 +1655,312 @@
     }
 
     /* ==========================================
+       SECTION PROJETS RÉALISÉS (11 RÉFÉRENCES ACROW DZ)
+       ========================================== */
+    .projects-section {
+      background: #f8fafc;
+      padding: 75px 0 70px;
+      position: relative;
+    }
+
+    .projects-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 26px 0 32px;
+    }
+    .proj-filter-chip {
+      background: #ffffff;
+      color: #334155;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 50px;
+      padding: 8px 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    }
+    .proj-filter-chip:hover {
+      border-color: var(--accent-red);
+      color: var(--accent-red);
+      background: #fff8f8;
+      transform: translateY(-2px);
+    }
+    .proj-filter-chip.active {
+      background: var(--accent-red);
+      color: #ffffff;
+      border-color: var(--accent-red);
+      box-shadow: 0 4px 14px rgba(204, 0, 0, 0.35);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+    @media (max-width: 1199.98px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 767.98px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .project-card {
+      background: #ffffff;
+      border-radius: 18px;
+      border: 1.5px solid #e2e8f0;
+      box-shadow: 0 10px 30px rgba(0, 26, 51, 0.06);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      position: relative;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 45px rgba(0, 26, 51, 0.12);
+      border-color: rgba(204, 0, 0, 0.35);
+    }
+
+    .project-visual-box {
+      position: relative;
+      height: 240px;
+      background: #0b1528;
+      overflow: hidden;
+    }
+    .project-main-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      cursor: pointer;
+    }
+    .project-card:hover .project-main-img {
+      transform: scale(1.04);
+    }
+
+    .project-client-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 50px;
+      padding: 4px 12px 4px 6px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 5;
+    }
+    .project-client-logo {
+      height: 24px;
+      max-width: 55px;
+      object-fit: contain;
+    }
+    .project-client-name {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .project-cat-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 51, 102, 0.90);
+      color: #ffffff;
+      font-size: 0.70rem;
+      font-weight: 700;
+      padding: 4px 11px;
+      border-radius: 20px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+      z-index: 5;
+    }
+
+    .project-photo-count {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.75);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      z-index: 5;
+    }
+
+    .project-thumb-strip {
+      display: flex;
+      gap: 6px;
+      padding: 8px 12px;
+      background: #f1f5f9;
+      border-bottom: 1px solid #e2e8f0;
+      overflow-x: auto;
+    }
+    .project-thumb-item {
+      width: 44px;
+      height: 32px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      flex-shrink: 0;
+      opacity: 0.75;
+      transition: all 0.2s ease;
+    }
+    .project-thumb-item:hover, .project-thumb-item.active {
+      opacity: 1;
+      border-color: var(--accent-red);
+      transform: scale(1.05);
+    }
+    .project-thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-card-body {
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .project-location {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--accent-red);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+    }
+    .project-title {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+    .project-desc {
+      font-size: 0.84rem;
+      color: #64748b;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+    .project-footer-btn {
+      background: #ffffff;
+      color: var(--primary-blue);
+      border: 1.5px solid rgba(0, 51, 102, 0.2);
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px 16px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      transition: all 0.22s ease;
+      cursor: pointer;
+    }
+    .project-footer-btn:hover {
+      background: var(--primary-blue);
+      color: #ffffff;
+      border-color: var(--primary-blue);
+    }
+
+    /* Lightbox Modal */
+    .project-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 7, 18, 0.94);
+      z-index: 999999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .project-lightbox.active {
+      display: flex;
+    }
+    .lightbox-content {
+      position: relative;
+      max-width: 1050px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 75vh;
+      border-radius: 12px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+      object-fit: contain;
+    }
+    .lightbox-caption {
+      color: #ffffff;
+      margin-top: 14px;
+      text-align: center;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -45px;
+      right: 0;
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 2.2rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      color: #ffffff;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .lightbox-nav:hover {
+      background: var(--accent-red);
+    }
+    .lightbox-prev { left: -65px; }
+    .lightbox-next { right: -65px; }
+    @media (max-width: 768px) {
+      .lightbox-prev { left: 10px; }
+      .lightbox-next { right: 10px; }
+      .lightbox-close { top: -38px; right: 10px; }
+    }
+
+    /* ==========================================
        CLIENTS MARQUEE (PRESTIGE STYLE)
        ========================================== */
     #clients {
@@ -2632,150 +2938,527 @@
 
 
   <!-- ==========================================
-       PROJETS RÉALISÉS
+       SECTION PROJETS RÉALISÉS (11 RÉFÉRENCES MAJEURES ACROW DZ)
        ========================================== -->
-  <section class="py-5" id="projets">
-    <div class="container my-3">
+  <section class="py-5 projects-section" id="projets">
+    <div class="container my-3" style="max-width: 1280px;">
       
+      <!-- Section Header -->
       <div class="text-center" data-aos="fade-up">
-        <span class="badge-sub">Références Majeures</span>
-        <h2 class="section-title"><i class="bi bi-buildings-fill text-danger me-2"></i>Projets Réalisés en Algérie</h2>
-        <p class="section-sub">
-          Quelques réalisations phares où les solutions ACROW DZ ont permis d'atteindre une efficacité remarquable, une sécurité totale et le respect rigoureux des délais.
+        <span class="badge-sub"><i class="bi bi-buildings-fill me-1"></i> Chantiers &amp; Ouvrages Stratégiques</span>
+        <h2 class="section-title mb-2">
+          <i class="bi bi-buildings-fill text-danger me-2"></i> Nos Projets Réalisés en Algérie
+        </h2>
+        <p class="section-sub mb-0" style="max-width: 780px;">
+          Découvrez nos <strong>11 références nationales majeures</strong> : SONATRACH, Métro d'Alger, Gâra Djebilet, Barrages et Silos avec leurs photos de chantiers réels.
         </p>
       </div>
 
-      <!-- Carousel Projects (Touch Swipe Enabled) -->
-      <div id="projetsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4500" data-bs-touch="true">
-        
-        <div class="carousel-inner">
-          
-          <!-- Slide 1 -->
-          <div class="carousel-item active">
-            <div class="row g-4 justify-content-center">
-              
-              <!-- Metro d'Alger -->
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration="900">
-                <div class="card-modern h-100 position-relative">
-                  <div class="position-relative" style="overflow:hidden; height:250px;">
-                    <img src="assets/images/metro.jpg" class="card-img-top img-zoom h-100" alt="Métro d'Alger" />
-                    <span class="badge-top bg-danger"><i class="bi bi-cone-striped me-1"></i>Infrastructures</span>
-                  </div>
-                  <div class="p-4 text-center">
-                    <h5 class="fw-bold text-primary mb-2"><i class="bi bi-geo-alt-fill text-danger me-1 fs-6"></i>Métro d'Alger</h5>
-                    <p class="text-muted small mb-0">
-                      Fourniture et installation de systèmes de coffrage de voiles lourds et tours d'étaiement pour les extensions souterraines du métro d'Alger.
-                    </p>
-                  </div>
-                </div>
-              </div>
+      <!-- Filtres Catégories Projets -->
+      <div class="projects-filter-bar" data-aos="fade-up" data-aos-delay="100">
+        <button type="button" class="proj-filter-chip active" data-filter="all">Tous les Projets (11)</button>
+        <button type="button" class="proj-filter-chip" data-filter="energie">Énergie &amp; Pétrole (3)</button>
+        <button type="button" class="proj-filter-chip" data-filter="transport">Infrastructures &amp; Rail (4)</button>
+        <button type="button" class="proj-filter-chip" data-filter="hydraulique">Barrages &amp; Eau (2)</button>
+        <button type="button" class="proj-filter-chip" data-filter="batiment">Bâtiments &amp; Silos (2)</button>
+      </div>
 
-              <!-- Marina Bay Alger -->
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="150" data-aos-duration="900">
-                <div class="card-modern h-100 position-relative">
-                  <div class="position-relative" style="overflow:hidden; height:250px;">
-                    <img src="assets/images/marina.jpg" class="card-img-top img-zoom h-100" alt="Marina Bay" />
-                    <span class="badge-top bg-primary"><i class="bi bi-building me-1"></i>Résidentiel &amp; Tertiaire</span>
-                  </div>
-                  <div class="p-4 text-center">
-                    <h5 class="fw-bold text-primary mb-2"><i class="bi bi-geo-alt-fill text-danger me-1 fs-6"></i>Marina Bay Alger</h5>
-                    <p class="text-muted small mb-0">
-                      Fourniture de systèmes de coffrage grimpant et de dalles alvéolées pour ce projet immobilier emblématique du front de mer.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Bouzareah -->
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="900">
-                <div class="card-modern h-100 position-relative">
-                  <div class="position-relative" style="overflow:hidden; height:250px;">
-                    <img src="assets/images/aa.jpg" class="card-img-top img-zoom h-100" alt="Circonscription de Bouzaréah" />
-                    <span class="badge-top bg-primary"><i class="bi bi-bank me-1"></i>Équipement Public</span>
-                  </div>
-                  <div class="p-4 text-center">
-                    <h5 class="fw-bold text-primary mb-2"><i class="bi bi-geo-alt-fill text-danger me-1 fs-6"></i>Circonscription de Bouzaréah</h5>
-                    <p class="text-muted small mb-0">
-                      Réalisation structurale et aménagement du siège de la circonscription administrative d'Alger avec coffrage modulaire.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
+      <!-- Grille Responsive des 11 Projets -->
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Projet : Unités de Séparation & Décarbonatation — Alrar -->
+        <div class="project-card" data-category="energie" data-aos="fade-up">
+          <div class="project-visual-box">
+            <!-- Client Logo Badge -->
+            <div class="project-client-badge">
+              <img src="assets/images/projects/sonatrach-alrar/logo.png" alt="SONATRACH" class="project-client-logo" />
+              <span class="project-client-name">SONATRACH</span>
             </div>
+
+            <!-- Category Badge -->
+            <span class="project-cat-badge">Projet Stratégique National</span>
+
+            <!-- Main Photo -->
+            <img src="assets/images/projects/sonatrach-alrar/photo_1.jpg" alt="Unités de Séparation & Décarbonatation — Alrar" class="project-main-img" loading="lazy" data-photos="[&quot;assets/images/projects/sonatrach-alrar/photo_1.jpg&quot;, &quot;assets/images/projects/sonatrach-alrar/photo_2.jpg&quot;, &quot;assets/images/projects/sonatrach-alrar/photo_3.jpg&quot;]" data-title="Unités de Séparation & Décarbonatation — Alrar (SONATRACH)" />
+
+            <!-- Photo Counter Badge -->
+            <span class="project-photo-count">
+              <i class="bi bi-camera-fill"></i> 3 photos
+            </span>
           </div>
 
-          <!-- Slide 2 -->
-          <div class="carousel-item">
-            <div class="row g-4 justify-content-center">
-              
-              <!-- Ambassade d'Allemagne -->
-              <div class="col-lg-4 col-md-6">
-                <div class="card-modern h-100 position-relative">
-                  <div class="position-relative" style="overflow:hidden; height:250px;">
-                    <img src="assets/images/amba.jpg" class="card-img-top img-zoom h-100" alt="Ambassade Allemagne" />
-                    <span class="badge-top bg-danger"><i class="bi bi-flag-fill me-1"></i>Bâtiment Diplomatique</span>
-                  </div>
-                  <div class="p-4 text-center">
-                    <h5 class="fw-bold text-primary mb-2"><i class="bi bi-geo-alt-fill text-danger me-1 fs-6"></i>Nouvelle Ambassade d'Allemagne</h5>
-                    <p class="text-muted small mb-0">
-                      Coffrage architectural et échafaudages de haute sécurité certifiés pour la construction de la représentation fédérale à Alger.
-                    </p>
-                  </div>
-                </div>
-              </div>
+        <div class="project-thumb-strip">
+          <div class="project-thumb-item active" data-src="assets/images/projects/sonatrach-alrar/photo_1.jpg" title="Photo 1">
+            <img src="assets/images/projects/sonatrach-alrar/photo_1.jpg" alt="Unités de Séparation & Décarbonatation — Alrar" loading="lazy" />
+          </div>
+          <div class="project-thumb-item " data-src="assets/images/projects/sonatrach-alrar/photo_2.jpg" title="Photo 2">
+            <img src="assets/images/projects/sonatrach-alrar/photo_2.jpg" alt="Unités de Séparation & Décarbonatation — Alrar" loading="lazy" />
+          </div>
+          <div class="project-thumb-item " data-src="assets/images/projects/sonatrach-alrar/photo_3.jpg" title="Photo 3">
+            <img src="assets/images/projects/sonatrach-alrar/photo_3.jpg" alt="Unités de Séparation & Décarbonatation — Alrar" loading="lazy" />
+          </div>
+        </div>
 
-              <!-- Station El Othmania -->
-              <div class="col-lg-4 col-md-6">
-                <div class="card-modern h-100 position-relative">
-                  <div class="position-relative" style="overflow:hidden; height:250px;">
-                    <img src="assets/images/otma.jpg" class="card-img-top img-zoom h-100" alt="Station El Othmania" />
-                    <span class="badge-top bg-primary"><i class="bi bi-water me-1"></i>Hydraulique</span>
-                  </div>
-                  <div class="p-4 text-center">
-                    <h5 class="fw-bold text-primary mb-2"><i class="bi bi-geo-alt-fill text-danger me-1 fs-6"></i>Station El Othmania</h5>
-                    <p class="text-muted small mb-0">
-                      Extension de la station de traitement des eaux avec chevalets de coffrage unilatéral pour parois et bassins sous pression.
-                    </p>
-                  </div>
-                </div>
-              </div>
+          <div class="project-card-body">
+            <span class="project-location">
+              <i class="bi bi-geo-alt-fill me-1"></i> Alrar, Wilaya d'Illizi
+            </span>
+            <h3 class="project-title">Unités de Séparation & Décarbonatation — Alrar</h3>
+            <p class="project-desc">Fourniture de coffrages lourds et systèmes d'étaiement certifiés pour les unités industrielles stratégiques de décarbonatation et séparation en plein Sahara.</p>
+            <button type="button" class="project-footer-btn" data-photos="[&quot;assets/images/projects/sonatrach-alrar/photo_1.jpg&quot;, &quot;assets/images/projects/sonatrach-alrar/photo_2.jpg&quot;, &quot;assets/images/projects/sonatrach-alrar/photo_3.jpg&quot;]" data-title="Unités de Séparation & Décarbonatation — Alrar — SONATRACH">
+              <i class="bi bi-images"></i> <span>Consulter la Galerie (3 photos)</span>
+            </button>
+          </div>
+        </div>
 
-              <!-- Viaduc Skikda -->
-              <div class="col-lg-4 col-md-6">
-                <div class="card-modern h-100 position-relative">
-                  <div class="position-relative" style="overflow:hidden; height:250px;">
-                    <img src="assets/images/SKIKDA.jpeg" class="card-img-top img-zoom h-100" alt="Viaduc Skikda" />
-                    <span class="badge-top bg-danger"><i class="bi bi-signpost-2-fill me-1"></i>Ouvrage d'Art</span>
-                  </div>
-                  <div class="p-4 text-center">
-                    <h5 class="fw-bold text-primary mb-2"><i class="bi bi-geo-alt-fill text-danger me-1 fs-6"></i>Ouvrages d'Art &amp; Viaducs Skikda</h5>
-                    <p class="text-muted small mb-0">
-                      Coffrage spécialisé pour piles de viaducs de grande hauteur et tabliers autoroutiers avec tours d'étaiement lourdes.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
+        <!-- Projet : Ligne Ferroviaire Mine de Fer Gâra Djebilet — Béchar -->
+        <div class="project-card" data-category="transport" data-aos="fade-up">
+          <div class="project-visual-box">
+            <!-- Client Logo Badge -->
+            <div class="project-client-badge">
+              <img src="assets/images/projects/gara-djebilet-bechar/logo.png" alt="SEROR / SNTF" class="project-client-logo" />
+              <span class="project-client-name">SEROR / SNTF</span>
             </div>
+
+            <!-- Category Badge -->
+            <span class="project-cat-badge">Mégaprojet Minier</span>
+
+            <!-- Main Photo -->
+            <img src="assets/images/projects/gara-djebilet-bechar/photo_1.jpg" alt="Ligne Ferroviaire Mine de Fer Gâra Djebilet — Béchar" class="project-main-img" loading="lazy" data-photos="[&quot;assets/images/projects/gara-djebilet-bechar/photo_1.jpg&quot;, &quot;assets/images/projects/gara-djebilet-bechar/photo_2.jpg&quot;]" data-title="Ligne Ferroviaire Mine de Fer Gâra Djebilet — Béchar (SEROR / SNTF)" />
+
+            <!-- Photo Counter Badge -->
+            <span class="project-photo-count">
+              <i class="bi bi-camera-fill"></i> 2 photos
+            </span>
           </div>
 
+        <div class="project-thumb-strip">
+          <div class="project-thumb-item active" data-src="assets/images/projects/gara-djebilet-bechar/photo_1.jpg" title="Photo 1">
+            <img src="assets/images/projects/gara-djebilet-bechar/photo_1.jpg" alt="Ligne Ferroviaire Mine de Fer Gâra Djebilet — Béchar" loading="lazy" />
+          </div>
+          <div class="project-thumb-item " data-src="assets/images/projects/gara-djebilet-bechar/photo_2.jpg" title="Photo 2">
+            <img src="assets/images/projects/gara-djebilet-bechar/photo_2.jpg" alt="Ligne Ferroviaire Mine de Fer Gâra Djebilet — Béchar" loading="lazy" />
+          </div>
         </div>
 
-        <!-- Carousel Controls -->
-        <div class="d-flex justify-content-center gap-2 mt-4">
-          <button class="btn btn-outline-primary rounded-circle" type="button" data-bs-target="#projetsCarousel" data-bs-slide="prev" style="width:46px; height:46px;">
-            <i class="bi bi-chevron-left"></i>
-          </button>
-          <button class="btn btn-outline-primary rounded-circle" type="button" data-bs-target="#projetsCarousel" data-bs-slide="next" style="width:46px; height:46px;">
-            <i class="bi bi-chevron-right"></i>
-          </button>
+          <div class="project-card-body">
+            <span class="project-location">
+              <i class="bi bi-geo-alt-fill me-1"></i> Béchar — Tindouf
+            </span>
+            <h3 class="project-title">Ligne Ferroviaire Mine de Fer Gâra Djebilet — Béchar</h3>
+            <p class="project-desc">Systèmes de coffrage d'ouvrages d'art, ponts et passages supérieurs pour le corridor ferroviaire minier géant reliant Gâra Djebilet à Béchar.</p>
+            <button type="button" class="project-footer-btn" data-photos="[&quot;assets/images/projects/gara-djebilet-bechar/photo_1.jpg&quot;, &quot;assets/images/projects/gara-djebilet-bechar/photo_2.jpg&quot;]" data-title="Ligne Ferroviaire Mine de Fer Gâra Djebilet — Béchar — SEROR / SNTF">
+              <i class="bi bi-images"></i> <span>Consulter la Galerie (2 photos)</span>
+            </button>
+          </div>
         </div>
 
+        <!-- Projet : Barrage Hydraulique d'Oued Ksari -->
+        <div class="project-card" data-category="hydraulique" data-aos="fade-up">
+          <div class="project-visual-box">
+            <!-- Client Logo Badge -->
+            <div class="project-client-badge">
+              <img src="assets/images/projects/barrage-oued-ksari/logo.png" alt="NUROL Construction" class="project-client-logo" />
+              <span class="project-client-name">NUROL Construction</span>
+            </div>
+
+            <!-- Category Badge -->
+            <span class="project-cat-badge">Génie Civil Lourd</span>
+
+            <!-- Main Photo -->
+            <img src="assets/images/projects/barrage-oued-ksari/photo_1.jpg" alt="Barrage Hydraulique d'Oued Ksari" class="project-main-img" loading="lazy" data-photos="[&quot;assets/images/projects/barrage-oued-ksari/photo_1.jpg&quot;, &quot;assets/images/projects/barrage-oued-ksari/photo_2.jpg&quot;]" data-title="Barrage Hydraulique d'Oued Ksari (NUROL Construction)" />
+
+            <!-- Photo Counter Badge -->
+            <span class="project-photo-count">
+              <i class="bi bi-camera-fill"></i> 2 photos
+            </span>
+          </div>
+
+        <div class="project-thumb-strip">
+          <div class="project-thumb-item active" data-src="assets/images/projects/barrage-oued-ksari/photo_1.jpg" title="Photo 1">
+            <img src="assets/images/projects/barrage-oued-ksari/photo_1.jpg" alt="Barrage Hydraulique d'Oued Ksari" loading="lazy" />
+          </div>
+          <div class="project-thumb-item " data-src="assets/images/projects/barrage-oued-ksari/photo_2.jpg" title="Photo 2">
+            <img src="assets/images/projects/barrage-oued-ksari/photo_2.jpg" alt="Barrage Hydraulique d'Oued Ksari" loading="lazy" />
+          </div>
+        </div>
+
+          <div class="project-card-body">
+            <span class="project-location">
+              <i class="bi bi-geo-alt-fill me-1"></i> Tizi Ouzou
+            </span>
+            <h3 class="project-title">Barrage Hydraulique d'Oued Ksari</h3>
+            <p class="project-desc">Coffrage unilatéral lourd et tours d'étaiement haute résistance pour la réalisation des massifs béton et évacuateurs de crues du barrage.</p>
+            <button type="button" class="project-footer-btn" data-photos="[&quot;assets/images/projects/barrage-oued-ksari/photo_1.jpg&quot;, &quot;assets/images/projects/barrage-oued-ksari/photo_2.jpg&quot;]" data-title="Barrage Hydraulique d'Oued Ksari — NUROL Construction">
+              <i class="bi bi-images"></i> <span>Consulter la Galerie (2 photos)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Projet : Stations de Dessalement d'Eau de Mer (Cap Djinet & Oran) -->
+        <div class="project-card" data-category="hydraulique" data-aos="fade-up">
+          <div class="project-visual-box">
+            <!-- Client Logo Badge -->
+            <div class="project-client-badge">
+              <img src="assets/images/projects/dessalement-boumerdes-oran/logo.png" alt="GCB (Groupe Sonatrach)" class="project-client-logo" />
+              <span class="project-client-name">GCB (Groupe Sonatrach)</span>
+            </div>
+
+            <!-- Category Badge -->
+            <span class="project-cat-badge">Sécurité Hydrique</span>
+
+            <!-- Main Photo -->
+            <img src="assets/images/projects/dessalement-boumerdes-oran/photo_1.jpg" alt="Stations de Dessalement d'Eau de Mer (Cap Djinet & Oran)" class="project-main-img" loading="lazy" data-photos="[&quot;assets/images/projects/dessalement-boumerdes-oran/photo_1.jpg&quot;, &quot;assets/images/projects/dessalement-boumerdes-oran/photo_2.jpg&quot;]" data-title="Stations de Dessalement d'Eau de Mer (Cap Djinet & Oran) (GCB (Groupe Sonatrach))" />
+
+            <!-- Photo Counter Badge -->
+            <span class="project-photo-count">
+              <i class="bi bi-camera-fill"></i> 2 photos
+            </span>
+          </div>
+
+        <div class="project-thumb-strip">
+          <div class="project-thumb-item active" data-src="assets/images/projects/dessalement-boumerdes-oran/photo_1.jpg" title="Photo 1">
+            <img src="assets/images/projects/dessalement-boumerdes-oran/photo_1.jpg" alt="Stations de Dessalement d'Eau de Mer (Cap Djinet & Oran)" loading="lazy" />
+          </div>
+          <div class="project-thumb-item " data-src="assets/images/projects/dessalement-boumerdes-oran/photo_2.jpg" title="Photo 2">
+            <img src="assets/images/projects/dessalement-boumerdes-oran/photo_2.jpg" alt="Stations de Dessalement d'Eau de Mer (Cap Djinet & Oran)" loading="lazy" />
+          </div>
+        </div>
+
+          <div class="project-card-body">
+            <span class="project-location">
+              <i class="bi bi-geo-alt-fill me-1"></i> Boumerdès & Oran
+            </span>
+            <h3 class="project-title">Stations de Dessalement d'Eau de Mer (Cap Djinet & Oran)</h3>
+            <p class="project-desc">Coffrages modulaires pour bassins de filtration, bâches d'eau et stations de pompage côtières à haute cadence de bétonnage.</p>
+            <button type="button" class="project-footer-btn" data-photos="[&quot;assets/images/projects/dessalement-boumerdes-oran/photo_1.jpg&quot;, &quot;assets/images/projects/dessalement-boumerdes-oran/photo_2.jpg&quot;]" data-title="Stations de Dessalement d'Eau de Mer (Cap Djinet & Oran) — GCB (Groupe Sonatrach)">
+              <i class="bi bi-images"></i> <span>Consulter la Galerie (2 photos)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Projet : Extension du Métro d'Alger (Viaducs & Stations) -->
+        <div class="project-card" data-category="transport" data-aos="fade-up">
+          <div class="project-visual-box">
+            <!-- Client Logo Badge -->
+            <div class="project-client-badge">
+              <img src="assets/images/projects/metro-alger-extension/logo.png" alt="Entreprise Métro d'Alger / Cosider" class="project-client-logo" />
+              <span class="project-client-name">Entreprise Métro d'Alger / Cosider</span>
+            </div>
+
+            <!-- Category Badge -->
+            <span class="project-cat-badge">Transport Urbain</span>
+
+            <!-- Main Photo -->
+            <img src="assets/images/projects/metro-alger-extension/photo_1.jpg" alt="Extension du Métro d'Alger (Viaducs & Stations)" class="project-main-img" loading="lazy" data-photos="[&quot;assets/images/projects/metro-alger-extension/photo_1.jpg&quot;, &quot;assets/images/projects/metro-alger-extension/photo_2.jpg&quot;, &quot;assets/images/projects/metro-alger-extension/photo_3.jpg&quot;]" data-title="Extension du Métro d'Alger (Viaducs & Stations) (Entreprise Métro d'Alger / Cosider)" />
+
+            <!-- Photo Counter Badge -->
+            <span class="project-photo-count">
+              <i class="bi bi-camera-fill"></i> 3 photos
+            </span>
+          </div>
+
+        <div class="project-thumb-strip">
+          <div class="project-thumb-item active" data-src="assets/images/projects/metro-alger-extension/photo_1.jpg" title="Photo 1">
+            <img src="assets/images/projects/metro-alger-extension/photo_1.jpg" alt="Extension du Métro d'Alger (Viaducs & Stations)" loading="lazy" />
+          </div>
+          <div class="project-thumb-item " data-src="assets/images/projects/metro-alger-extension/photo_2.jpg" title="Photo 2">
+            <img src="assets/images/projects/metro-alger-extension/photo_2.jpg" alt="Extension du Métro d'Alger (Viaducs & Stations)" loading="lazy" />
+          </div>
+          <div class="project-thumb-item " data-src="assets/images/projects/metro-alger-extension/photo_3.jpg" title="Photo 3">
+            <img src="assets/images/projects/metro-alger-extension/photo_3.jpg" alt="Extension du Métro d'Alger (Viaducs & Stations)" loading="lazy" />
+          </div>
+        </div>
+
+          <div class="project-card-body">
+            <span class="project-location">
+              <i class="bi bi-geo-alt-fill me-1"></i> Alger (Lignes Aéroport & Baraki)
+            </span>
+            <h3 class="project-title">Extension du Métro d'Alger (Viaducs & Stations)</h3>
+            <p class="project-desc">Systèmes complets de coffrage de piles, voussoirs et tabliers pour le viaduc aérien et les stations d'interconnexion du métro.</p>
+            <button type="button" class="project-footer-btn" data-photos="[&quot;assets/images/projects/metro-alger-extension/photo_1.jpg&quot;, &quot;assets/images/projects/metro-alger-extension/photo_2.jpg&quot;, &quot;assets/images/projects/metro-alger-extension/photo_3.jpg&quot;]" data-title="Extension du Métro d'Alger (Viaducs & Stations) — Entreprise Métro d'Alger / Cosider">
+              <i class="bi bi-images"></i> <span>Consulter la Galerie (3 photos)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Projet : Extension Souterraine de la Ligne du Métro d'Alger -->
+        <div class="project-card" data-category="transport" data-aos="fade-up">
+          <div class="project-visual-box">
+            <!-- Client Logo Badge -->
+            <div class="project-client-badge">
+              <img src="assets/images/projects/metro-alger-ligne/logo.png" alt="Cosider TP / EMA" class="project-client-logo" />
+              <span class="project-client-name">Cosider TP / EMA</span>
+            </div>
+
+            <!-- Category Badge -->
+            <span class="project-cat-badge">Ouvrage Souterrain</span>
+
+            <!-- Main Photo -->
+            <img src="assets/images/projects/metro-alger-ligne/photo_1.jpg" alt="Extension Souterraine de la Ligne du Métro d'Alger" class="project-main-img" loading="lazy" data-photos="[&quot;assets/images/projects/metro-alger-ligne/photo_1.jpg&quot;, &quot;assets/images/projects/metro-alger-ligne/photo_2.jpg&quot;]" data-title="Extension Souterraine de la Ligne du Métro d'Alger (Cosider TP / EMA)" />
+
+            <!-- Photo Counter Badge -->
+            <span class="project-photo-count">
+              <i class="bi bi-camera-fill"></i> 2 photos
+            </span>
+          </div>
+
+        <div class="project-thumb-strip">
+          <div class="project-thumb-item active" data-src="assets/images/projects/metro-alger-ligne/photo_1.jpg" title="Photo 1">
+            <img src="assets/images/projects/metro-alger-ligne/photo_1.jpg" alt="Extension Souterraine de la Ligne du Métro d'Alger" loading="lazy" />
+          </div>
+          <div class="project-thumb-item " data-src="assets/images/projects/metro-alger-ligne/photo_2.jpg" title="Photo 2">
+            <img src="assets/images/projects/metro-alger-ligne/photo_2.jpg" alt="Extension Souterraine de la Ligne du Métro d'Alger" loading="lazy" />
+          </div>
+        </div>
+
+          <div class="project-card-body">
+            <span class="project-location">
+              <i class="bi bi-geo-alt-fill me-1"></i> Wilaya d'Alger
+            </span>
+            <h3 class="project-title">Extension Souterraine de la Ligne du Métro d'Alger</h3>
+            <p class="project-desc">Coffrage de voiles contre-terre, radiers épais et dalles de couverture de stations souterraines en milieu urbain dense.</p>
+            <button type="button" class="project-footer-btn" data-photos="[&quot;assets/images/projects/metro-alger-ligne/photo_1.jpg&quot;, &quot;assets/images/projects/metro-alger-ligne/photo_2.jpg&quot;]" data-title="Extension Souterraine de la Ligne du Métro d'Alger — Cosider TP / EMA">
+              <i class="bi bi-images"></i> <span>Consulter la Galerie (2 photos)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Projet : Complexe d'Extraction de Gaz & Pétrole -->
+        <div class="project-card" data-category="energie" data-aos="fade-up">
+          <div class="project-visual-box">
+            <!-- Client Logo Badge -->
+            <div class="project-client-badge">
+              <img src="assets/images/projects/sonatrach-gaz-petrole/logo.png" alt="SONATRACH" class="project-client-logo" />
+              <span class="project-client-name">SONATRACH</span>
+            </div>
+
+            <!-- Category Badge -->
+            <span class="project-cat-badge">Pétrole & Gaz</span>
+
+            <!-- Main Photo -->
+            <img src="assets/images/projects/sonatrach-gaz-petrole/photo_1.jpg" alt="Complexe d'Extraction de Gaz & Pétrole" class="project-main-img" loading="lazy" data-photos="[&quot;assets/images/projects/sonatrach-gaz-petrole/photo_1.jpg&quot;, &quot;assets/images/projects/sonatrach-gaz-petrole/photo_2.jpg&quot;]" data-title="Complexe d'Extraction de Gaz & Pétrole (SONATRACH)" />
+
+            <!-- Photo Counter Badge -->
+            <span class="project-photo-count">
+              <i class="bi bi-camera-fill"></i> 2 photos
+            </span>
+          </div>
+
+        <div class="project-thumb-strip">
+          <div class="project-thumb-item active" data-src="assets/images/projects/sonatrach-gaz-petrole/photo_1.jpg" title="Photo 1">
+            <img src="assets/images/projects/sonatrach-gaz-petrole/photo_1.jpg" alt="Complexe d'Extraction de Gaz & Pétrole" loading="lazy" />
+          </div>
+          <div class="project-thumb-item " data-src="assets/images/projects/sonatrach-gaz-petrole/photo_2.jpg" title="Photo 2">
+            <img src="assets/images/projects/sonatrach-gaz-petrole/photo_2.jpg" alt="Complexe d'Extraction de Gaz & Pétrole" loading="lazy" />
+          </div>
+        </div>
+
+          <div class="project-card-body">
+            <span class="project-location">
+              <i class="bi bi-geo-alt-fill me-1"></i> Champs Pétroliers Sud Algérien
+            </span>
+            <h3 class="project-title">Complexe d'Extraction de Gaz & Pétrole</h3>
+            <p class="project-desc">Échafaudages industriels de montage et structures d'étaiement lourd pour les installations de compression et traitement de gaz.</p>
+            <button type="button" class="project-footer-btn" data-photos="[&quot;assets/images/projects/sonatrach-gaz-petrole/photo_1.jpg&quot;, &quot;assets/images/projects/sonatrach-gaz-petrole/photo_2.jpg&quot;]" data-title="Complexe d'Extraction de Gaz & Pétrole — SONATRACH">
+              <i class="bi bi-images"></i> <span>Consulter la Galerie (2 photos)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Projet : Nouveau Siège Social SONATRACH -->
+        <div class="project-card" data-category="batiment" data-aos="fade-up">
+          <div class="project-visual-box">
+            <!-- Client Logo Badge -->
+            <div class="project-client-badge">
+              <img src="assets/images/projects/sonatrach-siege-alger/logo.png" alt="SONATRACH" class="project-client-logo" />
+              <span class="project-client-name">SONATRACH</span>
+            </div>
+
+            <!-- Category Badge -->
+            <span class="project-cat-badge">Siège Institutionnel</span>
+
+            <!-- Main Photo -->
+            <img src="assets/images/projects/sonatrach-siege-alger/photo_1.jpg" alt="Nouveau Siège Social SONATRACH" class="project-main-img" loading="lazy" data-photos="[&quot;assets/images/projects/sonatrach-siege-alger/photo_1.jpg&quot;, &quot;assets/images/projects/sonatrach-siege-alger/photo_2.jpg&quot;]" data-title="Nouveau Siège Social SONATRACH (SONATRACH)" />
+
+            <!-- Photo Counter Badge -->
+            <span class="project-photo-count">
+              <i class="bi bi-camera-fill"></i> 2 photos
+            </span>
+          </div>
+
+        <div class="project-thumb-strip">
+          <div class="project-thumb-item active" data-src="assets/images/projects/sonatrach-siege-alger/photo_1.jpg" title="Photo 1">
+            <img src="assets/images/projects/sonatrach-siege-alger/photo_1.jpg" alt="Nouveau Siège Social SONATRACH" loading="lazy" />
+          </div>
+          <div class="project-thumb-item " data-src="assets/images/projects/sonatrach-siege-alger/photo_2.jpg" title="Photo 2">
+            <img src="assets/images/projects/sonatrach-siege-alger/photo_2.jpg" alt="Nouveau Siège Social SONATRACH" loading="lazy" />
+          </div>
+        </div>
+
+          <div class="project-card-body">
+            <span class="project-location">
+              <i class="bi bi-geo-alt-fill me-1"></i> Hydra, Wilaya d'Alger
+            </span>
+            <h3 class="project-title">Nouveau Siège Social SONATRACH</h3>
+            <p class="project-desc">Coffrage de dalles de grandes portées et poteaux architecturaux pour l'immeuble de direction générale de la compagnie nationale.</p>
+            <button type="button" class="project-footer-btn" data-photos="[&quot;assets/images/projects/sonatrach-siege-alger/photo_1.jpg&quot;, &quot;assets/images/projects/sonatrach-siege-alger/photo_2.jpg&quot;]" data-title="Nouveau Siège Social SONATRACH — SONATRACH">
+              <i class="bi bi-images"></i> <span>Consulter la Galerie (2 photos)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Projet : Silos Portuaires & Agricoles de 100 000 Tonnes -->
+        <div class="project-card" data-category="batiment" data-aos="fade-up">
+          <div class="project-visual-box">
+            <!-- Client Logo Badge -->
+            <div class="project-client-badge">
+              <img src="assets/images/projects/silos-cereales-si-mustapha/logo.png" alt="OAIC / Entreprises Nationales" class="project-client-logo" />
+              <span class="project-client-name">OAIC / Entreprises Nationales</span>
+            </div>
+
+            <!-- Category Badge -->
+            <span class="project-cat-badge">Sécurité Alimentaire</span>
+
+            <!-- Main Photo -->
+            <img src="assets/images/projects/silos-cereales-si-mustapha/photo_1.jpg" alt="Silos Portuaires & Agricoles de 100 000 Tonnes" class="project-main-img" loading="lazy" data-photos="[&quot;assets/images/projects/silos-cereales-si-mustapha/photo_1.jpg&quot;, &quot;assets/images/projects/silos-cereales-si-mustapha/photo_2.jpg&quot;, &quot;assets/images/projects/silos-cereales-si-mustapha/photo_3.jpg&quot;, &quot;assets/images/projects/silos-cereales-si-mustapha/photo_4.jpg&quot;, &quot;assets/images/projects/silos-cereales-si-mustapha/photo_5.jpg&quot;, &quot;assets/images/projects/silos-cereales-si-mustapha/photo_6.jpg&quot;]" data-title="Silos Portuaires & Agricoles de 100 000 Tonnes (OAIC / Entreprises Nationales)" />
+
+            <!-- Photo Counter Badge -->
+            <span class="project-photo-count">
+              <i class="bi bi-camera-fill"></i> 6 photos
+            </span>
+          </div>
+
+        <div class="project-thumb-strip">
+          <div class="project-thumb-item active" data-src="assets/images/projects/silos-cereales-si-mustapha/photo_1.jpg" title="Photo 1">
+            <img src="assets/images/projects/silos-cereales-si-mustapha/photo_1.jpg" alt="Silos Portuaires & Agricoles de 100 000 Tonnes" loading="lazy" />
+          </div>
+          <div class="project-thumb-item " data-src="assets/images/projects/silos-cereales-si-mustapha/photo_2.jpg" title="Photo 2">
+            <img src="assets/images/projects/silos-cereales-si-mustapha/photo_2.jpg" alt="Silos Portuaires & Agricoles de 100 000 Tonnes" loading="lazy" />
+          </div>
+          <div class="project-thumb-item " data-src="assets/images/projects/silos-cereales-si-mustapha/photo_3.jpg" title="Photo 3">
+            <img src="assets/images/projects/silos-cereales-si-mustapha/photo_3.jpg" alt="Silos Portuaires & Agricoles de 100 000 Tonnes" loading="lazy" />
+          </div>
+          <div class="project-thumb-item " data-src="assets/images/projects/silos-cereales-si-mustapha/photo_4.jpg" title="Photo 4">
+            <img src="assets/images/projects/silos-cereales-si-mustapha/photo_4.jpg" alt="Silos Portuaires & Agricoles de 100 000 Tonnes" loading="lazy" />
+          </div>
+          <div class="project-thumb-item " data-src="assets/images/projects/silos-cereales-si-mustapha/photo_5.jpg" title="Photo 5">
+            <img src="assets/images/projects/silos-cereales-si-mustapha/photo_5.jpg" alt="Silos Portuaires & Agricoles de 100 000 Tonnes" loading="lazy" />
+          </div>
+          <div class="project-thumb-item " data-src="assets/images/projects/silos-cereales-si-mustapha/photo_6.jpg" title="Photo 6">
+            <img src="assets/images/projects/silos-cereales-si-mustapha/photo_6.jpg" alt="Silos Portuaires & Agricoles de 100 000 Tonnes" loading="lazy" />
+          </div>
+        </div>
+
+          <div class="project-card-body">
+            <span class="project-location">
+              <i class="bi bi-geo-alt-fill me-1"></i> Si Mustapha, Wilaya de Boumerdès
+            </span>
+            <h3 class="project-title">Silos Portuaires & Agricoles de 100 000 Tonnes</h3>
+            <p class="project-desc">Système de coffrage circulaire et grimpant pour la coulée continue de batteries de silos de céréales de 100 000 tonnes.</p>
+            <button type="button" class="project-footer-btn" data-photos="[&quot;assets/images/projects/silos-cereales-si-mustapha/photo_1.jpg&quot;, &quot;assets/images/projects/silos-cereales-si-mustapha/photo_2.jpg&quot;, &quot;assets/images/projects/silos-cereales-si-mustapha/photo_3.jpg&quot;, &quot;assets/images/projects/silos-cereales-si-mustapha/photo_4.jpg&quot;, &quot;assets/images/projects/silos-cereales-si-mustapha/photo_5.jpg&quot;, &quot;assets/images/projects/silos-cereales-si-mustapha/photo_6.jpg&quot;]" data-title="Silos Portuaires & Agricoles de 100 000 Tonnes — OAIC / Entreprises Nationales">
+              <i class="bi bi-images"></i> <span>Consulter la Galerie (6 photos)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Projet : 4ème Rocade Sud : Lots 1 & 2 (Hannacha — Berrouaghia) -->
+        <div class="project-card" data-category="transport" data-aos="fade-up">
+          <div class="project-visual-box">
+            <!-- Client Logo Badge -->
+            <div class="project-client-badge">
+              <img src="assets/images/projects/quatrieme-rocade-sud/logo.png" alt="ANA (Agence Nationale des Autoroutes)" class="project-client-logo" />
+              <span class="project-client-name">ANA (Agence Nationale des Autoroutes)</span>
+            </div>
+
+            <!-- Category Badge -->
+            <span class="project-cat-badge">Infrastructure Routière</span>
+
+            <!-- Main Photo -->
+            <img src="assets/images/projects/quatrieme-rocade-sud/photo_1.jpg" alt="4ème Rocade Sud : Lots 1 & 2 (Hannacha — Berrouaghia)" class="project-main-img" loading="lazy" data-photos="[&quot;assets/images/projects/quatrieme-rocade-sud/photo_1.jpg&quot;, &quot;assets/images/projects/quatrieme-rocade-sud/photo_2.jpg&quot;]" data-title="4ème Rocade Sud : Lots 1 & 2 (Hannacha — Berrouaghia) (ANA (Agence Nationale des Autoroutes))" />
+
+            <!-- Photo Counter Badge -->
+            <span class="project-photo-count">
+              <i class="bi bi-camera-fill"></i> 2 photos
+            </span>
+          </div>
+
+        <div class="project-thumb-strip">
+          <div class="project-thumb-item active" data-src="assets/images/projects/quatrieme-rocade-sud/photo_1.jpg" title="Photo 1">
+            <img src="assets/images/projects/quatrieme-rocade-sud/photo_1.jpg" alt="4ème Rocade Sud : Lots 1 & 2 (Hannacha — Berrouaghia)" loading="lazy" />
+          </div>
+          <div class="project-thumb-item " data-src="assets/images/projects/quatrieme-rocade-sud/photo_2.jpg" title="Photo 2">
+            <img src="assets/images/projects/quatrieme-rocade-sud/photo_2.jpg" alt="4ème Rocade Sud : Lots 1 & 2 (Hannacha — Berrouaghia)" loading="lazy" />
+          </div>
+        </div>
+
+          <div class="project-card-body">
+            <span class="project-location">
+              <i class="bi bi-geo-alt-fill me-1"></i> Médéa — RN1
+            </span>
+            <h3 class="project-title">4ème Rocade Sud : Lots 1 & 2 (Hannacha — Berrouaghia)</h3>
+            <p class="project-desc">Tables de ponts et coffrages de chevêtres d'échangeurs autoroutiers sur le tracé de la 4ème rocade d'Alger.</p>
+            <button type="button" class="project-footer-btn" data-photos="[&quot;assets/images/projects/quatrieme-rocade-sud/photo_1.jpg&quot;, &quot;assets/images/projects/quatrieme-rocade-sud/photo_2.jpg&quot;]" data-title="4ème Rocade Sud : Lots 1 & 2 (Hannacha — Berrouaghia) — ANA (Agence Nationale des Autoroutes)">
+              <i class="bi bi-images"></i> <span>Consulter la Galerie (2 photos)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Projet : Marina Bay d'Alger & Front de Mer -->
+        <div class="project-card" data-category="batiment" data-aos="fade-up">
+          <div class="project-visual-box">
+            <!-- Client Logo Badge -->
+            <div class="project-client-badge">
+              <img src="assets/images/projects/marina-alger-dahli/logo.png" alt="Groupe DAHLI" class="project-client-logo" />
+              <span class="project-client-name">Groupe DAHLI</span>
+            </div>
+
+            <!-- Category Badge -->
+            <span class="project-cat-badge">Prestige Front de Mer</span>
+
+            <!-- Main Photo -->
+            <img src="assets/images/projects/marina-alger-dahli/photo_1.jpg" alt="Marina Bay d'Alger & Front de Mer" class="project-main-img" loading="lazy" data-photos="[&quot;assets/images/projects/marina-alger-dahli/photo_1.jpg&quot;, &quot;assets/images/projects/marina-alger-dahli/photo_2.jpg&quot;]" data-title="Marina Bay d'Alger & Front de Mer (Groupe DAHLI)" />
+
+            <!-- Photo Counter Badge -->
+            <span class="project-photo-count">
+              <i class="bi bi-camera-fill"></i> 2 photos
+            </span>
+          </div>
+
+        <div class="project-thumb-strip">
+          <div class="project-thumb-item active" data-src="assets/images/projects/marina-alger-dahli/photo_1.jpg" title="Photo 1">
+            <img src="assets/images/projects/marina-alger-dahli/photo_1.jpg" alt="Marina Bay d'Alger & Front de Mer" loading="lazy" />
+          </div>
+          <div class="project-thumb-item " data-src="assets/images/projects/marina-alger-dahli/photo_2.jpg" title="Photo 2">
+            <img src="assets/images/projects/marina-alger-dahli/photo_2.jpg" alt="Marina Bay d'Alger & Front de Mer" loading="lazy" />
+          </div>
+        </div>
+
+          <div class="project-card-body">
+            <span class="project-location">
+              <i class="bi bi-geo-alt-fill me-1"></i> Bordel El Kiffan / Front de Mer d'Alger
+            </span>
+            <h3 class="project-title">Marina Bay d'Alger & Front de Mer</h3>
+            <p class="project-desc">Coffrage de dalles à poutrelles H20, tours d'étaiement et coffrages de voiles pour les tours d'affaires et la marina de plaisance.</p>
+            <button type="button" class="project-footer-btn" data-photos="[&quot;assets/images/projects/marina-alger-dahli/photo_1.jpg&quot;, &quot;assets/images/projects/marina-alger-dahli/photo_2.jpg&quot;]" data-title="Marina Bay d'Alger & Front de Mer — Groupe DAHLI">
+              <i class="bi bi-images"></i> <span>Consulter la Galerie (2 photos)</span>
+            </button>
+          </div>
+        </div>
       </div>
 
     </div>
   </section>
+
+  <!-- Lightbox Modal Galerie Photos Projets -->
+  <div class="project-lightbox" id="projectLightbox">
+    <div class="lightbox-content">
+      <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Fermer">&times;</button>
+      <button type="button" class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Précédent"><i class="bi bi-chevron-left"></i></button>
+      <img src="" alt="" class="lightbox-img" id="lightboxImg" />
+      <button type="button" class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Suivant"><i class="bi bi-chevron-right"></i></button>
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
 
   <!-- ==========================================
        SECTION CLIENTS & PARTENAIRES (SWIPER CAROUSEL)
@@ -3900,6 +4583,133 @@
 
         // Initial render
         renderStage();
+      }
+
+      // 2c. Gestion de la Galerie Projets Réalisés (11 Projets, Miniatures & Lightbox)
+      initProjectsGallery();
+
+      function initProjectsGallery() {
+        // 1. Filtrage par catégories
+        const filterChips = document.querySelectorAll('.proj-filter-chip');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterChips.forEach(chip => {
+          chip.addEventListener('click', () => {
+            filterChips.forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            const filter = chip.getAttribute('data-filter') || 'all';
+
+            projectCards.forEach(card => {
+              const cat = card.getAttribute('data-category');
+              if (filter === 'all' || cat === filter) {
+                card.style.display = 'flex';
+              } else {
+                card.style.display = 'none';
+              }
+            });
+          });
+        });
+
+        // 2. Changement de photo au clic sur miniature
+        document.querySelectorAll('.project-card').forEach(card => {
+          const mainImg = card.querySelector('.project-main-img');
+          const thumbs = card.querySelectorAll('.project-thumb-item');
+
+          thumbs.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+              thumbs.forEach(t => t.classList.remove('active'));
+              thumb.classList.add('active');
+              const newSrc = thumb.getAttribute('data-src');
+              if (mainImg && newSrc) {
+                mainImg.src = newSrc;
+              }
+            });
+          });
+        });
+
+        // 3. Lightbox Plein Écran pour voir toutes les photos
+        const lightbox = document.getElementById('projectLightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const closeBtn = document.getElementById('lightboxClose');
+        const prevBtn = document.getElementById('lightboxPrev');
+        const nextBtn = document.getElementById('lightboxNext');
+
+        let currentPhotos = [];
+        let currentPhotoIdx = 0;
+        let currentTitle = '';
+
+        function openLightbox(photos, title, startIdx = 0) {
+          currentPhotos = photos;
+          currentPhotoIdx = startIdx;
+          currentTitle = title;
+          updateLightboxImage();
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+          lightbox.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+
+        function updateLightboxImage() {
+          if (!currentPhotos.length) return;
+          lightboxImg.src = currentPhotos[currentPhotoIdx];
+          lightboxCaption.innerHTML = `<strong>${currentTitle}</strong> — Photo ${currentPhotoIdx + 1} / ${currentPhotos.length}`;
+        }
+
+        // Clic sur image principale ou bouton galerie
+        document.querySelectorAll('.project-main-img, .project-footer-btn').forEach(trigger => {
+          trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            const photosJson = trigger.getAttribute('data-photos');
+            const title = trigger.getAttribute('data-title') || 'Projet ACROW DZ';
+            if (photosJson) {
+              try {
+                const photos = JSON.parse(photosJson);
+                // Déterminer la photo actuelle affichée dans la carte
+                const card = trigger.closest('.project-card');
+                const mainImg = card ? card.querySelector('.project-main-img') : null;
+                const currentSrc = mainImg ? mainImg.getAttribute('src') : photos[0];
+                const startIdx = Math.max(0, photos.indexOf(currentSrc));
+                openLightbox(photos, title, startIdx);
+              } catch (err) {
+                console.error('Error parsing photos json:', err);
+              }
+            }
+          });
+        });
+
+        if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+        if (prevBtn) {
+          prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentPhotoIdx = (currentPhotoIdx - 1 + currentPhotos.length) % currentPhotos.length;
+            updateLightboxImage();
+          });
+        }
+        if (nextBtn) {
+          nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentPhotoIdx = (currentPhotoIdx + 1) % currentPhotos.length;
+            updateLightboxImage();
+          });
+        }
+
+        // Fermeture sur clic arrière-plan ou touche Échap
+        if (lightbox) {
+          lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+          });
+        }
+        window.addEventListener('keydown', (e) => {
+          if (lightbox && lightbox.classList.contains('active')) {
+            if (e.key === 'Escape') closeLightbox();
+            else if (e.key === 'ArrowLeft' && prevBtn) prevBtn.click();
+            else if (e.key === 'ArrowRight' && nextBtn) nextBtn.click();
+          }
+        });
       }
 
       // 3. Stats Counter Animation on scroll
