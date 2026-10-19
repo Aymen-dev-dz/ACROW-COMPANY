@@ -4498,7 +4498,7 @@
         renderStage();
       }
 
-      // 2c. Gestion du Slider Aéré des Projets Réalisés (Navigation Flèches, Filtres & Lightbox)
+      // 2c. Gestion du Slider Aéré des Projets Réalisés (Slide Auto + Navigation Flèches + Lightbox)
       initZenProjectsSlider();
 
       function initZenProjectsSlider() {
@@ -4507,6 +4507,7 @@
         const nextBtn = document.getElementById('zenProjNextBtn');
         const filterChips = document.querySelectorAll('.zen-proj-chip');
         const cards = document.querySelectorAll('.zen-proj-card');
+        const sliderContainer = document.querySelector('.zen-proj-slider-container');
 
         if (!track) return;
 
@@ -4519,17 +4520,60 @@
           return 380;
         }
 
+        // --- SLIDE AUTOMATIQUE (AUTOPLAY) ---
+        let autoProjTimer = null;
+        const AUTOPLAY_INTERVAL = 3600; // Défilement automatique toutes les 3.6 secondes
+
+        function autoSlideNext() {
+          const step = getScrollStep();
+          const maxScroll = track.scrollWidth - track.clientWidth;
+
+          // Si on arrive vers la fin du slider, on revient doucement au début
+          if (track.scrollLeft >= maxScroll - 30) {
+            track.scrollTo({ left: 0, behavior: 'smooth' });
+          } else {
+            track.scrollBy({ left: step, behavior: 'smooth' });
+          }
+        }
+
+        function startProjAutoSlide() {
+          stopProjAutoSlide();
+          autoProjTimer = setInterval(autoSlideNext, AUTOPLAY_INTERVAL);
+        }
+
+        function stopProjAutoSlide() {
+          if (autoProjTimer) {
+            clearInterval(autoProjTimer);
+            autoProjTimer = null;
+          }
+        }
+
         if (prevBtn) {
           prevBtn.addEventListener('click', () => {
             track.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+            startProjAutoSlide();
           });
         }
 
         if (nextBtn) {
           nextBtn.addEventListener('click', () => {
             track.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+            startProjAutoSlide();
           });
         }
+
+        // Pause quand la souris survole le carrousel pour laisser l'utilisateur explorer
+        if (sliderContainer) {
+          sliderContainer.addEventListener('mouseenter', stopProjAutoSlide);
+          sliderContainer.addEventListener('mouseleave', startProjAutoSlide);
+        }
+
+        // Gestion du tactile (mobile/tablette)
+        track.addEventListener('touchstart', stopProjAutoSlide, { passive: true });
+        track.addEventListener('touchend', startProjAutoSlide, { passive: true });
+
+        // Démarrer l'autoplay initial
+        startProjAutoSlide();
 
         // Gestion des Filtres de Catégories
         filterChips.forEach(chip => {
@@ -4549,6 +4593,7 @@
 
             // Revenir au début du slider avec animation fluide
             track.scrollTo({ left: 0, behavior: 'smooth' });
+            startProjAutoSlide();
           });
         });
 
@@ -4565,6 +4610,7 @@
         let currentTitle = '';
 
         function openLightbox(photos, title, startIdx = 0) {
+          stopProjAutoSlide();
           currentPhotos = photos;
           currentPhotoIdx = startIdx;
           currentTitle = title;
@@ -4576,6 +4622,7 @@
         function closeLightbox() {
           lightbox.classList.remove('active');
           document.body.style.overflow = '';
+          startProjAutoSlide();
         }
 
         function updateLightboxImage() {
