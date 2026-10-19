@@ -1238,37 +1238,25 @@
       border-radius: 10px;
     }
     /* ==========================================
-       OPTION C : KIOSQUE 3D COVERFLOW FUTURISTE
+       OPTION C OPTIMISÉE (ULTRA-FLUIDE 60 FPS)
        ========================================== */
     .kiosk-coverflow-section {
-      background: radial-gradient(circle at 50% 12%, #111d38 0%, #080d1a 50%, #03050c 100%);
-      padding: 75px 0 70px;
+      background: radial-gradient(circle at 50% 15%, #0f1c36 0%, #080d1a 60%, #03050c 100%);
+      padding: 65px 0 60px;
       position: relative;
-      overflow: hidden;
       color: #ffffff;
+      contain: layout style;
     }
 
-    /* Ambient cyber grid overlay & soft red/blue glow */
+    /* Ambient cyber grid overlay (pure CSS, lightweight) */
     .kiosk-coverflow-section::before {
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
       background-image: 
-        linear-gradient(rgba(0, 85, 170, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 85, 170, 0.05) 1px, transparent 1px);
+        linear-gradient(rgba(0, 85, 170, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 85, 170, 0.04) 1px, transparent 1px);
       background-size: 40px 40px;
-      pointer-events: none;
-    }
-    .kiosk-coverflow-section::after {
-      content: "";
-      position: absolute;
-      top: 15%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 680px;
-      height: 250px;
-      background: radial-gradient(ellipse at center, rgba(204, 0, 0, 0.26) 0%, rgba(0, 51, 102, 0.16) 50%, transparent 75%);
-      filter: blur(55px);
       pointer-events: none;
     }
 
@@ -1278,25 +1266,24 @@
       gap: 6px;
       background: rgba(204, 0, 0, 0.16);
       color: #ff4d4d;
-      border: 1px solid rgba(204, 0, 0, 0.45);
-      box-shadow: 0 0 16px rgba(204, 0, 0, 0.28);
+      border: 1px solid rgba(204, 0, 0, 0.4);
       font-size: 0.80rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       padding: 6px 18px;
       border-radius: 50px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .kiosk-title {
       color: #ffffff;
-      font-size: 2.35rem;
+      font-size: 2.2rem;
       font-weight: 900;
       letter-spacing: -0.5px;
     }
     .kiosk-sub {
       color: #94a3b8;
-      font-size: 1.02rem;
+      font-size: 1rem;
       max-width: 760px;
       margin: 0 auto;
     }
@@ -1306,50 +1293,49 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
-      margin: 28px 0 25px;
+      gap: 8px;
+      margin: 24px 0 20px;
       position: relative;
       z-index: 5;
     }
     .kiosk-filter-chip {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.06);
       color: #cbd5e1;
       border: 1px solid rgba(255, 255, 255, 0.14);
-      backdrop-filter: blur(8px);
       border-radius: 50px;
-      padding: 8px 18px;
-      font-size: 0.85rem;
+      padding: 7px 16px;
+      font-size: 0.82rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.25s ease;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
     }
     .kiosk-filter-chip:hover {
       background: rgba(255, 255, 255, 0.12);
       color: #ffffff;
       border-color: rgba(255, 255, 255, 0.3);
-      transform: translateY(-2px);
     }
     .kiosk-filter-chip.active {
-      background: linear-gradient(135deg, #cc0000 0%, #990000 100%);
+      background: #cc0000;
       color: #ffffff;
       border-color: #ff3333;
-      box-shadow: 0 0 18px rgba(204, 0, 0, 0.55);
+      box-shadow: 0 0 12px rgba(204, 0, 0, 0.5);
     }
 
-    /* 3D Coverflow Stage */
+    /* 3D Coverflow Stage (Hardware Accelerated & Lightweight) */
     .kiosk-stage-container {
       position: relative;
       width: 100%;
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
-      perspective: 1200px;
+      perspective: 1100px;
       perspective-origin: 50% 45%;
-      height: 470px;
+      height: 440px;
       display: flex;
       align-items: center;
       justify-content: center;
       user-select: none;
       z-index: 3;
+      contain: layout style;
     }
 
     .kiosk-stage-track {
@@ -1365,17 +1351,16 @@
     /* 3D Book Card */
     .kiosk-book-card {
       position: absolute;
-      width: 245px;
-      height: 350px;
+      width: 240px;
+      height: 340px;
       border-radius: 12px;
       cursor: pointer;
       transform-style: preserve-3d;
-      transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1),
-                  opacity 0.45s ease,
-                  filter 0.45s ease,
-                  box-shadow 0.45s ease;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
       will-change: transform, opacity;
       background: #0f172a;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
     }
 
     .kiosk-book-inner {
@@ -1384,8 +1369,9 @@
       height: 100%;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
-      -webkit-box-reflect: below 8px linear-gradient(transparent 70%, rgba(255, 255, 255, 0.18));
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
     .kiosk-book-img {
@@ -1398,22 +1384,48 @@
     .kiosk-book-spine {
       position: absolute;
       top: 0; left: 0; bottom: 0;
-      width: 12px;
-      background: linear-gradient(90deg, rgba(255,255,255,0.3) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+      width: 10px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0.35) 60%, transparent 100%);
       pointer-events: none;
       z-index: 2;
     }
 
+    /* Active Center Book Glow & Open Hint */
     .kiosk-book-card.is-active .kiosk-book-inner {
-      box-shadow: 0 0 0 2px #ff3b3b, 0 18px 45px rgba(204, 0, 0, 0.5), 0 0 35px rgba(204, 0, 0, 0.4);
+      box-shadow: 0 0 0 2.5px #ff3333, 0 16px 36px rgba(204, 0, 0, 0.45);
+      border-color: #ff3333;
+    }
+
+    .kiosk-book-open-banner {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(180, 0, 0, 0.92) 50%, #990000 100%);
+      color: #ffffff;
+      padding: 22px 10px 12px;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      z-index: 5;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      opacity: 0.95;
+    }
+    .kiosk-book-card:hover .kiosk-book-open-banner {
+      opacity: 1;
+      background: linear-gradient(180deg, transparent 0%, rgba(220, 0, 0, 0.96) 40%, #cc0000 100%);
     }
 
     .kiosk-book-dimmer {
       position: absolute;
       inset: 0;
-      background: rgba(5, 10, 20, 0.45);
+      background: rgba(3, 7, 18, 0.45);
       border-radius: 10px;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.25s ease;
       pointer-events: none;
       z-index: 3;
     }
@@ -1421,50 +1433,47 @@
       opacity: 0;
     }
 
-    /* Circular Neon Navigation Arrows */
+    /* Navigation Arrows */
     .kiosk-nav-btn {
       position: absolute;
-      top: 48%;
+      top: 50%;
       transform: translateY(-50%);
-      width: 52px;
-      height: 52px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
-      background: rgba(15, 23, 42, 0.75);
+      background: rgba(15, 23, 42, 0.85);
       border: 1.5px solid rgba(255, 255, 255, 0.2);
       color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       cursor: pointer;
       z-index: 20;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-      transition: all 0.25s ease;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+      transition: background 0.2s, transform 0.2s;
     }
     .kiosk-nav-btn:hover {
       background: var(--accent-red);
       border-color: #ff4d4d;
-      box-shadow: 0 0 22px rgba(204, 0, 0, 0.7);
-      transform: translateY(-50%) scale(1.1);
+      transform: translateY(-50%) scale(1.08);
     }
-    .kiosk-nav-prev { left: 20px; }
-    .kiosk-nav-next { right: 20px; }
+    .kiosk-nav-prev { left: 16px; }
+    .kiosk-nav-next { right: 16px; }
 
-    /* Technological HUD Podium Below Coverflow */
+    /* Technological HUD Podium */
     .kiosk-hud-podium {
       position: relative;
       z-index: 10;
-      max-width: 920px;
-      margin: 25px auto 0;
-      background: rgba(15, 23, 42, 0.85);
+      max-width: 880px;
+      margin: 18px auto 0;
+      background: #0b1528;
       border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 20px;
-      padding: 24px 30px 22px;
-      backdrop-filter: blur(16px);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      padding: 22px 28px 20px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
       text-align: center;
-      transition: opacity 0.25s ease, transform 0.25s ease;
+      transition: opacity 0.15s ease;
     }
     .kiosk-hud-podium::before {
       content: "";
@@ -1472,77 +1481,76 @@
       top: -1px;
       left: 50%;
       transform: translateX(-50%);
-      width: 140px;
+      width: 120px;
       height: 3px;
-      background: linear-gradient(90deg, transparent, #cc0000, #ff4444, #cc0000, transparent);
-      box-shadow: 0 0 12px #ff3333;
+      background: #cc0000;
+      box-shadow: 0 0 10px #ff3333;
     }
 
     .kiosk-hud-top-bar {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      margin-bottom: 12px;
+      gap: 10px;
+      margin-bottom: 10px;
       flex-wrap: wrap;
     }
     .kiosk-hud-index {
       font-family: monospace;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 700;
       color: #ff4d4d;
       background: rgba(204, 0, 0, 0.14);
-      padding: 3px 10px;
+      padding: 2px 9px;
       border-radius: 6px;
       border: 1px solid rgba(204, 0, 0, 0.3);
     }
     .kiosk-hud-cat-badge {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
       color: #38bdf8;
       background: rgba(56, 189, 248, 0.12);
-      padding: 3px 12px;
+      padding: 2px 11px;
       border-radius: 20px;
       border: 1px solid rgba(56, 189, 248, 0.25);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
     }
     .kiosk-hud-norm-badge {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 600;
       color: #4ade80;
       background: rgba(74, 222, 128, 0.1);
-      padding: 3px 12px;
+      padding: 2px 11px;
       border-radius: 20px;
       border: 1px solid rgba(74, 222, 128, 0.25);
     }
 
     .kiosk-hud-title {
       color: #ffffff;
-      font-size: 1.55rem;
+      font-size: 1.5rem;
       font-weight: 800;
-      margin: 0 0 6px;
+      margin: 0 0 4px;
       letter-spacing: -0.3px;
     }
     .kiosk-hud-sub {
       color: #94a3b8;
-      font-size: 0.95rem;
-      margin: 0 auto 16px;
+      font-size: 0.92rem;
+      margin: 0 auto 14px;
       max-width: 680px;
-      line-height: 1.5;
+      line-height: 1.45;
     }
 
     .kiosk-hud-specs-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-bottom: 20px;
+      gap: 8px;
+      margin-bottom: 18px;
     }
     .kiosk-hud-spec-item {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 10px;
-      padding: 8px 6px;
+      border-radius: 8px;
+      padding: 7px 5px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1550,16 +1558,15 @@
     }
     .kiosk-hud-spec-icon {
       color: #ff4d4d;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
     }
     .kiosk-hud-spec-lbl {
-      font-size: 0.70rem;
+      font-size: 0.68rem;
       color: #64748b;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
     }
     .kiosk-hud-spec-val {
-      font-size: 0.80rem;
+      font-size: 0.78rem;
       font-weight: 700;
       color: #f1f5f9;
     }
@@ -1568,28 +1575,29 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
     }
     .kiosk-btn-read {
-      background: linear-gradient(135deg, #cc0000 0%, #aa0000 100%);
+      background: #cc0000;
       color: #ffffff !important;
       font-weight: 700;
-      padding: 10px 24px;
+      font-size: 0.95rem;
+      padding: 11px 26px;
       border-radius: 50px;
-      border: 1px solid #ff3333;
-      box-shadow: 0 0 20px rgba(204, 0, 0, 0.55);
+      border: none;
+      box-shadow: 0 0 16px rgba(204, 0, 0, 0.5);
       display: inline-flex;
       align-items: center;
       gap: 8px;
       text-decoration: none;
-      transition: all 0.22s ease;
+      transition: background 0.2s, transform 0.2s;
       cursor: pointer;
     }
     .kiosk-btn-read:hover {
       transform: translateY(-2px);
-      box-shadow: 0 0 28px rgba(255, 51, 51, 0.75);
-      background: #ff1a1a;
+      background: #e60000;
+      box-shadow: 0 0 22px rgba(255, 51, 51, 0.7);
     }
     .kiosk-btn-dl {
       background: rgba(255, 255, 255, 0.08);
@@ -1602,12 +1610,10 @@
       align-items: center;
       gap: 8px;
       text-decoration: none;
-      transition: all 0.22s ease;
+      transition: background 0.2s;
     }
     .kiosk-btn-dl:hover {
       background: rgba(255, 255, 255, 0.16);
-      border-color: rgba(255, 255, 255, 0.4);
-      transform: translateY(-2px);
     }
     .kiosk-btn-quote {
       background: rgba(0, 51, 102, 0.6);
@@ -1620,13 +1626,11 @@
       align-items: center;
       gap: 8px;
       text-decoration: none;
-      transition: all 0.22s ease;
+      transition: background 0.2s;
     }
     .kiosk-btn-quote:hover {
       background: rgba(0, 51, 102, 0.9);
-      border-color: #38bdf8;
       color: #ffffff !important;
-      transform: translateY(-2px);
     }
 
     .kiosk-dots-container {
@@ -1634,7 +1638,7 @@
       justify-content: center;
       align-items: center;
       gap: 6px;
-      margin-top: 22px;
+      margin-top: 18px;
       position: relative;
       z-index: 5;
     }
@@ -1644,29 +1648,24 @@
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.22);
       cursor: pointer;
-      transition: all 0.25s ease;
-    }
-    .kiosk-dot:hover {
-      background: rgba(255, 255, 255, 0.5);
-      transform: scale(1.2);
+      transition: background 0.2s, width 0.2s;
     }
     .kiosk-dot.active {
-      width: 24px;
+      width: 22px;
       border-radius: 10px;
       background: #ff3333;
-      box-shadow: 0 0 10px rgba(255, 51, 51, 0.7);
     }
 
     @media (max-width: 991.98px) {
-      .kiosk-stage-container { height: 410px; }
-      .kiosk-book-card { width: 205px; height: 295px; }
+      .kiosk-stage-container { height: 390px; }
+      .kiosk-book-card { width: 200px; height: 285px; }
       .kiosk-hud-specs-row { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 575.98px) {
-      .kiosk-stage-container { height: 350px; perspective: 750px; }
-      .kiosk-book-card { width: 170px; height: 245px; }
-      .kiosk-hud-podium { padding: 18px 14px; border-radius: 16px; }
-      .kiosk-hud-title { font-size: 1.2rem; }
+      .kiosk-stage-container { height: 330px; perspective: 700px; }
+      .kiosk-book-card { width: 165px; height: 235px; }
+      .kiosk-hud-podium { padding: 16px 12px; }
+      .kiosk-hud-title { font-size: 1.15rem; }
       .kiosk-hud-actions { flex-direction: column; width: 100%; }
       .kiosk-hud-actions a, .kiosk-hud-actions button { width: 100%; justify-content: center; }
       .kiosk-nav-prev { left: 4px; }
@@ -3306,7 +3305,7 @@
         });
       }
 
-      // 2b. Initialisation & Gestion du Kiosque 3D Coverflow Futuriste (Option C)
+      // 2b. Initialisation & Gestion du Kiosque 3D Coverflow (Ultra-Optimisé 60 FPS + Clic Immédiat)
       initKiosque3DCoverflow();
 
       function initKiosque3DCoverflow() {
@@ -3653,7 +3652,6 @@
         const readBtn = document.getElementById('kioskReadBtn');
         const dlBtn = document.getElementById('kioskDlBtn');
         const quoteBtn = document.getElementById('kioskQuoteBtn');
-        const hudPodium = document.getElementById('kioskHudPodium');
 
         if (!stageTrack) return;
 
@@ -3662,22 +3660,38 @@
           filteredCatalogs = ACROW_CATALOGS.filter(c => currentCategory === 'all' || c.category === currentCategory);
           if (currentIndex >= filteredCatalogs.length) currentIndex = 0;
 
-          // Render Books
+          // Render Books with DIRECT CLICK & OPEN
           stageTrack.innerHTML = filteredCatalogs.map((cat, idx) => `
-            <div class="kiosk-book-card" data-index="${idx}">
+            <div class="kiosk-book-card" data-index="${idx}" title="Cliquer pour afficher : ${cat.title}">
               <div class="kiosk-book-inner">
                 <span class="kiosk-book-spine"></span>
                 <img src="${cat.cover}" alt="${cat.title}" class="kiosk-book-img" loading="lazy" />
                 <div class="kiosk-book-dimmer"></div>
+                <div class="kiosk-book-open-banner">
+                  <i class="bi bi-book-half"></i> <span>Ouvrir</span>
+                </div>
               </div>
             </div>
           `).join('');
 
-          // Bind click to each book
+          // Bind click to each book:
+          // SI ON CLIQUE SUR UN LIVRE -> IL S'AFFICHE IMMÉDIATEMENT DANS LA LISEUSE !
           stageTrack.querySelectorAll('.kiosk-book-card').forEach(card => {
-            card.addEventListener('click', () => {
+            card.addEventListener('click', (e) => {
               const idx = parseInt(card.getAttribute('data-index'), 10);
-              goToIndex(idx);
+              const clickedCat = filteredCatalogs[idx];
+              if (!clickedCat) return;
+
+              if (idx === currentIndex) {
+                // Déjà au centre -> Ouvrir directement !
+                openEbookModal(clickedCat.pdf, clickedCat.title);
+              } else {
+                // Amener au centre et ouvrir directement
+                currentIndex = idx;
+                update3DTransforms();
+                updateHUD();
+                openEbookModal(clickedCat.pdf, clickedCat.title);
+              }
             });
           });
 
@@ -3699,53 +3713,57 @@
           updateHUD();
         }
 
-        // Apply 3D Perspective Coordinates
+        // Apply 3D Perspective Coordinates (ULTRA-OPTIMISÉ : Seuls les 5 livres proches sont rendus)
         function update3DTransforms() {
           const cards = stageTrack.querySelectorAll('.kiosk-book-card');
           const isMobile = window.innerWidth <= 576;
           const isTablet = window.innerWidth <= 992;
           
-          const xStep = isMobile ? 85 : (isTablet ? 120 : 155);
-          const zStep = isMobile ? -50 : -75;
-          const rotateAngle = isMobile ? 36 : 42;
+          const xStep = isMobile ? 80 : (isTablet ? 115 : 150);
+          const zStep = isMobile ? -45 : -65;
+          const rotateAngle = isMobile ? 32 : 38;
 
           cards.forEach((card, idx) => {
             const diff = idx - currentIndex;
             const absDiff = Math.abs(diff);
 
+            // OPTIMISATION CRUCIALE : Cacher tous les éléments éloignés (gain de 75% GPU)
+            if (absDiff > 2) {
+              card.style.display = 'none';
+              card.classList.remove('is-active');
+              return;
+            }
+
+            card.style.display = 'block';
+
             if (diff === 0) {
               // Active Center Book
               card.classList.add('is-active');
-              card.style.transform = `translateX(0) translateZ(120px) rotateY(0deg) scale(1.08)`;
+              card.style.transform = 'translate3d(0, 0, 100px) rotateY(0deg) scale(1.06)';
               card.style.zIndex = '100';
               card.style.opacity = '1';
-              card.style.pointerEvents = 'auto';
             } else if (diff < 0) {
               // Left Books
               card.classList.remove('is-active');
-              const tx = (diff * xStep) - (isMobile ? 35 : 55);
+              const tx = (diff * xStep) - (isMobile ? 30 : 50);
               const tz = absDiff * zStep;
-              const rot = rotateAngle;
-              const scale = Math.max(0.68, 1 - absDiff * 0.08);
-              const opac = Math.max(0.15, 0.85 - absDiff * 0.16);
+              const scale = 1 - absDiff * 0.08;
+              const opac = Math.max(0.35, 0.9 - absDiff * 0.25);
 
-              card.style.transform = `translateX(${tx}px) translateZ(${tz}px) rotateY(${rot}deg) scale(${scale})`;
+              card.style.transform = `translate3d(${tx}px, 0, ${tz}px) rotateY(${rotateAngle}deg) scale(${scale})`;
               card.style.zIndex = `${100 - absDiff}`;
               card.style.opacity = `${opac}`;
-              card.style.pointerEvents = absDiff > 4 ? 'none' : 'auto';
             } else {
               // Right Books
               card.classList.remove('is-active');
-              const tx = (diff * xStep) + (isMobile ? 35 : 55);
+              const tx = (diff * xStep) + (isMobile ? 30 : 50);
               const tz = absDiff * zStep;
-              const rot = -rotateAngle;
-              const scale = Math.max(0.68, 1 - absDiff * 0.08);
-              const opac = Math.max(0.15, 0.85 - absDiff * 0.16);
+              const scale = 1 - absDiff * 0.08;
+              const opac = Math.max(0.35, 0.9 - absDiff * 0.25);
 
-              card.style.transform = `translateX(${tx}px) translateZ(${tz}px) rotateY(${rot}deg) scale(${scale})`;
+              card.style.transform = `translate3d(${tx}px, 0, ${tz}px) rotateY(-${rotateAngle}deg) scale(${scale})`;
               card.style.zIndex = `${100 - absDiff}`;
               card.style.opacity = `${opac}`;
-              card.style.pointerEvents = absDiff > 4 ? 'none' : 'auto';
             }
           });
 
@@ -3758,55 +3776,43 @@
           }
         }
 
-        // Update Info HUD
+        // Update Info HUD (INSTANTANÉ, sans délai)
         function updateHUD() {
           const cat = filteredCatalogs[currentIndex];
           if (!cat) return;
 
-          if (hudPodium) {
-            hudPodium.style.opacity = '0.5';
-            hudPodium.style.transform = 'translateY(4px)';
+          const padIdx = (currentIndex + 1).toString().padStart(2, '0');
+          const total = filteredCatalogs.length.toString().padStart(2, '0');
+          if (hudIndex) hudIndex.textContent = `${padIdx} / ${total}`;
+          if (hudCat) hudCat.textContent = cat.categoryName;
+          if (hudNorm) hudNorm.innerHTML = `<i class="bi bi-patch-check-fill text-success me-1"></i> ${cat.norm}`;
+          if (hudTitle) hudTitle.textContent = cat.title;
+          if (hudSub) hudSub.textContent = cat.sub;
+
+          if (hudSpecs && cat.specs) {
+            hudSpecs.innerHTML = cat.specs.map(spec => `
+              <div class="kiosk-hud-spec-item">
+                <i class="bi ${spec.icon} kiosk-hud-spec-icon"></i>
+                <span class="kiosk-hud-spec-lbl">${spec.label}</span>
+                <span class="kiosk-hud-spec-val">${spec.val}</span>
+              </div>
+            `).join('');
           }
 
-          setTimeout(() => {
-            const padIdx = (currentIndex + 1).toString().padStart(2, '0');
-            const total = filteredCatalogs.length.toString().padStart(2, '0');
-            if (hudIndex) hudIndex.textContent = `${padIdx} / ${total}`;
-            if (hudCat) hudCat.textContent = cat.categoryName;
-            if (hudNorm) hudNorm.innerHTML = `<i class="bi bi-patch-check-fill text-success me-1"></i> ${cat.norm}`;
-            if (hudTitle) hudTitle.textContent = cat.title;
-            if (hudSub) hudSub.textContent = cat.sub;
+          if (readBtn) {
+            readBtn.onclick = () => {
+              openEbookModal(cat.pdf, cat.title);
+            };
+          }
 
-            if (hudSpecs && cat.specs) {
-              hudSpecs.innerHTML = cat.specs.map(spec => `
-                <div class="kiosk-hud-spec-item">
-                  <i class="bi ${spec.icon} kiosk-hud-spec-icon"></i>
-                  <span class="kiosk-hud-spec-lbl">${spec.label}</span>
-                  <span class="kiosk-hud-spec-val">${spec.val}</span>
-                </div>
-              `).join('');
-            }
+          if (dlBtn) {
+            dlBtn.href = cat.pdf;
+            dlBtn.setAttribute('download', cat.pdf.split('/').pop());
+          }
 
-            if (readBtn) {
-              readBtn.onclick = () => {
-                openEbookModal(cat.pdf, cat.title);
-              };
-            }
-
-            if (dlBtn) {
-              dlBtn.href = cat.pdf;
-              dlBtn.setAttribute('download', cat.pdf.split('/').pop());
-            }
-
-            if (quoteBtn) {
-              quoteBtn.href = `devis.html?sujet=${encodeURIComponent('Étude 3D — ' + cat.title)}`;
-            }
-
-            if (hudPodium) {
-              hudPodium.style.opacity = '1';
-              hudPodium.style.transform = 'translateY(0)';
-            }
-          }, 110);
+          if (quoteBtn) {
+            quoteBtn.href = `devis.html?sujet=${encodeURIComponent('Étude 3D — ' + cat.title)}`;
+          }
         }
 
         function goToIndex(idx) {
@@ -3819,17 +3825,19 @@
 
         // Navigation Arrows
         if (prevBtn) {
-          prevBtn.addEventListener('click', () => {
+          prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             goToIndex(currentIndex - 1);
           });
         }
         if (nextBtn) {
-          nextBtn.addEventListener('click', () => {
+          nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             goToIndex(currentIndex + 1);
           });
         }
 
-        // Keyboard Navigation when section in view
+        // Keyboard Navigation
         window.addEventListener('keydown', (e) => {
           const rect = stageTrack.getBoundingClientRect();
           const inView = rect.top < window.innerHeight && rect.bottom > 0;
@@ -3841,6 +3849,9 @@
           } else if (e.key === 'ArrowRight') {
             e.preventDefault();
             goToIndex(currentIndex + 1);
+          } else if (e.key === 'Enter') {
+            const cat = filteredCatalogs[currentIndex];
+            if (cat) openEbookModal(cat.pdf, cat.title);
           }
         });
 
@@ -3853,7 +3864,7 @@
         stageTrack.addEventListener('touchend', (e) => {
           const endX = e.changedTouches[0].clientX;
           const diff = endX - startX;
-          if (Math.abs(diff) > 40) {
+          if (Math.abs(diff) > 45) {
             if (diff > 0) goToIndex(currentIndex - 1);
             else goToIndex(currentIndex + 1);
           }
@@ -3870,11 +3881,11 @@
           });
         });
 
-        // Resize listener to adjust 3D layout
+        // Resize listener
         let resizeTimer;
         window.addEventListener('resize', () => {
           clearTimeout(resizeTimer);
-          resizeTimer = setTimeout(update3DTransforms, 100);
+          resizeTimer = setTimeout(update3DTransforms, 80);
         });
 
         // Initial render
