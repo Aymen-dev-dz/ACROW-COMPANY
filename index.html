@@ -1238,451 +1238,439 @@
       border-radius: 10px;
     }
     /* ==========================================
-       CATALOG EXPLORER SPLIT-VIEW (MODÈLE 2)
+       OPTION C : KIOSQUE 3D COVERFLOW FUTURISTE
        ========================================== */
-    .catalog-split-section {
-      background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 50%, #f8fafc 100%);
-      padding: 65px 0 60px;
+    .kiosk-coverflow-section {
+      background: radial-gradient(circle at 50% 12%, #111d38 0%, #080d1a 50%, #03050c 100%);
+      padding: 75px 0 70px;
       position: relative;
-    }
-
-    /* Filter Chips */
-    .cat-filter-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 14px;
-    }
-    .cat-filter-btn {
-      background: #ffffff;
-      color: #334155;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 50px;
-      padding: 7px 16px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.22s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-    }
-    .cat-filter-btn:hover {
-      border-color: var(--accent-red);
-      color: var(--accent-red);
-      background: #fff8f8;
-      transform: translateY(-1px);
-    }
-    .cat-filter-btn.active {
-      background: var(--accent-red);
-      color: #ffffff;
-      border-color: var(--accent-red);
-      box-shadow: 0 4px 14px rgba(204, 0, 0, 0.3);
-    }
-    .cat-filter-btn .cat-count {
-      font-size: 0.70rem;
-      padding: 2px 7px;
-      border-radius: 10px;
-      background: rgba(0, 0, 0, 0.07);
-    }
-    .cat-filter-btn.active .cat-count {
-      background: rgba(255, 255, 255, 0.28);
+      overflow: hidden;
       color: #ffffff;
     }
 
-    /* Left Column: Focus Panel */
-    .catalog-focus-card {
-      background: #ffffff;
-      border-radius: 20px;
-      border: 1px solid rgba(0, 51, 102, 0.12);
-      box-shadow: 0 16px 40px rgba(0, 26, 51, 0.08);
-      overflow: hidden;
-      position: sticky;
-      top: 90px;
-      transition: all 0.3s ease;
-    }
-    .catalog-focus-card-header {
-      background: radial-gradient(circle at 50% 20%, #003366 0%, #001a33 60%, #000d1a 100%);
-      padding: 24px 20px 18px;
-      text-align: center;
-      position: relative;
-      border-bottom: 3.5px solid var(--accent-red);
-      overflow: hidden;
-    }
-    .catalog-focus-card-header::before {
+    /* Ambient cyber grid overlay & soft red/blue glow */
+    .kiosk-coverflow-section::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 200px;
-      height: 120px;
-      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.18) 0%, transparent 70%);
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: 
+        linear-gradient(rgba(0, 85, 170, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 85, 170, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
       pointer-events: none;
     }
-    .focus-cover-wrapper {
-      perspective: 1200px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 240px;
-      cursor: pointer;
-      position: relative;
-    }
-    .focus-cover-img {
-      max-height: 220px;
-      max-width: 175px;
-      width: auto;
-      border-radius: 4px 8px 8px 4px;
-      box-shadow: -10px 14px 30px rgba(0, 0, 0, 0.75), 0 4px 12px rgba(0, 0, 0, 0.45);
-      transform: rotateY(-12deg) rotateX(4deg);
-      transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-    .focus-cover-wrapper:hover .focus-cover-img {
-      transform: rotateY(0deg) rotateX(0deg) scale(1.05) translateY(-3px);
-      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.85), 0 0 25px rgba(204, 0, 0, 0.4);
-    }
-    .focus-read-hint {
+    .kiosk-coverflow-section::after {
+      content: "";
       position: absolute;
-      bottom: 8px;
-      right: 14px;
-      background: rgba(255, 255, 255, 0.18);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      color: #fff;
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 4px 12px;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .focus-read-hint:hover {
-      background: var(--accent-red);
-      border-color: var(--accent-red);
+      top: 15%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 680px;
+      height: 250px;
+      background: radial-gradient(ellipse at center, rgba(204, 0, 0, 0.26) 0%, rgba(0, 51, 102, 0.16) 50%, transparent 75%);
+      filter: blur(55px);
+      pointer-events: none;
     }
 
-    .catalog-focus-body {
-      padding: 22px 24px;
+    .badge-sub-neon {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(204, 0, 0, 0.16);
+      color: #ff4d4d;
+      border: 1px solid rgba(204, 0, 0, 0.45);
+      box-shadow: 0 0 16px rgba(204, 0, 0, 0.28);
+      font-size: 0.80rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 12px;
     }
-    .focus-badge-line {
+    .kiosk-title {
+      color: #ffffff;
+      font-size: 2.35rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+    }
+    .kiosk-sub {
+      color: #94a3b8;
+      font-size: 1.02rem;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* Filter Bar */
+    .kiosk-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 28px 0 25px;
+      position: relative;
+      z-index: 5;
+    }
+    .kiosk-filter-chip {
+      background: rgba(255, 255, 255, 0.05);
+      color: #cbd5e1;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(8px);
+      border-radius: 50px;
+      padding: 8px 18px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .kiosk-filter-chip:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+    .kiosk-filter-chip.active {
+      background: linear-gradient(135deg, #cc0000 0%, #990000 100%);
+      color: #ffffff;
+      border-color: #ff3333;
+      box-shadow: 0 0 18px rgba(204, 0, 0, 0.55);
+    }
+
+    /* 3D Coverflow Stage */
+    .kiosk-stage-container {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      perspective: 1200px;
+      perspective-origin: 50% 45%;
+      height: 470px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 10px;
+      justify-content: center;
+      user-select: none;
+      z-index: 3;
     }
-    .focus-badge-cat {
-      background: rgba(204, 0, 0, 0.08);
-      color: var(--accent-red);
-      font-weight: 800;
-      font-size: 0.75rem;
-      padding: 4px 12px;
+
+    .kiosk-stage-track {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 3D Book Card */
+    .kiosk-book-card {
+      position: absolute;
+      width: 245px;
+      height: 350px;
+      border-radius: 12px;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1),
+                  opacity 0.45s ease,
+                  filter 0.45s ease,
+                  box-shadow 0.45s ease;
+      will-change: transform, opacity;
+      background: #0f172a;
+    }
+
+    .kiosk-book-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+      -webkit-box-reflect: below 8px linear-gradient(transparent 70%, rgba(255, 255, 255, 0.18));
+    }
+
+    .kiosk-book-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .kiosk-book-spine {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 12px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.3) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .kiosk-book-card.is-active .kiosk-book-inner {
+      box-shadow: 0 0 0 2px #ff3b3b, 0 18px 45px rgba(204, 0, 0, 0.5), 0 0 35px rgba(204, 0, 0, 0.4);
+    }
+
+    .kiosk-book-dimmer {
+      position: absolute;
+      inset: 0;
+      background: rgba(5, 10, 20, 0.45);
+      border-radius: 10px;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 3;
+    }
+    .kiosk-book-card.is-active .kiosk-book-dimmer {
+      opacity: 0;
+    }
+
+    /* Circular Neon Navigation Arrows */
+    .kiosk-nav-btn {
+      position: absolute;
+      top: 48%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      cursor: pointer;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      transition: all 0.25s ease;
+    }
+    .kiosk-nav-btn:hover {
+      background: var(--accent-red);
+      border-color: #ff4d4d;
+      box-shadow: 0 0 22px rgba(204, 0, 0, 0.7);
+      transform: translateY(-50%) scale(1.1);
+    }
+    .kiosk-nav-prev { left: 20px; }
+    .kiosk-nav-next { right: 20px; }
+
+    /* Technological HUD Podium Below Coverflow */
+    .kiosk-hud-podium {
+      position: relative;
+      z-index: 10;
+      max-width: 920px;
+      margin: 25px auto 0;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 20px;
+      padding: 24px 30px 22px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      text-align: center;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .kiosk-hud-podium::before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 140px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #cc0000, #ff4444, #cc0000, transparent);
+      box-shadow: 0 0 12px #ff3333;
+    }
+
+    .kiosk-hud-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .kiosk-hud-index {
+      font-family: monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #ff4d4d;
+      background: rgba(204, 0, 0, 0.14);
+      padding: 3px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(204, 0, 0, 0.3);
+    }
+    .kiosk-hud-cat-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      padding: 3px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      border: 1px solid rgba(204, 0, 0, 0.18);
     }
-    .focus-badge-norm {
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: #003366;
-      background: rgba(0, 51, 102, 0.07);
-      padding: 4px 10px;
+    .kiosk-hud-norm-badge {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #4ade80;
+      background: rgba(74, 222, 128, 0.1);
+      padding: 3px 12px;
       border-radius: 20px;
-      border: 1px solid rgba(0, 51, 102, 0.15);
-    }
-    .focus-title {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 800;
-      font-size: 1.35rem;
-      color: #0f172a;
-      line-height: 1.25;
-      margin-bottom: 6px;
-    }
-    .focus-sub {
-      font-size: 0.88rem;
-      color: #64748b;
-      line-height: 1.5;
-      margin-bottom: 16px;
-      min-height: 2.6em;
+      border: 1px solid rgba(74, 222, 128, 0.25);
     }
 
-    /* Specs 2x2 grid */
-    .focus-specs-grid {
+    .kiosk-hud-title {
+      color: #ffffff;
+      font-size: 1.55rem;
+      font-weight: 800;
+      margin: 0 0 6px;
+      letter-spacing: -0.3px;
+    }
+    .kiosk-hud-sub {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      margin: 0 auto 16px;
+      max-width: 680px;
+      line-height: 1.5;
+    }
+
+    .kiosk-hud-specs-row {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 10px;
-      background: #f8fafc;
-      padding: 12px;
-      border-radius: 14px;
-      border: 1px solid #e2e8f0;
       margin-bottom: 20px;
     }
-    .focus-spec-item {
+    .kiosk-hud-spec-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 8px 6px;
       display: flex;
-      align-items: flex-start;
-      gap: 8px;
-    }
-    .focus-spec-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 8px;
-      background: #ffffff;
-      color: var(--accent-red);
-      border: 1px solid #e2e8f0;
-      display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      flex-shrink: 0;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+      gap: 2px;
     }
-    .focus-spec-text {
-      font-size: 0.76rem;
-      line-height: 1.3;
+    .kiosk-hud-spec-icon {
+      color: #ff4d4d;
+      font-size: 1.1rem;
     }
-    .focus-spec-label {
-      font-weight: 600;
-      color: #94a3b8;
-      display: block;
-      font-size: 0.68rem;
+    .kiosk-hud-spec-lbl {
+      font-size: 0.70rem;
+      color: #64748b;
       text-transform: uppercase;
-      letter-spacing: 0.4px;
+      letter-spacing: 0.5px;
     }
-    .focus-spec-val {
+    .kiosk-hud-spec-val {
+      font-size: 0.80rem;
       font-weight: 700;
-      color: #0f172a;
+      color: #f1f5f9;
     }
 
-    /* Action Buttons in Focus Panel */
-    .focus-action-read {
-      background: linear-gradient(135deg, var(--accent-red) 0%, #a80000 100%);
-      color: #fff !important;
-      font-weight: 800;
-      font-size: 0.95rem;
-      padding: 12px 20px;
-      border-radius: 50px;
-      border: none;
-      width: 100%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      box-shadow: 0 8px 20px rgba(204, 0, 0, 0.35);
-      transition: all 0.25s ease;
-      cursor: pointer;
-      text-decoration: none;
-      margin-bottom: 10px;
-    }
-    .focus-action-read:hover {
-      background: linear-gradient(135deg, #e60000 0%, #b30000 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 25px rgba(204, 0, 0, 0.45);
-    }
-    .focus-actions-secondary {
+    .kiosk-hud-actions {
       display: flex;
-      gap: 8px;
-    }
-    .focus-action-pdf {
-      flex: 1;
-      background: #f1f5f9;
-      color: #003366 !important;
-      font-weight: 700;
-      font-size: 0.82rem;
-      padding: 9px 12px;
-      border-radius: 50px;
-      border: 1px solid #cbd5e1;
-      display: inline-flex;
-      align-items: center;
       justify-content: center;
-      gap: 6px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-    .focus-action-pdf:hover {
-      background: #003366;
-      color: #ffffff !important;
-      border-color: #003366;
-      transform: translateY(-1px);
-    }
-    .focus-action-quote {
-      flex: 1;
-      background: #ffffff;
-      color: var(--accent-red) !important;
-      font-weight: 700;
-      font-size: 0.82rem;
-      padding: 9px 12px;
-      border-radius: 50px;
-      border: 1.5px solid var(--accent-red);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-    .focus-action-quote:hover {
-      background: var(--accent-red);
-      color: #ffffff !important;
-      transform: translateY(-1px);
-    }
-
-    /* Right Column: Selector Items */
-    .catalog-search-box {
-      position: relative;
-    }
-    .catalog-search-box input {
-      width: 100%;
-      padding: 9px 16px 9px 40px;
-      border-radius: 50px;
-      border: 1.5px solid #cbd5e1;
-      background: #ffffff;
-      font-size: 0.86rem;
-      outline: none;
-      transition: all 0.25s;
-    }
-    .catalog-search-box input:focus {
-      border-color: var(--accent-red);
-      box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.12);
-    }
-    .catalog-search-box i {
-      position: absolute;
-      left: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #94a3b8;
-      font-size: 0.95rem;
-    }
-
-    .catalog-selector-scroll {
-      max-height: 640px;
-      overflow-y: auto;
-      padding: 4px 6px 6px 2px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      scrollbar-width: thin;
-      scrollbar-color: var(--accent-red) #e2e8f0;
-    }
-    .catalog-selector-scroll::-webkit-scrollbar {
-      width: 5px;
-    }
-    .catalog-selector-scroll::-webkit-scrollbar-thumb {
-      background: var(--accent-red);
-      border-radius: 10px;
-    }
-    .catalog-selector-scroll::-webkit-scrollbar-track {
-      background: #e2e8f0;
-      border-radius: 10px;
-    }
-
-    .selector-item-card {
-      background: #ffffff;
-      border-radius: 14px;
-      border: 1.5px solid #e2e8f0;
-      padding: 10px 12px;
-      display: flex;
       align-items: center;
       gap: 12px;
-      cursor: pointer;
-      transition: all 0.22s ease;
-      position: relative;
-      text-align: left;
+      flex-wrap: wrap;
     }
-    .selector-item-card:hover {
-      border-color: #003366;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0, 51, 102, 0.08);
-    }
-    .selector-item-card.active {
-      border-color: var(--accent-red);
-      background: #fff8f8;
-      box-shadow: 0 8px 20px rgba(204, 0, 0, 0.14);
-    }
-    .selector-item-card.active::after {
-      content: "✓";
-      position: absolute;
-      top: 6px;
-      right: 8px;
-      background: var(--accent-red);
-      color: #fff;
-      font-size: 0.65rem;
-      font-weight: 800;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      display: flex;
+    .kiosk-btn-read {
+      background: linear-gradient(135deg, #cc0000 0%, #aa0000 100%);
+      color: #ffffff !important;
+      font-weight: 700;
+      padding: 10px 24px;
+      border-radius: 50px;
+      border: 1px solid #ff3333;
+      box-shadow: 0 0 20px rgba(204, 0, 0, 0.55);
+      display: inline-flex;
       align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: all 0.22s ease;
+      cursor: pointer;
+    }
+    .kiosk-btn-read:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 28px rgba(255, 51, 51, 0.75);
+      background: #ff1a1a;
+    }
+    .kiosk-btn-dl {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff !important;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: all 0.22s ease;
+    }
+    .kiosk-btn-dl:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+    }
+    .kiosk-btn-quote {
+      background: rgba(0, 51, 102, 0.6);
+      color: #38bdf8 !important;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 50px;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: all 0.22s ease;
+    }
+    .kiosk-btn-quote:hover {
+      background: rgba(0, 51, 102, 0.9);
+      border-color: #38bdf8;
+      color: #ffffff !important;
+      transform: translateY(-2px);
+    }
+
+    .kiosk-dots-container {
+      display: flex;
       justify-content: center;
+      align-items: center;
+      gap: 6px;
+      margin-top: 22px;
+      position: relative;
+      z-index: 5;
     }
-    .selector-item-thumb {
-      width: 44px;
-      height: 58px;
-      border-radius: 4px;
-      object-fit: cover;
-      flex-shrink: 0;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
-      border: 1px solid rgba(0, 0, 0, 0.08);
+    .kiosk-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.22);
+      cursor: pointer;
+      transition: all 0.25s ease;
     }
-    .selector-item-info {
-      flex: 1;
-      min-width: 0;
+    .kiosk-dot:hover {
+      background: rgba(255, 255, 255, 0.5);
+      transform: scale(1.2);
     }
-    .selector-item-cat {
-      font-size: 0.65rem;
-      font-weight: 700;
-      color: #64748b;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      display: block;
-      margin-bottom: 2px;
-    }
-    .selector-item-title {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 700;
-      font-size: 0.85rem;
-      color: #0f172a;
-      line-height: 1.25;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin: 0;
-    }
-    .selector-item-card.active .selector-item-title {
-      color: var(--accent-red);
-    }
-    .selector-empty-msg {
-      grid-column: 1 / -1;
-      padding: 40px 20px;
-      text-align: center;
-      color: #64748b;
-      background: #ffffff;
-      border-radius: 14px;
-      border: 1px dashed #cbd5e1;
+    .kiosk-dot.active {
+      width: 24px;
+      border-radius: 10px;
+      background: #ff3333;
+      box-shadow: 0 0 10px rgba(255, 51, 51, 0.7);
     }
 
     @media (max-width: 991.98px) {
-      .catalog-focus-card {
-        position: static;
-        margin-bottom: 24px;
-      }
-      .catalog-selector-scroll {
-        max-height: 520px;
-      }
+      .kiosk-stage-container { height: 410px; }
+      .kiosk-book-card { width: 205px; height: 295px; }
+      .kiosk-hud-specs-row { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 575.98px) {
-      .catalog-selector-scroll {
-        grid-template-columns: 1fr;
-      }
-      .focus-specs-grid {
-        grid-template-columns: 1fr;
-      }
-      .focus-actions-secondary {
-        flex-direction: column;
-      }
+      .kiosk-stage-container { height: 350px; perspective: 750px; }
+      .kiosk-book-card { width: 170px; height: 245px; }
+      .kiosk-hud-podium { padding: 18px 14px; border-radius: 16px; }
+      .kiosk-hud-title { font-size: 1.2rem; }
+      .kiosk-hud-actions { flex-direction: column; width: 100%; }
+      .kiosk-hud-actions a, .kiosk-hud-actions button { width: 100%; justify-content: center; }
+      .kiosk-nav-prev { left: 4px; }
+      .kiosk-nav-next { right: 4px; }
     }
 
     /* ==========================================
@@ -2577,324 +2565,85 @@
     </div>
   </section>
   <!-- ==========================================
-       NOS PRODUITS — CATALOGUES & MANUELS TECHNIQUES (MODÈLE 2 : EXPLORATEUR SPLIT-VIEW)
+       NOS PRODUITS — KIOSQUE 3D COVERFLOW FUTURISTE (OPTION C)
        ========================================== -->
-  <section class="py-5 catalog-split-section" id="produits">
+  <section class="py-5 kiosk-coverflow-section" id="produits">
     <div id="ebooks"></div>
     <div class="container my-2" style="max-width: 1280px;">
       
-      <!-- Section Header -->
-      <div class="text-center mb-4" data-aos="fade-up">
-        <span class="badge-sub"><i class="bi bi-book-half me-1"></i> Gamme Industrielle &amp; Manuels Certifiés</span>
-        <h2 class="section-title mb-2">
-          <i class="bi bi-book-half text-danger me-2"></i> Nos Produits — Catalogues Techniques
+      <!-- Section Header Futuriste -->
+      <div class="text-center mb-3" data-aos="fade-up">
+        <span class="badge-sub-neon"><i class="bi bi-cpu-fill me-1"></i> Documentation 3D &amp; Manuels Certifiés</span>
+        <h2 class="kiosk-title mb-2">
+          <i class="bi bi-book-half text-danger me-2"></i> Nos Produits — Kiosque 3D Interactif
         </h2>
-        <p class="section-sub mb-0" style="max-width: 820px;">
-          Explorez nos <strong>20 manuels officiels</strong> d'ingénierie. Cliquez sur un système pour afficher sa fiche technique détaillée et feuilleter son catalogue en 3D.
+        <p class="kiosk-sub">
+          Explorez nos <strong>20 catalogues officiels</strong> d'ingénierie en perspective 3D immersive. Utilisez les flèches ou cliquez sur un catalogue pour l'activer.
         </p>
       </div>
 
-      <!-- Split-View Main Row -->
-      <div class="row g-4 align-items-start">
+      <!-- Filtres Catégories Futuristes -->
+      <div class="kiosk-filter-bar" data-aos="fade-up" data-aos-delay="100">
+        <button type="button" class="kiosk-filter-chip active" data-filter="all">Tous (20)</button>
+        <button type="button" class="kiosk-filter-chip" data-filter="walls">Voiles &amp; Murs (6)</button>
+        <button type="button" class="kiosk-filter-chip" data-filter="slabs">Dalles &amp; Poutres (5)</button>
+        <button type="button" class="kiosk-filter-chip" data-filter="columns">Poteaux (2)</button>
+        <button type="button" class="kiosk-filter-chip" data-filter="scaffolding">Échafaudages (4)</button>
+        <button type="button" class="kiosk-filter-chip" data-filter="props">Étais (3)</button>
+      </div>
 
-        <!-- ====================================================
-             COLONNE GAUCHE : GRANDE VITRINE FOCUS DU PRODUIT
-             ==================================================== -->
-        <div class="col-lg-5" data-aos="fade-right" data-aos-duration="600">
-          <div class="catalog-focus-card" id="catalogFocusCard">
-            
-            <!-- Visuel 3D du Livre dans un écrin studio sombre -->
-            <div class="catalog-focus-card-header">
-              <div class="focus-cover-wrapper" id="focusCoverTrigger" title="Cliquer pour feuilleter en 3D">
-                <span class="book-spine-line" style="left: calc(50% - 78px);"></span>
-                <img id="focusCoverImg" src="assets/images/ebook-covers/acrow-product-range-cover.jpg" alt="Couverture Catalogue ACROW" class="focus-cover-img" />
-              </div>
-              <span class="focus-read-hint" id="focusReadHint"><i class="bi bi-book me-1"></i> Feuilleter en 3D</span>
-            </div>
+      <!-- Scène 3D Coverflow avec Navigation Latérale -->
+      <div class="kiosk-stage-container" id="kioskStageContainer" data-aos="zoom-in" data-aos-delay="150">
+        
+        <!-- Flèche Navigation Gauche -->
+        <button type="button" class="kiosk-nav-btn kiosk-nav-prev" id="kioskPrevBtn" aria-label="Précédent" title="Catalogue précédent">
+          <i class="bi bi-chevron-left"></i>
+        </button>
 
-            <!-- Fiche descriptive & Spécifications techniques -->
-            <div class="catalog-focus-body">
-              <div class="focus-badge-line">
-                <span class="focus-badge-cat" id="focusCategoryBadge">Catalogue Général</span>
-                <span class="focus-badge-norm" id="focusNormBadge"><i class="bi bi-patch-check-fill text-primary me-1"></i> ISO 9001 · EN 12812</span>
-              </div>
-
-              <h3 class="focus-title" id="focusTitle">ACROW General Product Range</h3>
-              <p class="focus-sub" id="focusSubtitle">Catalogue d'ensemble des équipements de coffrage et d'échafaudage ACROW</p>
-
-              <!-- Grille 2x2 des spécifications clés -->
-              <div class="focus-specs-grid" id="focusSpecsContainer">
-                <div class="focus-spec-item">
-                  <div class="focus-spec-icon"><i class="bi bi-layers-fill"></i></div>
-                  <div class="focus-spec-text">
-                    <span class="focus-spec-label">Gamme</span>
-                    <span class="focus-spec-val" id="specVal0">Coffrage &amp; Échafaudage</span>
-                  </div>
-                </div>
-                <div class="focus-spec-item">
-                  <div class="focus-spec-icon"><i class="bi bi-shield-check"></i></div>
-                  <div class="focus-spec-text">
-                    <span class="focus-spec-label">Norme</span>
-                    <span class="focus-spec-val" id="specVal1">Certifié ISO &amp; EN</span>
-                  </div>
-                </div>
-                <div class="focus-spec-item">
-                  <div class="focus-spec-icon"><i class="bi bi-buildings"></i></div>
-                  <div class="focus-spec-text">
-                    <span class="focus-spec-label">Production</span>
-                    <span class="focus-spec-val" id="specVal2">Usine 10 000 m²</span>
-                  </div>
-                </div>
-                <div class="focus-spec-item">
-                  <div class="focus-spec-icon"><i class="bi bi-truck"></i></div>
-                  <div class="focus-spec-text">
-                    <span class="focus-spec-label">Livraison</span>
-                    <span class="focus-spec-val" id="specVal3">58 Wilayas en direct</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Boutons d'Action Directe -->
-              <button type="button" class="focus-action-read" id="focusReadBtn">
-                <i class="bi bi-book-fill"></i> Consulter le catalogue (3D)
-              </button>
-
-              <div class="focus-actions-secondary">
-                <a href="pdf/acrow-product-range.pdf" download class="focus-action-pdf" id="focusDownloadBtn" title="Télécharger le fichier PDF officiel">
-                  <i class="bi bi-download"></i> Télécharger PDF
-                </a>
-                <a href="devis.html" class="focus-action-quote" id="focusQuoteBtn" title="Demander une étude 3D pour ce produit">
-                  <i class="bi bi-calculator"></i> Étude &amp; Devis 3D
-                </a>
-              </div>
-
-            </div>
-          </div>
+        <!-- Piste 3D dynamique des livres -->
+        <div class="kiosk-stage-track" id="kioskStageTrack">
+          <!-- Les 20 livres 3D sont injectés et positionnés dynamiquement par le script -->
         </div>
 
-        <!-- ====================================================
-             COLONNE DROITE : SÉLECTEUR INTERACTIF & RECHERCHE
-             ==================================================== -->
-        <div class="col-lg-7" data-aos="fade-left" data-aos-duration="600">
-          
-          <!-- Filtres de Catégories (Chips ergonomiques) -->
-          <div class="cat-filter-tabs" id="catFilterTabs">
-            <button type="button" class="cat-filter-btn active" data-filter="all">
-              <i class="bi bi-grid-fill"></i> Tous <span class="cat-count">20</span>
-            </button>
-            <button type="button" class="cat-filter-btn" data-filter="walls">
-              <i class="bi bi-bricks"></i> Voiles &amp; Murs <span class="cat-count">6</span>
-            </button>
-            <button type="button" class="cat-filter-btn" data-filter="slabs">
-              <i class="bi bi-square-half"></i> Dalles &amp; Poutres <span class="cat-count">5</span>
-            </button>
-            <button type="button" class="cat-filter-btn" data-filter="columns">
-              <i class="bi bi-symmetry-vertical"></i> Poteaux <span class="cat-count">2</span>
-            </button>
-            <button type="button" class="cat-filter-btn" data-filter="scaffolding">
-              <i class="bi bi-diagram-3-fill"></i> Échafaudages <span class="cat-count">4</span>
-            </button>
-            <button type="button" class="cat-filter-btn" data-filter="props">
-              <i class="bi bi-arrow-up-down"></i> Étais <span class="cat-count">3</span>
-            </button>
-          </div>
+        <!-- Flèche Navigation Droite -->
+        <button type="button" class="kiosk-nav-btn kiosk-nav-next" id="kioskNextBtn" aria-label="Suivant" title="Catalogue suivant">
+          <i class="bi bi-chevron-right"></i>
+        </button>
 
-          <!-- Barre de Recherche Rapide avec badge de comptage -->
-          <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
-            <div class="catalog-search-box flex-grow-1">
-              <i class="bi bi-search"></i>
-              <input type="text" id="catalogSearchInput" placeholder="Rechercher par nom (ex: AluDeck, H20, Rosace, Poteau, Étais...)" autocomplete="off" />
-            </div>
-            <span class="badge bg-white text-secondary border px-3 py-2 fw-bold" id="catalogResultsCount" style="font-size:0.78rem;border-radius:50px;white-space:nowrap;">
-              20 manuels
-            </span>
-          </div>
+      </div>
 
-          <!-- Grille Défilante des 20 Sélecteurs de Produits (Pré-rendu statique instantané) -->
-          <div class="catalog-selector-scroll" id="catalogSelectorGrid">
-            <!-- 1. ACROW General Product Range -->
-            <div class="selector-item-card active" data-id="1" data-cat="general">
-              <img src="assets/images/ebook-covers/acrow-product-range-cover.jpg" alt="ACROW General Product Range" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Catalogue Général</span>
-                <h5 class="selector-item-title" title="ACROW General Product Range">ACROW General Product Range</h5>
-              </div>
-            </div>
+      <!-- Podium HUD Technologique Interactif (Fiche du livre actif) -->
+      <div class="kiosk-hud-podium" id="kioskHudPodium" data-aos="fade-up" data-aos-delay="200">
+        <div class="kiosk-hud-top-bar">
+          <span class="kiosk-hud-index" id="kioskHudIndex">01 / 20</span>
+          <span class="kiosk-hud-cat-badge" id="kioskHudCat">Catalogue Général</span>
+          <span class="kiosk-hud-norm-badge" id="kioskHudNorm"><i class="bi bi-patch-check-fill text-success me-1"></i> ISO 9001 · EN 12812</span>
+        </div>
+        <h3 class="kiosk-hud-title" id="kioskHudTitle">ACROW General Product Range</h3>
+        <p class="kiosk-hud-sub" id="kioskHudSub">Catalogue d'ensemble des solutions de coffrage et d'échafaudage ACROW</p>
 
-            <!-- 2. ACROW AluDeck Slab System -->
-            <div class="selector-item-card" data-id="2" data-cat="slabs">
-              <img src="assets/images/ebook-covers/acrow-aludeck-slab-system-cover.jpg" alt="ACROW AluDeck Slab System" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Dalles &amp; Poutres</span>
-                <h5 class="selector-item-title" title="ACROW AluDeck Slab System">ACROW AluDeck Slab System</h5>
-              </div>
-            </div>
-
-            <!-- 3. ACROW Flex Slab System -->
-            <div class="selector-item-card" data-id="3" data-cat="slabs">
-              <img src="assets/images/ebook-covers/acrow-flex-slab-system-cover.jpg" alt="ACROW Flex Slab System" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Dalles &amp; Poutres</span>
-                <h5 class="selector-item-title" title="ACROW Flex Slab System">ACROW Flex Slab System</h5>
-              </div>
-            </div>
-
-            <!-- 4. ACROW Eco-Form Panel -->
-            <div class="selector-item-card" data-id="4" data-cat="walls">
-              <img src="assets/images/ebook-covers/acrow-eco-form-cover.jpg" alt="ACROW Eco-Form Panel" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Voiles &amp; Murs</span>
-                <h5 class="selector-item-title" title="ACROW Eco-Form Panel">ACROW Eco-Form Panel</h5>
-              </div>
-            </div>
-
-            <!-- 5. ACROW Big Steel Panel -->
-            <div class="selector-item-card" data-id="5" data-cat="walls">
-              <img src="assets/images/ebook-covers/acrow-big-steel-panel-cover.jpg" alt="ACROW Big Steel Panel" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Voiles Lourds</span>
-                <h5 class="selector-item-title" title="ACROW Big Steel Panel">ACROW Big Steel Panel</h5>
-              </div>
-            </div>
-
-            <!-- 6. ACROW Tech-Form System -->
-            <div class="selector-item-card" data-id="6" data-cat="walls">
-              <img src="assets/images/ebook-covers/acrow-tech-form-cover.jpg" alt="ACROW Tech-Form System" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Voiles &amp; Murs</span>
-                <h5 class="selector-item-title" title="ACROW Tech-Form System">ACROW Tech-Form System</h5>
-              </div>
-            </div>
-
-            <!-- 7. ACROW H-20 & Soldier Wall -->
-            <div class="selector-item-card" data-id="7" data-cat="walls">
-              <img src="assets/images/ebook-covers/acrow-h20-wall-soldier-cover.jpg" alt="ACROW H-20 & Soldier Wall" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Voiles &amp; Murs</span>
-                <h5 class="selector-item-title" title="ACROW H-20 & Soldier Wall">ACROW H-20 &amp; Soldier Wall</h5>
-              </div>
-            </div>
-
-            <!-- 8. ACROW One-Side Shutter -->
-            <div class="selector-item-card" data-id="8" data-cat="walls">
-              <img src="assets/images/ebook-covers/acrow-one-side-shutter-cover.jpg" alt="ACROW One-Side Shutter" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Coffrage Unilatéral</span>
-                <h5 class="selector-item-title" title="ACROW One-Side Shutter">ACROW One-Side Shutter</h5>
-              </div>
-            </div>
-
-            <!-- 9. ACROW V.M.C Column System -->
-            <div class="selector-item-card" data-id="9" data-cat="columns">
-              <img src="assets/images/ebook-covers/acrow-vmc-column-system-cover.jpg" alt="ACROW V.M.C Column System" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Poteaux &amp; Colonnes</span>
-                <h5 class="selector-item-title" title="ACROW V.M.C Column System">ACROW V.M.C Column System</h5>
-              </div>
-            </div>
-
-            <!-- 10. ACROW Circular Column -->
-            <div class="selector-item-card" data-id="10" data-cat="columns">
-              <img src="assets/images/ebook-covers/acrow-circular-column-cover.jpg" alt="ACROW Circular Column" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Poteaux Circulaires</span>
-                <h5 class="selector-item-title" title="ACROW Circular Column">ACROW Circular Column</h5>
-              </div>
-            </div>
-
-            <!-- 11. ACROW Cup-Lock Scaffolding -->
-            <div class="selector-item-card" data-id="11" data-cat="scaffolding">
-              <img src="assets/images/ebook-covers/acrow-cup-lock-system-cover.jpg" alt="ACROW Cup-Lock Scaffolding" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Échafaudage &amp; Étaiement</span>
-                <h5 class="selector-item-title" title="ACROW Cup-Lock Scaffolding">ACROW Cup-Lock Scaffolding</h5>
-              </div>
-            </div>
-
-            <!-- 12. ACROW Ring-Lock Shoring -->
-            <div class="selector-item-card" data-id="12" data-cat="scaffolding">
-              <img src="assets/images/ebook-covers/acrow-ring-lock-system-cover.jpg" alt="ACROW Ring-Lock Shoring" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Échafaudage Rosace</span>
-                <h5 class="selector-item-title" title="ACROW Ring-Lock Shoring">ACROW Ring-Lock Shoring</h5>
-              </div>
-            </div>
-
-            <!-- 13. ACROW Combishore System -->
-            <div class="selector-item-card" data-id="13" data-cat="scaffolding">
-              <img src="assets/images/ebook-covers/acrow-combishore-system-cover.jpg" alt="ACROW Combishore System" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Étaiement Haute Charge</span>
-                <h5 class="selector-item-title" title="ACROW Combishore System">ACROW Combishore System</h5>
-              </div>
-            </div>
-
-            <!-- 14. Shorebrace Table Form -->
-            <div class="selector-item-card" data-id="14" data-cat="slabs">
-              <img src="assets/images/ebook-covers/acrow-shorebrace-table-form-cover.jpg" alt="Shorebrace Table Form" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Tables Coffrantes</span>
-                <h5 class="selector-item-title" title="Shorebrace Table Form">Shorebrace Table Form</h5>
-              </div>
-            </div>
-
-            <!-- 15. ACROW Bridge Table Form -->
-            <div class="selector-item-card" data-id="15" data-cat="slabs">
-              <img src="assets/images/ebook-covers/acrow-bridge-table-form-cover.jpg" alt="ACROW Bridge Table Form" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Ponts &amp; Ouvrages d'Art</span>
-                <h5 class="selector-item-title" title="ACROW Bridge Table Form">ACROW Bridge Table Form</h5>
-              </div>
-            </div>
-
-            <!-- 16. ACROW Prop Table Form -->
-            <div class="selector-item-card" data-id="16" data-cat="slabs">
-              <img src="assets/images/ebook-covers/acrow-prop-table-form-cover.jpg" alt="ACROW Prop Table Form" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Tables Coffrantes</span>
-                <h5 class="selector-item-title" title="ACROW Prop Table Form">ACROW Prop Table Form</h5>
-              </div>
-            </div>
-
-            <!-- 17. ACROW Heavy Frame System -->
-            <div class="selector-item-card" data-id="17" data-cat="scaffolding">
-              <img src="assets/images/ebook-covers/acrow-frame-system-cover.jpg" alt="ACROW Heavy Frame System" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Échafaudage à Cadres</span>
-                <h5 class="selector-item-title" title="ACROW Heavy Frame System">ACROW Heavy Frame System</h5>
-              </div>
-            </div>
-
-            <!-- 18. ACROW Vari-Form System -->
-            <div class="selector-item-card" data-id="18" data-cat="walls">
-              <img src="assets/images/ebook-covers/acrow-vari-form-system-cover.jpg" alt="ACROW Vari-Form System" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Voiles &amp; Poteaux</span>
-                <h5 class="selector-item-title" title="ACROW Vari-Form System">ACROW Vari-Form System</h5>
-              </div>
-            </div>
-
-            <!-- 19. ACROW Aluminum Prop -->
-            <div class="selector-item-card" data-id="19" data-cat="props">
-              <img src="assets/images/ebook-covers/acrow-alu-prop-cover.jpg" alt="ACROW Aluminum Prop" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Étais Aluminium</span>
-                <h5 class="selector-item-title" title="ACROW Aluminum Prop">ACROW Aluminum Prop</h5>
-              </div>
-            </div>
-
-            <!-- 20. ACROW European Steel Prop -->
-            <div class="selector-item-card" data-id="20" data-cat="props">
-              <img src="assets/images/ebook-covers/acrow-european-prop-cover.jpg" alt="ACROW European Steel Prop" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">Étais Métalliques</span>
-                <h5 class="selector-item-title" title="ACROW European Steel Prop">ACROW European Steel Prop</h5>
-              </div>
-            </div>
-          </div>
-
+        <!-- 4 Spécifications Clés -->
+        <div class="kiosk-hud-specs-row" id="kioskHudSpecs">
+          <!-- Injectées dynamiquement -->
         </div>
 
+        <!-- 3 Boutons d'Action Directs -->
+        <div class="kiosk-hud-actions">
+          <button type="button" class="kiosk-btn-read" id="kioskReadBtn">
+            <i class="bi bi-book-half"></i> <span>Feuilleter en ligne 3D</span>
+          </button>
+          <a href="pdf/acrow-product-range.pdf" download class="kiosk-btn-dl" id="kioskDlBtn">
+            <i class="bi bi-download"></i> <span>Télécharger PDF</span>
+          </a>
+          <a href="devis.html" class="kiosk-btn-quote" id="kioskQuoteBtn">
+            <i class="bi bi-calculator"></i> <span>Demander une étude 3D</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Indicateurs / Points de Progression 3D -->
+      <div class="kiosk-dots-container" id="kioskDotsContainer">
+        <!-- Injectés dynamiquement -->
       </div>
 
     </div>
@@ -3557,10 +3306,10 @@
         });
       }
 
-      // 2b. Initialisation & Gestion de l'Explorateur Split-View des 20 Catalogues (Modèle 2)
-      initCatalogSplitExplorer();
+      // 2b. Initialisation & Gestion du Kiosque 3D Coverflow Futuriste (Option C)
+      initKiosque3DCoverflow();
 
-      function initCatalogSplitExplorer() {
+      function initKiosque3DCoverflow() {
         const ACROW_CATALOGS = [
           {
             id: 1,
@@ -3629,225 +3378,225 @@
           {
             id: 5,
             title: "ACROW Big Steel Panel",
-            sub: "Coffrage métallique lourd pour ouvrages massifs, radiers et grands voiles",
+            sub: "Panneaux de coffrage grande surface tout acier pour infrastructures lourdes",
             category: "walls",
             categoryName: "Voiles Lourds",
             pdf: "pdf/acrow-big-steel-panel.pdf",
             cover: "assets/images/ebook-covers/acrow-big-steel-panel-cover.jpg",
             norm: "Pression 80 kN/m²",
             specs: [
-              { icon: "bi-buildings-fill", label: "Ouvrage", val: "Grands voiles & génie civil" },
-              { icon: "bi-speedometer", label: "Pression max", val: "80 kN/m² admissible" },
-              { icon: "bi-cone-striped", label: "Grutage", val: "Assemblage en grands trains" },
-              { icon: "bi-arrow-repeat", label: "Durabilité", val: "+300 réemplois garantis" }
+              { icon: "bi-fullscreen", label: "Grand format", val: "Panneaux jusqu'à 6x2.4 m" },
+              { icon: "bi-speedometer", label: "Pression", val: "80 kN/m² très haute résistance" },
+              { icon: "bi-building-gear", label: "Usage", val: "Grands ouvrages & barrages" },
+              { icon: "bi-award", label: "Durabilité", val: "Acier structuré 300+ réemplois" }
             ]
           },
           {
             id: 6,
             title: "ACROW Tech-Form System",
-            sub: "Coffrage acier grande résistance pour refends, cages d'ascenseur et murs",
+            sub: "Système de coffrage universel léger manuportable pour voiles, colonnes et semelles",
             category: "walls",
             categoryName: "Voiles & Murs",
             pdf: "pdf/acrow-tech-form.pdf",
             cover: "assets/images/ebook-covers/acrow-tech-form-cover.jpg",
-            norm: "EN 12812 Standard",
+            norm: "Conforme EN 12812",
             specs: [
-              { icon: "bi-tools", label: "Usage", val: "Refends & cages d'escalier" },
-              { icon: "bi-cpu", label: "Profilés", val: "Acier tubulaire rectifié" },
-              { icon: "bi-check2-circle", label: "Serrage", val: "Clavettes rapides ergonomiques" },
-              { icon: "bi-rulers", label: "Planéité", val: "Flèche minimale sous charge" }
+              { icon: "bi-wrench", label: "Polyvalence", val: "Voiles, colonnes & semelles" },
+              { icon: "bi-feather", label: "Poids", val: "Facilement manuportable" },
+              { icon: "bi-sliders", label: "Modulation", val: "Multiples largeurs standards" },
+              { icon: "bi-check-all", label: "Accessoires", val: "Verrous & tiges rapides" }
             ]
           },
           {
             id: 7,
             title: "ACROW H-20 & Soldier Wall",
-            sub: "Système mixte filières acier Soldier et poutres bois H-20 grande hauteur",
+            sub: "Coffrage de voiles à poutrelles H20 et filières acier pour hauteurs exceptionnelles",
             category: "walls",
             categoryName: "Voiles & Murs",
             pdf: "pdf/acrow-h20-wall-soldier.pdf",
             cover: "assets/images/ebook-covers/acrow-h20-wall-soldier-cover.jpg",
-            norm: "Génie Civil & BTP",
+            norm: "Pression jusqu'à 90 kN/m²",
             specs: [
-              { icon: "bi-arrows-vertical", label: "Hauteur", val: "Voiles jusqu'à 9 m d'un jet" },
-              { icon: "bi-bar-chart-steps", label: "Soldier", val: "Filières acier haute inertie" },
-              { icon: "bi-speedometer2", label: "Pression", val: "Jusqu'à 90 kN/m² calculée" },
-              { icon: "bi-aspect-ratio", label: "Finition", val: "Architecturale soignée" }
+              { icon: "bi-arrow-up-right", label: "Hauteur", val: "Jusqu'à 12 mètres d'un seul jet" },
+              { icon: "bi-speedometer2", label: "Pression", val: "Calibrable 50 à 90 kN/m²" },
+              { icon: "bi-tree", label: "Poutrelles", val: "H20 bois d'ingénierie" },
+              { icon: "bi-shield-check", label: "Filières", val: "Soldier acier haute inertie" }
             ]
           },
           {
             id: 8,
             title: "ACROW One-Side Shutter",
-            sub: "Coffrage unilatéral pour parois contre terre, tunnels et barrages sans tirants",
+            sub: "Cadres de butonnage unilatéral pour voiles contre terre et parois berlinoises",
             category: "walls",
             categoryName: "Coffrage Unilatéral",
             pdf: "pdf/acrow-one-side-shutter.pdf",
             cover: "assets/images/ebook-covers/acrow-one-side-shutter-cover.jpg",
-            norm: "Sous-sols & Tranchées",
+            norm: "Reprise d'effort sans tirant",
             specs: [
-              { icon: "bi-bounding-box", label: "Principe", val: "Zéro tige traversante" },
-              { icon: "bi-arrows-vertical", label: "Hauteur", val: "Cadres butons jusqu'à 8 m" },
-              { icon: "bi-pin-map-fill", label: "Ancrage", val: "Boulons scellés au radier" },
-              { icon: "bi-bricks", label: "Applications", val: "Sous-sols, métros, tranchées" }
+              { icon: "bi-sign-stop", label: "Type", val: "Coffrage unilatéral sans tirant" },
+              { icon: "bi-arrow-up", label: "Hauteur", val: "Jusqu'à 8.5 m sans grue spéciale" },
+              { icon: "bi-triangle", label: "Cadres", val: "Triangulation lourde rigide" },
+              { icon: "bi-cone-striped", label: "Chantier", val: "Sous-sols & parois moulées" }
             ]
           },
           {
             id: 9,
             title: "ACROW V.M.C Column System",
-            sub: "Coffrage réglable pour poteaux carrés et rectangulaires sans perforation",
+            sub: "Coffrage de poteaux modulables à section variable par système de moulin à vent",
             category: "columns",
             categoryName: "Poteaux & Colonnes",
             pdf: "pdf/acrow-vmc-column-system.pdf",
             cover: "assets/images/ebook-covers/acrow-vmc-column-system-cover.jpg",
-            norm: "Sections 20 à 80 cm",
+            norm: "Pression 80 kN/m²",
             specs: [
-              { icon: "bi-aspect-ratio-fill", label: "Sections", val: "Ajustable par pas de 5 cm" },
-              { icon: "bi-arrow-clockwise", label: "Mécanisme", val: "Rotation moulin à vent" },
-              { icon: "bi-speedometer2", label: "Coulage", val: "Pression 90 kN/m² continue" },
-              { icon: "bi-shield-check", label: "Sécurité", val: "Plateforme & échelle intégrée" }
+              { icon: "bi-aspect-ratio", label: "Sections", val: "De 20x20 cm à 105x105 cm" },
+              { icon: "bi-lightning", label: "Réglage", val: "Par pas de 5 cm sans outillage" },
+              { icon: "bi-shield-shaded", label: "Chanfrein", val: "Profilés goutte d'eau intégrés" },
+              { icon: "bi-safe", label: "Sécurité", val: "Plateforme de bétonnage intégrée" }
             ]
           },
           {
             id: 10,
             title: "ACROW Circular Column",
-            sub: "Coffrage en demi-coquilles d'acier pour poteaux circulaires parfaits",
+            sub: "Coffrage métallique cylindrique en deux demi-coquilles pour fûts parfaits",
             category: "columns",
             categoryName: "Poteaux Circulaires",
             pdf: "pdf/acrow-circular-column.pdf",
             cover: "assets/images/ebook-covers/acrow-circular-column-cover.jpg",
-            norm: "Diamètres 30 à 120 cm",
+            norm: "Pression béton 100 kN/m²",
             specs: [
-              { icon: "bi-circle", label: "Finition", val: "Arêtes invisibles béton lisse" },
-              { icon: "bi-key-fill", label: "Fermeture", val: "Verrous rapides à boulons" },
-              { icon: "bi-speedometer2", label: "Résistance", val: "100 kN/m² coulage rapide" },
-              { icon: "bi-layers-half", label: "Superposable", val: "Hauteur libre par tronçons" }
+              { icon: "bi-circle", label: "Diamètres", val: "Ø 250 mm jusqu'à Ø 1500 mm" },
+              { icon: "bi-stars", label: "Aspect", val: "Béton brut glacé sans défaut" },
+              { icon: "bi-lock", label: "Fermeture", val: "Boulons rapides ou grenouillères" },
+              { icon: "bi-arrow-repeat", label: "Rotation", val: "Décoffrage en 5 minutes" }
             ]
           },
           {
             id: 11,
             title: "ACROW Cup-Lock Scaffolding",
-            sub: "Échafaudage multidirectionnel à coupelles pour façades et tours d'étaiement",
+            sub: "Système universel d'échafaudage et d'étaiement à verrouillage par coupelle",
             category: "scaffolding",
             categoryName: "Échafaudage & Étaiement",
             pdf: "pdf/acrow-cup-lock-system.pdf",
             cover: "assets/images/ebook-covers/acrow-cup-lock-system-cover.jpg",
             norm: "EN 12810 · EN 12811",
             specs: [
-              { icon: "bi-diagram-3-fill", label: "Nœud", val: "Coupelle à 4 liaisons rigides" },
-              { icon: "bi-shield-fill", label: "Capacité", val: "Montants jusqu'à 65 kN" },
-              { icon: "bi-lightning-charge", label: "Montage", val: "Verrouillage simple marteau" },
-              { icon: "bi-grid-1x2-fill", label: "Usage", val: "Façade & tour de charge" }
+              { icon: "bi-diagram-3", label: "Nœud", val: "Jusqu'à 4 pièces par coupelle" },
+              { icon: "bi-clock", label: "Rapidité", val: "Montage 3x plus rapide que tube" },
+              { icon: "bi-hammer", label: "Outil", val: "Simple coup de marteau requis" },
+              { icon: "bi-shield-check", label: "Usage", val: "Façade, tour d'étaiement & accès" }
             ]
           },
           {
             id: 12,
             title: "ACROW Ring-Lock Shoring",
-            sub: "Échafaudage rosace à 8 directions haute capacité pour chantiers industriels",
+            sub: "Échafaudage multidirectionnel à disque rosace 8 directions pour géométries complexes",
             category: "scaffolding",
             categoryName: "Échafaudage Rosace",
             pdf: "pdf/acrow-ring-lock-system.pdf",
             cover: "assets/images/ebook-covers/acrow-ring-lock-system-cover.jpg",
-            norm: "EN 12810 / 12811",
+            norm: "EN 12810 · EN 12811",
             specs: [
-              { icon: "bi-compass", label: "Rosace", val: "8 connexions par disque soudé" },
-              { icon: "bi-bezier2", label: "Modularité", val: "Angles et géométries libres" },
-              { icon: "bi-shield-check", label: "Protection", val: "Galvanisé à chaud intégral" },
-              { icon: "bi-arrow-up-right-circle", label: "Capacité", val: "Étaiement lourd grande hauteur" }
+              { icon: "bi-asterisk", label: "Rosace", val: "8 connexions à 360 degrés" },
+              { icon: "bi-speedometer2", label: "Capacité", val: "Jusqu'à 60 kN par montant" },
+              { icon: "bi-shield-lock", label: "Sécurité", val: "Garde-corps montage définitif" },
+              { icon: "bi-building", label: "Applications", val: "BTP, industrie & monuments" }
             ]
           },
           {
             id: 13,
             title: "ACROW Combishore System",
-            sub: "Étaiement lourd haute capacité pour ponts, viaducs et ouvrages d'art",
+            sub: "Tours d'étaiement ultra-lourdes en profilés acier tubulaires pour charges exceptionnelles",
             category: "scaffolding",
             categoryName: "Étaiement Haute Charge",
             pdf: "pdf/acrow-combishore-system.pdf",
             cover: "assets/images/ebook-covers/acrow-combishore-system-cover.jpg",
-            norm: "Jusqu'à 150 kN / poteau",
+            norm: "Charge admissible 100 kN/pied",
             specs: [
-              { icon: "bi-speedometer2", label: "Capacité", val: "150 kN admissible / poteau" },
-              { icon: "bi-train-front", label: "Ouvrages", val: "Tabliers de ponts & trémies" },
-              { icon: "bi-triangle-fill", label: "Assemblage", val: "Poutres triangulées modulaires" },
-              { icon: "bi-patch-check-fill", label: "Génie civil", val: "Solutions lourdes certifiées" }
+              { icon: "bi-box", label: "Capacité", val: "Jusqu'à 100 kN par poteau" },
+              { icon: "bi-arrows-vertical", label: "Hauteur", val: "Tours de plus de 25 mètres" },
+              { icon: "bi-link-45deg", label: "Assemblage", val: "Croisillons rigides clavetés" },
+              { icon: "bi-bridge", label: "Cible", val: "Tabliers de ponts & viaducs" }
             ]
           },
           {
             id: 14,
             title: "Shorebrace Table Form",
-            sub: "Système de tables coffrantes déplaçables par chariot ou grue pour grandes surfaces",
+            sub: "Tables coffrantes pré-assemblées pour coulage rapide et répétitif de dalles",
             category: "slabs",
             categoryName: "Tables Coffrantes",
             pdf: "pdf/acrow-shorebrace-table-form.pdf",
             cover: "assets/images/ebook-covers/acrow-shorebrace-table-form-cover.jpg",
-            norm: "Cycles d'étage 4 jours",
+            norm: "EN 12812 · Gain cadence",
             specs: [
-              { icon: "bi-arrow-repeat", label: "Productivité", val: "Déplacement unitaire par grue" },
-              { icon: "bi-bounding-box-circles", label: "Dimensions", val: "Tables jusqu'à 30 m²" },
-              { icon: "bi-building", label: "Répétitif", val: "Idéal tours, hôpitaux, hôtels" },
-              { icon: "bi-shield-shaded", label: "Sécurité", val: "Garde-corps repliable intégré" }
+              { icon: "bi-grid-3x3", label: "Surface", val: "Tables jusqu'à 30 m² par module" },
+              { icon: "bi-arrow-left-right", label: "Déplacement", val: "Chariot ou fourche de grue" },
+              { icon: "bi-stopwatch", label: "Productivité", val: "Cycle d'étage réduit à 3 jours" },
+              { icon: "bi-shield-check", label: "Sécurité", val: "Garde-corps périphériques intégrés" }
             ]
           },
           {
             id: 15,
             title: "ACROW Bridge Table Form",
-            sub: "Chariots et tables de coffrage sur-mesure pour tabliers et voussoirs de ponts",
+            sub: "Système spécialisé de coffrage de tabliers et encorbellements d'ouvrages d'art",
             category: "slabs",
             categoryName: "Ponts & Ouvrages d'Art",
             pdf: "pdf/acrow-bridge-table-form.pdf",
             cover: "assets/images/ebook-covers/acrow-bridge-table-form-cover.jpg",
-            norm: "Conception Spécifique",
+            norm: "Conforme Eurocodes Génie Civil",
             specs: [
-              { icon: "bi-train-freight-front", label: "Déplacement", val: "Avancement rails / rouleaux" },
-              { icon: "bi-graph-up", label: "Pente", val: "Adaptation dévers & courbures" },
-              { icon: "bi-calculator", label: "Portance", val: "Étude statique bureau 3D" },
-              { icon: "bi-speedometer", label: "Rendement", val: "Coulage travée par travée" }
+              { icon: "bi-water", label: "Génie Civil", val: "Tabliers, corniches & poutres" },
+              { icon: "bi-bezier", label: "Profil", val: "Adaptation aux dévers et courbures" },
+              { icon: "bi-truck-flatbed", label: "Transmutation", val: "Avancement sur rails ou roues" },
+              { icon: "bi-check2-circle", label: "Rigidité", val: "Flèche calculée au millimètre" }
             ]
           },
           {
             id: 16,
             title: "ACROW Prop Table Form",
-            sub: "Tables coffrantes légères sur étais pour bâtiments tertiaires et logements",
+            sub: "Tables volantes avec étais télescopiques incorporés pour bâtiments tertiaires et logements",
             category: "slabs",
             categoryName: "Tables Coffrantes",
             pdf: "pdf/acrow-prop-table-form.pdf",
             cover: "assets/images/ebook-covers/acrow-prop-table-form-cover.jpg",
             norm: "EN 1065 / EN 12812",
             specs: [
-              { icon: "bi-arrow-up-down", label: "Base", val: "Étais télescopiques acier/alu" },
-              { icon: "bi-wrench", label: "Tête", val: "Têtes décoffrage à bascule" },
-              { icon: "bi-people", label: "Mise en œuvre", val: "Très simple pour équipes BTP" },
-              { icon: "bi-arrow-left-right", label: "Transfert", val: "D'étage en étage sans démonter" }
+              { icon: "bi-arrows-angle-expand", label: "Modularité", val: "Étais repliables au transfert" },
+              { icon: "bi-lightning-charge", label: "Transfert", val: "Translation sans démontage" },
+              { icon: "bi-house-check", label: "Projets", val: "Tours de logements & bureaux" },
+              { icon: "bi-cash-coin", label: "Économie", val: "Moins de main d'œuvre requise" }
             ]
           },
           {
             id: 17,
             title: "ACROW Heavy Frame System",
-            sub: "Échafaudage à cadres haute résistance pour façades, maçonnerie et ravalement",
+            sub: "Système d'échafaudage à cadres fermés haute robustesse pour ravalement et maçonnerie",
             category: "scaffolding",
             categoryName: "Échafaudage à Cadres",
             pdf: "pdf/acrow-frame-system.pdf",
             cover: "assets/images/ebook-covers/acrow-frame-system-cover.jpg",
-            norm: "Classe 4 & 5 (EN 12810)",
+            norm: "EN 12810 Classe 4",
             specs: [
-              { icon: "bi-layout-sidebar-inset", label: "Structure", val: "Cadres portiques acier rigides" },
-              { icon: "bi-check2-square", label: "Planchers", val: "Planchers acier antidérapants" },
-              { icon: "bi-arrow-up", label: "Hauteur", val: "Montage jusqu'à 60 mètres" },
-              { icon: "bi-shield-check", label: "Accès", val: "Trappes de sécurité intégrées" }
+              { icon: "bi-door-closed", label: "Cadre", val: "Portique en acier galvanisé" },
+              { icon: "bi-people", label: "Confort", val: "Planchers antidérapants 0.73 m" },
+              { icon: "bi-speedometer", label: "Vitesse", val: "Enclenchement immédiat" },
+              { icon: "bi-shield", label: "Garde-corps", val: "Montage sécurité totale" }
             ]
           },
           {
             id: 18,
             title: "ACROW Vari-Form System",
-            sub: "Système de coffrage universel ajustable pour formes géométriques complexes",
+            sub: "Coffrage flexible à poutrelles et tendeurs pour voiles à courbure et géométries polygonales",
             category: "walls",
             categoryName: "Voiles & Poteaux",
             pdf: "pdf/acrow-vari-form-system.pdf",
             cover: "assets/images/ebook-covers/acrow-vari-form-system-cover.jpg",
-            norm: "Polyvalence Chantiers",
+            norm: "Pression 60 kN/m²",
             specs: [
-              { icon: "bi-intersect", label: "Adaptabilité", val: "Murs polygonaux & courbes" },
-              { icon: "bi-tools", label: "Accessoires", val: "Tirants, cales et vérins" },
-              { icon: "bi-gem", label: "Finition", val: "Béton brut de décoffrage net" },
-              { icon: "bi-cash-coin", label: "Économie", val: "Investissement unique modulable" }
+              { icon: "bi-sliders2", label: "Ajustable", val: "Tendeurs mécaniques gradués" },
+              { icon: "bi-slash-circle", label: "Courbures", val: "Rayon minimal de 2.50 m" },
+              { icon: "bi-tools", label: "Simplicité", val: "Pas besoin de coffrage bois perdu" },
+              { icon: "bi-building-check", label: "Béton", val: "Finition architecturale lisse" }
             ]
           },
           {
@@ -3884,165 +3633,252 @@
           }
         ];
 
-        let activeCatalog = ACROW_CATALOGS[0];
-        let currentFilter = 'all';
-        let searchQuery = '';
+        let currentCategory = 'all';
+        let filteredCatalogs = [...ACROW_CATALOGS];
+        let currentIndex = 0;
 
-        const selectorGrid = document.getElementById('catalogSelectorGrid');
-        const searchInput = document.getElementById('catalogSearchInput');
-        const filterBtns = document.querySelectorAll('.cat-filter-btn');
-        const resultsCountBadge = document.getElementById('catalogResultsCount');
+        const stageTrack = document.getElementById('kioskStageTrack');
+        const prevBtn = document.getElementById('kioskPrevBtn');
+        const nextBtn = document.getElementById('kioskNextBtn');
+        const filterChips = document.querySelectorAll('.kiosk-filter-chip');
+        const dotsContainer = document.getElementById('kioskDotsContainer');
 
-        // Focus Elements
-        const focusCard = document.getElementById('catalogFocusCard');
-        const focusCoverImg = document.getElementById('focusCoverImg');
-        const focusCoverTrigger = document.getElementById('focusCoverTrigger');
-        const focusReadHint = document.getElementById('focusReadHint');
-        const focusCategoryBadge = document.getElementById('focusCategoryBadge');
-        const focusNormBadge = document.getElementById('focusNormBadge');
-        const focusTitle = document.getElementById('focusTitle');
-        const focusSubtitle = document.getElementById('focusSubtitle');
-        const focusSpecsContainer = document.getElementById('focusSpecsContainer');
-        const focusReadBtn = document.getElementById('focusReadBtn');
-        const focusDownloadBtn = document.getElementById('focusDownloadBtn');
-        const focusQuoteBtn = document.getElementById('focusQuoteBtn');
+        // HUD Elements
+        const hudIndex = document.getElementById('kioskHudIndex');
+        const hudCat = document.getElementById('kioskHudCat');
+        const hudNorm = document.getElementById('kioskHudNorm');
+        const hudTitle = document.getElementById('kioskHudTitle');
+        const hudSub = document.getElementById('kioskHudSub');
+        const hudSpecs = document.getElementById('kioskHudSpecs');
+        const readBtn = document.getElementById('kioskReadBtn');
+        const dlBtn = document.getElementById('kioskDlBtn');
+        const quoteBtn = document.getElementById('kioskQuoteBtn');
+        const hudPodium = document.getElementById('kioskHudPodium');
 
-        if (!selectorGrid) return;
+        if (!stageTrack) return;
 
-        // Render Selector Items
-        function renderSelectors() {
-          const filtered = ACROW_CATALOGS.filter(cat => {
-            const matchesCategory = currentFilter === 'all' || cat.category === currentFilter;
-            const matchesSearch = !searchQuery || 
-              cat.title.toLowerCase().includes(searchQuery) || 
-              cat.sub.toLowerCase().includes(searchQuery) ||
-              cat.categoryName.toLowerCase().includes(searchQuery);
-            return matchesCategory && matchesSearch;
-          });
+        // Render Coverflow Cards in DOM
+        function renderStage() {
+          filteredCatalogs = ACROW_CATALOGS.filter(c => currentCategory === 'all' || c.category === currentCategory);
+          if (currentIndex >= filteredCatalogs.length) currentIndex = 0;
 
-          if (resultsCountBadge) {
-            resultsCountBadge.textContent = `${filtered.length} ${filtered.length > 1 ? 'manuels' : 'manuel'}`;
-          }
-
-          if (filtered.length === 0) {
-            selectorGrid.innerHTML = `
-              <div class="selector-empty-msg">
-                <i class="bi bi-search text-danger fs-3 d-block mb-2"></i>
-                <div class="fw-bold text-dark">Aucun catalogue trouvé pour « ${searchQuery} »</div>
-                <small class="text-muted">Essayez un autre mot-clé (ex: AluDeck, H20, Rosace, Étais...)</small>
-              </div>
-            `;
-            return;
-          }
-
-          selectorGrid.innerHTML = filtered.map(cat => `
-            <div class="selector-item-card ${cat.id === activeCatalog.id ? 'active' : ''}" data-id="${cat.id}">
-              <img src="${cat.cover}" alt="${cat.title}" class="selector-item-thumb" loading="lazy" />
-              <div class="selector-item-info">
-                <span class="selector-item-cat">${cat.categoryName}</span>
-                <h5 class="selector-item-title" title="${cat.title}">${cat.title}</h5>
+          // Render Books
+          stageTrack.innerHTML = filteredCatalogs.map((cat, idx) => `
+            <div class="kiosk-book-card" data-index="${idx}">
+              <div class="kiosk-book-inner">
+                <span class="kiosk-book-spine"></span>
+                <img src="${cat.cover}" alt="${cat.title}" class="kiosk-book-img" loading="lazy" />
+                <div class="kiosk-book-dimmer"></div>
               </div>
             </div>
           `).join('');
 
-          // Bind click to each card
-          selectorGrid.querySelectorAll('.selector-item-card').forEach(card => {
+          // Bind click to each book
+          stageTrack.querySelectorAll('.kiosk-book-card').forEach(card => {
             card.addEventListener('click', () => {
-              const id = parseInt(card.getAttribute('data-id'), 10);
-              const found = ACROW_CATALOGS.find(c => c.id === id);
-              if (found) {
-                setActiveCatalog(found);
-              }
+              const idx = parseInt(card.getAttribute('data-index'), 10);
+              goToIndex(idx);
             });
           });
+
+          // Render Dots
+          if (dotsContainer) {
+            dotsContainer.innerHTML = filteredCatalogs.map((_, idx) => `
+              <div class="kiosk-dot ${idx === currentIndex ? 'active' : ''}" data-index="${idx}"></div>
+            `).join('');
+
+            dotsContainer.querySelectorAll('.kiosk-dot').forEach(dot => {
+              dot.addEventListener('click', () => {
+                const idx = parseInt(dot.getAttribute('data-index'), 10);
+                goToIndex(idx);
+              });
+            });
+          }
+
+          update3DTransforms();
+          updateHUD();
         }
 
-        // Set Active Catalog in Focus Card
-        function setActiveCatalog(catalog) {
-          activeCatalog = catalog;
+        // Apply 3D Perspective Coordinates
+        function update3DTransforms() {
+          const cards = stageTrack.querySelectorAll('.kiosk-book-card');
+          const isMobile = window.innerWidth <= 576;
+          const isTablet = window.innerWidth <= 992;
+          
+          const xStep = isMobile ? 85 : (isTablet ? 120 : 155);
+          const zStep = isMobile ? -50 : -75;
+          const rotateAngle = isMobile ? 36 : 42;
 
-          // Update active class on selector cards
-          selectorGrid.querySelectorAll('.selector-item-card').forEach(card => {
-            if (parseInt(card.getAttribute('data-id'), 10) === catalog.id) {
-              card.classList.add('active');
+          cards.forEach((card, idx) => {
+            const diff = idx - currentIndex;
+            const absDiff = Math.abs(diff);
+
+            if (diff === 0) {
+              // Active Center Book
+              card.classList.add('is-active');
+              card.style.transform = `translateX(0) translateZ(120px) rotateY(0deg) scale(1.08)`;
+              card.style.zIndex = '100';
+              card.style.opacity = '1';
+              card.style.pointerEvents = 'auto';
+            } else if (diff < 0) {
+              // Left Books
+              card.classList.remove('is-active');
+              const tx = (diff * xStep) - (isMobile ? 35 : 55);
+              const tz = absDiff * zStep;
+              const rot = rotateAngle;
+              const scale = Math.max(0.68, 1 - absDiff * 0.08);
+              const opac = Math.max(0.15, 0.85 - absDiff * 0.16);
+
+              card.style.transform = `translateX(${tx}px) translateZ(${tz}px) rotateY(${rot}deg) scale(${scale})`;
+              card.style.zIndex = `${100 - absDiff}`;
+              card.style.opacity = `${opac}`;
+              card.style.pointerEvents = absDiff > 4 ? 'none' : 'auto';
             } else {
-              card.classList.remove('active');
+              // Right Books
+              card.classList.remove('is-active');
+              const tx = (diff * xStep) + (isMobile ? 35 : 55);
+              const tz = absDiff * zStep;
+              const rot = -rotateAngle;
+              const scale = Math.max(0.68, 1 - absDiff * 0.08);
+              const opac = Math.max(0.15, 0.85 - absDiff * 0.16);
+
+              card.style.transform = `translateX(${tx}px) translateZ(${tz}px) rotateY(${rot}deg) scale(${scale})`;
+              card.style.zIndex = `${100 - absDiff}`;
+              card.style.opacity = `${opac}`;
+              card.style.pointerEvents = absDiff > 4 ? 'none' : 'auto';
             }
           });
 
-          // Soft animate transition on focus card
-          if (focusCard) {
-            focusCard.style.opacity = '0.5';
-            focusCard.style.transform = 'scale(0.985)';
+          // Update Dots
+          if (dotsContainer) {
+            dotsContainer.querySelectorAll('.kiosk-dot').forEach((dot, idx) => {
+              if (idx === currentIndex) dot.classList.add('active');
+              else dot.classList.remove('active');
+            });
+          }
+        }
+
+        // Update Info HUD
+        function updateHUD() {
+          const cat = filteredCatalogs[currentIndex];
+          if (!cat) return;
+
+          if (hudPodium) {
+            hudPodium.style.opacity = '0.5';
+            hudPodium.style.transform = 'translateY(4px)';
           }
 
           setTimeout(() => {
-            if (focusCoverImg) {
-              focusCoverImg.src = catalog.cover;
-              focusCoverImg.alt = catalog.title;
-            }
-            if (focusCategoryBadge) focusCategoryBadge.textContent = catalog.categoryName;
-            if (focusNormBadge) focusNormBadge.innerHTML = `<i class="bi bi-patch-check-fill text-primary me-1"></i> ${catalog.norm}`;
-            if (focusTitle) focusTitle.textContent = catalog.title;
-            if (focusSubtitle) focusSubtitle.textContent = catalog.sub;
+            const padIdx = (currentIndex + 1).toString().padStart(2, '0');
+            const total = filteredCatalogs.length.toString().padStart(2, '0');
+            if (hudIndex) hudIndex.textContent = `${padIdx} / ${total}`;
+            if (hudCat) hudCat.textContent = cat.categoryName;
+            if (hudNorm) hudNorm.innerHTML = `<i class="bi bi-patch-check-fill text-success me-1"></i> ${cat.norm}`;
+            if (hudTitle) hudTitle.textContent = cat.title;
+            if (hudSub) hudSub.textContent = cat.sub;
 
-            if (focusSpecsContainer && catalog.specs) {
-              focusSpecsContainer.innerHTML = catalog.specs.map(spec => `
-                <div class="focus-spec-item">
-                  <div class="focus-spec-icon"><i class="bi ${spec.icon}"></i></div>
-                  <div class="focus-spec-text">
-                    <span class="focus-spec-label">${spec.label}</span>
-                    <span class="focus-spec-val">${spec.val}</span>
-                  </div>
+            if (hudSpecs && cat.specs) {
+              hudSpecs.innerHTML = cat.specs.map(spec => `
+                <div class="kiosk-hud-spec-item">
+                  <i class="bi ${spec.icon} kiosk-hud-spec-icon"></i>
+                  <span class="kiosk-hud-spec-lbl">${spec.label}</span>
+                  <span class="kiosk-hud-spec-val">${spec.val}</span>
                 </div>
               `).join('');
             }
 
-            if (focusDownloadBtn) {
-              focusDownloadBtn.href = catalog.pdf;
-              focusDownloadBtn.setAttribute('download', catalog.pdf.split('/').pop());
+            if (readBtn) {
+              readBtn.onclick = () => {
+                openEbookModal(cat.pdf, cat.title);
+              };
             }
 
-            if (focusQuoteBtn) {
-              focusQuoteBtn.href = `devis.html?sujet=${encodeURIComponent('Étude 3D — ' + catalog.title)}`;
+            if (dlBtn) {
+              dlBtn.href = cat.pdf;
+              dlBtn.setAttribute('download', cat.pdf.split('/').pop());
             }
 
-            // Bind click to open reader modal
-            const openModalAction = () => {
-              openEbookModal(catalog.pdf, catalog.title);
-            };
-            if (focusReadBtn) focusReadBtn.onclick = openModalAction;
-            if (focusCoverTrigger) focusCoverTrigger.onclick = openModalAction;
-            if (focusReadHint) focusReadHint.onclick = openModalAction;
-
-            if (focusCard) {
-              focusCard.style.opacity = '1';
-              focusCard.style.transform = 'scale(1)';
+            if (quoteBtn) {
+              quoteBtn.href = `devis.html?sujet=${encodeURIComponent('Étude 3D — ' + cat.title)}`;
             }
-          }, 120);
+
+            if (hudPodium) {
+              hudPodium.style.opacity = '1';
+              hudPodium.style.transform = 'translateY(0)';
+            }
+          }, 110);
         }
 
-        // Category filter clicks
-        filterBtns.forEach(btn => {
-          btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            currentFilter = btn.getAttribute('data-filter') || 'all';
-            renderSelectors();
+        function goToIndex(idx) {
+          if (idx < 0) idx = filteredCatalogs.length - 1;
+          if (idx >= filteredCatalogs.length) idx = 0;
+          currentIndex = idx;
+          update3DTransforms();
+          updateHUD();
+        }
+
+        // Navigation Arrows
+        if (prevBtn) {
+          prevBtn.addEventListener('click', () => {
+            goToIndex(currentIndex - 1);
+          });
+        }
+        if (nextBtn) {
+          nextBtn.addEventListener('click', () => {
+            goToIndex(currentIndex + 1);
+          });
+        }
+
+        // Keyboard Navigation when section in view
+        window.addEventListener('keydown', (e) => {
+          const rect = stageTrack.getBoundingClientRect();
+          const inView = rect.top < window.innerHeight && rect.bottom > 0;
+          if (!inView) return;
+
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            goToIndex(currentIndex - 1);
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            goToIndex(currentIndex + 1);
+          }
+        });
+
+        // Touch Swipe
+        let startX = 0;
+        stageTrack.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].clientX;
+        }, { passive: true });
+
+        stageTrack.addEventListener('touchend', (e) => {
+          const endX = e.changedTouches[0].clientX;
+          const diff = endX - startX;
+          if (Math.abs(diff) > 40) {
+            if (diff > 0) goToIndex(currentIndex - 1);
+            else goToIndex(currentIndex + 1);
+          }
+        }, { passive: true });
+
+        // Category Filter Chips
+        filterChips.forEach(chip => {
+          chip.addEventListener('click', () => {
+            filterChips.forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            currentCategory = chip.getAttribute('data-filter') || 'all';
+            currentIndex = 0;
+            renderStage();
           });
         });
 
-        // Search input
-        if (searchInput) {
-          searchInput.addEventListener('input', (e) => {
-            searchQuery = e.target.value.trim().toLowerCase();
-            renderSelectors();
-          });
-        }
+        // Resize listener to adjust 3D layout
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(update3DTransforms, 100);
+        });
 
-        // Initialize display
-        renderSelectors();
-        setActiveCatalog(ACROW_CATALOGS[0]);
+        // Initial render
+        renderStage();
       }
 
       // 3. Stats Counter Animation on scroll
