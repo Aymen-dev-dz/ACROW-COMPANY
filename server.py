@@ -7,7 +7,9 @@ class FastHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         self.send_header('Access-Control-Allow-Origin', '*')
         path = self.path.split('?')[0].lower()
         if path.endswith(('.html', '/')) or not path:
-            self.send_header('Cache-Control', 'no-cache, must-revalidate')
+            self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
+            self.send_header('Pragma', 'no-cache')
+            self.send_header('Expires', '0')
         elif path.endswith(('.jpg', '.jpeg', '.png', '.webp', '.gif', '.svg', '.mp4', '.pdf', '.woff2', '.ttf')):
             self.send_header('Cache-Control', 'public, max-age=86400')
         else:
