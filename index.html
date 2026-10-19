@@ -1238,7 +1238,7 @@
       border-radius: 10px;
     }
     /* ==========================================
-       OPTION C OPTIMISÉE (ULTRA-FLUIDE 60 FPS)
+       OPTION C OPTIMISÉE (SANS HOVER ROUGE + 60 FPS)
        ========================================== */
     .kiosk-coverflow-section {
       background: radial-gradient(circle at 50% 15%, #0f1c36 0%, #080d1a 60%, #03050c 100%);
@@ -1356,7 +1356,7 @@
       border-radius: 12px;
       cursor: pointer;
       transform-style: preserve-3d;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+      transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.38s ease;
       will-change: transform, opacity;
       background: #0f172a;
       backface-visibility: hidden;
@@ -1369,9 +1369,9 @@
       height: 100%;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: box-shadow 0.25s ease, border-color 0.25s ease;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
     }
 
     .kiosk-book-img {
@@ -1390,34 +1390,14 @@
       z-index: 2;
     }
 
-    /* Active Center Book Glow & Open Hint */
+    /* Active Center Book : Finition sobre haut de gamme, PAS DE ROUGE */
     .kiosk-book-card.is-active .kiosk-book-inner {
-      box-shadow: 0 0 0 2.5px #ff3333, 0 16px 36px rgba(204, 0, 0, 0.45);
-      border-color: #ff3333;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), 0 0 0 2px rgba(255, 255, 255, 0.55);
+      border-color: rgba(255, 255, 255, 0.85);
     }
-
-    .kiosk-book-open-banner {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(180deg, transparent 0%, rgba(180, 0, 0, 0.92) 50%, #990000 100%);
-      color: #ffffff;
-      padding: 22px 10px 12px;
-      text-align: center;
-      font-size: 0.85rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      z-index: 5;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-      opacity: 0.95;
-    }
-    .kiosk-book-card:hover .kiosk-book-open-banner {
-      opacity: 1;
-      background: linear-gradient(180deg, transparent 0%, rgba(220, 0, 0, 0.96) 40%, #cc0000 100%);
+    .kiosk-book-card:hover .kiosk-book-inner {
+      border-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 22px 48px rgba(0, 0, 0, 0.85), 0 0 0 2px rgba(255, 255, 255, 0.65);
     }
 
     .kiosk-book-dimmer {
@@ -3305,7 +3285,7 @@
         });
       }
 
-      // 2b. Initialisation & Gestion du Kiosque 3D Coverflow (Ultra-Optimisé 60 FPS + Clic Immédiat)
+      // 2b. Initialisation & Gestion du Kiosque 3D Coverflow (Slide Automatique + Sans Hover Rouge)
       initKiosque3DCoverflow();
 
       function initKiosque3DCoverflow() {
@@ -3636,6 +3616,7 @@
         let filteredCatalogs = [...ACROW_CATALOGS];
         let currentIndex = 0;
 
+        const stageContainer = document.getElementById('kioskStageContainer');
         const stageTrack = document.getElementById('kioskStageTrack');
         const prevBtn = document.getElementById('kioskPrevBtn');
         const nextBtn = document.getElementById('kioskNextBtn');
@@ -3643,6 +3624,7 @@
         const dotsContainer = document.getElementById('kioskDotsContainer');
 
         // HUD Elements
+        const hudPodium = document.getElementById('kioskHudPodium');
         const hudIndex = document.getElementById('kioskHudIndex');
         const hudCat = document.getElementById('kioskHudCat');
         const hudNorm = document.getElementById('kioskHudNorm');
@@ -3655,43 +3637,52 @@
 
         if (!stageTrack) return;
 
+        // Auto-Slide Timer Management
+        let autoSlideTimer = null;
+        const AUTOPLAY_DELAY = 3800; // 3.8s par slide
+
+        function startAutoSlide() {
+          stopAutoSlide();
+          autoSlideTimer = setInterval(() => {
+            goToIndex(currentIndex + 1, false);
+          }, AUTOPLAY_DELAY);
+        }
+
+        function stopAutoSlide() {
+          if (autoSlideTimer) {
+            clearInterval(autoSlideTimer);
+            autoSlideTimer = null;
+          }
+        }
+
         // Render Coverflow Cards in DOM
         function renderStage() {
           filteredCatalogs = ACROW_CATALOGS.filter(c => currentCategory === 'all' || c.category === currentCategory);
           if (currentIndex >= filteredCatalogs.length) currentIndex = 0;
 
-          // Render Books with DIRECT CLICK & OPEN
+          // Render Books (SANS BANNIÈRE ROUGE, COUVERTURE NETTE & ÉPURÉE)
           stageTrack.innerHTML = filteredCatalogs.map((cat, idx) => `
-            <div class="kiosk-book-card" data-index="${idx}" title="Cliquer pour afficher : ${cat.title}">
+            <div class="kiosk-book-card" data-index="${idx}" title="${cat.title}">
               <div class="kiosk-book-inner">
                 <span class="kiosk-book-spine"></span>
                 <img src="${cat.cover}" alt="${cat.title}" class="kiosk-book-img" loading="lazy" />
                 <div class="kiosk-book-dimmer"></div>
-                <div class="kiosk-book-open-banner">
-                  <i class="bi bi-book-half"></i> <span>Ouvrir</span>
-                </div>
               </div>
             </div>
           `).join('');
 
-          // Bind click to each book:
-          // SI ON CLIQUE SUR UN LIVRE -> IL S'AFFICHE IMMÉDIATEMENT DANS LA LISEUSE !
+          // Clic sur un livre -> Affichage direct du catalogue
           stageTrack.querySelectorAll('.kiosk-book-card').forEach(card => {
-            card.addEventListener('click', (e) => {
+            card.addEventListener('click', () => {
               const idx = parseInt(card.getAttribute('data-index'), 10);
               const clickedCat = filteredCatalogs[idx];
               if (!clickedCat) return;
 
-              if (idx === currentIndex) {
-                // Déjà au centre -> Ouvrir directement !
-                openEbookModal(clickedCat.pdf, clickedCat.title);
-              } else {
-                // Amener au centre et ouvrir directement
-                currentIndex = idx;
-                update3DTransforms();
-                updateHUD();
-                openEbookModal(clickedCat.pdf, clickedCat.title);
-              }
+              currentIndex = idx;
+              update3DTransforms();
+              updateHUD();
+              startAutoSlide();
+              openEbookModal(clickedCat.pdf, clickedCat.title);
             });
           });
 
@@ -3704,16 +3695,17 @@
             dotsContainer.querySelectorAll('.kiosk-dot').forEach(dot => {
               dot.addEventListener('click', () => {
                 const idx = parseInt(dot.getAttribute('data-index'), 10);
-                goToIndex(idx);
+                goToIndex(idx, true);
               });
             });
           }
 
           update3DTransforms();
           updateHUD();
+          startAutoSlide();
         }
 
-        // Apply 3D Perspective Coordinates (ULTRA-OPTIMISÉ : Seuls les 5 livres proches sont rendus)
+        // Apply 3D Perspective Coordinates
         function update3DTransforms() {
           const cards = stageTrack.querySelectorAll('.kiosk-book-card');
           const isMobile = window.innerWidth <= 576;
@@ -3727,7 +3719,7 @@
             const diff = idx - currentIndex;
             const absDiff = Math.abs(diff);
 
-            // OPTIMISATION CRUCIALE : Cacher tous les éléments éloignés (gain de 75% GPU)
+            // Seuls les 5 livres proches sont affichés (0, ±1, ±2)
             if (absDiff > 2) {
               card.style.display = 'none';
               card.classList.remove('is-active');
@@ -3776,7 +3768,7 @@
           }
         }
 
-        // Update Info HUD (INSTANTANÉ, sans délai)
+        // Update Info HUD
         function updateHUD() {
           const cat = filteredCatalogs[currentIndex];
           if (!cat) return;
@@ -3815,26 +3807,39 @@
           }
         }
 
-        function goToIndex(idx) {
+        function goToIndex(idx, userTriggered = true) {
           if (idx < 0) idx = filteredCatalogs.length - 1;
           if (idx >= filteredCatalogs.length) idx = 0;
           currentIndex = idx;
           update3DTransforms();
           updateHUD();
+          if (userTriggered) {
+            startAutoSlide();
+          }
         }
 
         // Navigation Arrows
         if (prevBtn) {
           prevBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            goToIndex(currentIndex - 1);
+            goToIndex(currentIndex - 1, true);
           });
         }
         if (nextBtn) {
           nextBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            goToIndex(currentIndex + 1);
+            goToIndex(currentIndex + 1, true);
           });
+        }
+
+        // Pause de l'auto-slide au survol de la souris
+        if (stageContainer) {
+          stageContainer.addEventListener('mouseenter', stopAutoSlide);
+          stageContainer.addEventListener('mouseleave', startAutoSlide);
+        }
+        if (hudPodium) {
+          hudPodium.addEventListener('mouseenter', stopAutoSlide);
+          hudPodium.addEventListener('mouseleave', startAutoSlide);
         }
 
         // Keyboard Navigation
@@ -3845,10 +3850,10 @@
 
           if (e.key === 'ArrowLeft') {
             e.preventDefault();
-            goToIndex(currentIndex - 1);
+            goToIndex(currentIndex - 1, true);
           } else if (e.key === 'ArrowRight') {
             e.preventDefault();
-            goToIndex(currentIndex + 1);
+            goToIndex(currentIndex + 1, true);
           } else if (e.key === 'Enter') {
             const cat = filteredCatalogs[currentIndex];
             if (cat) openEbookModal(cat.pdf, cat.title);
@@ -3858,6 +3863,7 @@
         // Touch Swipe
         let startX = 0;
         stageTrack.addEventListener('touchstart', (e) => {
+          stopAutoSlide();
           startX = e.touches[0].clientX;
         }, { passive: true });
 
@@ -3865,8 +3871,10 @@
           const endX = e.changedTouches[0].clientX;
           const diff = endX - startX;
           if (Math.abs(diff) > 45) {
-            if (diff > 0) goToIndex(currentIndex - 1);
-            else goToIndex(currentIndex + 1);
+            if (diff > 0) goToIndex(currentIndex - 1, true);
+            else goToIndex(currentIndex + 1, true);
+          } else {
+            startAutoSlide();
           }
         }, { passive: true });
 
