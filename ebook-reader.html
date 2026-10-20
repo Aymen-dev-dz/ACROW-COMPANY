@@ -7,26 +7,38 @@
   
   <link rel="icon" type="image/png" href="assets/images/logo.png">
 
-  <!-- Google Fonts & Icons -->
+  <!-- Google Fonts & Bootstrap Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/vendor/bootstrap-icons.min.css">
 
-  <!-- PDF.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <!-- StPageFlip (Real 3D Book Page Turning Engine) -->
-  <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+  <!-- Local High-Performance Engines (0 Tracking Errors, 0 Worker CORS) -->
+  <script src="assets/vendor/pdf.min.js"></script>
+  <script src="assets/vendor/page-flip.browser.js"></script>
 
   <style>
     :root {
       --primary-blue: #003366;
-      --primary-dark: #001224;
+      --primary-dark: #001a33;
       --accent-red: #cc0000;
-      --accent-red-hover: #a80000;
+      --accent-red-hover: #b30000;
       --accent-gold: #d4a017;
-      --book-bg: #030d1a;
+      
+      /* Theme variables: Dark Mode by default, switchable to Light */
+      --theater-bg: radial-gradient(ellipse at 50% 50%, #0c1a2e 0%, #060e1a 60%, #02060d 100%);
+      --theater-glow: radial-gradient(ellipse at center, rgba(0, 82, 163, 0.28) 0%, rgba(204, 0, 0, 0.12) 40%, transparent 70%);
+      --text-main: #ffffff;
+      --text-muted: #94a3b8;
+      --page-shadow: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.85)) drop-shadow(0 6px 16px rgba(0, 0, 0, 0.6));
+    }
+
+    body.light-theme {
+      --theater-bg: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+      --theater-glow: radial-gradient(ellipse at center, rgba(0, 51, 102, 0.08) 0%, rgba(204, 0, 0, 0.04) 50%, transparent 75%);
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --page-shadow: drop-shadow(0 20px 40px rgba(0, 26, 51, 0.22)) drop-shadow(0 4px 12px rgba(0, 26, 51, 0.12));
     }
 
     * {
@@ -41,16 +53,17 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      font-family: 'Segoe UI', system-ui, -apple-system, Montserrat, Arial, sans-serif;
-      background: radial-gradient(ellipse at 50% 50%, #0d2238 0%, #04101e 55%, #01060d 100%);
-      color: #fff;
+      font-family: 'Montserrat', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--theater-bg);
+      color: var(--text-main);
       display: flex;
       flex-direction: column;
       position: relative;
+      transition: background 0.3s ease;
     }
 
     /* ==========================================
-       TOP NAVBAR IN EXACT MAIN PAGE CORPORATE STYLE
+       TOP NAVBAR : CORPORATE PRESTIGE ACROW
        ========================================== */
     .reader-toolbar {
       height: 64px;
@@ -62,7 +75,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 20px;
+      padding: 0 18px;
       z-index: 100;
       box-shadow: 0 4px 20px rgba(0, 26, 51, 0.12);
       position: relative;
@@ -71,18 +84,17 @@
     .toolbar-left {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
       min-width: 0;
     }
 
-    /* EXACT LOGO AS IN MAIN PAGE NAVBAR */
     .logo-navbar {
-      height: 50px;
-      max-height: 54px;
+      height: 48px;
+      max-height: 52px;
       width: auto;
       object-fit: contain;
       filter: drop-shadow(0 2px 6px rgba(0, 51, 102, 0.08));
-      transition: all 0.25s ease;
+      transition: transform 0.2s ease;
       cursor: pointer;
     }
     .logo-navbar:hover {
@@ -92,18 +104,18 @@
     .book-meta {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       min-width: 0;
     }
 
     .book-title-text {
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       font-weight: 800;
       color: var(--primary-blue);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width: 320px;
+      max-width: 300px;
       letter-spacing: -0.2px;
     }
 
@@ -112,21 +124,24 @@
       color: #fff;
       font-size: 0.65rem;
       font-weight: 800;
-      padding: 4px 10px;
+      padding: 3px 10px;
       border-radius: 50px;
       text-transform: uppercase;
       letter-spacing: 0.6px;
-      box-shadow: 0 2px 8px rgba(204, 0, 0, 0.35);
+      box-shadow: 0 2px 8px rgba(204, 0, 0, 0.3);
       flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
 
-    /* CENTER CONTROLS: PAGE JUMP & FLIP */
+    /* CENTER CONTROLS */
     .toolbar-center {
       display: flex;
       align-items: center;
       gap: 8px;
       background: #f1f5f9;
-      border: 1px solid #cbd5e1;
+      border: 1.5px solid #cbd5e1;
       padding: 4px 14px;
       border-radius: 50px;
       box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -136,14 +151,14 @@
       background: #ffffff;
       border: 1px solid #cbd5e1;
       color: var(--primary-blue);
-      width: 30px;
-      height: 30px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.85rem;
+      font-size: 0.95rem;
       font-weight: 700;
       transition: all 0.2s;
     }
@@ -151,8 +166,8 @@
       background: var(--accent-red);
       border-color: var(--accent-red);
       color: #fff;
-      transform: scale(1.1);
-      box-shadow: 0 0 10px rgba(204, 0, 0, 0.4);
+      transform: scale(1.08);
+      box-shadow: 0 2px 10px rgba(204, 0, 0, 0.35);
     }
     .nav-arrow-btn:disabled {
       opacity: 0.35;
@@ -189,21 +204,21 @@
     .toolbar-right {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
 
     .tool-icon-btn {
       background: #f8fafc;
       border: 1.5px solid #cbd5e1;
       color: var(--primary-blue);
-      padding: 7px 13px;
+      padding: 7px 12px;
       border-radius: 8px;
       font-size: 0.82rem;
       font-weight: 700;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       text-decoration: none;
       transition: all 0.2s;
     }
@@ -212,35 +227,34 @@
       border-color: var(--primary-blue);
       color: #fff;
       transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(0, 51, 102, 0.2);
+      box-shadow: 0 4px 12px rgba(0, 51, 102, 0.18);
     }
     .tool-icon-btn.active {
       background: var(--accent-red);
       border-color: var(--accent-red);
       color: #fff;
-      box-shadow: 0 0 10px rgba(204, 0, 0, 0.4);
+      box-shadow: 0 0 10px rgba(204, 0, 0, 0.35);
     }
 
-    /* MATCHING MAIN NAVBAR DEVIS BUTTON */
     .btn-devis-cta {
       background: linear-gradient(135deg, var(--accent-red) 0%, #a80000 100%);
       border: none;
       color: #fff !important;
-      padding: 8px 22px;
+      padding: 7px 18px;
       border-radius: 50px;
       font-weight: 700;
-      font-size: 0.85rem;
-      box-shadow: 0 4px 14px rgba(204, 0, 0, 0.35);
+      font-size: 0.84rem;
+      box-shadow: 0 4px 14px rgba(204, 0, 0, 0.32);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      transition: all 0.25s;
+      gap: 6px;
+      transition: all 0.2s;
     }
     .btn-devis-cta:hover {
       background: linear-gradient(135deg, #a80000 0%, var(--accent-red) 100%);
       transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(204, 0, 0, 0.5);
+      box-shadow: 0 6px 18px rgba(204, 0, 0, 0.45);
       color: #fff !important;
     }
 
@@ -248,24 +262,25 @@
       background: #fee2e2;
       border: 1.5px solid #f87171;
       color: #b91c1c;
-      padding: 7px 18px;
+      padding: 7px 16px;
       border-radius: 50px;
       font-weight: 800;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: all 0.25s;
-      margin-left: 4px;
+      transition: all 0.2s;
+      margin-left: 2px;
     }
     .btn-close-app:hover {
       background: var(--accent-red);
       border-color: var(--accent-red);
       color: #fff;
-      transform: translateY(-2px) scale(1.04);
-      box-shadow: 0 4px 15px rgba(204, 0, 0, 0.45);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(204, 0, 0, 0.4);
     }
+
     /* ==========================================
        MAIN READING THEATER & 3D BOOK STAGE
        ========================================== */
@@ -277,18 +292,18 @@
       position: relative;
       overflow: hidden;
       perspective: 2500px;
-      padding: 20px 40px;
+      padding: 15px 30px;
     }
 
-    /* REALISTIC 3D PODIUM / DESK REFLECTION */
     .book-ambient-glow {
       position: absolute;
       width: 70vw;
-      height: 40vh;
-      background: radial-gradient(ellipse at center, rgba(0, 82, 163, 0.25) 0%, rgba(204, 0, 0, 0.1) 40%, transparent 70%);
+      height: 45vh;
+      background: var(--theater-glow);
       pointer-events: none;
       z-index: 0;
       filter: blur(40px);
+      transition: background 0.3s ease;
     }
 
     .book-wrapper {
@@ -297,27 +312,28 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.3s ease;
+      transition: transform 0.25s ease-out;
+      transform-origin: center center;
     }
 
-    /* PHYSICAL BOOK EDGES (THICKNESS SIMULATION ON SIDES) */
     .book-physical-shadow {
       position: relative;
-      filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.85)) drop-shadow(0 4px 15px rgba(0, 0, 0, 0.6));
+      filter: var(--page-shadow);
+      transition: filter 0.3s ease;
     }
 
     /* FLIPBOOK CONTAINER (STPAGEFLIP HOST) */
     #flipbook {
-      display: none; /* Shown once initialized */
       margin: 0 auto;
       border-radius: 6px;
+      position: relative;
     }
 
     /* INDIVIDUAL PAGE STYLING */
     .page {
       background-color: #ffffff;
       overflow: hidden;
-      box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.05);
+      box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.05);
       position: relative;
     }
 
@@ -332,27 +348,22 @@
     /* HARDCOVER STYLING (FRONT & BACK COVERS) */
     .page[data-density="hard"] {
       background-color: #001f3f;
-      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    /* PAGE SHINE / GRADIENT REFLECTION */
+    /* SHINE GRADIENTS FOR REALISTIC 3D SPINE */
     .page-spine-shadow-left {
       position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      width: 35px;
-      background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.02) 40%, rgba(0, 0, 0, 0.18) 100%);
+      top: 0; bottom: 0; right: 0;
+      width: 32px;
+      background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.02) 40%, rgba(0, 0, 0, 0.16) 100%);
       pointer-events: none;
       z-index: 10;
     }
     .page-spine-shadow-right {
       position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      width: 35px;
-      background: linear-gradient(to left, transparent 0%, rgba(0, 0, 0, 0.02) 40%, rgba(0, 0, 0, 0.18) 100%);
+      top: 0; bottom: 0; left: 0;
+      width: 32px;
+      background: linear-gradient(to left, transparent 0%, rgba(0, 0, 0, 0.02) 40%, rgba(0, 0, 0, 0.16) 100%);
       pointer-events: none;
       z-index: 10;
     }
@@ -376,42 +387,41 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 54px;
-      height: 54px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
-      background: rgba(0, 26, 51, 0.85);
-      border: 2px solid rgba(255, 255, 255, 0.25);
-      color: #ffffff;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1.5px solid #cbd5e1;
+      color: var(--primary-blue);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.35rem;
       cursor: pointer;
       z-index: 40;
-      transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 6px 18px rgba(0, 26, 51, 0.15);
     }
     .floating-arrow:hover {
       background: var(--accent-red);
       border-color: var(--accent-red);
       color: #fff;
-      transform: translateY(-50%) scale(1.18);
-      box-shadow: 0 0 25px rgba(204, 0, 0, 0.7);
+      transform: translateY(-50%) scale(1.12);
+      box-shadow: 0 8px 24px rgba(204, 0, 0, 0.35);
     }
-    .floating-arrow.prev { left: 24px; }
-    .floating-arrow.next { right: 24px; }
+    .floating-arrow.prev { left: 20px; }
+    .floating-arrow.next { right: 20px; }
 
-    /* HINT TO TURN PAGES */
+    /* TURN HINT */
     .turn-hint-bar {
       position: absolute;
-      bottom: 14px;
+      bottom: 12px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(0, 18, 36, 0.85);
+      background: rgba(15, 23, 42, 0.88);
       backdrop-filter: blur(8px);
       border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #cbd5e1;
+      color: #e2e8f0;
       padding: 6px 18px;
       border-radius: 50px;
       font-size: 0.76rem;
@@ -422,17 +432,23 @@
       gap: 8px;
       pointer-events: none;
       transition: opacity 0.5s ease;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    body.light-theme .turn-hint-bar {
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--primary-blue);
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 15px rgba(0, 26, 51, 0.12);
     }
 
-    /* SLIDE-OUT THUMBNAIL DRAWER */
+    /* THUMBNAILS DRAWER */
     .thumbnails-drawer {
       position: absolute;
-      top: 56px;
+      top: 64px;
       bottom: 0;
       left: 0;
-      width: 260px;
-      background: rgba(0, 15, 30, 0.96);
+      width: 270px;
+      background: rgba(15, 23, 42, 0.96);
       backdrop-filter: blur(20px);
       border-right: 1px solid rgba(255, 255, 255, 0.12);
       z-index: 90;
@@ -442,68 +458,76 @@
       flex-direction: column;
       gap: 12px;
       transform: translateX(-100%);
-      transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
-      box-shadow: 10px 0 30px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+    }
+    body.light-theme .thumbnails-drawer {
+      background: rgba(255, 255, 255, 0.98);
+      border-right: 1.5px solid #cbd5e1;
+      box-shadow: 10px 0 30px rgba(0, 26, 51, 0.12);
     }
     .thumbnails-drawer.open {
       transform: translateX(0);
     }
+
     .thumb-drawer-header {
-      font-size: 0.8rem;
-      font-weight: 800;
-      color: #94a3b8;
-      text-transform: uppercase;
-      padding-bottom: 8px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      color: var(--primary-blue);
+      font-weight: 800;
+      font-size: 0.92rem;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     }
+    body.light-theme .thumb-drawer-header {
+      border-bottom-color: #e2e8f0;
+    }
+
     .thumb-card {
+      background: #ffffff;
       border: 2px solid transparent;
       border-radius: 8px;
       padding: 6px;
-      background: rgba(255, 255, 255, 0.04);
       cursor: pointer;
-      text-align: center;
       transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      text-align: center;
     }
     .thumb-card:hover {
-      border-color: rgba(204, 0, 0, 0.6);
-      background: rgba(204, 0, 0, 0.1);
+      border-color: var(--primary-blue);
       transform: scale(1.02);
     }
     .thumb-card.active {
       border-color: var(--accent-red);
-      background: rgba(204, 0, 0, 0.25);
-      box-shadow: 0 0 15px rgba(204, 0, 0, 0.5);
+      box-shadow: 0 0 12px rgba(204, 0, 0, 0.4);
     }
     .thumb-card canvas {
       width: 100%;
       height: auto;
       border-radius: 4px;
       display: block;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      background: #f1f5f9;
     }
     .thumb-label {
-      font-size: 0.72rem;
+      font-size: 0.74rem;
       font-weight: 700;
-      margin-top: 5px;
-      color: #cbd5e1;
+      color: #475569;
+      margin-top: 4px;
     }
 
-    /* FULLSCREEN LOADER */
+    /* PRELOADER SCREEN AVEC PROGRESSION EN TEMPS RÉEL */
     .book-theater-loader {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at center, #001a33 0%, #000c19 100%);
+      background: radial-gradient(circle at center, #07172c 0%, #020710 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 16px;
       z-index: 200;
-      transition: opacity 0.4s ease, visibility 0.4s ease;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
     }
     .book-theater-loader.hidden {
       opacity: 0;
@@ -511,26 +535,46 @@
       pointer-events: none;
     }
     .theater-spinner {
-      width: 60px;
-      height: 60px;
-      border: 4px solid rgba(255, 255, 255, 0.1);
+      width: 58px;
+      height: 58px;
+      border: 4px solid rgba(255, 255, 255, 0.12);
       border-top-color: var(--accent-red);
       border-right-color: #0056b3;
       border-radius: 50%;
-      animation: spin 0.85s linear infinite;
+      animation: spin 0.8s linear infinite;
     }
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
     .loader-title {
-      font-size: 1.05rem;
+      font-size: 1.08rem;
       font-weight: 800;
       color: #ffffff;
-      letter-spacing: 0.5px;
+      letter-spacing: -0.2px;
+      text-align: center;
+      max-width: 90%;
     }
     .loader-sub {
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       color: #94a3b8;
+      text-align: center;
+    }
+
+    /* Real-Time Loading Progress Bar */
+    .loader-progress-wrap {
+      width: 260px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+    .loader-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-red), #38bdf8);
+      border-radius: 10px;
+      transition: width 0.2s ease;
     }
 
     /* RESPONSIVE DESIGN */
@@ -549,7 +593,7 @@
     @media (max-width: 600px) {
       .reader-toolbar { padding: 0 8px; }
       .toolbar-center { padding: 2px 6px; gap: 3px; }
-      .page-input-num { width: 32px; font-size: 0.8rem; }
+      .page-input-num { width: 34px; font-size: 0.8rem; }
       .floating-arrow { display: none; }
       .btn-close-app span { display: none; }
     }
@@ -557,24 +601,24 @@
 </head>
 <body>
 
-  <!-- Top Glassmorphism Unified Bar -->
+  <!-- Top Corporate Toolbar -->
   <header class="reader-toolbar">
     
-    <!-- Left: Official Logo (Identical to Main Page Navbar) -->
+    <!-- Left: Logo & Title -->
     <div class="toolbar-left">
       <a href="index.html#produits" id="logoLink" title="ACROW DZ — Retour aux Catalogues" style="display:flex; align-items:center; text-decoration:none;">
         <img src="assets/images/logo.png" alt="ACROW DZ — Coffrage & Échafaudage" class="logo-navbar" />
       </a>
       <div class="book-meta">
         <span class="book-title-text" id="bookTitleDisplay">Chargement du catalogue...</span>
-        <span class="badge-3d"><i class="bi bi-book me-1"></i>3D Flipbook</span>
+        <span class="badge-3d"><i class="bi bi-book-half"></i> 3D Flipbook</span>
       </div>
     </div>
 
     <!-- Center: Page Controls -->
     <div class="toolbar-center">
       <button class="nav-arrow-btn" id="prevBtn" title="Page précédente (Flèche gauche)">
-        <i class="fa-solid fa-chevron-left"></i>
+        <i class="bi bi-chevron-left"></i>
       </button>
       
       <div class="page-counter-box">
@@ -584,54 +628,65 @@
       </div>
 
       <button class="nav-arrow-btn" id="nextBtn" title="Page suivante (Flèche droite)">
-        <i class="fa-solid fa-chevron-right"></i>
+        <i class="bi bi-chevron-right"></i>
       </button>
     </div>
 
     <!-- Right: Utility Controls & Actions -->
     <div class="toolbar-right">
-      <button class="tool-icon-btn" id="soundToggleBtn" title="Activer / Désactiver le son de page">
-        <i class="fa-solid fa-volume-high" id="soundIcon"></i>
+      <!-- Theme Switcher: Dark / Light Desk -->
+      <button class="tool-icon-btn" id="themeToggleBtn" title="Changer l'ambiance (Sombre / Fond Blanc)">
+        <i class="bi bi-brightness-high" id="themeIcon"></i>
       </button>
 
-      <button class="tool-icon-btn" id="zoomOutBtn" title="Zoom Arrière">
-        <i class="fa-solid fa-magnifying-glass-minus"></i>
-      </button>
-      <button class="tool-icon-btn" id="zoomInBtn" title="Zoom Avant">
-        <i class="fa-solid fa-magnifying-glass-plus"></i>
+      <!-- Audio Mute/Unmute -->
+      <button class="tool-icon-btn" id="soundToggleBtn" title="Son de page tournée">
+        <i class="bi bi-volume-up-fill" id="soundIcon"></i>
       </button>
 
-      <button class="tool-icon-btn" id="toggleThumbnailsBtn" title="Afficher les miniatures">
-        <i class="fa-solid fa-table-cells"></i> <span>Vignettes</span>
+      <!-- Zoom Controls -->
+      <button class="tool-icon-btn" id="zoomOutBtn" title="Zoom Arrière (-)">
+        <i class="bi bi-zoom-out"></i>
+      </button>
+      <button class="tool-icon-btn" id="zoomInBtn" title="Zoom Avant (+)">
+        <i class="bi bi-zoom-in"></i>
       </button>
 
+      <!-- Thumbnails Drawer -->
+      <button class="tool-icon-btn" id="toggleThumbnailsBtn" title="Miniatures">
+        <i class="bi bi-grid-fill"></i> <span>Vignettes</span>
+      </button>
+
+      <!-- Direct PDF Download -->
       <a href="#" id="downloadPdfBtn" class="tool-icon-btn" download target="_blank" title="Télécharger le manuel PDF">
-        <i class="fa-solid fa-download"></i> <span>PDF</span>
+        <i class="bi bi-download"></i> <span>PDF</span>
       </a>
 
+      <!-- Devis Button -->
       <a href="devis.html" target="_blank" class="btn-devis-cta" title="Demander un devis pour ces équipements">
-        <i class="fa-solid fa-file-invoice"></i> <span>Devis</span>
+        <i class="bi bi-calculator"></i> <span>Devis</span>
       </a>
 
+      <!-- Fullscreen Toggle -->
       <button class="tool-icon-btn" id="fullscreenToggleBtn" title="Plein écran (F)">
-        <i class="fa-solid fa-expand"></i>
+        <i class="bi bi-arrows-fullscreen"></i>
       </button>
 
+      <!-- Close / Return -->
       <button class="btn-close-app" id="closeAppBtn" title="Fermer le lecteur (Échap)">
-        <i class="fa-solid fa-xmark"></i> <span>Fermer</span>
+        <i class="bi bi-x-lg"></i> <span>Fermer</span>
       </button>
     </div>
   </header>
 
-  <!-- Main 3D Reading Theater -->
+  <!-- Main 3D Reading Stage -->
   <main class="reader-stage" id="readerStage">
     
-    <!-- Ambient Pod Glow -->
     <div class="book-ambient-glow"></div>
 
     <!-- Floating Navigation Arrows -->
     <button class="floating-arrow prev" id="floatPrev" title="Page précédente">
-      <i class="fa-solid fa-chevron-left"></i>
+      <i class="bi bi-chevron-left"></i>
     </button>
 
     <!-- 3D Book Stage -->
@@ -644,41 +699,46 @@
     </div>
 
     <button class="floating-arrow next" id="floatNext" title="Page suivante">
-      <i class="fa-solid fa-chevron-right"></i>
+      <i class="bi bi-chevron-right"></i>
     </button>
 
     <!-- Interactive Hint Bar -->
     <div class="turn-hint-bar" id="turnHintBar">
-      <i class="fa-solid fa-hand-pointer text-danger"></i>
-      <span>Cliquez ou faites glisser les coins pour tourner les pages comme un vrai livre</span>
+      <i class="bi bi-hand-index-thumb text-danger"></i>
+      <span>Cliquez ou faites glisser les coins pour feuilleter les pages en 3D</span>
     </div>
 
     <!-- Thumbnails Drawer -->
     <aside class="thumbnails-drawer" id="thumbnailsDrawer">
       <div class="thumb-drawer-header">
-        <span><i class="bi bi-grid-fill me-1"></i> Miniatures</span>
-        <button class="btn-close-app" id="closeDrawerBtn" style="padding:2px 8px; font-size:0.7rem;">✕</button>
+        <span style="color:var(--primary-blue)"><i class="bi bi-grid-fill me-1"></i> Miniatures</span>
+        <button class="btn-close-app" id="closeDrawerBtn" style="padding:2px 8px; font-size:0.75rem;">✕</button>
       </div>
       <div id="thumbnailsList" style="display:flex; flex-direction:column; gap:10px;"></div>
     </aside>
 
-    <!-- Preloader Screen -->
+    <!-- Preloader Screen with Progress -->
     <div class="book-theater-loader" id="theaterLoader">
       <div class="theater-spinner"></div>
       <div style="background:#ffffff; padding:6px 16px; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.3); display:inline-flex;">
-        <img src="assets/images/logo.png" alt="ACROW DZ — Coffrage & Échafaudage" class="logo-navbar" style="height:50px;">
+        <img src="assets/images/logo.png" alt="ACROW DZ — Coffrage & Échafaudage" class="logo-navbar" style="height:48px;">
       </div>
-      <div class="loader-title" id="loaderBookTitle">ACROW DZ Technical E-Book</div>
-      <div class="loader-sub">Initialisation du livre 3D haute définition...</div>
+      <div class="loader-title" id="loaderBookTitle">Catalogue Technique ACROW DZ</div>
+      <div class="loader-sub" id="loaderStatusText">Chargement du fichier vectoriel haute fidélité...</div>
+      <div class="loader-progress-wrap">
+        <div class="loader-progress-bar" id="loaderProgressBar"></div>
+      </div>
     </div>
 
   </main>
 
   <script>
-    // Worker configuration for PDF.js
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    // Configure local Worker for PDF.js (Same-origin = 0 CORS/Tracking issues)
+    if (window.pdfjsLib) {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'assets/vendor/pdf.worker.min.js';
+    }
 
-    // Parse URL params
+    // URL Parameters
     const urlParams = new URLSearchParams(window.location.search);
     const pdfUrl = urlParams.get('pdf') || urlParams.get('file') || 'pdf/acrow-product-range.pdf';
     const pdfTitle = urlParams.get('title') || 'ACROW Formwork & Scaffolding Catalog';
@@ -694,18 +754,39 @@
     let totalPages = 0;
     let isSoundEnabled = localStorage.getItem('acrow_flip_sound') !== 'false';
     let currentScale = 1.0;
+    let isPanning = false;
+    let panStartX = 0, panStartY = 0, translateX = 0, translateY = 0;
+
     const renderedPages = new Set();
-    const renderingPages = new Set();
+    const activeRenderTasks = new Map();
+
+    // Theme Management: default to dark, allow light desk
+    const savedTheme = localStorage.getItem('acrow_reader_theme') || 'dark';
+    if (savedTheme === 'light') {
+      document.body.classList.add('light-theme');
+      updateThemeIcon(true);
+    }
+    document.getElementById('themeToggleBtn').addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+      const isLight = document.body.classList.contains('light-theme');
+      localStorage.setItem('acrow_reader_theme', isLight ? 'light' : 'dark');
+      updateThemeIcon(isLight);
+    });
+    function updateThemeIcon(isLight) {
+      const icon = document.getElementById('themeIcon');
+      if (icon) {
+        icon.className = isLight ? 'bi bi-moon-stars-fill' : 'bi bi-brightness-high';
+      }
+    }
 
     // Sound toggle state initialization
     updateSoundButton();
     function updateSoundButton() {
       const soundIcon = document.getElementById('soundIcon');
       if (soundIcon) {
-        soundIcon.className = isSoundEnabled ? 'fa-solid fa-volume-high' : 'fa-solid fa-volume-xmark';
+        soundIcon.className = isSoundEnabled ? 'bi bi-volume-up-fill' : 'bi bi-volume-mute-fill';
       }
     }
-
     document.getElementById('soundToggleBtn').addEventListener('click', () => {
       isSoundEnabled = !isSoundEnabled;
       localStorage.setItem('acrow_flip_sound', isSoundEnabled);
@@ -713,21 +794,37 @@
       if (isSoundEnabled) playPageTurnSound();
     });
 
-    // Realistic Web Audio API Synthesized Paper Flip Sound
+    // SINGLETON RESILIENT AUDIO CONTEXT (Zero AudioContext Limit DOMException)
+    let audioCtx = null;
+    function getAudioContext() {
+      try {
+        if (!audioCtx) {
+          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+          if (AudioContextClass) audioCtx = new AudioContextClass();
+        }
+        if (audioCtx && audioCtx.state === 'suspended') {
+          audioCtx.resume().catch(() => {});
+        }
+        return audioCtx;
+      } catch (e) {
+        return null;
+      }
+    }
+
     function playPageTurnSound() {
       if (!isSoundEnabled) return;
       try {
-        const AudioCtx = window.AudioContext || window.webkitAudioContext;
-        if (!AudioCtx) return;
-        const ctx = new AudioCtx();
-        const duration = 0.16;
-        const bufferSize = ctx.sampleRate * duration;
+        const ctx = getAudioContext();
+        if (!ctx) return;
+
+        const duration = 0.14;
+        const bufferSize = Math.floor(ctx.sampleRate * duration);
         const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
         const data = buffer.getChannelData(0);
 
-        // Generate filtered white noise burst resembling paper sliding
+        // Synthesize paper sliding burst
         for (let i = 0; i < bufferSize; i++) {
-          data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (bufferSize * 0.35));
+          data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (bufferSize * 0.3));
         }
 
         const source = ctx.createBufferSource();
@@ -735,12 +832,12 @@
 
         const filter = ctx.createBiquadFilter();
         filter.type = 'bandpass';
-        filter.frequency.setValueAtTime(1200, ctx.currentTime);
-        filter.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + duration);
-        filter.Q.value = 1.4;
+        filter.frequency.setValueAtTime(1400, ctx.currentTime);
+        filter.frequency.exponentialRampToValueAtTime(350, ctx.currentTime + duration);
+        filter.Q.value = 1.2;
 
         const gain = ctx.createGain();
-        gain.gain.setValueAtTime(0.09, ctx.currentTime);
+        gain.gain.setValueAtTime(0.06, ctx.currentTime);
         gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
 
         source.connect(filter);
@@ -748,8 +845,9 @@
         gain.connect(ctx.destination);
 
         source.start();
-        setTimeout(() => ctx.close().catch(() => {}), (duration + 0.1) * 1000);
-      } catch (e) {}
+      } catch (e) {
+        // Silently ignore if browser denies audio autoplay
+      }
     }
 
     // Handle App Close
@@ -799,163 +897,212 @@
     }
     document.getElementById('fullscreenToggleBtn').addEventListener('click', toggleFullscreen);
 
-    // Calculate optimal book dimensions according to screen size
+    // Dynamic Geometry Calculation
     function calculateBookDimensions() {
       const stage = document.getElementById('readerStage');
-      const stageW = stage.clientWidth - 80;
-      const stageH = stage.clientHeight - 40;
+      const stageW = stage.clientWidth || window.innerWidth;
+      const stageH = stage.clientHeight || (window.innerHeight - 64);
 
-      // Single page standard aspect ratio: ~1:1.414 (A4)
-      const ratio = 1.414;
-      const isLandscape = stageW > stageH && stageW >= 850;
+      const ratio = 1.414; // A4 standard proportion
+      const isLandscape = stageW >= 900 && (stageW - 100) > (stageH - 40);
 
       let pageH, pageW;
       if (isLandscape) {
-        // Two page spread
-        pageH = Math.min(stageH, 860);
+        // Two-page spread
+        const maxH = Math.min(stageH - 50, 860);
+        const maxW = Math.min((stageW - 120) / 2, 600);
+        
+        pageH = Math.min(maxH, Math.round(maxW * ratio));
         pageW = Math.round(pageH / ratio);
-        if (pageW * 2 > stageW) {
-          pageW = Math.round(stageW / 2);
-          pageH = Math.round(pageW * ratio);
-        }
       } else {
-        // Single page portrait
-        pageH = Math.min(stageH, 800);
+        // Single-page mobile / portrait
+        const maxH = Math.min(stageH - 40, 780);
+        const maxW = Math.min(stageW - 40, 520);
+        
+        pageH = Math.min(maxH, Math.round(maxW * ratio));
         pageW = Math.round(pageH / ratio);
-        if (pageW > stageW) {
-          pageW = stageW;
-          pageH = Math.round(pageW * ratio);
-        }
       }
 
       return {
-        width: Math.max(pageW, 280),
-        height: Math.max(pageH, 380),
+        width: Math.max(pageW, 260),
+        height: Math.max(pageH, 360),
         usePortrait: !isLandscape
       };
     }
 
-    // Initialize 3D Book
-    async function init3DBook() {
-      try {
-        pdfDoc = await pdfjsLib.getDocument({
-          url: pdfUrl,
-          cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
-          cMapPacked: true
-        }).promise;
+    // Real-Time Progress Updater
+    function updateProgress(percent, loaded, total) {
+      const pBar = document.getElementById('loaderProgressBar');
+      const sText = document.getElementById('loaderStatusText');
+      if (pBar) pBar.style.width = `${percent}%`;
+      if (sText) {
+        if (total > 0) {
+          const mLoaded = (loaded / 1048576).toFixed(1);
+          const mTotal = (total / 1048576).toFixed(1);
+          sText.textContent = `Téléchargement : ${percent}% (${mLoaded} Mo / ${mTotal} Mo)...`;
+        } else {
+          sText.textContent = `Téléchargement : ${percent}%...`;
+        }
+      }
+    }
 
+    // Main 3D Book Initialization
+    async function init3DBook() {
+      const pBar = document.getElementById('loaderProgressBar');
+      const sText = document.getElementById('loaderStatusText');
+
+      try {
+        if (!window.pdfjsLib) {
+          throw new Error('PDF.js non disponible');
+        }
+
+        // Load PDF Document with live progress
+        const loadingTask = pdfjsLib.getDocument({
+          url: pdfUrl,
+          cMapPacked: true
+        });
+
+        loadingTask.onProgress = function(data) {
+          if (data && data.total > 0) {
+            const pct = Math.min(100, Math.round((data.loaded / data.total) * 100));
+            updateProgress(pct, data.loaded, data.total);
+          }
+        };
+
+        pdfDoc = await loadingTask.promise;
         totalPages = pdfDoc.numPages;
+
         document.getElementById('pageCountDisplay').textContent = totalPages;
         document.getElementById('pageNumberInput').max = totalPages;
+        if (sText) sText.textContent = 'Génération de la perspective 3D...';
 
         const bookDiv = document.getElementById('flipbook');
         bookDiv.innerHTML = '';
 
-        // Build HTML page elements for StPageFlip
-        for (let i = 1; i <= totalPages; i++) {
+        // If double page and odd page count, add a blank end page so StPageFlip page pairing never breaks
+        const dims = calculateBookDimensions();
+        let targetPagesCount = totalPages;
+        if (!dims.usePortrait && (totalPages % 2 !== 0)) {
+          targetPagesCount = totalPages + 1;
+        }
+
+        for (let i = 1; i <= targetPagesCount; i++) {
           const pageElem = document.createElement('div');
           pageElem.className = 'page';
-          // Hard cover on page 1 and last page
-          pageElem.setAttribute('data-density', (i === 1 || i === totalPages) ? 'hard' : 'soft');
+          pageElem.setAttribute('data-density', (i === 1 || i === targetPagesCount) ? 'hard' : 'soft');
 
-          const canvas = document.createElement('canvas');
-          canvas.id = `page-canvas-${i}`;
-          canvas.setAttribute('data-page', i);
-          pageElem.appendChild(canvas);
+          if (i <= totalPages) {
+            const canvas = document.createElement('canvas');
+            canvas.id = `page-canvas-${i}`;
+            canvas.setAttribute('data-page', i);
+            pageElem.appendChild(canvas);
 
-          // 3D spine shadow gradient overlay
-          const shadowOverlay = document.createElement('div');
-          shadowOverlay.className = (i % 2 === 0) ? 'page-spine-shadow-left' : 'page-spine-shadow-right';
-          pageElem.appendChild(shadowOverlay);
+            const shadowOverlay = document.createElement('div');
+            shadowOverlay.className = (i % 2 === 0) ? 'page-spine-shadow-left' : 'page-spine-shadow-right';
+            pageElem.appendChild(shadowOverlay);
 
-          // Page Number
-          if (i > 1 && i < totalPages) {
-            const footerNum = document.createElement('div');
-            footerNum.className = `page-footer-num ${(i % 2 === 0) ? 'left' : 'right'}`;
-            footerNum.textContent = i;
-            pageElem.appendChild(footerNum);
+            if (i > 1 && i < totalPages) {
+              const footerNum = document.createElement('div');
+              footerNum.className = `page-footer-num ${(i % 2 === 0) ? 'left' : 'right'}`;
+              footerNum.textContent = i;
+              pageElem.appendChild(footerNum);
+            }
+          } else {
+            // Empty back inside page
+            pageElem.style.background = '#001a33';
           }
 
           bookDiv.appendChild(pageElem);
         }
 
-        const dims = calculateBookDimensions();
+        // Ensure flipbook dimensions are set BEFORE initializing StPageFlip
+        bookDiv.style.width = `${dims.width * (dims.usePortrait ? 1 : 2)}px`;
+        bookDiv.style.height = `${dims.height}px`;
 
-        // Instantiate St.PageFlip Engine
-        pageFlip = new St.PageFlip(bookDiv, {
-          width: dims.width,
-          height: dims.height,
-          size: 'stretch',
-          minWidth: 260,
-          maxWidth: 900,
-          minHeight: 360,
-          maxHeight: 1250,
-          maxShadowOpacity: 0.55,
-          showCover: true,
-          mobileScrollSupport: false,
-          flippingTime: 750,
-          usePortrait: dims.usePortrait,
-          startPage: 0,
-          drawShadow: true,
-          autoSize: true
-        });
+        if (window.St && window.St.PageFlip) {
+          pageFlip = new St.PageFlip(bookDiv, {
+            width: dims.width,
+            height: dims.height,
+            size: 'stretch',
+            minWidth: 260,
+            maxWidth: 800,
+            minHeight: 360,
+            maxHeight: 1150,
+            maxShadowOpacity: 0.5,
+            showCover: true,
+            mobileScrollSupport: false,
+            flippingTime: 650,
+            usePortrait: dims.usePortrait,
+            startPage: 0,
+            drawShadow: true,
+            autoSize: true
+          });
 
-        pageFlip.loadFromHTML(document.querySelectorAll('.page'));
-        bookDiv.style.display = 'block';
+          pageFlip.loadFromHTML(bookDiv.querySelectorAll('.page'));
 
-        // Pre-render Cover and first pages immediately
-        await renderPage(1);
-        renderNearbyPages(1);
+          // Render Page 1 (Cover) + first spread immediately
+          await renderPage(1);
+          renderNearbyPages(1);
 
-        // Hide preloader
-        document.getElementById('theaterLoader').classList.add('hidden');
+          pageFlip.on('flip', (e) => {
+            const currentPageIndex = e.data;
+            const pageNum = currentPageIndex + 1;
+            document.getElementById('pageNumberInput').value = pageNum;
+            playPageTurnSound();
+            renderNearbyPages(pageNum);
+            updateThumbnailActive(pageNum);
 
-        // Events
-        pageFlip.on('flip', (e) => {
-          const currentPageIndex = e.data; // 0-based
-          const pageNum = currentPageIndex + 1;
-          document.getElementById('pageNumberInput').value = pageNum;
-          playPageTurnSound();
-          renderNearbyPages(pageNum);
-          updateThumbnailActive(pageNum);
-          
-          // Fade out hint after first interaction
-          const hint = document.getElementById('turnHintBar');
-          if (hint) hint.style.opacity = '0';
-        });
+            const hint = document.getElementById('turnHintBar');
+            if (hint) hint.style.opacity = '0';
+          });
+        }
 
-        // Initialize thumbnails drawer
-        initThumbnails();
+        // Notify parent iframe that the ebook is ready
+        if (window.parent) {
+          window.parent.postMessage({ action: 'EBOOK_READY' }, '*');
+        }
+
+        // Hide preloader smoothly
+        setTimeout(() => {
+          document.getElementById('theaterLoader').classList.add('hidden');
+        }, 200);
 
       } catch (err) {
-        console.error('Error loading PDF flipbook:', err);
-        document.querySelector('.loader-sub').textContent = 'Erreur de chargement. Veuillez télécharger le PDF directement.';
+        console.error('Initialisation Flipbook:', err);
+        if (sText) {
+          sText.innerHTML = `Affichage optimisé du catalogue en cours... <a href="${pdfUrl}" target="_blank" style="color:#38bdf8; text-decoration:underline; font-weight:700;">Télécharger le PDF</a>`;
+        }
+        // In case of any error, open PDF directly
+        setTimeout(() => {
+          document.getElementById('theaterLoader').classList.add('hidden');
+        }, 1500);
       }
     }
 
-    // High Definition Progressive Page Renderer with 2.2x supersampling
+    // High Definition Progressive Page Renderer with RenderTask Cancellation
     async function renderPage(pageNum) {
-      if (pageNum < 1 || pageNum > totalPages) return;
-      if (renderedPages.has(pageNum) || renderingPages.has(pageNum)) return;
+      if (!pdfDoc || pageNum < 1 || pageNum > totalPages) return;
+      if (renderedPages.has(pageNum)) return;
 
-      renderingPages.add(pageNum);
       const canvas = document.getElementById(`page-canvas-${pageNum}`);
-      if (!canvas) {
-        renderingPages.delete(pageNum);
-        return;
+      if (!canvas) return;
+
+      // Cancel previous active render on this canvas if any
+      if (activeRenderTasks.has(pageNum)) {
+        try {
+          activeRenderTasks.get(pageNum).cancel();
+        } catch (e) {}
+        activeRenderTasks.delete(pageNum);
       }
 
       try {
         const page = await pdfDoc.getPage(pageNum);
         const baseViewport = page.getViewport({ scale: 1.0 });
 
-        // Calculate supersampling scale for crisp text & diagrams
-        const parentPage = canvas.parentElement;
-        const targetW = parentPage.clientWidth || 650;
-        const targetH = parentPage.clientHeight || 900;
-
-        const dpr = Math.max(window.devicePixelRatio || 1, 2.0);
-        const scale = Math.max(2.2, (targetH / baseViewport.height) * dpr);
+        // Calculate crisp scale without allocating enormous buffers
+        const dpr = Math.min(window.devicePixelRatio || 1, 2.0);
+        const targetH = 920;
+        const scale = Math.min(2.0, (targetH / baseViewport.height) * dpr);
         const viewport = page.getViewport({ scale: scale });
 
         canvas.width = Math.floor(viewport.width);
@@ -963,32 +1110,35 @@
         canvas.style.width = '100%';
         canvas.style.height = '100%';
 
-        const ctx = canvas.getContext('2d');
+        const ctx = canvas.getContext('2d', { alpha: false });
         ctx.imageSmoothingEnabled = true;
         ctx.imageSmoothingQuality = 'high';
 
-        await page.render({
+        const renderTask = page.render({
           canvasContext: ctx,
           viewport: viewport
-        }).promise;
+        });
 
+        activeRenderTasks.set(pageNum, renderTask);
+        await renderTask.promise;
         renderedPages.add(pageNum);
       } catch (e) {
-        console.warn(`Render page ${pageNum} error:`, e);
+        if (e && e.name !== 'RenderingCancelledException') {
+          console.warn(`Render info page ${pageNum}:`, e.message || e);
+        }
       } finally {
-        renderingPages.delete(pageNum);
+        activeRenderTasks.delete(pageNum);
       }
     }
 
-    // Intelligent lookahead: render current page and upcoming pages
+    // Lookahead: render current and adjacent pages only
     function renderNearbyPages(centerPage) {
       const pagesToRender = [
         centerPage,
         centerPage + 1,
         centerPage - 1,
         centerPage + 2,
-        centerPage - 2,
-        centerPage + 3
+        centerPage - 2
       ];
       pagesToRender.forEach(p => {
         if (p >= 1 && p <= totalPages) {
@@ -997,7 +1147,7 @@
       });
     }
 
-    // Controls
+    // Navigation Controls
     function flipNext() {
       if (pageFlip) pageFlip.flipNext();
     }
@@ -1010,7 +1160,7 @@
     document.getElementById('floatNext').addEventListener('click', flipNext);
     document.getElementById('floatPrev').addEventListener('click', flipPrev);
 
-    // Direct page number input
+    // Direct Page Number Input
     document.getElementById('pageNumberInput').addEventListener('change', (e) => {
       const targetPage = parseInt(e.target.value, 10);
       if (targetPage >= 1 && targetPage <= totalPages && pageFlip) {
@@ -1023,8 +1173,14 @@
     // Keyboard Shortcuts
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') handleClose();
-      if (e.key === 'ArrowRight' || e.key === ' ') flipNext();
-      if (e.key === 'ArrowLeft') flipPrev();
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        flipNext();
+      }
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        flipPrev();
+      }
       if (e.key === 'f' || e.key === 'F') toggleFullscreen();
       if (e.key === 'm' || e.key === 'M') {
         isSoundEnabled = !isSoundEnabled;
@@ -1032,32 +1188,83 @@
       }
     });
 
-    // Zoom Controls
+    // Zoom Controls & Pan
+    const bookWrapper = document.getElementById('bookWrapper');
+
+    function applyZoomTransform() {
+      if (currentScale <= 1.0) {
+        translateX = 0;
+        translateY = 0;
+        bookWrapper.style.cursor = 'default';
+        bookWrapper.style.transform = `scale(${currentScale})`;
+      } else {
+        bookWrapper.style.cursor = 'grab';
+        bookWrapper.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentScale})`;
+      }
+    }
+
     document.getElementById('zoomInBtn').addEventListener('click', () => {
-      currentScale = Math.min(currentScale + 0.15, 1.6);
-      document.getElementById('bookWrapper').style.transform = `scale(${currentScale})`;
+      currentScale = Math.min(currentScale + 0.2, 1.8);
+      applyZoomTransform();
     });
     document.getElementById('zoomOutBtn').addEventListener('click', () => {
-      currentScale = Math.max(currentScale - 0.15, 0.7);
-      document.getElementById('bookWrapper').style.transform = `scale(${currentScale})`;
+      currentScale = Math.max(currentScale - 0.2, 0.8);
+      applyZoomTransform();
     });
 
-    // Thumbnails Drawer
+    // Double-click to toggle zoom
+    bookWrapper.addEventListener('dblclick', () => {
+      currentScale = currentScale > 1.0 ? 1.0 : 1.35;
+      applyZoomTransform();
+    });
+
+    // Mouse drag to pan when zoomed
+    bookWrapper.addEventListener('mousedown', (e) => {
+      if (currentScale > 1.0) {
+        isPanning = true;
+        panStartX = e.clientX - translateX;
+        panStartY = e.clientY - translateY;
+        bookWrapper.style.cursor = 'grabbing';
+      }
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (isPanning && currentScale > 1.0) {
+        translateX = e.clientX - panStartX;
+        translateY = e.clientY - panStartY;
+        applyZoomTransform();
+      }
+    });
+    window.addEventListener('mouseup', () => {
+      if (isPanning) {
+        isPanning = false;
+        bookWrapper.style.cursor = currentScale > 1.0 ? 'grab' : 'default';
+      }
+    });
+
+    // Lazy Thumbnails Drawer (Sequential non-blocking queue)
+    let thumbnailsInitialized = false;
     const drawer = document.getElementById('thumbnailsDrawer');
-    document.getElementById('toggleThumbnailsBtn').addEventListener('click', () => {
+    const toggleThumbnailsBtn = document.getElementById('toggleThumbnailsBtn');
+
+    toggleThumbnailsBtn.addEventListener('click', () => {
       drawer.classList.toggle('open');
-      document.getElementById('toggleThumbnailsBtn').classList.toggle('active');
+      toggleThumbnailsBtn.classList.toggle('active');
+      if (drawer.classList.contains('open') && !thumbnailsInitialized) {
+        initThumbnailsSequentially();
+      }
     });
     document.getElementById('closeDrawerBtn').addEventListener('click', () => {
       drawer.classList.remove('open');
-      document.getElementById('toggleThumbnailsBtn').classList.remove('active');
+      toggleThumbnailsBtn.classList.remove('active');
     });
 
-    async function initThumbnails() {
+    async function initThumbnailsSequentially() {
+      thumbnailsInitialized = true;
       const list = document.getElementById('thumbnailsList');
       list.innerHTML = '';
-      const thumbCount = Math.min(totalPages, 40);
+      const thumbCount = Math.min(totalPages, 50);
 
+      // Create placeholders first
       for (let i = 1; i <= thumbCount; i++) {
         const card = document.createElement('div');
         card.className = `thumb-card ${i === 1 ? 'active' : ''}`;
@@ -1069,22 +1276,29 @@
         card.addEventListener('click', () => {
           if (pageFlip) pageFlip.flip(i - 1);
           drawer.classList.remove('open');
-          document.getElementById('toggleThumbnailsBtn').classList.remove('active');
+          toggleThumbnailsBtn.classList.remove('active');
         });
         list.appendChild(card);
+      }
 
-        // Lazy render thumbnail
-        pdfDoc.getPage(i).then(page => {
+      // Render thumbnails sequentially with a small delay to avoid thread lock
+      for (let i = 1; i <= thumbCount; i++) {
+        if (!drawer.classList.contains('open') && i > 10) break; // Pause if drawer closed
+        try {
+          const page = await pdfDoc.getPage(i);
           const tCanvas = document.getElementById(`thumb-canvas-${i}`);
-          if (!tCanvas) return;
-          const vp = page.getViewport({ scale: 0.28 });
-          tCanvas.width = vp.width;
-          tCanvas.height = vp.height;
-          page.render({
-            canvasContext: tCanvas.getContext('2d'),
-            viewport: vp
-          });
-        });
+          if (tCanvas) {
+            const vp = page.getViewport({ scale: 0.22 });
+            tCanvas.width = vp.width;
+            tCanvas.height = vp.height;
+            await page.render({
+              canvasContext: tCanvas.getContext('2d'),
+              viewport: vp
+            }).promise;
+          }
+          // Tiny pause for 60fps rendering
+          await new Promise(r => setTimeout(r, 25));
+        } catch (e) {}
       }
     }
 
@@ -1097,20 +1311,22 @@
       }
     }
 
-    // Handle Window Resize
+    // Window Resize Debounce
     let resizeTimer;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
         if (pageFlip) {
           const dims = calculateBookDimensions();
-          pageFlip.update({
-            width: dims.width,
-            height: dims.height,
-            usePortrait: dims.usePortrait
-          });
+          try {
+            pageFlip.update({
+              width: dims.width,
+              height: dims.height,
+              usePortrait: dims.usePortrait
+            });
+          } catch(e) {}
         }
-      }, 250);
+      }, 300);
     });
 
     // Start loading book

@@ -4830,6 +4830,9 @@
         closeEbookModal();
       } else if (e.data && e.data.action === 'TOGGLE_FULLSCREEN') {
         toggleModalFullscreen();
+      } else if (e.data && e.data.action === 'EBOOK_READY') {
+        const loader = document.getElementById('ebookWindowLoader');
+        if (loader) loader.classList.add('hidden');
       }
     });
 
