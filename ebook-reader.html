@@ -577,25 +577,155 @@
       transition: width 0.2s ease;
     }
 
-    /* RESPONSIVE DESIGN */
+    /* RESPONSIVE DESIGN & MOBILE OPTIMIZATIONS */
     @media (max-width: 1100px) {
       .book-title-text { max-width: 180px; }
       .badge-3d { display: none; }
     }
-    @media (max-width: 850px) {
-      .book-title-text { display: none; }
-      .tool-icon-btn span { display: none; }
-      .btn-devis-cta span { display: none; }
-      .floating-arrow { width: 44px; height: 44px; font-size: 1.1rem; }
-      .reader-stage { padding: 10px; }
-      .turn-hint-bar { display: none; }
+    @media (max-width: 768px) {
+      .reader-toolbar {
+        height: 54px;
+        min-height: 54px;
+        padding: 0 10px;
+      }
+      .logo-navbar {
+        height: 38px;
+        max-height: 40px;
+      }
+      .book-meta {
+        display: none !important;
+      }
+      .toolbar-center {
+        padding: 2px 8px;
+        gap: 4px;
+      }
+      .page-counter-box {
+        font-size: 0.80rem;
+      }
+      .page-input-num {
+        width: 32px;
+        font-size: 0.82rem;
+        padding: 2px 0;
+      }
+      .nav-arrow-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.82rem;
+      }
+      /* Cacher les boutons secondaires du haut sur mobile pour aérer la barre */
+      #themeToggleBtn,
+      #soundToggleBtn,
+      #zoomOutBtn,
+      #zoomInBtn,
+      #toggleThumbnailsBtn,
+      #fullscreenToggleBtn,
+      .btn-devis-cta {
+        display: none !important;
+      }
+      .tool-icon-btn {
+        padding: 6px 10px;
+      }
+      .btn-close-app {
+        padding: 6px 12px;
+        font-size: 0.82rem;
+      }
+      .reader-stage {
+        padding: 8px 6px 64px; /* Espace pour le dock mobile en bas */
+      }
+      .floating-arrow {
+        display: none !important;
+      }
+      .turn-hint-bar {
+        display: none !important;
+      }
     }
-    @media (max-width: 600px) {
-      .reader-toolbar { padding: 0 8px; }
-      .toolbar-center { padding: 2px 6px; gap: 3px; }
-      .page-input-num { width: 34px; font-size: 0.8rem; }
-      .floating-arrow { display: none; }
+    @media (max-width: 480px) {
+      .reader-toolbar { padding: 0 6px; }
       .btn-close-app span { display: none; }
+      .btn-close-app { padding: 6px 10px; }
+    }
+
+    /* Floating Mobile Navigation Dock */
+    .mobile-reader-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 54px;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1.5px solid #cbd5e1;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+      z-index: 100;
+      box-shadow: 0 -4px 16px rgba(0, 26, 51, 0.08);
+      padding-bottom: max(6px, env(safe-area-inset-bottom));
+    }
+    body:not(.light-theme) .mobile-reader-bar {
+      background: rgba(15, 23, 42, 0.96);
+      border-top-color: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.4);
+    }
+    @media (max-width: 768px) {
+      .mobile-reader-bar {
+        display: flex;
+      }
+    }
+    .mob-bar-btn {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      color: var(--primary-blue);
+      border-radius: 50px;
+      padding: 7px 15px;
+      font-size: 0.80rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    body:not(.light-theme) .mob-bar-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+    }
+    .mob-bar-btn:active {
+      background: var(--accent-red);
+      color: #ffffff;
+      border-color: var(--accent-red);
+    }
+    .mob-bar-icon-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .mob-icon-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      color: var(--primary-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    body:not(.light-theme) .mob-icon-circle {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+    }
+    .mob-icon-circle:active {
+      background: var(--accent-red);
+      color: #ffffff;
+      border-color: var(--accent-red);
     }
   </style>
 </head>
@@ -729,6 +859,27 @@
         <div class="loader-progress-bar" id="loaderProgressBar"></div>
       </div>
     </div>
+
+    <!-- Floating Mobile Navigation Dock for iPhone / Smartphone -->
+    <nav class="mobile-reader-bar" id="mobileReaderBar">
+      <button class="mob-bar-btn" id="mobPrevBtn">
+        <i class="bi bi-chevron-left"></i> <span>Précédent</span>
+      </button>
+      <div class="mob-bar-icon-group">
+        <button class="mob-icon-circle" id="mobZoomOutBtn" title="Zoom -">
+          <i class="bi bi-zoom-out"></i>
+        </button>
+        <button class="mob-icon-circle" id="mobZoomInBtn" title="Zoom +">
+          <i class="bi bi-zoom-in"></i>
+        </button>
+        <button class="mob-icon-circle" id="mobThumbsBtn" title="Vignettes">
+          <i class="bi bi-grid-fill"></i>
+        </button>
+      </div>
+      <button class="mob-bar-btn" id="mobNextBtn">
+        <span>Suivant</span> <i class="bi bi-chevron-right"></i>
+      </button>
+    </nav>
 
   </main>
 
@@ -902,6 +1053,7 @@
       const stage = document.getElementById('readerStage');
       const stageW = stage.clientWidth || window.innerWidth;
       const stageH = stage.clientHeight || (window.innerHeight - 64);
+      const isMobile = window.innerWidth <= 768;
 
       const ratio = 1.414; // A4 standard proportion
       const isLandscape = stageW >= 900 && (stageW - 100) > (stageH - 40);
@@ -916,16 +1068,17 @@
         pageW = Math.round(pageH / ratio);
       } else {
         // Single-page mobile / portrait
-        const maxH = Math.min(stageH - 40, 780);
-        const maxW = Math.min(stageW - 40, 520);
+        // Take into account 54px mobile bottom dock
+        const availH = isMobile ? Math.min(stageH - 70, window.innerHeight - 120) : (stageH - 40);
+        const availW = isMobile ? Math.min(stageW - 16, 520) : Math.min(stageW - 40, 520);
         
-        pageH = Math.min(maxH, Math.round(maxW * ratio));
+        pageH = Math.min(availH, Math.round(availW * ratio));
         pageW = Math.round(pageH / ratio);
       }
 
       return {
-        width: Math.max(pageW, 260),
-        height: Math.max(pageH, 360),
+        width: Math.max(pageW, 220),
+        height: Math.max(pageH, 310),
         usePortrait: !isLandscape
       };
     }
@@ -1159,6 +1312,67 @@
     document.getElementById('prevBtn').addEventListener('click', flipPrev);
     document.getElementById('floatNext').addEventListener('click', flipNext);
     document.getElementById('floatPrev').addEventListener('click', flipPrev);
+
+    // Mobile Navigation Dock Listeners
+    const mobPrevBtn = document.getElementById('mobPrevBtn');
+    const mobNextBtn = document.getElementById('mobNextBtn');
+    const mobZoomInBtn = document.getElementById('mobZoomInBtn');
+    const mobZoomOutBtn = document.getElementById('mobZoomOutBtn');
+    const mobThumbsBtn = document.getElementById('mobThumbsBtn');
+
+    if (mobPrevBtn) mobPrevBtn.addEventListener('click', flipPrev);
+    if (mobNextBtn) mobNextBtn.addEventListener('click', flipNext);
+    if (mobZoomInBtn) {
+      mobZoomInBtn.addEventListener('click', () => {
+        currentScale = Math.min(currentScale + 0.25, 2.0);
+        applyZoomTransform();
+      });
+    }
+    if (mobZoomOutBtn) {
+      mobZoomOutBtn.addEventListener('click', () => {
+        currentScale = Math.max(currentScale - 0.25, 0.8);
+        applyZoomTransform();
+      });
+    }
+    if (mobThumbsBtn) {
+      mobThumbsBtn.addEventListener('click', () => {
+        const drawer = document.getElementById('thumbnailsDrawer');
+        if (drawer) {
+          drawer.classList.toggle('open');
+          if (drawer.classList.contains('open') && !thumbnailsInitialized) {
+            initThumbnailsSequentially();
+          }
+        }
+      });
+    }
+
+    // Mobile Touch Gesture Support (Swipe left/right to flip pages)
+    let touchStartX = 0, touchStartY = 0;
+    const bookWrapperElem = document.getElementById('bookWrapper');
+    if (bookWrapperElem) {
+      bookWrapperElem.addEventListener('touchstart', (e) => {
+        if (currentScale > 1.0) return; // Allow pinch/zoom panning
+        if (e.touches && e.touches.length === 1) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      bookWrapperElem.addEventListener('touchend', (e) => {
+        if (currentScale > 1.0) return;
+        if (e.changedTouches && e.changedTouches.length === 1) {
+          const diffX = e.changedTouches[0].clientX - touchStartX;
+          const diffY = e.changedTouches[0].clientY - touchStartY;
+          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
+            if (diffX < 0) {
+              flipNext();
+            } else {
+              flipPrev();
+            }
+          }
+        }
+      }, { passive: true });
+    }
 
     // Direct Page Number Input
     document.getElementById('pageNumberInput').addEventListener('change', (e) => {
