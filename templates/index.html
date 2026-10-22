@@ -825,7 +825,7 @@
         flex-direction: column;
         height: auto;
         gap: 16px;
-        margin: 14px 0 24px;
+        margin: 12px 0 24px;
       }
       .service-acc-panel {
         min-height: 350px !important;
@@ -833,12 +833,12 @@
         border-radius: 18px;
         box-shadow: 0 10px 28px rgba(0, 18, 36, 0.2);
         border: 1.5px solid rgba(255, 255, 255, 0.18);
-        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        transition: border-color 0.25s ease, box-shadow 0.25s ease;
       }
       .service-acc-panel.is-in-view,
       .service-acc-panel:active {
-        border-color: rgba(204, 0, 0, 0.75);
-        box-shadow: 0 14px 36px rgba(204, 0, 0, 0.25);
+        border-color: rgba(204, 0, 0, 0.8);
+        box-shadow: 0 14px 36px rgba(204, 0, 0, 0.28);
       }
       .service-acc-title {
         font-size: 1.22rem;
@@ -881,19 +881,33 @@
       }
     }
 
-    /* Fast-Scroll Chips for Mobile Services */
+    /* Sticky Fast-Scroll Chips for Mobile Services */
+    .services-mobile-chips-wrapper {
+      position: sticky;
+      top: 50px;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      margin: -4px -14px 14px;
+      padding: 8px 14px;
+      border-bottom: 1px solid rgba(0, 51, 102, 0.08);
+      border-top: 1px solid rgba(0, 51, 102, 0.04);
+    }
     .services-mobile-chips {
       scrollbar-width: none;
       -ms-overflow-style: none;
       -webkit-overflow-scrolling: touch;
-      padding: 4px 2px 10px;
+      display: flex;
+      gap: 8px;
+      padding: 2px 2px 4px;
     }
     .services-mobile-chips::-webkit-scrollbar {
       display: none;
     }
     .serv-mob-chip {
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
+      background: #f1f5f9;
+      border: 1.5px solid #cbd5e1;
       color: var(--primary-blue);
       font-size: 0.78rem;
       font-weight: 700;
@@ -901,16 +915,27 @@
       border-radius: 50px;
       white-space: nowrap;
       flex-shrink: 0;
-      transition: all 0.25s ease;
+      transition: all 0.2s ease;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .serv-mob-chip i {
+      font-size: 0.85rem;
+      color: var(--accent-red);
+      transition: color 0.2s ease;
     }
     .serv-mob-chip:hover,
     .serv-mob-chip.active {
       background: var(--accent-red);
       color: #ffffff;
       border-color: var(--accent-red);
-      box-shadow: 0 4px 12px rgba(204, 0, 0, 0.28);
+      box-shadow: 0 4px 14px rgba(204, 0, 0, 0.35);
+    }
+    .serv-mob-chip.active i {
+      color: #ffffff;
     }
 
     /* Active / Hover flex expansion on desktop */
@@ -1070,17 +1095,35 @@
     }
 
     .service-acc-icon-badge {
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
       border-radius: 14px;
-      background: linear-gradient(135deg, var(--accent-red), #990000);
+      background: linear-gradient(135deg, #cc0000 0%, #990000 100%);
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.35rem;
-      color: #fff;
-      box-shadow: 0 6px 16px rgba(204, 0, 0, 0.4);
-      margin-bottom: 12px;
+      font-size: 1.45rem;
+      color: #ffffff;
+      box-shadow: 0 8px 22px rgba(204, 0, 0, 0.45);
+      margin-bottom: 14px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-acc-panel:hover .service-acc-icon-badge,
+    .service-acc-panel.active .service-acc-icon-badge {
+      transform: scale(1.08);
+      box-shadow: 0 10px 25px rgba(204, 0, 0, 0.6);
+    }
+    @media (max-width: 767.98px) {
+      .service-acc-icon-badge {
+        width: 44px;
+        height: 44px;
+        font-size: 1.25rem;
+        border-radius: 12px;
+        margin-bottom: 10px;
+      }
     }
     .service-acc-title {
       font-family: 'Outfit', sans-serif;
@@ -1104,17 +1147,22 @@
       margin-bottom: 16px;
     }
     .service-acc-chip {
-      background: rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.18);
       backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       color: #ffffff;
-      font-size: 0.72rem;
+      font-size: 0.74rem;
       font-weight: 700;
-      padding: 3px 10px;
+      padding: 4px 11px;
       border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.28);
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
+    }
+    .service-acc-chip i {
+      color: #ff4d4d;
+      font-size: 0.8rem;
     }
     .service-acc-btn {
       background: linear-gradient(135deg, var(--accent-red) 0%, #a80000 100%);
@@ -2782,9 +2830,9 @@
       
       <!-- Section Header Extérieur -->
       <div class="text-center mb-4" data-aos="fade-up">
-        <span class="badge-sub"><i class="bi bi-gear-wide-connected me-1"></i> Solutions Clés en Main BTP &amp; Industrie</span>
+        <span class="badge-sub"><i class="fa-solid fa-gear me-1"></i> Solutions Clés en Main BTP &amp; Industrie</span>
         <h2 class="section-title mb-2">
-          <i class="bi bi-gear-fill text-danger me-2"></i> Nos Services &amp; Ingénierie
+          <i class="fa-solid fa-gears text-danger me-2"></i> Nos Services &amp; Ingénierie
         </h2>
         <p class="section-sub mb-0" style="max-width: 780px;">
           De la modélisation 3D au reconditionnement : <strong>5 pôles d'expertise intégrés</strong> pour sécuriser, optimiser et accélérer la réalisation de vos projets.
@@ -2816,20 +2864,22 @@
           </div>
         </div>
 
-        <!-- Sélecteur rapide tactile pour Mobile & iPhone -->
-        <div class="services-mobile-chips d-flex d-md-none gap-2 overflow-auto" id="servicesMobileChips">
-          <button type="button" class="serv-mob-chip active" data-target="service-card-01"><i class="bi bi-tools me-1"></i>01 Fabrication</button>
-          <button type="button" class="serv-mob-chip" data-target="service-card-02"><i class="bi bi-pencil-ruler me-1"></i>02 Ingénierie</button>
-          <button type="button" class="serv-mob-chip" data-target="service-card-03"><i class="bi bi-wrench-adjustable me-1"></i>03 Montage</button>
-          <button type="button" class="serv-mob-chip" data-target="service-card-04"><i class="bi bi-box-seam-fill me-1"></i>04 Location</button>
-          <button type="button" class="serv-mob-chip" data-target="service-card-05"><i class="bi bi-arrow-clockwise me-1"></i>05 Maintenance</button>
+        <!-- Sélecteur rapide tactile pour Mobile & iPhone (Sticky & fluide) -->
+        <div class="services-mobile-chips-wrapper d-block d-md-none">
+          <div class="services-mobile-chips" id="servicesMobileChips">
+            <button type="button" class="serv-mob-chip active" data-target="service-card-01"><i class="fa-solid fa-industry"></i> 01 Fabrication</button>
+            <button type="button" class="serv-mob-chip" data-target="service-card-02"><i class="fa-solid fa-compass-drafting"></i> 02 Ingénierie</button>
+            <button type="button" class="serv-mob-chip" data-target="service-card-03"><i class="fa-solid fa-layer-group"></i> 03 Montage</button>
+            <button type="button" class="serv-mob-chip" data-target="service-card-04"><i class="fa-solid fa-truck-moving"></i> 04 Location</button>
+            <button type="button" class="serv-mob-chip" data-target="service-card-05"><i class="fa-solid fa-gears"></i> 05 Maintenance</button>
+          </div>
         </div>
 
         <!-- ACCORDÉON PANORAMIQUE EXPANSIBLE (LES 5 SERVICES OFFICIELS ACROW DZ) -->
         <div class="services-accordion-wrap" id="servicesAccordion">
 
           <!-- 01. Fabrication de Coffrage Métallique & Échafaudage (Active by default) -->
-          <div class="service-acc-panel active" data-service="01" id="service-card-01" data-aos="fade-up" data-aos-offset="50">
+          <div class="service-acc-panel active" data-service="01" id="service-card-01">
             <img src="assets/images/metal.jpeg" alt="Fabrication de Coffrage Métallique & Échafaudage ACROW DZ" class="service-acc-bg" />
             <div class="service-acc-overlay"></div>
             
@@ -2840,32 +2890,32 @@
 
             <div class="service-acc-collapsed-label">
               <div class="service-acc-collapsed-icon">
-                <i class="bi bi-tools"></i>
+                <i class="fa-solid fa-industry"></i>
               </div>
               <div class="service-acc-collapsed-text">Fabrication Métallique</div>
             </div>
 
             <div class="service-acc-expanded">
-              <div class="service-acc-icon-badge" style="background: linear-gradient(135deg, #003366, #001a33);">
-                <i class="bi bi-tools"></i>
+              <div class="service-acc-icon-badge">
+                <i class="fa-solid fa-industry"></i>
               </div>
               <h4 class="service-acc-title">Fabrication de Coffrage Métallique &amp; Échafaudage</h4>
               <p class="service-acc-desc">
                 Systèmes durables et de haute qualité, conçus et fabriqués sur-mesure pour vos projets.
               </p>
               <div class="service-acc-chips">
-                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Systèmes Durables</span>
-                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Haute Qualité</span>
-                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Sur-Mesure</span>
+                <span class="service-acc-chip"><i class="fa-solid fa-check"></i> Systèmes Durables</span>
+                <span class="service-acc-chip"><i class="fa-solid fa-check"></i> Haute Qualité</span>
+                <span class="service-acc-chip"><i class="fa-solid fa-check"></i> Sur-Mesure</span>
               </div>
               <a href="devis.html" class="service-acc-btn">
-                <span>Devis Fabrication</span> <i class="bi bi-arrow-right"></i>
+                <span>Devis Fabrication</span> <i class="fa-solid fa-arrow-right ms-1"></i>
               </a>
             </div>
           </div>
 
           <!-- 02. Ingénierie & Analyse de Projet -->
-          <div class="service-acc-panel" data-service="02" id="service-card-02" data-aos="fade-up" data-aos-offset="50">
+          <div class="service-acc-panel" data-service="02" id="service-card-02">
             <img src="assets/images/etude.jpg" alt="Ingénierie & Analyse de Projet" class="service-acc-bg" />
             <div class="service-acc-overlay"></div>
             
@@ -2876,32 +2926,32 @@
 
             <div class="service-acc-collapsed-label">
               <div class="service-acc-collapsed-icon">
-                <i class="bi bi-pencil-ruler"></i>
+                <i class="fa-solid fa-compass-drafting"></i>
               </div>
               <div class="service-acc-collapsed-text">Ingénierie &amp; Analyse</div>
             </div>
 
             <div class="service-acc-expanded">
               <div class="service-acc-icon-badge">
-                <i class="bi bi-pencil-ruler"></i>
+                <i class="fa-solid fa-compass-drafting"></i>
               </div>
               <h4 class="service-acc-title">Ingénierie &amp; Analyse de Projet</h4>
               <p class="service-acc-desc">
                 Études détaillées, calculs de charge certifiés et solutions techniques optimisées.
               </p>
               <div class="service-acc-chips">
-                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Études Détaillées</span>
-                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Calculs de Charge</span>
-                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Solutions Optimisées</span>
+                <span class="service-acc-chip"><i class="fa-solid fa-check"></i> Études Détaillées</span>
+                <span class="service-acc-chip"><i class="fa-solid fa-check"></i> Calculs de Charge</span>
+                <span class="service-acc-chip"><i class="fa-solid fa-check"></i> Solutions Optimisées</span>
               </div>
               <a href="devis.html" class="service-acc-btn">
-                <span>Demander une Étude</span> <i class="bi bi-arrow-right"></i>
+                <span>Demander une Étude</span> <i class="fa-solid fa-arrow-right ms-1"></i>
               </a>
             </div>
           </div>
 
           <!-- 03. Solutions Systèmes Innovantes & Montage sur Site -->
-          <div class="service-acc-panel" data-service="03" id="service-card-03" data-aos="fade-up" data-aos-offset="50">
+          <div class="service-acc-panel" data-service="03" id="service-card-03">
             <img src="assets/images/echa.jpeg" alt="Solutions Systèmes Innovantes & Montage sur Site" class="service-acc-bg" />
             <div class="service-acc-overlay"></div>
             
@@ -2912,32 +2962,32 @@
 
             <div class="service-acc-collapsed-label">
               <div class="service-acc-collapsed-icon">
-                <i class="bi bi-wrench-adjustable"></i>
+                <i class="fa-solid fa-layer-group"></i>
               </div>
               <div class="service-acc-collapsed-text">Solutions &amp; Montage</div>
             </div>
 
             <div class="service-acc-expanded">
-              <div class="service-acc-icon-badge" style="background: linear-gradient(135deg, #003366, #001a33);">
-                <i class="bi bi-wrench-adjustable"></i>
+              <div class="service-acc-icon-badge">
+                <i class="fa-solid fa-layer-group"></i>
               </div>
               <h4 class="service-acc-title">Solutions Systèmes Innovantes &amp; Montage sur Site</h4>
               <p class="service-acc-desc">
                 Systèmes rentables et innovants avec installation et montage professionnels sur site.
               </p>
               <div class="service-acc-chips">
-                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Systèmes Rentables</span>
-                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Montage Professionnel</span>
-                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Sécurité 100% EN</span>
+                <span class="service-acc-chip"><i class="fa-solid fa-check"></i> Systèmes Rentables</span>
+                <span class="service-acc-chip"><i class="fa-solid fa-check"></i> Montage Professionnel</span>
+                <span class="service-acc-chip"><i class="fa-solid fa-check"></i> Sécurité 100% EN</span>
               </div>
               <a href="devis.html" class="service-acc-btn">
-                <span>Assistance Montage</span> <i class="bi bi-arrow-right"></i>
+                <span>Assistance Montage</span> <i class="fa-solid fa-arrow-right ms-1"></i>
               </a>
             </div>
           </div>
 
           <!-- 04. Services de Vente & Location -->
-          <div class="service-acc-panel" data-service="04" id="service-card-04" data-aos="fade-up" data-aos-offset="50">
+          <div class="service-acc-panel" data-service="04" id="service-card-04">
             <img src="assets/images/location.jpg" alt="Services de Vente & Location ACROW DZ" class="service-acc-bg" />
             <div class="service-acc-overlay"></div>
             
@@ -2948,32 +2998,32 @@
 
             <div class="service-acc-collapsed-label">
               <div class="service-acc-collapsed-icon">
-                <i class="bi bi-box-seam-fill"></i>
+                <i class="fa-solid fa-truck-moving"></i>
               </div>
               <div class="service-acc-collapsed-text">Vente &amp; Location</div>
             </div>
 
             <div class="service-acc-expanded">
-              <div class="service-acc-icon-badge" style="background: linear-gradient(135deg, #cc0000, #880000);">
-                <i class="bi bi-box-seam-fill"></i>
+              <div class="service-acc-icon-badge">
+                <i class="fa-solid fa-truck-moving"></i>
               </div>
               <h4 class="service-acc-title">Services de Vente &amp; Location</h4>
               <p class="service-acc-desc">
                 Coffrages et échafaudages fiables disponibles à l'achat ou en formule de location.
               </p>
               <div class="service-acc-chips">
-                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Matériel Fiable</span>
-                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Vente &amp; Location</span>
-                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> 58 Wilayas</span>
+                <span class="service-acc-chip"><i class="fa-solid fa-check"></i> Matériel Fiable</span>
+                <span class="service-acc-chip"><i class="fa-solid fa-check"></i> Vente &amp; Location</span>
+                <span class="service-acc-chip"><i class="fa-solid fa-check"></i> 58 Wilayas</span>
               </div>
               <a href="devis.html" class="service-acc-btn">
-                <span>Consulter le Parc</span> <i class="bi bi-arrow-right"></i>
+                <span>Consulter le Parc</span> <i class="fa-solid fa-arrow-right ms-1"></i>
               </a>
             </div>
           </div>
 
           <!-- 05. Maintenance & Reconditionnement -->
-          <div class="service-acc-panel" data-service="05" id="service-card-05" data-aos="fade-up" data-aos-offset="50">
+          <div class="service-acc-panel" data-service="05" id="service-card-05">
             <img src="assets/images/cofrage.jpg" alt="Maintenance & Reconditionnement ACROW DZ" class="service-acc-bg" />
             <div class="service-acc-overlay"></div>
             
@@ -2984,26 +3034,26 @@
 
             <div class="service-acc-collapsed-label">
               <div class="service-acc-collapsed-icon">
-                <i class="bi bi-arrow-clockwise"></i>
+                <i class="fa-solid fa-gears"></i>
               </div>
               <div class="service-acc-collapsed-text">Maintenance &amp; SAV</div>
             </div>
 
             <div class="service-acc-expanded">
-              <div class="service-acc-icon-badge" style="background: linear-gradient(135deg, #003366, #001a33);">
-                <i class="bi bi-arrow-clockwise"></i>
+              <div class="service-acc-icon-badge">
+                <i class="fa-solid fa-gears"></i>
               </div>
               <h4 class="service-acc-title">Maintenance &amp; Reconditionnement</h4>
               <p class="service-acc-desc">
                 Réparation experte, remise à neuf et prolongation de la durée de vie des équipements.
               </p>
               <div class="service-acc-chips">
-                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Réparation Experte</span>
-                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Remise à Neuf</span>
-                <span class="service-acc-chip"><i class="bi bi-check2 text-danger"></i> Longévité Prolongée</span>
+                <span class="service-acc-chip"><i class="fa-solid fa-check"></i> Réparation Experte</span>
+                <span class="service-acc-chip"><i class="fa-solid fa-check"></i> Remise à Neuf</span>
+                <span class="service-acc-chip"><i class="fa-solid fa-check"></i> Longévité Prolongée</span>
               </div>
               <a href="devis.html" class="service-acc-btn">
-                <span>Diagnostic SAV</span> <i class="bi bi-arrow-right"></i>
+                <span>Diagnostic SAV</span> <i class="fa-solid fa-arrow-right ms-1"></i>
               </a>
             </div>
           </div>
@@ -3016,7 +3066,7 @@
             
             <div class="col-md-4 d-flex align-items-center justify-content-center justify-content-md-start gap-3">
               <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:40px;height:40px;font-size:1.15rem;background:rgba(204,0,0,0.08);color:#cc0000;border:1px solid rgba(204,0,0,0.18);">
-                <i class="bi bi-shield-check"></i>
+                <i class="fa-solid fa-shield-halved"></i>
               </div>
               <div>
                 <div class="fw-bold small text-dark">Conformité EN &amp; ISO</div>
@@ -3026,7 +3076,7 @@
 
             <div class="col-md-4 d-flex align-items-center justify-content-center justify-content-md-start gap-3">
               <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:40px;height:40px;font-size:1.15rem;background:rgba(0,51,102,0.08);color:#003366;border:1px solid rgba(0,51,102,0.18);">
-                <i class="bi bi-truck"></i>
+                <i class="fa-solid fa-truck-fast"></i>
               </div>
               <div>
                 <div class="fw-bold small text-dark">Flotte 58 Wilayas</div>
@@ -3036,7 +3086,7 @@
 
             <div class="col-md-4 d-flex align-items-center justify-content-center justify-content-md-start gap-3">
               <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:40px;height:40px;font-size:1.15rem;background:rgba(25,135,84,0.08);color:#198754;border:1px solid rgba(25,135,84,0.18);">
-                <i class="bi bi-clock-history"></i>
+                <i class="fa-solid fa-clock-rotate-left"></i>
               </div>
               <div>
                 <div class="fw-bold small text-dark">Devis Réactif sous 24h</div>
@@ -5052,29 +5102,46 @@
         });
       }
 
-      // Mobile Fast-Scroll Chips Click
+      // Mobile Fast-Scroll Chips Click & Safe Scroll
+      var isManualClick = false;
+      var manualClickTimer = null;
+      var chipContainer = document.getElementById('servicesMobileChips');
+
       mobChips.forEach(function (chip) {
         chip.addEventListener('click', function () {
           var targetId = this.getAttribute('data-target');
           var targetEl = document.getElementById(targetId);
           if (targetEl) {
-            var headerOffset = 68;
+            isManualClick = true;
+            clearTimeout(manualClickTimer);
+            manualClickTimer = setTimeout(function () { isManualClick = false; }, 850);
+
+            mobChips.forEach(function (c) { c.classList.remove('active'); });
+            this.classList.add('active');
+
+            // Scroll active chip horizontally within its container
+            if (chipContainer) {
+              var targetLeft = this.offsetLeft - (chipContainer.clientWidth / 2) + (this.clientWidth / 2);
+              chipContainer.scrollTo({ left: targetLeft, behavior: 'smooth' });
+            }
+
+            // Scroll window vertically to the target card
+            var headerOffset = 95; // Accounts for top navbar + sticky chips bar
             var elementPosition = targetEl.getBoundingClientRect().top;
             var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
             window.scrollTo({
               top: offsetPosition,
               behavior: 'smooth'
             });
-
-            mobChips.forEach(function (c) { c.classList.remove('active'); });
-            this.classList.add('active');
           }
         });
       });
 
-      // Mobile IntersectionObserver on Scroll (Highlight & sync active chip)
+      // Mobile IntersectionObserver on Scroll (Highlights & syncs chip without touching window scroll)
       if ('IntersectionObserver' in window && window.innerWidth < 768) {
         var serviceObserver = new IntersectionObserver(function (entries) {
+          if (isManualClick) return; // Do not interrupt manual clicks
+
           entries.forEach(function (entry) {
             if (entry.isIntersecting) {
               var panelId = entry.target.id;
@@ -5084,7 +5151,11 @@
               mobChips.forEach(function (chip) {
                 if (chip.getAttribute('data-target') === panelId) {
                   chip.classList.add('active');
-                  chip.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                  // Safely scroll ONLY the horizontal chip container, NEVER the window!
+                  if (chipContainer) {
+                    var targetLeft = chip.offsetLeft - (chipContainer.clientWidth / 2) + (chip.clientWidth / 2);
+                    chipContainer.scrollTo({ left: targetLeft, behavior: 'smooth' });
+                  }
                 } else {
                   chip.classList.remove('active');
                 }
@@ -5093,7 +5164,7 @@
           });
         }, {
           root: null,
-          rootMargin: '-15% 0px -40% 0px',
+          rootMargin: '-20% 0px -40% 0px',
           threshold: 0.15
         });
 
