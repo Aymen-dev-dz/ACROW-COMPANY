@@ -4867,60 +4867,18 @@
           return 380;
         }
 
-        // --- SLIDE AUTOMATIQUE DU CARROUSEL GLOBAL (DOUX & CALME) ---
-        let autoProjTimer = null;
-        const AUTOPLAY_INTERVAL = 6500; // Défilement doux entre cartes toutes les 6.5 secondes
-
-        function autoSlideNext() {
-          const step = getScrollStep();
-          const maxScroll = track.scrollWidth - track.clientWidth;
-
-          // Si on arrive vers la fin du slider, on revient doucement au début
-          if (track.scrollLeft >= maxScroll - 30) {
-            track.scrollTo({ left: 0, behavior: 'smooth' });
-          } else {
-            track.scrollBy({ left: step, behavior: 'smooth' });
-          }
-        }
-
-        function startProjAutoSlide() {
-          stopProjAutoSlide();
-          autoProjTimer = setInterval(autoSlideNext, AUTOPLAY_INTERVAL);
-        }
-
-        function stopProjAutoSlide() {
-          if (autoProjTimer) {
-            clearInterval(autoProjTimer);
-            autoProjTimer = null;
-          }
-        }
-
+        // --- NAVIGATION MANUELLE DU TRACK DE CARTES (AUCUN DÉFILEMENT AUTOMATIQUE DES CARTES) ---
         if (prevBtn) {
           prevBtn.addEventListener('click', () => {
             track.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
-            startProjAutoSlide();
           });
         }
 
         if (nextBtn) {
           nextBtn.addEventListener('click', () => {
             track.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
-            startProjAutoSlide();
           });
         }
-
-        // Pause quand la souris survole le carrousel pour laisser l'utilisateur explorer
-        if (sliderContainer) {
-          sliderContainer.addEventListener('mouseenter', stopProjAutoSlide);
-          sliderContainer.addEventListener('mouseleave', startProjAutoSlide);
-        }
-
-        // Gestion du tactile (mobile/tablette)
-        track.addEventListener('touchstart', stopProjAutoSlide, { passive: true });
-        track.addEventListener('touchend', startProjAutoSlide, { passive: true });
-
-        // Démarrer l'autoplay initial du carrousel global
-        startProjAutoSlide();
 
         // --- SLIDE AUTOMATIQUE DES PHOTOS À L'INTÉRIEUR DE CHAQUE PROJET ---
         const cardSliders = [];
@@ -5087,7 +5045,6 @@
 
             // Revenir au début du slider avec animation fluide
             track.scrollTo({ left: 0, behavior: 'smooth' });
-            startProjAutoSlide();
           });
         });
 
@@ -5104,7 +5061,6 @@
         let currentTitle = '';
 
         function openLightbox(photos, title, startIdx = 0) {
-          stopProjAutoSlide();
           cardSliders.forEach(s => s.stop());
           currentPhotos = photos;
           currentPhotoIdx = startIdx;
@@ -5117,7 +5073,6 @@
         function closeLightbox() {
           lightbox.classList.remove('active');
           document.body.style.overflow = '';
-          startProjAutoSlide();
           cardSliders.forEach(s => s.start());
         }
 
