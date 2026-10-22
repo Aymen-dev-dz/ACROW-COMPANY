@@ -375,7 +375,8 @@
        ========================================== */
     .hero {
       position: relative;
-      min-height: calc(88vh - var(--header-height-desktop));
+      min-height: calc(100vh - var(--header-height-desktop));
+      min-height: calc(100dvh - var(--header-height-desktop));
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -383,19 +384,58 @@
       color: var(--white);
       text-align: center;
       overflow: hidden;
-      padding: 60px 0 50px;
+      padding: 60px 20px 75px;
     }
     @media (max-width: 991.98px) {
       .hero {
-        min-height: calc(82vh - var(--header-height-mobile));
-        padding: 48px 0 38px;
+        min-height: calc(100vh - var(--header-height-mobile));
+        min-height: calc(100dvh - var(--header-height-mobile));
+        padding: 48px 16px 65px;
       }
     }
     @media (max-width: 575.98px) {
       .hero {
-        min-height: auto;
-        padding: 34px 0 28px;
+        min-height: calc(100vh - var(--header-height-mobile));
+        min-height: calc(100dvh - var(--header-height-mobile));
+        padding: 36px 14px 55px;
+        justify-content: center;
       }
+    }
+    .hero-scroll-down {
+      position: absolute;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      color: rgba(255, 255, 255, 0.88);
+      text-decoration: none;
+      font-size: 0.70rem;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      transition: all 0.25s ease;
+      opacity: 0.85;
+    }
+    .hero-scroll-down:hover {
+      color: #ffffff;
+      opacity: 1;
+      transform: translateX(-50%) translateY(3px);
+    }
+    .hero-scroll-icon {
+      font-size: 0.95rem;
+      animation: heroBounce 2s infinite ease-in-out;
+    }
+    @keyframes heroBounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(5px); }
+      60% { transform: translateY(2px); }
+    }
+    @media (max-height: 600px) {
+      .hero-scroll-down { display: none; }
     }
     .hero video.video-bg {
       position: absolute;
@@ -2022,13 +2062,34 @@
       height: 220px;
       background: #0b1528;
       overflow: hidden;
+      border-radius: 16px 16px 0 0;
     }
+    .zen-proj-slides-track {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .zen-proj-slide-img,
     .zen-proj-img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.45s ease;
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1;
+      opacity: 0;
+      transform: scale(1.02);
+      will-change: opacity, transform;
     }
+    .zen-proj-slide-img.active,
+    .zen-proj-img:not(.zen-proj-slide-img) {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 2;
+    }
+    .zen-proj-card:hover .zen-proj-slide-img.active,
     .zen-proj-card:hover .zen-proj-img {
       transform: scale(1.05);
     }
@@ -2060,20 +2121,84 @@
       letter-spacing: 0.5px;
     }
 
+    /* Mini Dots Indicator inside card */
+    .zen-proj-dots-bar {
+      position: absolute;
+      bottom: 10px;
+      left: 12px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      z-index: 5;
+      padding: 3px 8px;
+      background: rgba(0, 18, 36, 0.70);
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+    .zen-proj-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.45);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .zen-proj-dot.active {
+      width: 14px;
+      border-radius: 4px;
+      background: var(--accent-red);
+    }
 
     /* Photo Count */
     .zen-proj-count-badge {
       position: absolute;
       bottom: 10px;
       right: 10px;
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0, 18, 36, 0.75);
+      backdrop-filter: blur(6px);
       color: #ffffff;
       font-size: 0.70rem;
-      font-weight: 600;
+      font-weight: 700;
       padding: 3px 9px;
       border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
       z-index: 5;
+      transition: all 0.25s ease;
     }
+
+    /* Mini navigation arrows on card hover */
+    .zen-proj-mini-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(0, 18, 36, 0.78);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      cursor: pointer;
+      z-index: 6;
+      opacity: 0;
+      transition: all 0.25s ease;
+      padding: 0;
+    }
+    .zen-proj-card:hover .zen-proj-mini-arrow {
+      opacity: 1;
+    }
+    .zen-proj-mini-arrow:hover {
+      background: var(--accent-red);
+      border-color: var(--accent-red);
+      color: #ffffff;
+    }
+    .zen-proj-mini-prev { left: 8px; }
+    .zen-proj-mini-next { right: 8px; }
 
     /* Info Area */
     .zen-proj-info {
@@ -2712,6 +2837,12 @@
         </a>
       </div>
     </div>
+
+    <!-- Indicateur de défilement immersif -->
+    <a href="#about" class="hero-scroll-down" aria-label="Découvrir la suite">
+      <span class="hero-scroll-text">Découvrir</span>
+      <i class="bi bi-chevron-down hero-scroll-icon"></i>
+    </a>
   </header>
 
   <!-- Pulse Line Accent -->
@@ -4736,9 +4867,9 @@
           return 380;
         }
 
-        // --- SLIDE AUTOMATIQUE (AUTOPLAY) ---
+        // --- SLIDE AUTOMATIQUE DU CARROUSEL GLOBAL (DOUX & CALME) ---
         let autoProjTimer = null;
-        const AUTOPLAY_INTERVAL = 3600; // Défilement automatique toutes les 3.6 secondes
+        const AUTOPLAY_INTERVAL = 6500; // Défilement doux entre cartes toutes les 6.5 secondes
 
         function autoSlideNext() {
           const step = getScrollStep();
@@ -4788,8 +4919,155 @@
         track.addEventListener('touchstart', stopProjAutoSlide, { passive: true });
         track.addEventListener('touchend', startProjAutoSlide, { passive: true });
 
-        // Démarrer l'autoplay initial
+        // Démarrer l'autoplay initial du carrousel global
         startProjAutoSlide();
+
+        // --- SLIDE AUTOMATIQUE DES PHOTOS À L'INTÉRIEUR DE CHAQUE PROJET ---
+        const cardSliders = [];
+
+        cards.forEach((card, cardIndex) => {
+          let photos = [];
+          try {
+            photos = JSON.parse(card.getAttribute('data-photos') || '[]');
+          } catch (e) {
+            photos = [];
+          }
+
+          const media = card.querySelector('.zen-proj-media');
+          if (!media || photos.length === 0) return;
+
+          const existingImg = media.querySelector('.zen-proj-img');
+          const countBadge = media.querySelector('.zen-proj-count-badge');
+          const cardTitle = card.getAttribute('data-title') || 'Projet ACROW DZ';
+
+          let currentSlide = 0;
+          let slideTimer = null;
+          let isCardPaused = false;
+
+          // Si le projet a plusieurs photos, on installe le slider automatique fluide
+          if (photos.length > 1) {
+            // Conteneur de piste pour les photos
+            const trackEl = document.createElement('div');
+            trackEl.className = 'zen-proj-slides-track';
+
+            // Barre de dots / indicateurs discrets
+            const dotsBar = document.createElement('div');
+            dotsBar.className = 'zen-proj-dots-bar';
+
+            const slideImgs = [];
+            const dots = [];
+
+            photos.forEach((src, idx) => {
+              const img = document.createElement('img');
+              img.src = src;
+              img.alt = `${cardTitle} — Photo ${idx + 1}`;
+              img.className = 'zen-proj-slide-img' + (idx === 0 ? ' active' : '');
+              img.loading = idx === 0 ? 'eager' : 'lazy';
+              trackEl.appendChild(img);
+              slideImgs.push(img);
+
+              const dot = document.createElement('span');
+              dot.className = 'zen-proj-dot' + (idx === 0 ? ' active' : '');
+              dot.title = `Photo ${idx + 1} sur ${photos.length}`;
+              dot.addEventListener('click', (e) => {
+                e.stopPropagation();
+                goToSlide(idx);
+              });
+              dotsBar.appendChild(dot);
+              dots.push(dot);
+            });
+
+            // Remplacement de l'image statique par la piste multi-photos
+            if (existingImg) {
+              existingImg.replaceWith(trackEl);
+            } else {
+              media.appendChild(trackEl);
+            }
+            media.appendChild(dotsBar);
+
+            // Mini flèches de navigation sur la carte au survol
+            const prevArrow = document.createElement('button');
+            prevArrow.type = 'button';
+            prevArrow.className = 'zen-proj-mini-arrow zen-proj-mini-prev';
+            prevArrow.innerHTML = '<i class="bi bi-chevron-left"></i>';
+            prevArrow.title = 'Photo précédente';
+            prevArrow.addEventListener('click', (e) => {
+              e.stopPropagation();
+              goToSlide(currentSlide - 1);
+            });
+
+            const nextArrow = document.createElement('button');
+            nextArrow.type = 'button';
+            nextArrow.className = 'zen-proj-mini-arrow zen-proj-mini-next';
+            nextArrow.innerHTML = '<i class="bi bi-chevron-right"></i>';
+            nextArrow.title = 'Photo suivante';
+            nextArrow.addEventListener('click', (e) => {
+              e.stopPropagation();
+              goToSlide(currentSlide + 1);
+            });
+
+            media.appendChild(prevArrow);
+            media.appendChild(nextArrow);
+
+            function updateBadge(idx) {
+              if (countBadge) {
+                countBadge.innerHTML = `<i class="bi bi-images me-1"></i> ${idx + 1} / ${photos.length}`;
+              }
+            }
+            updateBadge(0);
+
+            function goToSlide(newIdx) {
+              if (slideImgs[currentSlide]) slideImgs[currentSlide].classList.remove('active');
+              if (dots[currentSlide]) dots[currentSlide].classList.remove('active');
+
+              currentSlide = (newIdx + photos.length) % photos.length;
+
+              if (slideImgs[currentSlide]) slideImgs[currentSlide].classList.add('active');
+              if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+              updateBadge(currentSlide);
+            }
+
+            function startCardAutoSlide() {
+              stopCardAutoSlide();
+              // Intervalle échelonné par carte (3.4s à 4.4s) pour un mouvement organique et vivant
+              const interval = 3400 + (cardIndex % 3) * 500;
+              slideTimer = setInterval(() => {
+                if (!isCardPaused) {
+                  goToSlide(currentSlide + 1);
+                }
+              }, interval);
+            }
+
+            function stopCardAutoSlide() {
+              if (slideTimer) {
+                clearInterval(slideTimer);
+                slideTimer = null;
+              }
+            }
+
+            card.addEventListener('mouseenter', () => { isCardPaused = true; });
+            card.addEventListener('mouseleave', () => { isCardPaused = false; });
+            card.addEventListener('touchstart', () => { isCardPaused = true; }, { passive: true });
+            card.addEventListener('touchend', () => {
+              setTimeout(() => { isCardPaused = false; }, 2000);
+            }, { passive: true });
+
+            // Démarrage différé par carte pour éviter que toutes basculent à la même milliseconde
+            setTimeout(startCardAutoSlide, 600 + (cardIndex % 4) * 400);
+
+            cardSliders.push({
+              card: card,
+              stop: stopCardAutoSlide,
+              start: startCardAutoSlide,
+              getCurrentIndex: () => currentSlide
+            });
+          }
+
+          // Clic sur une carte -> ouvre la lightbox en HD sur la photo active
+          card.addEventListener('click', () => {
+            openLightbox(photos, cardTitle, currentSlide);
+          });
+        });
 
         // Gestion des Filtres de Catégories
         filterChips.forEach(chip => {
@@ -4827,6 +5105,7 @@
 
         function openLightbox(photos, title, startIdx = 0) {
           stopProjAutoSlide();
+          cardSliders.forEach(s => s.stop());
           currentPhotos = photos;
           currentPhotoIdx = startIdx;
           currentTitle = title;
@@ -4839,6 +5118,7 @@
           lightbox.classList.remove('active');
           document.body.style.overflow = '';
           startProjAutoSlide();
+          cardSliders.forEach(s => s.start());
         }
 
         function updateLightboxImage() {
@@ -4846,22 +5126,6 @@
           lightboxImg.src = currentPhotos[currentPhotoIdx];
           lightboxCaption.innerHTML = `<strong>${currentTitle}</strong> — Photo ${currentPhotoIdx + 1} / ${currentPhotos.length}`;
         }
-
-        // Clic sur une carte -> ouvre la galerie du projet
-        cards.forEach(card => {
-          card.addEventListener('click', () => {
-            const photosJson = card.getAttribute('data-photos');
-            const title = card.getAttribute('data-title') || 'Projet ACROW DZ';
-            if (photosJson) {
-              try {
-                const photos = JSON.parse(photosJson);
-                openLightbox(photos, title, 0);
-              } catch (err) {
-                console.error('Error parsing photos json:', err);
-              }
-            }
-          });
-        });
 
         if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
         if (lbPrev) {
