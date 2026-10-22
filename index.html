@@ -863,8 +863,15 @@
       }
 
       /* Rythme alterné : agencement orienté vers la droite pour les cartes paires */
+      .service-acc-panel .service-acc-top {
+        justify-content: flex-start;
+      }
       .service-acc-panel.slide-from-right .service-acc-top {
-        flex-direction: row-reverse;
+        justify-content: flex-end;
+      }
+      .service-acc-tag {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
       }
       .service-acc-panel.slide-from-right .service-acc-expanded {
         text-align: right;
@@ -2897,24 +2904,23 @@
         <!-- Sélecteur rapide tactile pour Mobile & iPhone (Sticky & fluide) -->
         <div class="services-mobile-chips-wrapper d-block d-md-none">
           <div class="services-mobile-chips" id="servicesMobileChips">
-            <button type="button" class="serv-mob-chip active" data-target="service-card-01"><i class="fa-solid fa-industry"></i> 01 Fabrication</button>
-            <button type="button" class="serv-mob-chip" data-target="service-card-02"><i class="fa-solid fa-compass-drafting"></i> 02 Ingénierie</button>
-            <button type="button" class="serv-mob-chip" data-target="service-card-03"><i class="fa-solid fa-layer-group"></i> 03 Montage</button>
-            <button type="button" class="serv-mob-chip" data-target="service-card-04"><i class="fa-solid fa-truck-moving"></i> 04 Location</button>
-            <button type="button" class="serv-mob-chip" data-target="service-card-05"><i class="fa-solid fa-gears"></i> 05 Maintenance</button>
+            <button type="button" class="serv-mob-chip active" data-target="service-card-01"><i class="fa-solid fa-industry"></i> Fabrication</button>
+            <button type="button" class="serv-mob-chip" data-target="service-card-02"><i class="fa-solid fa-compass-drafting"></i> Ingénierie</button>
+            <button type="button" class="serv-mob-chip" data-target="service-card-03"><i class="fa-solid fa-layer-group"></i> Montage</button>
+            <button type="button" class="serv-mob-chip" data-target="service-card-04"><i class="fa-solid fa-truck-moving"></i> Location</button>
+            <button type="button" class="serv-mob-chip" data-target="service-card-05"><i class="fa-solid fa-gears"></i> Maintenance</button>
           </div>
         </div>
 
         <!-- ACCORDÉON PANORAMIQUE EXPANSIBLE (LES 5 SERVICES OFFICIELS ACROW DZ) -->
         <div class="services-accordion-wrap" id="servicesAccordion">
 
-          <!-- 01. Fabrication de Coffrage Métallique & Échafaudage (Active by default) -->
+          <!-- Fabrication de Coffrage Métallique & Échafaudage (Active by default) -->
           <div class="service-acc-panel active slide-from-left is-revealed" data-service="01" id="service-card-01">
             <img src="assets/images/metal.jpeg" alt="Fabrication de Coffrage Métallique & Échafaudage ACROW DZ" class="service-acc-bg" />
             <div class="service-acc-overlay"></div>
             
             <div class="service-acc-top">
-              <span class="service-acc-num">01</span>
               <span class="service-acc-tag" style="background: rgba(0, 51, 102, 0.95);">Acier S355</span>
             </div>
 
@@ -2944,13 +2950,12 @@
             </div>
           </div>
 
-          <!-- 02. Ingénierie & Analyse de Projet -->
+          <!-- Ingénierie & Analyse de Projet -->
           <div class="service-acc-panel slide-from-right" data-service="02" id="service-card-02">
             <img src="assets/images/etude.jpg" alt="Ingénierie & Analyse de Projet" class="service-acc-bg" />
             <div class="service-acc-overlay"></div>
             
             <div class="service-acc-top">
-              <span class="service-acc-num">02</span>
               <span class="service-acc-tag">BIM 3D</span>
             </div>
 
@@ -2980,13 +2985,12 @@
             </div>
           </div>
 
-          <!-- 03. Solutions Systèmes Innovantes & Montage sur Site -->
+          <!-- Solutions Systèmes Innovantes & Montage sur Site -->
           <div class="service-acc-panel slide-from-left" data-service="03" id="service-card-03">
             <img src="assets/images/echa.jpeg" alt="Solutions Systèmes Innovantes & Montage sur Site" class="service-acc-bg" />
             <div class="service-acc-overlay"></div>
             
             <div class="service-acc-top">
-              <span class="service-acc-num">03</span>
               <span class="service-acc-tag" style="background: rgba(0, 51, 102, 0.95);">Norme EN</span>
             </div>
 
@@ -3016,13 +3020,12 @@
             </div>
           </div>
 
-          <!-- 04. Services de Vente & Location -->
+          <!-- Services de Vente & Location -->
           <div class="service-acc-panel slide-from-right" data-service="04" id="service-card-04">
             <img src="assets/images/location.jpg" alt="Services de Vente & Location ACROW DZ" class="service-acc-bg" />
             <div class="service-acc-overlay"></div>
             
             <div class="service-acc-top">
-              <span class="service-acc-num">04</span>
               <span class="service-acc-tag">58 Wilayas</span>
             </div>
 
@@ -3052,13 +3055,12 @@
             </div>
           </div>
 
-          <!-- 05. Maintenance & Reconditionnement -->
+          <!-- Maintenance & Reconditionnement -->
           <div class="service-acc-panel slide-from-left" data-service="05" id="service-card-05">
             <img src="assets/images/cofrage.jpg" alt="Maintenance & Reconditionnement ACROW DZ" class="service-acc-bg" />
             <div class="service-acc-overlay"></div>
             
             <div class="service-acc-top">
-              <span class="service-acc-num">05</span>
               <span class="service-acc-tag">SAV Rapide</span>
             </div>
 
