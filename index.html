@@ -375,6 +375,7 @@
        ========================================== */
     .hero {
       position: relative;
+      background-color: #001224;
       min-height: calc(100vh - var(--header-height-desktop));
       min-height: calc(100dvh - var(--header-height-desktop));
       display: flex;
@@ -2811,7 +2812,7 @@
        HERO SECTION WITH VIDEO BACKGROUND
        ========================================== -->
   <header class="hero" id="hero">
-    <video autoplay muted loop playsinline class="video-bg" poster="assets/images/cofrage.jpg">
+    <video autoplay muted loop playsinline preload="auto" class="video-bg">
       <source src="assets/images/cosider.mp4" type="video/mp4">
       <source src="assets/images/hero.mp4" type="video/mp4">
       Votre navigateur ne supporte pas la lecture vidéo.
@@ -4136,6 +4137,19 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // Ensure hero video plays immediately without showing any photo
+      const heroVideo = document.querySelector('.hero video.video-bg');
+      if (heroVideo) {
+        heroVideo.muted = true;
+        const playPromise = heroVideo.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            document.addEventListener('touchstart', () => { heroVideo.play(); }, { once: true });
+            document.addEventListener('click', () => { heroVideo.play(); }, { once: true });
+          });
+        }
+      }
+
       // 0. Site Header scroll shrink & active nav tracking
       const siteHeader = document.getElementById("siteHeader");
       const navLinks = document.querySelectorAll(".modern-navbar .nav-link");
