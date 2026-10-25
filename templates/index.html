@@ -64,8 +64,8 @@
       --shadow-card: 0 10px 30px rgba(0, 51, 102, 0.08);
       --shadow-card-hover: 0 20px 45px rgba(0, 51, 102, 0.16);
       --border-radius: 20px;
-      --header-height-desktop: 70px;
-      --header-height-mobile: 64px;
+      --header-height-desktop: 68px;
+      --header-height-mobile: 58px;
     }
 
     /* Utilitaires de Couleurs Harmonisées ACROW DZ */
@@ -208,35 +208,35 @@
       transform: scale(1.02);
     }
     .logo-navbar {
-      height: 38px;
-      max-height: 40px;
+      height: 48px;
+      max-height: 52px;
       width: auto;
       object-fit: contain;
       filter: drop-shadow(0 2px 6px rgba(0, 51, 102, 0.08));
       transition: height 0.25s ease, max-height 0.25s ease;
     }
     .site-header-wrapper.scrolled .logo-navbar {
-      height: 32px;
-      max-height: 34px;
+      height: 40px;
+      max-height: 42px;
     }
     @media (max-width: 991.98px) {
       .logo-navbar {
-        height: 32px;
-        max-height: 34px;
+        height: 42px;
+        max-height: 45px;
       }
       .site-header-wrapper.scrolled .logo-navbar {
-        height: 28px;
-        max-height: 30px;
+        height: 35px;
+        max-height: 38px;
       }
     }
     @media (max-width: 575.98px) {
       .logo-navbar {
-        height: 27px;
-        max-height: 28px;
+        height: 38px;
+        max-height: 40px;
       }
       .site-header-wrapper.scrolled .logo-navbar {
-        height: 24px;
-        max-height: 25px;
+        height: 32px;
+        max-height: 34px;
       }
     }
 
@@ -385,20 +385,20 @@
       color: var(--white);
       text-align: center;
       overflow: hidden;
-      padding: 60px 20px 75px;
+      padding: 24px 20px 50px;
     }
     @media (max-width: 991.98px) {
       .hero {
         min-height: calc(100vh - var(--header-height-mobile));
         min-height: calc(100dvh - var(--header-height-mobile));
-        padding: 48px 16px 65px;
+        padding: 20px 16px 45px;
       }
     }
     @media (max-width: 575.98px) {
       .hero {
         min-height: calc(100vh - var(--header-height-mobile));
         min-height: calc(100dvh - var(--header-height-mobile));
-        padding: 36px 14px 55px;
+        padding: 16px 14px 40px;
         justify-content: center;
       }
     }
@@ -4150,7 +4150,19 @@
         }
       }
 
-      // 0. Site Header scroll shrink & active nav tracking
+      // 0. Dynamic Navbar Height Sync (eliminates any gap between navbar and hero)
+      function syncHeaderHeight() {
+        const header = document.getElementById("siteHeader");
+        if (header) {
+          const actualHeight = header.offsetHeight;
+          document.documentElement.style.setProperty('--header-height-desktop', actualHeight + 'px');
+          document.documentElement.style.setProperty('--header-height-mobile', actualHeight + 'px');
+        }
+      }
+      syncHeaderHeight();
+      window.addEventListener("resize", syncHeaderHeight, { passive: true });
+
+      // Site Header scroll shrink & active nav tracking
       const siteHeader = document.getElementById("siteHeader");
       const navLinks = document.querySelectorAll(".modern-navbar .nav-link");
       const trackedSections = document.querySelectorAll("header.hero, section[id]");
